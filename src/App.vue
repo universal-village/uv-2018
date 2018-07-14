@@ -1,5 +1,6 @@
 <template>
   <a-layout id="app">
+    <a-back-top />
     <div class="background"></div>
     <a-layout-header class="header">
       <div class="logo" />
@@ -125,30 +126,29 @@ export default {
     '$route': 'updateBreadcrumb'
   },
   methods: {
-    updateBreadcrumb() {
+    updateBreadcrumb () {
       console.log(this.$store.state.navPageList)
       this.$store.state.navPageList = this.$route.path.substr(1).split('/').filter(Boolean)
       this.$store.state.navPageList.unshift('Home')
       console.log(this.$store.state.navPageList)
     },
     logout () {
-      this.$store.state.authenticate.username = '';
-      this.$store.state.authenticate.token = '';
+      this.$store.state.authenticate.username = ''
+      this.$store.state.authenticate.token = ''
       this.$http.get(this.$store.state.endpoint + '/logout').then(response => {
         if (response.body.flag === true) {
           this.$message.success('Logout: Successfully.', 3)
-          this.$store.state.authenticate.username = '';
-          this.$store.state.authenticate.token = '';
+          this.$store.state.authenticate.username = ''
+          this.$store.state.authenticate.token = ''
           setTimeout(() => {
             this.$router.push('/')
           }, 3000)
         } else {
-          this.$message.error('Logout: Failed. Please try again later.', 10);
+          this.$message.error('Logout: Failed. Please try again later.', 10)
         }
       }, response => {
-        this.$message.error('Logout: Internal Server Error. Please contact administrator.', 10);
+        this.$message.error('Logout: Internal Server Error. Please contact administrator.', 10)
       })
-
     }
   },
   computed: {

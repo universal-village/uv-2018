@@ -13,7 +13,7 @@
             <router-link to="/my/submissions/paper"><a-icon type="copy" />Papers</router-link>
           </a-menu-item>
           <a-menu-item key="submissions:submit-paper">
-            <router-link to="/my/submissions/add"><a-icon type="copy" />Submit Paper</router-link>
+            <router-link to="/my/submissions/add"><a-icon type="plus" />Submit Paper</router-link>
           </a-menu-item>
         </a-sub-menu>
         <a-sub-menu key="profile">

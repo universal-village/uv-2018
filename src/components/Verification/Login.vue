@@ -53,7 +53,7 @@
 </template>
 
 <script>
-  import VueRecaptcha from 'vue-recaptcha';
+import VueRecaptcha from 'vue-recaptcha'
 export default {
   name: 'Login',
   components: {
@@ -82,24 +82,24 @@ export default {
       this.password = ''
     },
     handleSubmit (e) {
-      this.spinning = true;
-      e.preventDefault();
+      this.spinning = true
+      e.preventDefault()
       this.$http.post(this.$store.state.endpoint + '/login', {email: this.email, password: this.password}, {emulateJSON: true}).then(response => {
         console.log(response.body.flag)
-        this.spinning = false;
+        this.spinning = false
         if (response.body.flag === true) {
-          this.$message.success('Successfully logged in. Redirecting you to the homepage in 3s.', 4);
-          this.$store.state.authenticate.username = this.email;
-          this.$store.state.authenticate.token = this.email;
+          this.$message.success('Successfully logged in. Redirecting you to the homepage in 3s.', 4)
+          this.$store.state.authenticate.username = this.email
+          this.$store.state.authenticate.token = this.email
           setTimeout(() => {
             this.$router.push('/')
           }, 3000)
         } else {
-          this.$message.error('Username or Password is incorrect. Check your credentials and try again.', 10);
+          this.$message.error('Username or Password is incorrect. Check your credentials and try again.', 10)
         }
       }, response => {
-        this.spinning = false;
-        this.$message.error('Internal Server Error. Please try again.', 10);
+        this.spinning = false
+        this.$message.error('Internal Server Error. Please try again.', 10)
       })
     },
     checkStatus (statusCode) {

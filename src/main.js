@@ -6,6 +6,7 @@ import VueResource from 'vue-resource'
 import VueTitlecase from 'vue-titlecase'
 import VueLodash from 'vue-lodash'
 import VueRecaptcha from 'vue-recaptcha'
+import createPersistedState from 'vuex-persistedstate'
 import Antd from 'vue-antd-ui'
 import 'vue-antd-ui/dist/antd.css'
 import App from './App'
@@ -31,7 +32,10 @@ const store = new Vuex.Store({
       permission: 0
     },
     sitekey: '6Ldn5WMUAAAAAAbUaPRaIVkp2C8HrpIVvjM2vf0U'
-  }
+  },
+  plugins: [
+    createPersistedState()
+  ]
 })
 
 Vue.filter('capitalize', function (value) {

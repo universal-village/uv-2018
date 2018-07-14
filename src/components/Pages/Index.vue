@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: "PagesIndex",
+  name: 'PagesIndex',
   data () {
     return {
       pageList: [{

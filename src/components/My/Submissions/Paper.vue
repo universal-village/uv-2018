@@ -1,15 +1,22 @@
 <template>
   <div>
     <h1>My Submissions</h1>
-    <a-table :columns="columns" :dataSource="data">
-      <a slot="titles" slot-scope="text" href="#" @click="detailEntry(record.id)">{{ text }}</a>
-      <span slot="keywords" slot-scope="text">
-        {{ text.join(' | ') }}
+    <a-table :columns="columns" :dataSource="paperList">
+      <a slot="titles" slot-scope="text" href="#" @click="detailEntry(record.id)">
+        {{ text }}
+      </a>
+      <span slot="authors" slot-scope="text">
+        {{ text.join(', ') }}
       </span>
-      <span slot="action" slot-scope="text, record" v-if="actionenabled">
+      <span slot="keywords" slot-scope="text">
+        {{ text.join(', ') }}
+      </span>
+      <span slot="action" slot-scope="text, record">
         <a href="#" @click="editEntry(record.id)">Edit</a>
         <a-divider type="vertical" />
-        <a href="#" @click="deleteEntry(record.id)">Delete</a>
+        <a-popconfirm title="Are you sure to delete this paper submission?" @confirm="deleteEntry(record.id)" @cancel="cancel" okText="Delete" cancelText="No">
+          <a href="#">Delete</a>
+        </a-popconfirm>
       </span>
     </a-table>
   </div>
@@ -17,28 +24,37 @@
 
 <script>
 const columns = [{
-  dataIndex: 'author',
-  key: 'author',
-  title: 'Author'
-}, {
-  title: 'Status',
-  dataIndex: 'status',
-  key: 'status'
+  dataIndex: 'paperid',
+  key: 'paperid',
+  title: 'ID'
 }, {
   title: 'Title',
   dataIndex: 'title',
   key: 'title',
   scopedSlots: { customRender: 'titles' }
 }, {
+  dataIndex: 'abstract',
+  key: 'abstract',
+  title: 'Abstract'
+}, {
+  dataIndex: 'categoryid',
+  key: 'categoryid',
+  title: 'Category'
+}, {
+  title: 'Authors',
+  dataIndex: 'authors',
+  key: 'authors',
+  scopedSlots: { customRender: 'authors' }
+}, {
   title: 'Keywords',
-  dataIndex: 'keywords',
-  key: 'keywords',
+  dataIndex: 'keyword',
+  key: 'keyword',
   scopedSlots: { customRender: 'keywords' }
 }, {
   title: 'Action',
   key: 'action',
-  scopedSlots: { customRender: 'action' },
-}];
+  scopedSlots: { customRender: 'action' }
+}]
 
 const data = [{
   id: '1',
@@ -58,7 +74,7 @@ const data = [{
   keywords: ['CV', 'Python'],
   title: 'Something really Interesting',
   status: 'Pending'
-}];
+}]
 
 export default {
   name: 'Papers',
@@ -67,7 +83,14 @@ export default {
       columns,
       data,
       modalVisible: false,
-      actionenabled: false
+      paperList: [{
+        paperid: 1,
+        title: 'Something Interesting',
+        abstract: 'Something',
+        categoryid: 122,
+        authors: ['Alpha', 'Ben', 'Charlie'],
+        keyword: ['AI', 'CV', 'Computer Vision']
+      }]
     }
   },
   created () {
@@ -75,7 +98,16 @@ export default {
   },
   methods: {
     fetchData () {
-      this.$http.get(this.$store.state.endpoint + '/login', {})
+      this.$http.get(this.$store.state.endpoint + '/myPaper').then(response => {
+        console.log(response.body)
+        try {
+          //this.paperList = response.body.data
+        } catch (e) {
+          this.$message.error('Can\'t fetch My Paper Submissions. Please try again later.', 5)
+        }
+      }, response => {
+        this.$message.error('Can\'t fetch My Paper Submissions. Please try again later.', 5)
+      })
     }
   }
 }

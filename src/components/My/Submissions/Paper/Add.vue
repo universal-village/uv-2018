@@ -131,16 +131,22 @@ export default {
         try {
           this.categoryAutoComplete = response.body.data
         } catch (e) {
-          //this.$message.error('Can\'t fetch category info. Trying again in 15 seconds.', 5)
-          setTimeout(() => {
-            //this.fetchAutoComplete()
-          }, 15000)
+          this.$message.error('Can\'t fetch category info.', 5)
         }
       }, response => {
-        //this.$message.error('Can\'t fetch category info. Trying again in 15 seconds.', 5)
-        setTimeout(() => {
-         // this.fetchAutoComplete()
-        }, 15000)
+        this.$message.error('Can\'t fetch category info.', 5)
+      })
+    },
+    submitPaper () {
+      this.$http.post(this.$store.state.endpoint + '/submitPaper').then(response => {
+        console.log(response.body)
+        try {
+          this.categoryAutoComplete = response.body.data
+        } catch (e) {
+          this.$message.error('Can\'t fetch category info.', 5)
+        }
+      }, response => {
+        this.$message.error('Can\'t fetch category info.', 5)
       })
     }
   }

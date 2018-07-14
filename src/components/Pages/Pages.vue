@@ -14,21 +14,21 @@
 </template>
 
 <script>
-  export default {
-    name: "PagesDetail",
-    data () {
-      return {
-        pageMeta: {
-          content: 'Some Page Content'
-        }
-      }
-    },
-    methods: {
-      getLinkHref (link) {
-        return '/pages/' + link
+export default {
+  name: 'PagesDetail',
+  data () {
+    return {
+      pageMeta: {
+        content: 'Some Page Content'
       }
     }
+  },
+  methods: {
+    getLinkHref (link) {
+      return '/pages/' + link
+    }
   }
+}
 </script>
 
 <style scoped>
