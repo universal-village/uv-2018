@@ -1,6 +1,4 @@
 language: node_js
-install:
-  - pip install awscli
 before_script:
   - yarn
 script: yarn run build
