@@ -1,10 +1,31 @@
 language: node_js
-install: npm install
-script: npm run build
+install:
+  - pip install awscli
+before_script:
+  - yarn
+script: yarn run build
 deploy:
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   keep-history: true
   on:
-    branch: master
+    branch: gh-pages
+node_js:
+  - "8.11.3"
+python:
+  - "3.5"
+cache:
+  - pip
+  - yarn
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    bucket: $S3_BUCKET_NAME
+    region: $AWS_DEFAULT_REGION
+    skip_cleanup: true
+    local_dir: dist
+    cache_control: "max-age=21600"
+    on:
+      branch: master

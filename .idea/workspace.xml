@@ -6,27 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="595bda0b-0672-4d94-970c-d37a7f45c8a7" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.postcssrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.postcssrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/css/app.7ea4eeaea3bb16c2021509dcfdbcf63e.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/css/app.7ea4eeaea3bb16c2021509dcfdbcf63e.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/app.8674089897b43c89d074.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/app.8674089897b43c89d074.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/manifest.3ad1d5771e9b13dbdad2.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/static/js/manifest.3ad1d5771e9b13dbdad2.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/vendor.7c7b6105764f31358261.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/static/js/vendor.7c7b6105764f31358261.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/My/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/My/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/My/Submissions/Paper.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/My/Submissions/Paper.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/My/Submissions/Paper/Add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/My/Submissions/Paper/Add.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/Pages.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/Pages.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Verification/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Verification/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Verification/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Verification/Register.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -139,8 +119,8 @@
       <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" column="29" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="29" />
+            <state relative-caret-position="358">
+              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -423,27 +403,27 @@
       <workItem from="1531392474605" duration="3501000" />
       <workItem from="1531403501083" duration="902000" />
       <workItem from="1531404413348" duration="11501000" />
-      <workItem from="1531417175345" duration="58150000" />
+      <workItem from="1531417175345" duration="59628000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93082000" />
+    <option name="totallyTimeSpent" value="94560000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.757265" visible="true" weight="0.17701453" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.75891584" visible="true" weight="0.17701453" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5006605" side_tool="true" weight="0.32896653" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3281027" />
-      <window_info id="npm" order="2" sideWeight="0.24273504" side_tool="true" visible="true" weight="0.17701453" />
+      <window_info id="npm" order="2" sideWeight="0.24108416" side_tool="true" visible="true" weight="0.17701453" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.50784594" />
       <window_info id="Structure" order="1" sideWeight="0.24242425" side_tool="true" weight="0.17701453" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4993395" visible="true" weight="0.16547789" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4993395" weight="0.60770327" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3988355" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -874,8 +854,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="29" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="29" />
+        <state relative-caret-position="358">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="31" />
         </state>
       </provider>
     </entry>
