@@ -194,6 +194,7 @@ export default {
   }
   .disable-activation, .disable-activation .ant-menu-item-selected {
     background: none !important;
+    cursor: default;
   }
   body {
     background: #96c93d;
@@ -246,5 +247,13 @@ export default {
     transform: translateY(1px);
     -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  }
+  .logo {
+    width: 96px;
+    height: 48px;
+    background: url(assets/logo.svg) top center no-repeat;
+    background-size: auto 100%;
+    margin: 8px 0;
+    float: left;
   }
 </style>

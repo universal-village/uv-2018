@@ -6,6 +6,7 @@ import VueResource from 'vue-resource'
 import VueTitlecase from 'vue-titlecase'
 import VueLodash from 'vue-lodash'
 import VueRecaptcha from 'vue-recaptcha'
+import VueAnalytics from 'vue-analytics'
 import createPersistedState from 'vuex-persistedstate'
 import Antd from 'vue-antd-ui'
 import 'vue-antd-ui/dist/antd.css'
@@ -19,6 +20,10 @@ Vue.use(VueResource)
 Vue.use(VueTitlecase)
 Vue.use(Antd)
 Vue.use(VueLodash)
+Vue.use(VueAnalytics, {
+  id: 'UA-122336687-1',
+  router
+})
 
 const store = new Vuex.Store({
   state: {

@@ -8,7 +8,7 @@
         :style="{ height: '100%', borderRight: 0, background: 'rgba(255, 255, 255, .5)' }"
       >
         <a-sub-menu key="submissions">
-          <span slot="title"><a-icon type="solution" />My Submissions</span>
+          <span slot="title"><a-icon type="profile" />My Submissions</span>
           <a-menu-item key="submissions:papers">
             <router-link to="/my/submissions/paper"><a-icon type="copy" />Papers</router-link>
           </a-menu-item>
@@ -17,7 +17,7 @@
           </a-menu-item>
         </a-sub-menu>
         <a-sub-menu key="profile">
-          <span slot="title"><a-icon type="profile" />My Profile</span>
+          <span slot="title"><a-icon type="solution" />My Profile</span>
           <a-menu-item key="profile:general">
             <router-link to="/my/profile/general"><a-icon type="setting" />General</router-link>
           </a-menu-item>

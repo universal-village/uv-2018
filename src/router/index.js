@@ -1,20 +1,21 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/Home'
-import Login from '@/components/Verification/Login.vue'
-import Register from '@/components/Verification/Register.vue'
-import MyIndex from '@/components/My/Index.vue'
-import MySubmissions from '@/components/My/Submissions.vue'
-import MyUV from '@/components/My/UVIndex.vue'
-import MySubmissionsPaper from '@/components/My/Submissions/Paper.vue'
-import PagesIndex from '@/components/Pages/Index.vue'
-import PagesDetail from '@/components/Pages/Pages.vue'
-import AddPaperSubmission from '@/components/My/Submissions/Paper/Add.vue'
+const Home = () => import(/* webpackChunkName: "home" */ '@/components/Home')
+const Login = () => import(/* webpackChunkName: "user" */ '@/components/Verification/Login.vue')
+const PasswordReset = () => import(/* webpackChunkName: "user" */ '@/components/Verification/PasswordReset.vue')
+const Register = () => import(/* webpackChunkName: "user" */ '@/components/Verification/Register.vue')
+const MyIndex = () => import(/* webpackChunkName: "my" */ '@/components/My/Index.vue')
+const MySubmissions = () => import(/* webpackChunkName: "my" */ '@/components/My/Submissions.vue')
+const MyUV = () => import(/* webpackChunkName: "my" */ '@/components/My/UVIndex.vue')
+const MySubmissionsPaper = () => import(/* webpackChunkName: "home" */ '@/components/My/Submissions/Paper.vue')
+const PagesIndex = () => import(/* webpackChunkName: "home" */ '@/components/Pages/Index.vue')
+const PagesDetail = () => import(/* webpackChunkName: "home" */ '@/components/Pages/Pages.vue')
+const AddPaperSubmission = () => import(/* webpackChunkName: "my" */ '@/components/My/Submissions/Paper/Add.vue')
 
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  base: '/uv2018',
   routes: [
     {
       path: '/',
@@ -35,6 +36,13 @@ export default new Router({
       name: 'Register',
       components: {
         App: Register
+      }
+    },
+    {
+      path: '/reset-password',
+      name: 'Reset Password',
+      components: {
+        App: PasswordReset
       }
     },
     {

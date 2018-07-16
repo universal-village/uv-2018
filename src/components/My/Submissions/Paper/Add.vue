@@ -10,7 +10,7 @@
           fieldDecoratorId="title"
           :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input the title of your paper submission!' }]}"
         >
-          <a-input placeholder="Title" v-model="title" ref="titleInput">
+          <a-input placeholder="Title" ref="titleInput" name="a">
             <a-icon slot="prefix" type="user" />
             <a-icon v-if="title" slot="suffix" type="close-circle" @click="emitEmptyField" />
           </a-input>
@@ -24,7 +24,7 @@
           :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input the Abstract of your paper submission!' }]}"
           :autosize="{ minRows: 3 }"
         >
-          <a-textarea placeholder="Abstract" v-model="abstract">
+          <a-textarea placeholder="Abstract">
             <a-icon v-if="abstract" slot="suffix" type="close-circle" @click="emitEmptyField" />
           </a-textarea>
         </a-form-item>
@@ -37,7 +37,6 @@
           :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input the Category of your paper submission!' }]}"
         >
           <a-select
-            mode="tags"
             style="width: 100%"
             @change="handleChange"
             placeholder="Category"
@@ -60,7 +59,7 @@
             mode="tags"
             style="width: 100%"
             @change="handleChange"
-            placeholder="Keywords"
+            placeholder="Authors"
             :tokenSeparators="[',']"
           >
           </a-select>
@@ -80,9 +79,6 @@
             placeholder="Keywords"
             :tokenSeparators="[',']"
           >
-              <a-select-option v-for="tag in tagList" :key="tag" >
-              {{ tag }}
-            </a-select-option>
           </a-select>
         </a-form-item>
 
@@ -93,7 +89,8 @@
           fieldDecoratorId="paper"
           :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please upload the Paper of your paper submission!' }]}"
         >
-          <a-upload-dragger name="file" :multiple="true" action="//jsonplaceholder.typicode.com/posts/" @change="handleChange">
+          <a-upload-dragger name="paper" :multiple="false" @change="handleChange"
+                            :action="getAction">
             <p class="ant-upload-drag-icon">
               <a-icon type="inbox" />
             </p>
@@ -101,6 +98,12 @@
             <p class="ant-upload-hint" :style="{ 'padding': '0 1em' }">Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files</p>
           </a-upload-dragger>
         </a-form-item>
+        <a-button type="primary" :loading="uploading" htmlType='submit' @click="submitPaper">
+          Submit
+        </a-button>
+        <a-button type="dashed" @click="devGetValue">
+          Get Value
+        </a-button>
       </a-form>
     </a-layout-content>
   </div>
@@ -114,11 +117,13 @@ export default {
       title: '',
       abstract: '',
       authors: [],
-      keywords: [],
+      keyword: [],
       file: '',
       tagList: ['one', 'two', 'three'],
       authorList: [],
-      categoryAutoComplete: []
+      categoryAutoComplete: [],
+      uploading: false,
+      getAction: this.$store.state.endpoint + '/uploadPaper'
     }
   },
   created () {
@@ -126,10 +131,10 @@ export default {
   },
   methods: {
     fetchAutoComplete () {
-      this.$http.get(this.$store.state.endpoint + '/category').then(response => {
+      this.$http.get(this.$store.state.endpoint + '/getCategories').then(response => {
         console.log(response.body)
         try {
-          this.categoryAutoComplete = response.body.data
+          this.categoryAutoComplete = response.body.categories
         } catch (e) {
           this.$message.error('Can\'t fetch category info.', 5)
         }
@@ -138,16 +143,28 @@ export default {
       })
     },
     submitPaper () {
-      this.$http.post(this.$store.state.endpoint + '/submitPaper').then(response => {
+      let fields = this.form.getFieldsValue()
+      this.$http.post(this.$store.state.endpoint + '/submitPaper',
+        {
+          title: fields.title,
+          abstract: fields.abstract,
+          categoryid: this.categoryAutoComplete.findIndex((el) => { return el === fields.category }),
+          authors: fields.authors.join(','),
+          keyword: fields.keywords.join(',')
+        }, {emulateJSON: true}
+      ).then(response => {
         console.log(response.body)
         try {
-          this.categoryAutoComplete = response.body.data
+          this.categoryAutoComplete = response.body.categories
         } catch (e) {
           this.$message.error('Can\'t fetch category info.', 5)
         }
       }, response => {
         this.$message.error('Can\'t fetch category info.', 5)
       })
+    },
+    devGetValue () {
+      console.log(this.form.getFieldsValue())
     }
   }
 }

@@ -6,8 +6,7 @@
           {{ navPage | capitalize }}
         </a-breadcrumb-item>
       </a-breadcrumb>
-      <a-layout-content :style="{ padding: '24px', margin: 0, minHeight: '280px' }">
-        {{ pageMeta.content }}
+      <a-layout-content :style="{ padding: '24px', margin: 0, minHeight: '280px' }" v-html="pageMeta.content">
       </a-layout-content>
     </a-layout>
   </a-layout-content>
@@ -19,13 +18,38 @@ export default {
   data () {
     return {
       pageMeta: {
-        content: 'Some Page Content'
+        content: '<h2>Loading</h2>'
       }
     }
+  },
+  watch: {
+    '$route': 'fetchData'
+  },
+  created () {
+    this.fetchData()
   },
   methods: {
     getLinkHref (link) {
       return '/pages/' + link
+    },
+    fetchData () {
+      this.$http.get(this.$store.state.endpoint + '/get', {email: this.email, password: this.password}, {emulateJSON: true}).then(response => {
+        console.log(response.body.flag)
+        this.spinning = false
+        if (response.body.flag === true) {
+          this.$message.success('Successfully logged in. Redirecting you to the homepage in 3s.', 4)
+          this.$store.state.authenticate.username = this.email
+          this.$store.state.authenticate.token = this.email
+          setTimeout(() => {
+            this.$router.push('/')
+          }, 3000)
+        } else {
+          this.$message.error('Username or Password is incorrect. Check your credentials and try again.', 10)
+        }
+      }, response => {
+        this.spinning = false
+        this.$message.error('Internal Server Error. Please try again.', 10)
+      })
     }
   }
 }

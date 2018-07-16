@@ -11,10 +11,16 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "serve-dev": "node build/serve-proxy.js",
+    "serve-static": "node build/serve-static.js"
   },
   "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "express-http-proxy": "^1.2.0",
     "vue": "^2.5.2",
+    "vue-analytics": "^5.12.2",
     "vue-antd-ui": "^0.7.0",
     "vue-lodash": "^2.0.0",
     "vue-recaptcha": "^1.1.1",
