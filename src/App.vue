@@ -141,10 +141,10 @@ export default {
           this.$store.state.authenticate.username = ''
           this.$store.state.authenticate.token = ''
         } else {
-          this.$message.error('Logout: Failed. Please try again later.', 10)
+          this.$message.error('Logout: Failed. Please try again later.', 4)
         }
       }, response => {
-        this.$message.error('Logout: Internal Server Error. Please contact administrator.', 10)
+        this.$message.error('Logout: Internal Server Error. Please contact administrator.', 4)
       })
     }
   },

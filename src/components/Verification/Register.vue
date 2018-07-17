@@ -303,11 +303,11 @@
                   <a-icon v-if="passport" slot="suffix" type="close-circle" @click="emitEmptyField" />
                 </a-input>
               </a-form-item>
-                <!--<vue-recaptcha :sitekey="this.$store.state.sitekey">-->
+                <vue-recaptcha :sitekey="this.$store.state.sitekey">
                   <a-button type='primary' htmlType='submit' style="float: right;">
                     Submit &nbsp; <a-icon type="forward" />
                   </a-button>
-                <!--</vue-recaptcha>-->
+                </vue-recaptcha>
 
               </div>
 
@@ -447,14 +447,14 @@ export default {
         console.log(response.body.flag)
         this.spinning = false
         if (response.body.flag === true) {
-          this.$message.success('Successfully registered. Please use your E-mail to log in', 5)
+          this.$message.success('Successfully registered. Please use your E-mail to log in', 3)
           this.$router.push('/login')
         } else {
-          this.$message.error('Registration failed. Check your form and try again.', 10)
+          this.$message.error('Registration failed. Check your form and try again.', 4)
         }
       }, response => {
         this.spinning = false
-        this.$message.error('Internal Server Error. Please try again.', 10)
+        this.$message.error('Internal Server Error. Please try again.', 4)
       })
     },
     checkStatus (statusCode) {

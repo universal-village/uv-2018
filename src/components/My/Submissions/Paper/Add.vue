@@ -136,10 +136,10 @@ export default {
         try {
           this.categoryAutoComplete = response.body.categories
         } catch (e) {
-          this.$message.error('Can\'t fetch category info.', 5)
+          this.$message.error('Can\'t fetch category info.', 4)
         }
       }, response => {
-        this.$message.error('Can\'t fetch category info.', 5)
+        this.$message.error('Can\'t fetch category info.', 4)
       })
     },
     submitPaper () {
@@ -157,10 +157,10 @@ export default {
         try {
           this.categoryAutoComplete = response.body.categories
         } catch (e) {
-          this.$message.error('Can\'t fetch category info.', 5)
+          this.$message.error('Can\'t fetch category info.', 4)
         }
       }, response => {
-        this.$message.error('Can\'t fetch category info.', 5)
+        this.$message.error('Can\'t fetch category info.', 4)
       })
     },
     devGetValue () {

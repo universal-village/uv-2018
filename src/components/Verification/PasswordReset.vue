@@ -98,27 +98,26 @@ export default {
           this.$message.success('Your password has been successfully reset. Please log in.', 4)
           this.$router.push('/login')
         } else {
-          this.$message.error('Password reset failed. Please check your input.', 10)
+          this.$message.error('Password reset failed. Please check your input.', 4)
         }
       }, response => {
         this.loadingStatus = false
-        this.$message.error('Internal Server Error. Please try again.', 10)
+        this.$message.error('Internal Server Error. Please try again.', 4)
       })
     },
     checkMail () {
       this.loadingStatus = true
-      this.$http.post(this.$store.state.endpoint.api + '/checkMail', {email: encodeURIComponent(this.email)}, {emulateJSON: true}).then(response => {
+      this.$http.post(this.$store.state.endpoint.api + '/checkMail', {email: encodeURIComponent(this.email), captcha: grecaptcha.getResponse()}, {emulateJSON: true}).then(response => {
         console.log(response.body.flag)
         this.loadingStatus = false
         if (response.body.flag === true) {
           this.progress = 1
         } else {
-          this.$message.error('E-mail is incorrect. Check your input and try again.', 10)
+          this.$message.error('E-mail is incorrect. Check your input and try again.', 4)
         }
       }, response => {
         this.loadingStatus = false
-        this.$message.error('Internal Server Error. Please try again.', 10)
-        this.progress = 1 // DEVFAKE
+        this.$message.error('Internal Server Error. Please try again.', 4)
       })
     }
   }

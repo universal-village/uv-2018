@@ -40,14 +40,14 @@ export default {
         console.log(response.body.flag)
         this.spinning = false
         if (response.body.flag === true) {
-          this.$message.success('Successfully logged in. Redirecting you to the homepage in 3s.', 4)
+          this.$message.success('Successfully logged in. Redirecting you to the homepage in 3s.', 3)
           this.pageMeta = response.body
         } else {
-          this.$message.error('Username or Password is incorrect. Check your credentials and try again.', 10)
+          this.$message.error('Username or Password is incorrect. Check your credentials and try again.', 4)
         }
       }, response => {
         this.spinning = false
-        this.$message.error('Internal Server Error. Please try again.', 10)
+        this.$message.error('Internal Server Error. Please try again.', 4)
       })
     }
   }

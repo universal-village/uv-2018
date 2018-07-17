@@ -245,10 +245,10 @@ export default {
         try {
           // this.paperList = response.body.data
         } catch (e) {
-          this.$message.error('Can\'t fetch My Paper Submissions. Please try again later.', 5)
+          this.$message.error('Can\'t fetch My Paper Submissions. Please try again later.', 4)
         }
       }, response => {
-        this.$message.error('Can\'t fetch My Paper Submissions. Please try again later.', 5)
+        this.$message.error('Can\'t fetch My Paper Submissions. Please try again later.', 4)
       })
     },
     editEntry (paperId) {
@@ -276,11 +276,11 @@ export default {
           this.paperList = this.paperList.filter((el) => { return el.paperId !== paperId })
         } else {
           deletingEntry()
-          this.$message.error('Error occured while deleting your submission. Please try again later.', 5)
+          this.$message.error('Error occured while deleting your submission. Please try again later.', 4)
         }
       }, response => {
         deletingEntry()
-        this.$message.error('Error occured while deleting your submission. Please try again later.', 5)
+        this.$message.error('Error occured while deleting your submission. Please try again later.', 4)
       })
     }
   }
