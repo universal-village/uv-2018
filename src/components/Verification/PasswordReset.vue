@@ -69,6 +69,8 @@
 
 <script>
 import VueRecaptcha from 'vue-recaptcha'
+const shaHash = require('js-sha256')
+let sha = shaHash.sha256.create()
 export default {
   name: 'PasswordReset',
   components: {
@@ -87,7 +89,9 @@ export default {
     handleSubmit (e) {
       this.loadingStatus = true
       e.preventDefault()
-      this.$http.post(this.$store.state.endpoint + '/resetPassword', {email: this.email, password: this.password}, {emulateJSON: true}).then(response => {
+      sha.update(this.password + this.$store.state.authenticate.shaSalt)
+      let passwordHash = sha.hex()
+      this.$http.post(this.$store.state.endpoint + '/resetPassword', {email: encodeURIComponent(this.email), password: passwordHash}, {emulateJSON: true}).then(response => {
         console.log(response.body.flag)
         this.loadingStatus = false
         if (response.body.flag === true) {
@@ -103,7 +107,7 @@ export default {
     },
     checkMail () {
       this.loadingStatus = true
-      this.$http.post(this.$store.state.endpoint + '/checkMail', {email: this.email}, {emulateJSON: true}).then(response => {
+      this.$http.post(this.$store.state.endpoint + '/checkMail', {email: encodeURIComponent(this.email)}, {emulateJSON: true}).then(response => {
         console.log(response.body.flag)
         this.loadingStatus = false
         if (response.body.flag === true) {

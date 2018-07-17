@@ -33,7 +33,7 @@
                 >
                   <a-input placeholder="Title" v-model="title" ref="titleInput">
                     <a-icon slot="prefix" type="user" />
-                    <a-icon v-if="title" slot="suffix" type="close-circle" @click="emitEmptyField" />
+                    <a-icon v-if="title" slot="suffix" type="close-circle" @click="this.$refs.titleInput.focus(); this.title = ''; this.form.setFieldsValue({title: ''})" />
                   </a-input>
                 </a-form-item>
 
@@ -45,7 +45,7 @@
                   :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your First Name!' }]}"
                 >
                   <a-input placeholder="First Name" v-model="firstname">
-                    <a-icon v-if="firstname" slot="suffix" type="close-circle" @click="emitEmptyField" />
+                    <a-icon v-if="firstname" slot="suffix" type="close-circle" @click="this.firstname = ''; this.form.setFieldsValue({firstname: ''})" />
                   </a-input>
                 </a-form-item>
 
@@ -334,6 +334,8 @@
 
 <script>
 import VueRecaptcha from 'vue-recaptcha'
+const shaHash = require('js-sha256')
+let sha = shaHash.sha256.create()
 export default {
   name: 'Login',
   components: {
@@ -415,30 +417,32 @@ export default {
 
       this.spinning = true
       e.preventDefault()
+      sha.update(this.password + this.$store.state.authenticate.shaSalt)
+      let passwordHash = sha.hex()
       console.log(this.birthdayDate, typeof this.birthdayDate, this.birthdayDate.toString(), typeof this.birthdayDate.toString())
       this.$http.post(this.$store.state.endpoint + '/register', {
-        email: this.email,
-        password: this.password,
-        zipcode: this.zipcode,
-        bios: this.bios,
-        firstname: this.firstname,
-        middlename: this.middlename,
-        lastname: this.lastname,
-        nameInOwnLanguage: this.nameInOwnLanguage,
-        organization: this.organization,
-        address: this.address,
-        city: this.city,
-        state: this.state,
-        country: this.country,
-        telephone: this.telephone,
-        fax: this.fax,
-        cellphone: this.cellphone,
-        passport: this.passport,
-        needSupport: this.needSupport,
-        birthyear: this.birthdayDate.toString().split('.')[0],
-        birthmonth: this.birthdayDate.toString().split('.')[1],
-        birthday: this.birthdayDate.toString().split('.')[2],
-        title: this.title
+        email: encodeURIComponent(this.email),
+        password: passwordHash,
+        zipcode: encodeURIComponent(this.zipcode),
+        bios: encodeURIComponent(this.bios),
+        firstname: encodeURIComponent(this.firstname),
+        middlename: encodeURIComponent(this.middlename),
+        lastname: encodeURIComponent(this.lastname),
+        nameInOwnLanguage: encodeURIComponent(this.nameInOwnLanguage),
+        organization: encodeURIComponent(this.organization),
+        address: encodeURIComponent(this.address),
+        city: encodeURIComponent(this.city),
+        state: encodeURIComponent(this.state),
+        country: encodeURIComponent(this.country),
+        telephone: encodeURIComponent(this.telephone),
+        fax: encodeURIComponent(this.fax),
+        cellphone: encodeURIComponent(this.cellphone),
+        passport: encodeURIComponent(this.passport),
+        needSupport: encodeURIComponent(this.needSupport),
+        birthyear: encodeURIComponent(this.birthdayDate.toString().split('.')[0]),
+        birthmonth: encodeURIComponent(this.birthdayDate.toString().split('.')[1]),
+        birthday: encodeURIComponent(this.birthdayDate.toString().split('.')[2]),
+        title: encodeURIComponent(this.title)
       }, {emulateJSON: true}).then(response => {
         console.log(response.body.flag)
         this.spinning = false

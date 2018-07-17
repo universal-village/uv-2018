@@ -7,6 +7,7 @@ import VueTitlecase from 'vue-titlecase'
 import VueLodash from 'vue-lodash'
 import VueRecaptcha from 'vue-recaptcha'
 import VueAnalytics from 'vue-analytics'
+import * as VueGoogleMaps from 'vue2-google-maps'
 import createPersistedState from 'vuex-persistedstate'
 import Antd from 'vue-antd-ui'
 import 'vue-antd-ui/dist/antd.css'
@@ -24,17 +25,23 @@ Vue.use(VueAnalytics, {
   id: 'UA-122336687-1',
   router
 })
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyAuciiA4rPTALnygCCw1xT0EcHV-Oqh1y0',
+    libraries: 'places'
+  }
+})
 
 const store = new Vuex.Store({
   state: {
-    endpoint: 'http://128.31.37.81:8080/uv2018',
+    endpoint: 'https://api-beta.universal-village.org/uv-web',
     navPageList: [],
     authenticate: {
-      category: [],
       token: '1',
       role: 0,
       username: 'root',
-      permission: 0
+      permission: 0,
+      shaSalt: 'universal-village'
     },
     sitekey: '6Ldn5WMUAAAAAAbUaPRaIVkp2C8HrpIVvjM2vf0U'
   },

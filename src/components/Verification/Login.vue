@@ -54,6 +54,8 @@
 
 <script>
 import VueRecaptcha from 'vue-recaptcha'
+const shaHash = require('js-sha256')
+let sha = shaHash.sha256.create()
 export default {
   name: 'Login',
   components: {
@@ -76,15 +78,19 @@ export default {
     emitEmptyEmail () {
       this.$refs.emailInput.focus()
       this.email = ''
+      this.form.setFieldsValue({email: ''})
     },
     emitEmptyPassword () {
       this.$refs.passwordInput.focus()
       this.password = ''
+      this.form.setFieldsValue({password: ''})
     },
     handleSubmit (e) {
       this.spinning = true
       e.preventDefault()
-      this.$http.post(this.$store.state.endpoint + '/login', {email: this.email, password: this.password}, {emulateJSON: true}).then(response => {
+      sha.update(this.password + this.$store.state.authenticate.shaSalt)
+      let passwordHash = sha.hex()
+      this.$http.post(this.$store.state.endpoint + '/login', {email: encodeURIComponent(this.email), password: passwordHash}, {emulateJSON: true}).then(response => {
         console.log(response.body.flag)
         this.spinning = false
         if (response.body.flag === true) {

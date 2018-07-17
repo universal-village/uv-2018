@@ -1066,6 +1066,12 @@ babel-runtime@6.x, babel-runtime@^6.18.0, babel-runtime@^6.20.0, babel-runtime@^
     core-js "^2.4.0"
     regenerator-runtime "^0.11.0"
 
+babel-runtime@^5.8.0:
+  version "5.8.38"
+  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-5.8.38.tgz#1c0b02eb63312f5f087ff20450827b425c9d4c19"
+  dependencies:
+    core-js "^1.0.0"
+
 babel-template@^6.16.0, babel-template@^6.24.1, babel-template@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-template/-/babel-template-6.26.0.tgz#de03e2d16396b069f46dd9fff8521fb1a0e35e02"
@@ -1867,6 +1873,10 @@ copy-webpack-plugin@^4.0.1:
     minimatch "^3.0.4"
     p-limit "^1.0.0"
     serialize-javascript "^1.4.0"
+
+core-js@^1.0.0:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
 
 core-js@^2.4.0, core-js@^2.5.0:
   version "2.5.7"
@@ -4480,6 +4490,10 @@ js-beautify@^1.6.12, js-beautify@^1.6.14:
     mkdirp "~0.5.0"
     nopt "~3.0.1"
 
+js-sha256@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/js-sha256/-/js-sha256-0.9.0.tgz#0b89ac166583e91ef9123644bd3c5334ce9d0966"
+
 js-tokens@^3.0.0, js-tokens@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
@@ -4652,6 +4666,10 @@ last-call-webpack-plugin@^2.1.2:
 lazy-cache@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/lazy-cache/-/lazy-cache-1.0.4.tgz#a1d78fc3a50474cb80845d3b3b6e1da49a446e8e"
+
+lazy-value@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/lazy-value/-/lazy-value-1.0.0.tgz#06e2088790b3c72f7b16c5427be2c83ea302ce38"
 
 lcid@^1.0.0:
   version "1.0.0"
@@ -4950,6 +4968,10 @@ map-visit@^1.0.0:
   resolved "https://registry.yarnpkg.com/map-visit/-/map-visit-1.0.0.tgz#ecdca8f13144e660f1b5bd41f12f3479d98dfb8f"
   dependencies:
     object-visit "^1.0.0"
+
+marker-clusterer-plus@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/marker-clusterer-plus/-/marker-clusterer-plus-2.1.4.tgz#f8eff74d599dab3b7d0e3fed5264ea0e704f5d67"
 
 math-expression-evaluator@^1.2.14:
   version "1.2.17"
@@ -7872,6 +7894,14 @@ vue-template-es2015-compiler@^1.5.3, vue-template-es2015-compiler@^1.6.0:
 vue-titlecase@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/vue-titlecase/-/vue-titlecase-0.2.1.tgz#68cb462cef3ac2c93c9d8042bba433d9c59ee110"
+
+vue2-google-maps@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/vue2-google-maps/-/vue2-google-maps-0.10.0.tgz#a46ad54ae5d4f1261014f7e6dc0e2221438ee565"
+  dependencies:
+    babel-runtime "^5.8.0"
+    lazy-value "^1.0.0"
+    marker-clusterer-plus "^2.1.4"
 
 vue@^2.5.2:
   version "2.5.16"

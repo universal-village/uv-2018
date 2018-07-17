@@ -140,9 +140,6 @@ export default {
           this.$message.success('Logout: Successfully.', 3)
           this.$store.state.authenticate.username = ''
           this.$store.state.authenticate.token = ''
-          setTimeout(() => {
-            this.$router.push('/')
-          }, 3000)
         } else {
           this.$message.error('Logout: Failed. Please try again later.', 10)
         }

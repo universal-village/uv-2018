@@ -146,11 +146,11 @@ export default {
       let fields = this.form.getFieldsValue()
       this.$http.post(this.$store.state.endpoint + '/submitPaper',
         {
-          title: fields.title,
-          abstract: fields.abstract,
-          categoryid: this.categoryAutoComplete.findIndex((el) => { return el === fields.category }),
-          authors: fields.authors.join(','),
-          keyword: fields.keywords.join(',')
+          title: encodeURIComponent(fields.title),
+          abstract: encodeURIComponent(fields.abstract),
+          categoryid: this.categoryAutoComplete.findIndex((el) => { return el === fields.category }) + 1,
+          authors: encodeURIComponent(fields.authors.join(',')),
+          keyword: encodeURIComponent(fields.keywords.join(','))
         }, {emulateJSON: true}
       ).then(response => {
         console.log(response.body)

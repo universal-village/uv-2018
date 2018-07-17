@@ -42,6 +42,11 @@
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Home',
+  methods: {
+    hey () {
+      console.log(this)
+    }
+  }
 }
 </script>
