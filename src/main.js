@@ -36,7 +36,7 @@ const store = new Vuex.Store({
   state: {
     endpoint: {
       api: 'https://api-beta.universal-village.org/uv-web',
-      pages: 'https://cdn.universal-village.org/static-pages'
+      pages: 'https://cdn.universal-village.org/static-pages/'
     },
     navPageList: [],
     authenticate: {

@@ -6,7 +6,7 @@
           {{ navPage | capitalize }}
         </a-breadcrumb-item>
       </a-breadcrumb>
-      <a-layout-content :style="{ padding: '24px', margin: 0, minHeight: '280px' }" v-html="pageMeta.content">
+      <a-layout-content :style="{ padding: '24px', margin: 0, minHeight: '280px' }" v-html="pagePlain">
       </a-layout-content>
     </a-layout>
   </a-layout-content>
@@ -22,7 +22,8 @@ export default {
         title: 'Title',
         date: 123456789,
         author: 'Admin'
-      }
+      },
+      pagePlain: ''
     }
   },
   watch: {
@@ -36,18 +37,20 @@ export default {
       return '/pages/' + link
     },
     fetchData () {
-      this.$http.get(this.$store.state.endpoint.pages + this.$route.params.page, {email: this.email, password: this.password}, {emulateJSON: true}).then(response => {
+      let loader = this.$message.loading('Loading page...', 0)
+      this.$http.get(this.$store.state.endpoint.pages + this.$route.params.page + ".html", {email: this.email, password: this.password}, {emulateJSON: true}).then(response => {
         console.log(response.body.flag)
         this.spinning = false
-        if (response.body.flag === true) {
-          this.$message.success('Successfully logged in. Redirecting you to the homepage in 3s.', 3)
-          this.pageMeta = response.body
-        } else {
-          this.$message.error('Username or Password is incorrect. Check your credentials and try again.', 4)
-        }
+        loader()
+        this.pagePlain = response.body
       }, response => {
         this.spinning = false
-        this.$message.error('Internal Server Error. Please try again.', 4)
+        loader()
+        if (response.status === 404) {
+          this.pagePlain = "<h2>Page is still in construction...</h2>"
+        } else {
+          this.$message.error('Page loading error. Please check parameters. status-' + response.status, 4)
+        }
       })
     }
   }

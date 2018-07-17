@@ -414,7 +414,6 @@ export default {
     },
     handleSubmit (e) {
       // if (formError()) return this.$message.error('There\'s one or more errors with your input with our registeration form. Please check again.')
-
       this.spinning = true
       e.preventDefault()
       sha.update(this.password + this.$store.state.authenticate.shaSalt)

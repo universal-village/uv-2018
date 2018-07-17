@@ -38,11 +38,11 @@
             <a-form-item
               :wrapperCol="{ span: 12, offset: 5 }"
             >
-              <vue-recaptcha :sitekey="this.$store.state.sitekey">
+              <!--<vue-recaptcha :sitekey="this.$store.state.sitekey">-->
                 <a-button type='primary' htmlType='submit' style="width: 100%;" :loading="spinning">
                   Log In
                 </a-button>
-              </vue-recaptcha>
+              <!--</vue-recaptcha>-->
             </a-form-item>
           </a-form>
         </div>
@@ -87,9 +87,9 @@ export default {
     handleSubmit (e) {
       this.spinning = true
       e.preventDefault()
-      sha.update(this.password + this.$store.state.authenticate.shaSalt)
+      sha.update(this.form.getFieldsValue().password + this.$store.state.authenticate.shaSalt)
       let passwordHash = sha.hex()
-      this.$http.post(this.$store.state.endpoint.api + '/login', {email: encodeURIComponent(this.email), password: passwordHash}, {emulateJSON: true}).then(response => {
+      this.$http.post(this.$store.state.endpoint.api + '/login', {email: this.email, password: passwordHash}, {emulateJSON: true}).then(response => {
         console.log(response.body.flag)
         this.spinning = false
         if (response.body.flag === true) {

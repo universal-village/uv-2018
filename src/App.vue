@@ -22,7 +22,7 @@
             <router-link to="/pages/call-for-papers">Call for Papers</router-link>
           </a-menu-item>
           <a-menu-item key="authors:paper-submission">
-            <router-link to="/my/submissions/paper/add">Paper Submission</router-link>
+            <router-link to="/my/submissions/add">Paper Submission</router-link>
           </a-menu-item>
           <a-menu-item key="authors:important-dates">
             <router-link to="/pages/important-dates">Important Dates</router-link>
@@ -135,7 +135,7 @@ export default {
     logout () {
       this.$store.state.authenticate.username = ''
       this.$store.state.authenticate.token = ''
-      this.$http.get(this.$store.state.endpoint.api.api + '/logout').then(response => {
+      this.$http.get(this.$store.state.endpoint.api + '/logout').then(response => {
         if (response.body.flag === true) {
           this.$message.success('Logout: Successfully.', 3)
           this.$store.state.authenticate.username = ''

@@ -23,7 +23,7 @@
                   <a-icon v-if="email" slot="suffix" type="close-circle" @click="emitEmptyEmail" />
                 </a-input>
               </a-form-item>
-              <vue-recaptcha :sitekey="this.$store.state.sitekey">
+              <vue-recaptcha sitekey="6Ldn5WMUAAAAAAbUaPRaIVkp2C8HrpIVvjM2vf0U">
                 <a-button type='primary' :loading="loadingStatus" @click="checkMail">
                   Next <a-icon type="right"></a-icon>
                 </a-button>
@@ -45,11 +45,10 @@
               <a-form-item
                 :wrapperCol="{ span: 12, offset: 3 }"
               >
-                <vue-recaptcha :sitekey="this.$store.state.sitekey">
-                  <a-button type='primary'>
-                    Submit
-                  </a-button>
-                </vue-recaptcha>
+
+                <a-button type='primary' htmlType="submit">
+                  Submit
+                </a-button>
               </a-form-item>
             </div>
             <div v-else>
@@ -89,9 +88,9 @@ export default {
     handleSubmit (e) {
       this.loadingStatus = true
       e.preventDefault()
-      sha.update(this.password + this.$store.state.authenticate.shaSalt)
+      sha.update(this.form.getFieldsValue().password + this.$store.state.authenticate.shaSalt)
       let passwordHash = sha.hex()
-      this.$http.post(this.$store.state.endpoint.api + '/resetPassword', {email: encodeURIComponent(this.email), password: passwordHash}, {emulateJSON: true}).then(response => {
+      this.$http.post(this.$store.state.endpoint.api + '/resetPassword', {email: this.form.getFieldsValue().email, password: passwordHash}, {emulateJSON: true}).then(response => {
         console.log(response.body.flag)
         this.loadingStatus = false
         if (response.body.flag === true) {
@@ -107,7 +106,7 @@ export default {
     },
     checkMail () {
       this.loadingStatus = true
-      this.$http.post(this.$store.state.endpoint.api + '/checkMail', {email: encodeURIComponent(this.email), captcha: grecaptcha.getResponse()}, {emulateJSON: true}).then(response => {
+      this.$http.post(this.$store.state.endpoint.api + '/checkMail', {email: this.email}, {emulateJSON: true}).then(response => {
         console.log(response.body.flag)
         this.loadingStatus = false
         if (response.body.flag === true) {

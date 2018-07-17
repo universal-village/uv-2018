@@ -15,7 +15,7 @@ const AddPaperSubmission = () => import(/* webpackChunkName: "my" */ '@/componen
 Vue.use(Router)
 
 export default new Router({
-  base: '/uv2018',
+  mode: 'history',
   routes: [
     {
       path: '/',
