@@ -240,7 +240,7 @@ export default {
   },
   methods: {
     fetchData () {
-      this.$http.get(this.$store.state.endpoint + '/myPaper').then(response => {
+      this.$http.get(this.$store.state.endpoint.api + '/myPaper').then(response => {
         console.log(response.body)
         try {
           // this.paperList = response.body.data
@@ -268,7 +268,7 @@ export default {
     },
     deleteEntry (paperId) {
       const deletingEntry = this.$message.loading('Deleting your submission...', 0)
-      this.$http.get(this.$store.state.endpoint + '/deletePaper', {paperId: paperId}).then(response => {
+      this.$http.get(this.$store.state.endpoint.api + '/deletePaper', {paperId: paperId}).then(response => {
         console.log(response.body)
         if (response.body.flag) {
           deletingEntry()

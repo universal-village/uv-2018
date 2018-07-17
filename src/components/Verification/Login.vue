@@ -90,7 +90,7 @@ export default {
       e.preventDefault()
       sha.update(this.password + this.$store.state.authenticate.shaSalt)
       let passwordHash = sha.hex()
-      this.$http.post(this.$store.state.endpoint + '/login', {email: encodeURIComponent(this.email), password: passwordHash}, {emulateJSON: true}).then(response => {
+      this.$http.post(this.$store.state.endpoint.api + '/login', {email: encodeURIComponent(this.email), password: passwordHash}, {emulateJSON: true}).then(response => {
         console.log(response.body.flag)
         this.spinning = false
         if (response.body.flag === true) {

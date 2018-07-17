@@ -91,7 +91,7 @@ export default {
       e.preventDefault()
       sha.update(this.password + this.$store.state.authenticate.shaSalt)
       let passwordHash = sha.hex()
-      this.$http.post(this.$store.state.endpoint + '/resetPassword', {email: encodeURIComponent(this.email), password: passwordHash}, {emulateJSON: true}).then(response => {
+      this.$http.post(this.$store.state.endpoint.api + '/resetPassword', {email: encodeURIComponent(this.email), password: passwordHash}, {emulateJSON: true}).then(response => {
         console.log(response.body.flag)
         this.loadingStatus = false
         if (response.body.flag === true) {
@@ -107,7 +107,7 @@ export default {
     },
     checkMail () {
       this.loadingStatus = true
-      this.$http.post(this.$store.state.endpoint + '/checkMail', {email: encodeURIComponent(this.email)}, {emulateJSON: true}).then(response => {
+      this.$http.post(this.$store.state.endpoint.api + '/checkMail', {email: encodeURIComponent(this.email)}, {emulateJSON: true}).then(response => {
         console.log(response.body.flag)
         this.loadingStatus = false
         if (response.body.flag === true) {

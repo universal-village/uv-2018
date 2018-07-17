@@ -31,11 +31,11 @@
 
         <a-sub-menu>
           <span slot="title">Program <a-icon type="down"></a-icon></span>
-          <a-menu-item key="program:category-and-session">
-            <router-link to="/pages/category-and-session">Categories and Sessions</router-link>
+          <a-menu-item key="program:categories-and-sessions">
+            <router-link to="/pages/categories-and-sessions">Categories and Sessions</router-link>
           </a-menu-item>
           <a-menu-item key="program:forum">
-            <router-link to="/forum">Forums</router-link>
+            <router-link to="/forums">Forums</router-link>
           </a-menu-item>
           <a-menu-item key="program:workshops">
             <router-link to="/workshops">Workshops</router-link>
@@ -135,7 +135,7 @@ export default {
     logout () {
       this.$store.state.authenticate.username = ''
       this.$store.state.authenticate.token = ''
-      this.$http.get(this.$store.state.endpoint + '/logout').then(response => {
+      this.$http.get(this.$store.state.endpoint.api.api + '/logout').then(response => {
         if (response.body.flag === true) {
           this.$message.success('Logout: Successfully.', 3)
           this.$store.state.authenticate.username = ''

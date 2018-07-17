@@ -123,7 +123,7 @@ export default {
       authorList: [],
       categoryAutoComplete: [],
       uploading: false,
-      getAction: this.$store.state.endpoint + '/uploadPaper'
+      getAction: this.$store.state.endpoint.api + '/uploadPaper'
     }
   },
   created () {
@@ -131,7 +131,7 @@ export default {
   },
   methods: {
     fetchAutoComplete () {
-      this.$http.get(this.$store.state.endpoint + '/getCategories').then(response => {
+      this.$http.get(this.$store.state.endpoint.api + '/getCategories').then(response => {
         console.log(response.body)
         try {
           this.categoryAutoComplete = response.body.categories
@@ -144,7 +144,7 @@ export default {
     },
     submitPaper () {
       let fields = this.form.getFieldsValue()
-      this.$http.post(this.$store.state.endpoint + '/submitPaper',
+      this.$http.post(this.$store.state.endpoint.api + '/submitPaper',
         {
           title: encodeURIComponent(fields.title),
           abstract: encodeURIComponent(fields.abstract),

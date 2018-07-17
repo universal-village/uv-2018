@@ -34,7 +34,10 @@ Vue.use(VueGoogleMaps, {
 
 const store = new Vuex.Store({
   state: {
-    endpoint: 'https://api-beta.universal-village.org/uv-web',
+    endpoint: {
+      api: 'https://api-beta.universal-village.org/uv-web',
+      pages: 'https://cdn.universal-village.org/static-pages'
+    },
     navPageList: [],
     authenticate: {
       token: '1',

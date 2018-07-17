@@ -420,7 +420,7 @@ export default {
       sha.update(this.password + this.$store.state.authenticate.shaSalt)
       let passwordHash = sha.hex()
       console.log(this.birthdayDate, typeof this.birthdayDate, this.birthdayDate.toString(), typeof this.birthdayDate.toString())
-      this.$http.post(this.$store.state.endpoint + '/register', {
+      this.$http.post(this.$store.state.endpoint.api + '/register', {
         email: encodeURIComponent(this.email),
         password: passwordHash,
         zipcode: encodeURIComponent(this.zipcode),

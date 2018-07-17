@@ -18,7 +18,10 @@ export default {
   data () {
     return {
       pageMeta: {
-        content: '<h2>Loading</h2>'
+        content: '<h2>Loading</h2>',
+        title: 'Title',
+        date: 123456789,
+        author: 'Admin'
       }
     }
   },
@@ -33,16 +36,12 @@ export default {
       return '/pages/' + link
     },
     fetchData () {
-      this.$http.get(this.$store.state.endpoint + '/get', {email: this.email, password: this.password}, {emulateJSON: true}).then(response => {
+      this.$http.get(this.$store.state.endpoint.pages + this.$route.params.page, {email: this.email, password: this.password}, {emulateJSON: true}).then(response => {
         console.log(response.body.flag)
         this.spinning = false
         if (response.body.flag === true) {
           this.$message.success('Successfully logged in. Redirecting you to the homepage in 3s.', 4)
-          this.$store.state.authenticate.username = this.email
-          this.$store.state.authenticate.token = this.email
-          setTimeout(() => {
-            this.$router.push('/')
-          }, 3000)
+          this.pageMeta = response.body
         } else {
           this.$message.error('Username or Password is incorrect. Check your credentials and try again.', 10)
         }
