@@ -46,7 +46,7 @@ const store = new Vuex.Store({
       permission: 0,
       shaSalt: 'universal-village'
     },
-    sitekey: '6Ldn5WMUAAAAAAbUaPRaIVkp2C8HrpIVvjM2vf0U'
+    sitekey: '6LeE8GQUAAAAADw5NwLtA6Ge_trrLCvTkJe8yD7d'
   },
   plugins: [
     createPersistedState()

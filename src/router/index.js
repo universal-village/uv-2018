@@ -11,6 +11,7 @@ const MySubmissionsPaper = () => import(/* webpackChunkName: "home" */ '@/compon
 const PagesIndex = () => import(/* webpackChunkName: "home" */ '@/components/Pages/Index.vue')
 const PagesDetail = () => import(/* webpackChunkName: "home" */ '@/components/Pages/Pages.vue')
 const AddPaperSubmission = () => import(/* webpackChunkName: "my" */ '@/components/My/Submissions/Paper/Add.vue')
+const MyProfileEdit = () => import(/* webpackChunkName: "my" */ '@/components/My/Account/EditProfile.vue')
 
 Vue.use(Router)
 
@@ -73,6 +74,11 @@ export default new Router({
             MySubmissions: AddPaperSubmission
           }
         }]
+      }, {
+        path: 'profile',
+        components: {
+          My: MyProfileEdit
+        }
       }]
     },
     {

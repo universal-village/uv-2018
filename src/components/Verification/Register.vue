@@ -31,10 +31,15 @@
                   fieldDecoratorId="title"
                   :fieldDecoratorOptions="{rules: [{ required: true, message: 'How should we call you?' }]}"
                 >
-                  <a-input placeholder="Title" v-model="title" ref="titleInput">
-                    <a-icon slot="prefix" type="user" />
-                    <a-icon v-if="title" slot="suffix" type="close-circle" @click="this.$refs.titleInput.focus(); this.title = ''; this.form.setFieldsValue({title: ''})" />
-                  </a-input>
+                  <a-select>
+                    <a-select-option value="Mr.">Mr.</a-select-option>
+                    <a-select-option value="Mrs.">Mrs.</a-select-option>
+                    <a-select-option value="Ms.">Ms.</a-select-option>
+                    <a-select-option value="Dr.">Dr.</a-select-option>
+                    <a-select-option value="Prof.">Prof.</a-select-option>
+                    <a-select-option value="N/A.">N/A.</a-select-option>
+                    <a-select-option value="N/A.">N/A.</a-select-option>
+                  </a-select>
                 </a-form-item>
 
                 <a-form-item
@@ -42,7 +47,7 @@
                   :labelCol="{ span: 9 }"
                   :wrapperCol="{ span: 12 }"
                   fieldDecoratorId="firstname"
-                  :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your First Name!' }]}"
+                  :fieldDecoratorOptions="{rules: [{max: 45, min: 1, message: 'Field \'First Name\' must be shorter than 45 characters.'}, { required: true, message: 'Please input your First Name!' }]}"
                 >
                   <a-input placeholder="First Name" v-model="firstname">
                     <a-icon v-if="firstname" slot="suffix" type="close-circle" @click="this.firstname = ''; this.form.setFieldsValue({firstname: ''})" />
@@ -54,7 +59,7 @@
                   :labelCol="{ span: 9 }"
                   :wrapperCol="{ span: 12 }"
                   fieldDecoratorId="middlename"
-                  :fieldDecoratorOptions="{rules: [{ required: false, message: 'Please input your Middle Name!' }]}"
+                  :fieldDecoratorOptions="{rules: [{max: 45, min: 0, message: 'Field \'Middle Name\' must be shorter than 45 characters.'}]}"
                 >
                   <a-input placeholder="Middle Name" v-model="middlename">
                     <a-icon v-if="middlename" slot="suffix" type="close-circle" @click="emitEmptyField" />
@@ -66,7 +71,7 @@
                   :labelCol="{ span: 9 }"
                   :wrapperCol="{ span: 12 }"
                   fieldDecoratorId="lastname"
-                  :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your Last Name!' }]}"
+                  :fieldDecoratorOptions="{rules: [{max: 45, min: 1, message: 'Field \'Last Name\' must be shorter than 45 characters.'}, { required: true, message: 'Please input your Last Name!' }]}"
                 >
                   <a-input placeholder="Last Name" v-model="lastname">
                     <a-icon v-if="lastname" slot="suffix" type="close-circle" @click="emitEmptyField" />
@@ -78,7 +83,7 @@
                   :labelCol="{ span: 9 }"
                   :wrapperCol="{ span: 12 }"
                   fieldDecoratorId="nameInOwnLanguage"
-                  :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your Name in own Language!' }]}"
+                  :fieldDecoratorOptions="{rules: [{max: 200, min: 1, message: 'Field \'Name in own Language\' must be shorter than 200 characters.'}, { required: true, message: 'Please input your Name in own Language!' }]}"
                 >
                   <a-input placeholder="Name in own Language" v-model="nameInOwnLanguage" ref="nameInOwnLanguageInput">
                     <a-icon slot="prefix" type="contacts" />
@@ -91,7 +96,11 @@
                   :labelCol="{ span: 9 }"
                   :wrapperCol="{ span: 12 }"
                   fieldDecoratorId="email"
-                  :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your E-mail!' }]}"
+                  :fieldDecoratorOptions="{rules: [
+                  { message: 'The input must be an E-mail.', type: 'email' },
+                  { max: 100, min: 1, message: 'Field \'E-mail\' must be shorter than 100 characters.' },
+                  { required: true, message: 'Please input your E-mail!' }
+                  ]}"
                 >
                   <a-input placeholder="example@example.com" v-model="email" ref="emailInput">
                     <a-icon slot="prefix" type="mail" />
@@ -104,7 +113,7 @@
                   :labelCol="{ span: 9 }"
                   :wrapperCol="{ span: 12 }"
                   fieldDecoratorId="password"
-                  :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your Password!' }]}"
+                  :fieldDecoratorOptions="{rules: [{ max: 32, min: 1, message: '\'Password\' must be shorter than 100 characters.' }, { required: true, message: 'Please input your Password!' }]}"
                 >
                   <a-input type="password" placeholder="Password" v-model="password" ref="passwordInput">
                     <a-icon slot="prefix" type="lock" />
@@ -413,7 +422,7 @@ export default {
       console.log(date, dateString)
     },
     handleSubmit (e) {
-      // if (formError()) return this.$message.error('There\'s one or more errors with your input with our registeration form. Please check again.')
+      if (formError()) return this.$message.error('There\'s one or more errors with your input with our registeration form. Please check again.')
       this.spinning = true
       e.preventDefault()
       sha.update(this.password + this.$store.state.authenticate.shaSalt)

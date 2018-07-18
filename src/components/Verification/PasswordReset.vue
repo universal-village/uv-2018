@@ -10,55 +10,49 @@
         <div class="content">
           <h1>Reset Password &nbsp; <span style="font-size: 60%;"><router-link to="/login">Login ></router-link></span></h1>
           <a-form @submit="handleSubmit" :autoFormCreate="(form)=>{this.form = form}">
-            <div v-if="progress === 0">
-              <a-form-item
-                label='E-mail'
-                :labelCol="{ span: 5 }"
-                :wrapperCol="{ span: 12 }"
-                fieldDecoratorId="email"
-                :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your E-mail!' }]}"
-              >
-                <a-input placeholder="E-mail" v-model="email" ref="emailInput">
-                  <a-icon slot="prefix" type="user" />
-                  <a-icon v-if="email" slot="suffix" type="close-circle" @click="emitEmptyEmail" />
-                </a-input>
-              </a-form-item>
-              <vue-recaptcha sitekey="6Ldn5WMUAAAAAAbUaPRaIVkp2C8HrpIVvjM2vf0U">
+            <a-form-item
+              label='E-mail'
+              :labelCol="{ span: 5 }"
+              :wrapperCol="{ span: 12 }"
+              fieldDecoratorId="email"
+              :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your E-mail!' }]}"
+            >
+              <a-input placeholder="E-mail" v-model="email" ref="emailInput">
+                <a-icon slot="prefix" type="user" />
+                <a-icon v-if="email" slot="suffix" type="close-circle" @click="emitEmptyEmail" />
+              </a-input>
+            </a-form-item>
+            <a-form-item
+              label='Old Password'
+              :labelCol="{ span: 5 }"
+              :wrapperCol="{ span: 12 }"
+              fieldDecoratorId="oldPassword"
+              :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your old password!' }]}"
+            >
+              <a-input placeholder="Old Password">
+                <a-icon slot="prefix" type="lock" />
+              </a-input>
+            </a-form-item>
+            <a-form-item
+              label='New Password'
+              :labelCol="{ span: 5 }"
+              :wrapperCol="{ span: 12 }"
+              fieldDecoratorId="newPassword"
+              :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your new password!' }]}"
+            >
+              <a-input placeholder="New Password">
+                <a-icon slot="prefix" type="lock" />
+              </a-input>
+            </a-form-item>
+            <a-form-item
+              :wrapperCol="{ span: 12, offset: 3 }"
+            >
+              <vue-recaptcha :sitekey="this.$store.state.sitekey" @verify="handleSubmit">
                 <a-button type='primary' :loading="loadingStatus" @click="checkMail">
-                  Next <a-icon type="right"></a-icon>
+                  Submit <a-icon type="right"></a-icon>
                 </a-button>
               </vue-recaptcha>
-            </div>
-            <div v-else-if="progress === 1">
-              <a-form-item
-                label='Password'
-                :labelCol="{ span: 5 }"
-                :wrapperCol="{ span: 12 }"
-                fieldDecoratorId="password"
-                :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your password!' }]}"
-              >
-                <a-input placeholder="Password" v-model="password" ref="passwordInput">
-                  <a-icon slot="prefix" type="lock" />
-                  <a-icon v-if="password" slot="suffix" type="close-circle" @click="emitEmptyPassword" />
-                </a-input>
-              </a-form-item>
-              <a-form-item
-                :wrapperCol="{ span: 12, offset: 3 }"
-              >
-
-                <a-button type='primary' htmlType="submit">
-                  Submit
-                </a-button>
-              </a-form-item>
-            </div>
-            <div v-else>
-              <a-alert
-                message="Invalid Session."
-                description="Session Invalid. Please refresh page. If that doesn't help, please contact administrator."
-                type="error"
-                showIcon
-              />
-            </div>
+            </a-form-item>
           </a-form>
         </div>
       </a-layout-content>
@@ -69,7 +63,8 @@
 <script>
 import VueRecaptcha from 'vue-recaptcha'
 const shaHash = require('js-sha256')
-let sha = shaHash.sha256.create()
+let shaOld = shaHash.sha256.create()
+let shaNew = shaHash.sha256.create()
 export default {
   name: 'PasswordReset',
   components: {
@@ -85,12 +80,13 @@ export default {
     }
   },
   methods: {
-    handleSubmit (e) {
+    handleSubmit (recaptchaToken) {
       this.loadingStatus = true
-      e.preventDefault()
-      sha.update(this.form.getFieldsValue().password + this.$store.state.authenticate.shaSalt)
-      let passwordHash = sha.hex()
-      this.$http.post(this.$store.state.endpoint.api + '/resetPassword', {email: this.form.getFieldsValue().email, password: passwordHash}, {emulateJSON: true}).then(response => {
+      shaOld.update(this.form.getFieldsValue().oldPassword + this.$store.state.authenticate.shaSalt)
+      let oldPasswordHash = shaOld.hex()
+      shaNew.update(this.form.getFieldsValue().newPassword + this.$store.state.authenticate.shaSalt)
+      let newPasswordHash = shaNew.hex()
+      this.$http.post(this.$store.state.endpoint.api + '/resetPassword', {email: this.form.getFieldsValue().email, password: oldPasswordHash, password2: newPasswordHash, token: recaptchaToken}, {emulateJSON: true}).then(response => {
         console.log(response.body.flag)
         this.loadingStatus = false
         if (response.body.flag === true) {
@@ -103,22 +99,26 @@ export default {
         this.loadingStatus = false
         this.$message.error('Internal Server Error. Please try again.', 4)
       })
-    },
-    checkMail () {
-      this.loadingStatus = true
-      this.$http.post(this.$store.state.endpoint.api + '/checkMail', {email: this.email}, {emulateJSON: true}).then(response => {
-        console.log(response.body.flag)
-        this.loadingStatus = false
-        if (response.body.flag === true) {
-          this.progress = 1
-        } else {
-          this.$message.error('E-mail is incorrect. Check your input and try again.', 4)
-        }
-      }, response => {
-        this.loadingStatus = false
-        this.$message.error('Internal Server Error. Please try again.', 4)
-      })
     }
+    // checkMail (recaptchaToken) {
+    //   this.loadingStatus = true
+    //   console.log('checkMail Response from recaptcha ' + recaptchaToken)
+    //   this.$http.post(this.$store.state.endpoint.api + '/checkMail', {email: this.email, captcha: recaptchaToken}, {emulateJSON: true}).then(response => {
+    //     console.log(response.body.flag)
+    //     this.loadingStatus = false
+    //     if (response.body.flag === true) {
+    //       this.progress = 1
+    //     } else {
+    //       this.$message.error('E-mail is incorrect. Check your input and try again.', 4)
+    //     }
+    //   }, response => {
+    //     this.loadingStatus = false
+    //     this.$message.error('Internal Server Error. Please try again.', 4)
+    //   })
+    // },
+    // onVerify (e) {
+    //   console.log('recaptcha Verified. Response: ' + e)
+    // }
   }
 }
 </script>

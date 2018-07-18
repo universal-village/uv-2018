@@ -1,102 +1,12 @@
 <template>
   <div>
     <h1>My Submissions</h1>
-    <a-modal
-      v-model="modalVisible"
-      title="Edit Paper Submission"
-      onOk="handleOk"
-    >
-      <template slot="footer">
-        <a-button key="back" @click="() => {this.modalVisible = false}">Cancel</a-button>
-        <a-button key="submit" type="primary" :loading="submittingEdition" @click="handleOk">
-          Submit
-        </a-button>
-      </template>
-      <h1>Editing Paper {{editingPaperId}}</h1>
-      <a-form @submit="handleSubmit" :autoFormCreate="(form)=>{this.form = form}">
-        <a-form-item
-          label='Title'
-          :labelCol="{ span: 6 }"
-          :wrapperCol="{ span: 16 }"
-          fieldDecoratorId="title"
-          :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input the title of your paper submission!' }]}"
-        >
-          <a-input placeholder="Title" v-model="this.currentEditingPaper.title" ref="titleInput">
-            <a-icon slot="prefix" type="user" />
-            <a-icon v-if="this.currentEditingPaper.title" slot="suffix" type="close-circle" @click="emitEmptyField" />
-          </a-input>
-        </a-form-item>
-
-        <a-form-item
-          label='Category'
-          :labelCol="{ span: 6 }"
-          :wrapperCol="{ span: 16 }"
-          fieldDecoratorId="category"
-          :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input the Category of your paper submission!' }]}"
-        >
-          <a-select
-            style="width: 100%"
-            @change="handleChange"
-            placeholder="Category"
-            :tokenSeparators="[',']"
-          >
-            <a-select-option v-for="category in categories" :key="category" >
-              {{ category }}
-            </a-select-option>
-          </a-select>
-        </a-form-item>
-
-        <a-form-item
-          label='Authors'
-          :labelCol="{ span: 6 }"
-          :wrapperCol="{ span: 16 }"
-          fieldDecoratorId="authors"
-          :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input the Authors of your paper submission!' }]}"
-        >
-          <a-select
-            mode="tags"
-            style="width: 100%"
-            @change="handleChange"
-            placeholder="Authors"
-            :tokenSeparators="[',']"
-          >
-          </a-select>
-        </a-form-item>
-
-        <a-form-item
-          label='Keywords'
-          :labelCol="{ span: 6 }"
-          :wrapperCol="{ span: 16 }"
-          fieldDecoratorId="keywords"
-          :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input the Keywords of your paper submission!' }]}"
-        >
-          <a-select
-            mode="tags"
-            style="width: 100%"
-            @change="handleChange"
-            placeholder="Keywords"
-            :tokenSeparators="[',']"
-          >
-          </a-select>
-        </a-form-item>
-
-        <!--<a-form-item-->
-          <!--label='Paper'-->
-          <!--:labelCol="{ span: 6 }"-->
-          <!--:wrapperCol="{ span: 16 }"-->
-          <!--fieldDecoratorId="paper"-->
-          <!--:fieldDecoratorOptions="{rules: [{ required: true, message: 'Please upload the Paper of your paper submission!' }]}"-->
-        <!--&gt;-->
-          <!--<a-upload-dragger name="file" :multiple="true" action="//jsonplaceholder.typicode.com/posts/" @change="handleChange">-->
-            <!--<p class="ant-upload-drag-icon">-->
-              <!--<a-icon type="inbox" />-->
-            <!--</p>-->
-            <!--<p class="ant-upload-text" :style="{ 'padding': '0 1em' }">Click or drag file to this area to upload</p>-->
-            <!--<p class="ant-upload-hint" :style="{ 'padding': '0 1em' }">Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files</p>-->
-          <!--</a-upload-dragger>-->
-        <!--</a-form-item>-->
-      </a-form>
-    </a-modal>
+    <CollectionCreateForm
+      :wrappedComponentRef="this.saveFormRef"
+      :visible="this.visible"
+      :onCancel="this.handleCancel"
+      :onCreate="this.handleCreate"
+    />
   <a-table :columns="columns" :dataSource="paperList" :scroll="{ x: 1200, y: 100 }">
       <a slot="titles" slot-scope="text" href="#" @click="detailEntry(record.id)">
         {{ text }}
@@ -112,6 +22,7 @@
       </span>
       <span slot="action" slot-scope="text, record">
         <a @click="editEntry(record.paperid)">Edit</a>
+
         <a-divider type="vertical" />
         <a-popconfirm title="Are you sure to delete this paper submission?" @confirm="deleteEntry(record.paperid)"
                       okText="Delete" cancelText="No">
@@ -190,7 +101,7 @@ export default {
       modalVisible: false,
       editingPaperId: null,
       submittingEdition: false,
-      paperList: [{"paperid":5,"title":"asdf","authors":"sdaf","categoryId":1,"keywords":["sdf"]}],
+      paperList: [{'paperid': 5, 'title': 'asdf', 'authors': 'sdaf', 'categoryId': 1, 'keywords': ['sdf']}],
       currentEditingPaper: {
         title: null,
         category: null,
@@ -198,7 +109,7 @@ export default {
         keywords: null,
         paper: null
       },
-      categories: ["Intelligent Transportation and Urban Planning","Healthcare and Well-being","Intelligent Communities & New Lifestyles Enabled by Big Data & AI","Data Management","Green Energy and Materials","Blue Energy and Materials","Ecological and Environmental Systems","Secial Session: Intelligent Modeling and Simulation","Secial Session: Future Intelligent Manufacturing","Secial Session: Effective Microorganisms Technology","Forum: UV City Forum","Forum: UV Student Forum","Forum: UV Industry & Entrepreneurship Forum","UV Poster Session","UV Exhibition"]
+      categories: ['Intelligent Transportation and Urban Planning', 'Healthcare and Well-being', 'Intelligent Communities & New Lifestyles Enabled by Big Data & AI', 'Data Management', 'Green Energy and Materials', 'Blue Energy and Materials', 'Ecological and Environmental Systems', 'Secial Session: Intelligent Modeling and Simulation', 'Secial Session: Future Intelligent Manufacturing', 'Secial Session: Effective Microorganisms Technology', 'Forum: UV City Forum', 'Forum: UV Student Forum', 'Forum: UV Industry & Entrepreneurship Forum', 'UV Poster Session', 'UV Exhibition']
     }
   },
   created () {
@@ -231,19 +142,34 @@ export default {
       })
     },
     editEntry (paperId) {
-      this.modalVisible = true
+      this.visible = true
       this.editingPaperId = paperId
       let currentEditingPaper = this.paperList.find((el) => {
         return el.paperid === paperId
       })
       console.log(currentEditingPaper)
-      this.form.setFieldsValue('title', currentEditingPaper.title)
-      this.form.setFieldsValue('category', this.categories[this.currentEditingPaper.categoryId])
-      this.form.setFieldsValue('authors', currentEditingPaper.authors)
-      this.form.setFieldsValue('keywords', currentEditingPaper.keywords.join(','))
+      // this.form.setFieldsValue('title', currentEditingPaper.title)
+      // this.form.setFieldsValue('category', this.categories[this.currentEditingPaper.categoryId])
+      // this.form.setFieldsValue('authors', currentEditingPaper.authors)
+      // this.form.setFieldsValue('keywords', currentEditingPaper.keywords.join(','))
     },
     updateEntry (paperId) {
-      // update entry to server
+      this.$http.post(this.$store.state.endpoint.api + '/updatePaper', {
+        paperId: paperId,
+        title: this.form.getFieldsValue('title'),
+        category: this.form.getFieldsValue('category'),
+        authors: this.form.getFieldsValue('authors'),
+        keywords: this.form.getFieldsValue('keywords').join(', ')
+      }, {emulateJSON: true}).then(response => {
+        console.log(response.body)
+        try {
+          this.paperList = JSON.parse(response.body)
+        } catch (e) {
+          this.$message.error('Can\'t fetch My Paper Submissions. Please try again later.', 4)
+        }
+      }, response => {
+        this.$message.error('Can\'t fetch My Paper Submissions. Please try again later.', 4)
+      })
     },
     handleOk (e) {
       console.log('ok, event obj: ', e)
@@ -269,6 +195,23 @@ export default {
         deletingEntry()
         this.$message.error('Error occured while deleting your submission. Please try again later.', 4)
       })
+    },
+    handleCancel  () {
+      this.visible = false
+    },
+    handleCreate  () {
+      const form = this.formRef.form
+      form.validateFields((err, values) => {
+        if (err) {
+          return
+        }
+        console.log('Received values of form: ', values)
+        form.resetFields()
+        this.visible = false
+      })
+    },
+    saveFormRef  (formRef) {
+      this.formRef = formRef
     }
   }
 }

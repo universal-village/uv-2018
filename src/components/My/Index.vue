@@ -17,12 +17,9 @@
           </a-menu-item>
         </a-sub-menu>
         <a-sub-menu key="profile">
-          <span slot="title"><a-icon type="solution" />My Profile</span>
+          <span slot="title"><a-icon type="setting" />Settings</span>
           <a-menu-item key="profile:general">
-            <router-link to="/my/profile/general"><a-icon type="setting" />General</router-link>
-          </a-menu-item>
-          <a-menu-item key="profile:academic">
-            <router-link to="/my/profile/academic"><a-icon type="book" />Academic</router-link>
+            <router-link to="/my/profile"><a-icon type="solution" />My Profile</router-link>
           </a-menu-item>
         </a-sub-menu>
       </a-menu>

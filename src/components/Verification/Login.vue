@@ -29,7 +29,7 @@
               fieldDecoratorId="password"
               :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your password!' }]}"
             >
-              <a-input placeholder="Password" v-model="password" ref="passwordInput">
+              <a-input placeholder="Password" v-model="password" ref="passwordInput" type="password">
                 <a-icon slot="prefix" type="lock" />
                 <a-icon v-if="password" slot="suffix" type="close-circle" @click="emitEmptyPassword" style="cursor: pointer;"/>
                 <a-icon v-if="!password" slot="suffix" type="question-circle" @click="forgotPassword" style="cursor: pointer;" />
@@ -40,7 +40,7 @@
             >
               <!--<vue-recaptcha :sitekey="this.$store.state.sitekey">-->
                 <a-button type='primary' htmlType='submit' style="width: 100%;" :loading="spinning">
-                  Log In
+                  Login
                 </a-button>
               <!--</vue-recaptcha>-->
             </a-form-item>
