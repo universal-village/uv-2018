@@ -101,7 +101,7 @@ export default {
       modalVisible: false,
       editingPaperId: null,
       submittingEdition: false,
-      paperList: [{'paperid': 5, 'title': 'asdf', 'authors': 'sdaf', 'categoryId': 1, 'keywords': ['sdf']}],
+      paperList: [],
       currentEditingPaper: {
         title: null,
         category: null,
@@ -109,11 +109,11 @@ export default {
         keywords: null,
         paper: null
       },
-      categories: ['Intelligent Transportation and Urban Planning', 'Healthcare and Well-being', 'Intelligent Communities & New Lifestyles Enabled by Big Data & AI', 'Data Management', 'Green Energy and Materials', 'Blue Energy and Materials', 'Ecological and Environmental Systems', 'Secial Session: Intelligent Modeling and Simulation', 'Secial Session: Future Intelligent Manufacturing', 'Secial Session: Effective Microorganisms Technology', 'Forum: UV City Forum', 'Forum: UV Student Forum', 'Forum: UV Industry & Entrepreneurship Forum', 'UV Poster Session', 'UV Exhibition']
+      categories: []
     }
   },
   created () {
-    this.getCategories(),
+    this.getCategories()
     this.fetchData()
   },
   methods: {
@@ -189,11 +189,11 @@ export default {
           this.paperList = this.paperList.filter((el) => { return el.paperId !== paperId })
         } else {
           deletingEntry()
-          this.$message.error('Error occured while deleting your submission. Please try again later.', 4)
+          this.$message.error('Error occurred while deleting your submission. Please try again later.', 4)
         }
       }, response => {
         deletingEntry()
-        this.$message.error('Error occured while deleting your submission. Please try again later.', 4)
+        this.$message.error('Error occurred while deleting your submission. Please try again later.', 4)
       })
     },
     handleCancel  () {
@@ -210,7 +210,7 @@ export default {
         this.visible = false
       })
     },
-    saveFormRef  (formRef) {
+    saveFormRef (formRef) {
       this.formRef = formRef
     }
   }

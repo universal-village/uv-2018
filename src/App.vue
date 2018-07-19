@@ -96,7 +96,7 @@
         <a-menu-item key="my-uv">
           <router-link to="/my">My UV</router-link>
         </a-menu-item>
-        <a-menu-item class="disable-activation" style="float: right" v-if="this.$store.state.authenticate.token.length === 0" key="logged-out">
+        <a-menu-item class="disable-activation" style="float: right" v-if="this.$store.state.authenticate.username.length === 0" key="logged-out">
           <router-link to="/login"><a-button class="btn" type="dashed"><a-icon type="login"></a-icon> Login</a-button></router-link>
         </a-menu-item>
         <a-menu-item class="disable-activation" style="float: right; color: rgba(255, 255, 255, 0.65)" v-else key="logged-in">
@@ -121,6 +121,7 @@ export default {
   name: 'App',
   created () {
     this.updateBreadcrumb()
+    // this.validateLogin()
   },
   watch: {
     '$route': 'updateBreadcrumb'
@@ -134,17 +135,22 @@ export default {
     },
     logout () {
       this.$store.state.authenticate.username = ''
-      this.$store.state.authenticate.token = ''
       this.$http.get(this.$store.state.endpoint.api + '/logout').then(response => {
         if (response.body.flag === true) {
           this.$message.success('Logout: Successfully.', 3)
           this.$store.state.authenticate.username = ''
-          this.$store.state.authenticate.token = ''
         } else {
           this.$message.error('Logout: Failed. Please try again later.', 4)
         }
       }, response => {
         this.$message.error('Logout: Internal Server Error. Please contact administrator.', 4)
+      })
+    },
+    validateLogin () {
+      this.$http.get(this.$store.state.endpoint.api + '/isLogin').then(response => {
+        if (response.body.flag === true) {
+          this.$store.state.authenticate.username = response.body.email
+        }
       })
     }
   },

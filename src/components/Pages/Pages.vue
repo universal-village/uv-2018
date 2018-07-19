@@ -38,7 +38,7 @@ export default {
     },
     fetchData () {
       let loader = this.$message.loading('Loading page...', 0)
-      this.$http.get(this.$store.state.endpoint.pages + this.$route.params.page + ".html", {email: this.email, password: this.password}, {emulateJSON: true}).then(response => {
+      this.$http.get(this.$store.state.endpoint.pages + this.$route.params.page + '.html', {email: this.email, password: this.password}, {emulateJSON: true}).then(response => {
         console.log(response.body.flag)
         this.spinning = false
         loader()
@@ -47,7 +47,7 @@ export default {
         this.spinning = false
         loader()
         if (response.status === 404) {
-          this.pagePlain = "<h2>Page is still in construction...</h2>"
+          this.pagePlain = '<h2>Page is still in construction...</h2>'
         } else {
           this.$message.error('Page loading error. Please check parameters. status-' + response.status, 4)
         }

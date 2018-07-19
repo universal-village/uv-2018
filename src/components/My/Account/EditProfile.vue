@@ -3,7 +3,7 @@
     <h1>Edit Profile</h1>
     <a-layout-content :style="{ padding: '24px', margin: 0, minHeight: '280px' }">
       <div class="content">
-        <a-form @submit="handleSubmit" :autoFormCreate="(form)=>{this.form = form}">
+        <a-form :autoFormCreate="(form)=>{this.form = form}">
           <a-form-item
             label='Title'
             :labelCol="{ span: 9 }"
@@ -27,8 +27,8 @@
             fieldDecoratorId="firstname"
             :fieldDecoratorOptions="{rules: [{max: 45, min: 1, message: 'Field \'First Name\' must be shorter than 45 characters.'}, { required: true, message: 'Please input your First Name!' }]}"
           >
-            <a-input placeholder="First Name" v-model="firstname">
-              <a-icon v-if="firstname" slot="suffix" type="close-circle" @click="this.firstname = ''; this.form.setFieldsValue({firstname: ''})" />
+            <a-input placeholder="First Name" v-model="editing.firstname">
+              <a-icon v-if="editing.firstname" slot="suffix" type="close-circle" @click="this.firstname = ''; this.form.setFieldsValue({firstname: ''})" />
             </a-input>
           </a-form-item>
 
@@ -39,8 +39,8 @@
             fieldDecoratorId="middlename"
             :fieldDecoratorOptions="{rules: [{max: 45, min: 0, message: 'Field \'Middle Name\' must be shorter than 45 characters.'}]}"
           >
-            <a-input placeholder="Middle Name" v-model="middlename">
-              <a-icon v-if="middlename" slot="suffix" type="close-circle" @click="emitEmptyField" />
+            <a-input placeholder="Middle Name" v-model="editing.middlename">
+              <a-icon v-if="editing.middlename" slot="suffix" type="close-circle" @click="emitEmptyField" />
             </a-input>
           </a-form-item>
 
@@ -51,8 +51,8 @@
             fieldDecoratorId="lastname"
             :fieldDecoratorOptions="{rules: [{max: 45, min: 1, message: 'Field \'Last Name\' must be shorter than 45 characters.'}, { required: true, message: 'Please input your Last Name!' }]}"
           >
-            <a-input placeholder="Last Name" v-model="lastname">
-              <a-icon v-if="lastname" slot="suffix" type="close-circle" @click="emitEmptyField" />
+            <a-input placeholder="Last Name" v-model="editing.lastname">
+              <a-icon v-if="editing.lastname" slot="suffix" type="close-circle" @click="emitEmptyField" />
             </a-input>
           </a-form-item>
 
@@ -63,9 +63,9 @@
             fieldDecoratorId="nameInOwnLanguage"
             :fieldDecoratorOptions="{rules: [{max: 200, min: 1, message: 'Field \'Name in own Language\' must be shorter than 200 characters.'}, { required: true, message: 'Please input your Name in own Language!' }]}"
           >
-            <a-input placeholder="Name in own Language" v-model="nameInOwnLanguage" ref="nameInOwnLanguageInput">
+            <a-input placeholder="Name in own Language" v-model="editing.nameInOwnLanguage" ref="nameInOwnLanguageInput">
               <a-icon slot="prefix" type="contacts" />
-              <a-icon v-if="nameInOwnLanguage" slot="suffix" type="close-circle" @click="emitEmptyField" />
+              <a-icon v-if="editing.nameInOwnLanguage" slot="suffix" type="close-circle" @click="emitEmptyField" />
             </a-input>
           </a-form-item>
 
@@ -76,9 +76,9 @@
             fieldDecoratorId="birthdayDate"
             :fieldDecoratorOptions="{rules: [{ required: true, message: 'What\'s your Birthday?' }]}"
           >
-            <a-input placeholder="Birthday" v-model="birthdayDate" ref="titleInput">
+            <a-input placeholder="Birthday" v-model="editing.birthdayDate" ref="titleInput">
               <a-icon slot="prefix" type="gift" />
-              <a-icon v-if="birthdayDate" slot="suffix" type="close-circle" @click="emitEmptyField" />
+              <a-icon v-if="editing.birthdayDate" slot="suffix" type="close-circle" @click="emitEmptyField" />
             </a-input>
           </a-form-item>
 
@@ -89,9 +89,9 @@
             fieldDecoratorId="bios"
             :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your Biblography!' }]}"
           >
-            <a-textarea placeholder="Short summary about yourself" v-model="bios" ref="biosInput" :autosize="{ minRows: 3 }">
+            <a-textarea placeholder="Short summary about yourself" v-model="editing.bios" ref="biosInput" :autosize="{ minRows: 3 }">
               <a-icon slot="prefix" type="smile" />
-              <a-icon v-if="bios" slot="suffix" type="close-circle" @click="emitEmptyField" />
+              <a-icon v-if="editing.bios" slot="suffix" type="close-circle" @click="emitEmptyField" />
             </a-textarea>
           </a-form-item>
 
@@ -102,9 +102,9 @@
             fieldDecoratorId="organization"
             :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your Organization!' }]}"
           >
-            <a-input placeholder="Organization" v-model="organization" ref="organizationInput">
+            <a-input placeholder="Organization" v-model="editing.organization" ref="organizationInput">
               <a-icon slot="prefix" type="team" />
-              <a-icon v-if="organization" slot="suffix" type="close-circle" @click="emitEmptyField" />
+              <a-icon v-if="editing.organization" slot="suffix" type="close-circle" @click="emitEmptyField" />
             </a-input>
           </a-form-item>
 
@@ -115,9 +115,9 @@
             fieldDecoratorId="address"
             :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your Address!' }]}"
           >
-            <a-input placeholder="Address" v-model="address" ref="addressInput">
+            <a-input placeholder="Address" v-model="editing.address" ref="addressInput">
               <a-icon slot="prefix" type="car" />
-              <a-icon v-if="address" slot="suffix" type="close-circle" @click="emitEmptyField" />
+              <a-icon v-if="editing.address" slot="suffix" type="close-circle" @click="emitEmptyField" />
             </a-input>
           </a-form-item>
 
@@ -128,9 +128,9 @@
             fieldDecoratorId="city"
             :fieldDecoratorOptions="{rules: [{ required: false, message: 'Please input your City!' }]}"
           >
-            <a-input placeholder="City" v-model="city" ref="cityInput">
+            <a-input placeholder="City" v-model="editing.city" ref="cityInput">
               <a-icon slot="prefix" type="car" />
-              <a-icon v-if="city" slot="suffix" type="close-circle" @click="emitEmptyField" />
+              <a-icon v-if="editing.city" slot="suffix" type="close-circle" @click="emitEmptyField" />
             </a-input>
           </a-form-item>
 
@@ -141,9 +141,9 @@
             fieldDecoratorId="zipcode"
             :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your Zip Postal Code!' }]}"
           >
-            <a-input placeholder="02049" v-model="zipcode" ref="zipcodeInput">
+            <a-input placeholder="02049" v-model="editing.zipcode" ref="zipcodeInput">
               <a-icon slot="prefix" type="mail" />
-              <a-icon v-if="zipcode" slot="suffix" type="close-circle" @click="emitEmptyField" />
+              <a-icon v-if="editing.zipcode" slot="suffix" type="close-circle" @click="emitEmptyField" />
             </a-input>
           </a-form-item>
 
@@ -154,9 +154,9 @@
             fieldDecoratorId="state"
             :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your State!' }]}"
           >
-            <a-input placeholder="State" v-model="state" ref="stateInput">
+            <a-input placeholder="State" v-model="editing.state" ref="stateInput">
               <a-icon slot="prefix" type="car" />
-              <a-icon v-if="state" slot="suffix" type="close-circle" @click="emitEmptyField" />
+              <a-icon v-if="editing.state" slot="suffix" type="close-circle" @click="emitEmptyField" />
             </a-input>
           </a-form-item>
 
@@ -167,9 +167,9 @@
             fieldDecoratorId="country"
             :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your Country!' }]}"
           >
-            <a-input placeholder="Country" v-model="country" ref="countryInput">
+            <a-input placeholder="Country" v-model="editing.country" ref="countryInput">
               <a-icon slot="prefix" type="car" />
-              <a-icon v-if="country" slot="suffix" type="close-circle" @click="emitEmptyField" />
+              <a-icon v-if="editing.country" slot="suffix" type="close-circle" @click="emitEmptyField" />
             </a-input>
           </a-form-item>
 
@@ -180,9 +180,9 @@
             fieldDecoratorId="telephone"
             :fieldDecoratorOptions="{rules: [{ required: false, message: 'Please input your Telephone!' }]}"
           >
-            <a-input placeholder="Telephone" v-model="telephone" ref="telephoneInput">
+            <a-input placeholder="Telephone" v-model="editing.telephone" ref="telephoneInput">
               <a-icon slot="prefix" type="phone" />
-              <a-icon v-if="telephone" slot="suffix" type="close-circle" @click="emitEmptyField" />
+              <a-icon v-if="editing.telephone" slot="suffix" type="close-circle" @click="emitEmptyField" />
             </a-input>
           </a-form-item>
 
@@ -193,9 +193,9 @@
             fieldDecoratorId="fax"
             :fieldDecoratorOptions="{rules: [{ required: false, message: 'Please input your Fax!' }]}"
           >
-            <a-input placeholder="Fax" v-model="fax" ref="faxInput">
+            <a-input placeholder="Fax" v-model="editing.fax" ref="faxInput">
               <a-icon slot="prefix" type="phone" />
-              <a-icon v-if="fax" slot="suffix" type="close-circle" @click="emitEmptyField" />
+              <a-icon v-if="editing.fax" slot="suffix" type="close-circle" @click="emitEmptyField" />
             </a-input>
           </a-form-item>
 
@@ -206,9 +206,9 @@
             fieldDecoratorId="cellphone"
             :fieldDecoratorOptions="{rules: [{ required: false, message: 'Please input your Cellphone!' }]}"
           >
-            <a-input placeholder="Cellphone" v-model="cellphone" ref="cellphoneInput">
+            <a-input placeholder="Cellphone" v-model="editing.cellphone" ref="cellphoneInput">
               <a-icon slot="prefix" type="phone" />
-              <a-icon v-if="cellphone" slot="suffix" type="close-circle" @click="emitEmptyField" />
+              <a-icon v-if="editing.cellphone" slot="suffix" type="close-circle" @click="emitEmptyField" />
             </a-input>
           </a-form-item>
 
@@ -219,7 +219,7 @@
             fieldDecoratorId="needSupport"
             :fieldDecoratorOptions="{rules: [{ required: true, message: 'Do you need Support?' }]}"
           >
-            <a-switch v-model="needSupport" checkedChildren="Yes" unCheckedChildren="No"/>
+            <a-switch checkedChildren="Yes" unCheckedChildren="No"/>
           </a-form-item>
 
           <a-form-item
@@ -230,17 +230,17 @@
             :fieldDecoratorOptions="{rules: [{ required: false, message: 'Please input your Passport!' }]}"
             v-if="needSupport"
           >
-            <a-input placeholder="Passport" v-model="passport" ref="passportInput">
+            <a-input placeholder="Passport" v-model="editing.passport" ref="passportInput">
               <a-icon slot="prefix" type="idcard" />
-              <a-icon v-if="passport" slot="suffix" type="close-circle" @click="emitEmptyField" />
+              <a-icon v-if="editing.passport" slot="suffix" type="close-circle" @click="emitEmptyField" />
             </a-input>
           </a-form-item>
 
-          <!--<vue-recaptcha :sitekey="this.$store.state.sitekey">-->
-            <a-button type='primary' htmlType='submit' style="width: 100%;" :loading="submitting" @click="submitData">
+          <vue-recaptcha :sitekey="this.$store.state.sitekey" @verify="submitData">
+            <a-button type='primary' htmlType='submit' style="width: 100%;" :loading="submitting">
               <a-icon type="upload" /> Update
             </a-button>
-          <!--</vue-recaptcha>-->
+          </vue-recaptcha>
         </a-form>
       </div>
     </a-layout-content>
@@ -248,13 +248,36 @@
 </template>
 
 <script>
+import VueRecaptcha from 'vue-recaptcha'
 export default {
   name: 'EditProfile',
   data () {
     return {
       userInfo: null,
-      submitting: false
+      submitting: false,
+      editing: {
+        firstname: '',
+        middlename: '',
+        lastname: '',
+        nameInOwnLanguage: '',
+        birthdayDate: '',
+        bios: '',
+        organization: '',
+        address: '',
+        city: '',
+        zipcode: '',
+        state: '',
+        country: '',
+        telephone: '',
+        fax: '',
+        cellphone: '',
+        passport: '',
+        needSupport: ''
+      }
     }
+  },
+  components: {
+    VueRecaptcha
   },
   created () {
     this.fetchData()
@@ -288,18 +311,18 @@ export default {
             cellphone: this.userInfo.cellphone,
             passport: this.userInfo.passport,
             needSupport: this.userInfo.needSupport,
-            birthdayDate: [this.userInfo.birthyear, this.userInfo.birthmonth, this.userInfo.birthday].join('.') ,
-            title: this.userInfo.title,
+            birthdayDate: [this.userInfo.birthyear, this.userInfo.birthmonth, this.userInfo.birthday].join('.'),
+            title: this.userInfo.title
           })
         } catch (e) {
           this.$message.warn('Form parsing exception: ' + e, 4)
         }
-      }, response  => {
+      }, response => {
         this.$message.error('Can\'t fetch category info.', 4)
       })
     },
-    submitData () {
-      this.submitting = true;
+    submitData (recaptchaToken) {
+      this.submitting = true
       let formResult = this.form.getFieldsValue()
       this.$http.post(this.$store.state.endpoint.api + '/updateUser', {
         zipcode: formResult.zipcode,
@@ -321,7 +344,8 @@ export default {
         birthday: formResult.birthdayDate.split('.')[2],
         birthmonth: formResult.birthdayDate.split('.')[1],
         birthyear: formResult.birthdayDate.split('.')[0],
-        title: formResult.title
+        title: formResult.title,
+        token: recaptchaToken
       }, {emulateJSON: true}).then(response => {
         console.log(response.body)
         if (response.body.flag) {

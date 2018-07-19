@@ -21,7 +21,7 @@
               </a-steps>
             </div>
 
-            <a-form @submit="handleSubmit" :autoFormCreate="(form)=>{this.form = form}">
+            <a-form :autoFormCreate="(form)=>{this.form = form}">
               <div v-if="current === 0">
 
                 <a-form-item
@@ -126,7 +126,7 @@
                   :labelCol="{ span: 9 }"
                   :wrapperCol="{ span: 12 }"
                   fieldDecoratorId="confirmPassword"
-                  :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please confirm your password!' }]}"
+                  :fieldDecoratorOptions="{rules: [{ max: 32, min: 1, message: '\'Password\' must be shorter than 100 characters.' }, { required: true, message: 'Please confirm your password!' }]}"
                 >
                   <a-input type="password" placeholder="Your password again" v-model="confirmPassword" ref="confirmPasswordInput">
                     <a-icon slot="prefix" type="lock" />
@@ -304,15 +304,15 @@
                 :labelCol="{ span: 9 }"
                 :wrapperCol="{ span: 12 }"
                 fieldDecoratorId="passport"
-                :fieldDecoratorOptions="{rules: [{ required: false, message: 'Please input your Passport!' }]}"
+                :fieldDecoratorOptions="{rules: [{ required: false, message: 'Please input your Passport Number!' }]}"
                 v-if="needSupport"
               >
-                <a-input placeholder="Passport" v-model="passport" ref="passportInput">
+                <a-input placeholder="A12345678" v-model="passport" ref="passportInput">
                   <a-icon slot="prefix" type="idcard" />
                   <a-icon v-if="passport" slot="suffix" type="close-circle" @click="emitEmptyField" />
                 </a-input>
               </a-form-item>
-                <vue-recaptcha :sitekey="this.$store.state.sitekey">
+                <vue-recaptcha :sitekey="this.$store.state.sitekey" @verify="handleSubmit">
                   <a-button type='primary' htmlType='submit' style="float: right;">
                     Submit &nbsp; <a-icon type="forward" />
                   </a-button>
@@ -324,7 +324,7 @@
                 App Error. Please contact administrator.
               </div>
 
-              <a-button-group :size="size" style="float: right;">
+              <a-button-group style="float: right;">
                 <a-button type="primary" @click="prev" v-if="current > 0 && current <= 3">
                   <a-icon type="left" />Previous
                 </a-button>
@@ -407,24 +407,16 @@ export default {
     prev () {
       this.current--
     },
-    emitEmptyEmail () {
-      this.$refs.emailInput.focus()
-      this.email = ''
-    },
-    emitEmptyPassword () {
-      this.$refs.passwordInput.focus()
-      this.password = ''
-    },
     emitEmptyField (event) {
-      console.log(event)
+      // eslint-disable-next-line
+      eval('this.form.setFieldsValue({' + event.path[2].childNodes[1].attributes.id.value + ': ""})')
     },
     birthdayDateStringHandler (date, dateString) {
       console.log(date, dateString)
     },
-    handleSubmit (e) {
-      if (formError()) return this.$message.error('There\'s one or more errors with your input with our registeration form. Please check again.')
+    handleSubmit (recaptchaToken) {
+      // if (formError()) return this.$message.error('There\'s one or more errors with your input with our registration form. Please check again.')
       this.spinning = true
-      e.preventDefault()
       sha.update(this.password + this.$store.state.authenticate.shaSalt)
       let passwordHash = sha.hex()
       console.log(this.birthdayDate, typeof this.birthdayDate, this.birthdayDate.toString(), typeof this.birthdayDate.toString())
@@ -450,7 +442,8 @@ export default {
         birthyear: encodeURIComponent(this.birthdayDate.toString().split('.')[0]),
         birthmonth: encodeURIComponent(this.birthdayDate.toString().split('.')[1]),
         birthday: encodeURIComponent(this.birthdayDate.toString().split('.')[2]),
-        title: encodeURIComponent(this.title)
+        title: encodeURIComponent(this.title),
+        token: recaptchaToken
       }, {emulateJSON: true}).then(response => {
         console.log(response.body.flag)
         this.spinning = false
@@ -478,9 +471,7 @@ export default {
     },
     checkLoginStatus () {
       console.log(this.birthdayDate)
-      if (this.$store.state.authenticate.token.length > 0) {
-        this.$router.go(-1)
-      } else if (this.$store.state.authenticate.username.length > 0) {
+      if (this.$store.state.authenticate.username.length > 0) {
         this.$router.go(-1)
       }
     }

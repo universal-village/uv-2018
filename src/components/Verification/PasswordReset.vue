@@ -17,9 +17,9 @@
               fieldDecoratorId="email"
               :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your E-mail!' }]}"
             >
-              <a-input placeholder="E-mail" v-model="email" ref="emailInput">
+              <a-input placeholder="E-mail" v-model="binding.email" ref="emailInput">
                 <a-icon slot="prefix" type="user" />
-                <a-icon v-if="email" slot="suffix" type="close-circle" @click="emitEmptyEmail" />
+                <a-icon v-if="binding.email" slot="suffix" type="close-circle" @click="emitEmptyField" />
               </a-input>
             </a-form-item>
             <a-form-item
@@ -29,8 +29,9 @@
               fieldDecoratorId="oldPassword"
               :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your old password!' }]}"
             >
-              <a-input placeholder="Old Password">
+              <a-input placeholder="Old Password" v-model="binding.oldPassword">
                 <a-icon slot="prefix" type="lock" />
+                <a-icon v-if="binding.oldPassword" slot="suffix" type="close-circle" @click="emitEmptyField" />
               </a-input>
             </a-form-item>
             <a-form-item
@@ -40,15 +41,16 @@
               fieldDecoratorId="newPassword"
               :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your new password!' }]}"
             >
-              <a-input placeholder="New Password">
+              <a-input placeholder="New Password" v-model="binding.newPassword">
                 <a-icon slot="prefix" type="lock" />
+                <a-icon v-if="binding.newPassword" slot="suffix" type="close-circle" @click="emitEmptyField" />
               </a-input>
             </a-form-item>
             <a-form-item
               :wrapperCol="{ span: 12, offset: 3 }"
             >
               <vue-recaptcha :sitekey="this.$store.state.sitekey" @verify="handleSubmit">
-                <a-button type='primary' :loading="loadingStatus" @click="checkMail">
+                <a-button type='primary' :loading="loadingStatus">
                   Submit <a-icon type="right"></a-icon>
                 </a-button>
               </vue-recaptcha>
@@ -76,7 +78,12 @@ export default {
       password: '',
       spinning: false,
       progress: 0,
-      loadingStatus: false
+      loadingStatus: false,
+      binding: {
+        email: '',
+        oldPassword: '',
+        newPassword: ''
+      }
     }
   },
   methods: {
@@ -99,6 +106,10 @@ export default {
         this.loadingStatus = false
         this.$message.error('Internal Server Error. Please try again.', 4)
       })
+    },
+    emitEmptyField (e) {
+      // eslint-disable-next-line
+      eval('this.form.setFieldsValue({' + e.path[2].childNodes[1].attributes.id.value + ': ""})')
     }
     // checkMail (recaptchaToken) {
     //   this.loadingStatus = true

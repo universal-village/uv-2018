@@ -48,7 +48,6 @@ export default new Router({
     },
     {
       path: '/my',
-      name: 'My Base Object',
       components: {
         App: MyIndex
       },
@@ -60,22 +59,26 @@ export default new Router({
         }
       }, {
         path: 'submissions',
+        name: 'My UV / Submissions',
         components: {
           My: MySubmissions
         },
         children: [{
           path: 'paper',
+          name: 'My UV / Submissions / Paper',
           components: {
             MySubmissions: MySubmissionsPaper
           }
         }, {
           path: 'add',
+          name: 'My UV / Submissions / Add',
           components: {
             MySubmissions: AddPaperSubmission
           }
         }]
       }, {
         path: 'profile',
+        name: 'My Profile',
         components: {
           My: MyProfileEdit
         }
@@ -83,14 +86,14 @@ export default new Router({
     },
     {
       path: '/pages',
-      name: 'Pages',
+      name: 'Static Pages Index',
       components: {
         App: PagesIndex
       }
     },
     {
       path: '/pages/:page',
-      name: 'Pages Detail',
+      name: 'Static Pages Detail',
       components: {
         App: PagesDetail
       }

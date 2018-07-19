@@ -40,10 +40,7 @@ const store = new Vuex.Store({
     },
     navPageList: [],
     authenticate: {
-      token: '1',
-      role: 0,
-      username: 'root',
-      permission: 0,
+      username: '',
       shaSalt: 'universal-village'
     },
     sitekey: '6LeE8GQUAAAAADw5NwLtA6Ge_trrLCvTkJe8yD7d'

@@ -21,6 +21,9 @@
           <a-menu-item key="profile:general">
             <router-link to="/my/profile"><a-icon type="solution" />My Profile</router-link>
           </a-menu-item>
+          <a-menu-item key="profile:reset-password">
+            <router-link to="/reset-password"><a-icon type="lock" />Reset Password</router-link>
+          </a-menu-item>
         </a-sub-menu>
       </a-menu>
     </a-layout-sider>
@@ -53,10 +56,7 @@ export default {
   },
   methods: {
     checkLoginStatus () {
-      if (this.$store.state.authenticate.token.length === 0) {
-        this.$message.info('Before entering My UV, please log in.', 10)
-        this.$router.push('/login')
-      } else if (this.$store.state.authenticate.username.length === 0) {
+      if (this.$store.state.authenticate.username.length === 0) {
         this.$message.info('Before entering My UV, please log in.', 10)
         this.$router.push('/login')
       }
