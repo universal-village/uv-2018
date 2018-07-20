@@ -21,7 +21,6 @@
                 </a-step>
               </a-steps>
             </div>
-            <a-button type="dashed" @click="devTest">FUCK IT!</a-button>
 
             <a-form :autoFormCreate="(form)=>{this.form = form}">
               <div v-if="current === 0">
@@ -487,11 +486,6 @@ export default {
       } else {
         this.showOthers = false
       }
-    },
-    devTest () {
-      console.log()
-      console.log()
-      console.log()
     }
   }
 }
