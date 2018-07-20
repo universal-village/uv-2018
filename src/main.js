@@ -7,7 +7,8 @@ import VueTitlecase from 'vue-titlecase'
 import VueLodash from 'vue-lodash'
 import VueRecaptcha from 'vue-recaptcha'
 import VueAnalytics from 'vue-analytics'
-import Carousel3d from 'vue-carousel-3d';
+import Carousel3d from 'vue-carousel-3d'
+import VueModal from 'vue-js-modal'
 import * as VueGoogleMaps from 'vue2-google-maps'
 import createPersistedState from 'vuex-persistedstate'
 import Antd from 'vue-antd-ui'
@@ -22,6 +23,7 @@ Vue.use(VueResource)
 Vue.use(VueTitlecase)
 Vue.use(Antd)
 Vue.use(VueLodash)
+Vue.use(VueModal, { dynamic: true })
 Vue.use(VueAnalytics, {
   id: 'UA-122336687-1',
   router

@@ -12,6 +12,8 @@ const PagesIndex = () => import(/* webpackChunkName: "home" */ '@/components/Pag
 const PagesDetail = () => import(/* webpackChunkName: "home" */ '@/components/Pages/Pages.vue')
 const AddPaperSubmission = () => import(/* webpackChunkName: "my" */ '@/components/My/Submissions/Paper/Add.vue')
 const MyProfileEdit = () => import(/* webpackChunkName: "my" */ '@/components/My/Account/EditProfile.vue')
+const NotFoundError = () => import(/* webpackChunkName: "home" */ '@/components/NotFound.vue')
+const EditPaperSubmission = () => import(/* webpackChunkName: "my" */ '@/components/My/Submissions/Paper/Edit.vue')
 
 Vue.use(Router)
 
@@ -75,6 +77,12 @@ export default new Router({
           components: {
             MySubmissions: AddPaperSubmission
           }
+        }, {
+          path: 'edit/:paperId',
+          name: 'My UV / Submissions / Edit',
+          components: {
+            MySubmissions: EditPaperSubmission
+          }
         }]
       }, {
         path: 'profile',
@@ -96,6 +104,13 @@ export default new Router({
       name: 'Static Pages Detail',
       components: {
         App: PagesDetail
+      }
+    },
+    {
+      path: '*',
+      name: 'Not Found',
+      components: {
+        App: NotFoundError
       }
     }
   ]

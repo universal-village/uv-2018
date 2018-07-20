@@ -1,35 +1,81 @@
 <template>
   <div>
     <h1>My Submissions</h1>
-    <CollectionCreateForm
-      :wrappedComponentRef="this.saveFormRef"
-      :visible="this.visible"
-      :onCancel="this.handleCancel"
-      :onCreate="this.handleCreate"
-    />
-  <a-table :columns="columns" :dataSource="paperList" :scroll="{ x: 1200, y: 600 }">
-      <a slot="titles" slot-scope="text" href="#" @click="detailEntry(record.id)">
-        {{ text }}
-      </a>
-      <span slot="authors" slot-scope="text">
-        {{ text }}
-      </span>
-      <span slot="keywords" slot-scope="text">
-        {{ text.join(', ') }}
-      </span>
-      <span slot="category" slot-scope="text">
-        {{ categories[text] }}
-      </span>
-      <span slot="action" slot-scope="text, record">
-        <a @click="editEntry(record.paperid)">Edit</a>
+    <!--<a-table :columns="columns" :dataSource="paperList" :scroll="{ x: 1200, y: 600 }">-->
+      <!--<a slot="titles" slot-scope="text, record" href="#" @click="detailEntry(record.paperid)">-->
+        <!--{{ text }}-->
+      <!--</a>-->
+      <!--<span slot="action" slot-scope="text, record">-->
+        <!--<a @click="editEntry(record.paperid)">Edit</a>-->
+        <!--<a-divider type="vertical" />-->
+        <!--<a-popconfirm title="Are you sure to delete this paper submission?" @confirm="deleteEntry(record.paperid)"-->
+                      <!--okText="Delete" cancelText="No">-->
+          <!--<a>Delete</a>-->
+        <!--</a-popconfirm>-->
+      <!--</span>-->
+    <!--</a-table>-->
+    <a-card v-for="paper in paperList" :title="paper.title" :key="paper.paperid" style="margin: 2em" :bordered="false">
+      <a href="#" slot="extra" @click="detailEntry(paper.paperid)">more</a>
+      <!-- TODO: Add the badge of the phases. -->
+      <span style="display: inline-block">Category</span>
+      <a-divider type="vertical" />
+      <p style="display: inline-block;">
+        {{ categories[paper.categoryId - 1] }}
+      </p>
+      <br>
+      <!--<span style="display: inline-block">Title</span>-->
+      <!--<a-divider type="vertical" />-->
+      <!--<p style="display: inline-block;">-->
+        <!--{{ paper.title }}-->
+      <!--</p>-->
+      <!--<br>-->
+      <span style="display: inline-block">Phase</span>
+      <a-divider type="vertical" />
+      <p style="display: inline-block;">
+        {{ paper.phase }}
+      </p>
+    </a-card>
 
-        <a-divider type="vertical" />
-        <a-popconfirm title="Are you sure to delete this paper submission?" @confirm="deleteEntry(record.paperid)"
-                      okText="Delete" cancelText="No">
-          <a>Delete</a>
-        </a-popconfirm>
-      </span>
-    </a-table>
+    <a-card v-if="!this.paperList" title="(No paper submissions yet)">
+      <p>There's currently no paper submissions on your account. <router-link to="/my/submissions/add">Submit one.</router-link></p>
+    </a-card>
+
+    <modal name="paper-modal" height="auto"
+           width="700"
+           :adaptive="true"
+           :scrollable="true"
+           style="height: 85vh; padding: 10vh 0"
+    >
+      <div class="panel" style="display: block;">
+        <div class="container-modal">
+          <a-popconfirm title="Delete this submission?" @confirm="deleteEntry(currentEditingPaper.paperId)"
+                        okText="Delete" cancelText="No" style="float: right;">
+            <a-button type="danger">
+              Delete
+            </a-button>
+          </a-popconfirm>
+
+          <h1>Reviewing paper #{{ currentEditingPaper.paperId }}</h1>
+          <a-divider type="horizontal" />
+          <label for="title"><b> Title </b></label>
+          <span>{{ currentEditingPaper.title || "(Not specified)" }}</span>
+          <label for="authors"><b> Authors </b></label>
+          <span>{{currentEditingPaper.authors || "(Not specified)"}}</span>
+          <label for="category"><b> Category </b></label>
+          <span>{{categories[currentEditingPaper.categoryId - 1] || "(Not specified)"}}</span>
+          <label for="abstract"><b> Abstract </b></label>
+          <p>{{currentEditingPaper._abstract || "(Not specified)"}}</p >
+          <label for="keywords"><b> Keywords </b></label>
+          <p>{{currentEditingPaper.keywords.join(", ") || "(Not specified)"}}</p >
+          <label for="phase"><b> Phase </b></label>
+          <span>{{currentEditingPaper.phase || "(Not specified)"}}</span>
+          <a-divider orientation="left">Actions</a-divider>
+          <a-button type="primary" @click="editEntry(currentEditingPaper.paperId)" icon="edit">
+            Edit
+          </a-button>
+        </div>
+      </div>
+    </modal>
   </div>
 </template>
 
@@ -109,11 +155,13 @@ export default {
       submittingEdition: false,
       paperList: [],
       currentEditingPaper: {
-        title: null,
-        category: null,
-        authors: null,
-        keywords: null,
-        paper: null
+        paperId: '',
+        title: '',
+        authors: '',
+        categoryId: '',
+        _abstract: '',
+        keywords: [],
+        phase: ''
       },
       categories: []
     }
@@ -127,7 +175,8 @@ export default {
       this.$http.get(this.$store.state.endpoint.api + '/myPaper').then(response => {
         console.log(response.body)
         try {
-          this.paperList = [{"paperid":7,"title":"as","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":7,"title":"as","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":7,"title":"as","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":7,"title":"as","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":7,"title":"as","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":7,"title":"as","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":7,"title":"as","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":7,"title":"as","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null}]
+          this.paperList = response.body
+          // this.paperList = [{"paperid":7,"title":"as7","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eleifend in quam non blandit. Praesent nunc eros, maximus eget semper eget, venenatis et nisl. Etiam sem enim, lacinia vitae feugiat et, ultricies sit amet mauris. Ut finibus, orci et iaculis laoreet, diam nibh laoreet erat, vitae congue eros sapien vitae lacus. In nisl tortor, egestas feugiat dignissim eu, faucibus sit amet arcu. Fusce ultrices vestibulum ipsum, non blandit diam rhoncus id. Vestibulum consequat orci ac metus ornare, eu tristique ligula venenatis. Nullam lectus arcu, interdum ut est in, fermentum maximus lorem. Mauris pulvinar cursus nibh, at rhoncus erat venenatis eu. Vestibulum maximus, mauris in volutpat molestie, mauris ligula faucibus orci, commodo vulputate nisi lectus ac neque.'},{"paperid":8,"title":"as8","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":9,"title":"as8","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":10,"title":"as8","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null}]
         } catch (e) {
           console.error('Error during parse: e[%s], response[%s]', e, response)
           this.$message.error('Can\'t fetch My Paper Submissions. Please try again later.', 4)
@@ -150,12 +199,8 @@ export default {
       })
     },
     editEntry (paperId) {
-      this.visible = true
       this.editingPaperId = paperId
-      let currentEditingPaper = this.paperList.find((el) => {
-        return el.paperid === paperId
-      })
-      console.log(currentEditingPaper)
+      this.$router.push('/my/submissions/edit/' + paperId)
       // this.form.setFieldsValue('title', currentEditingPaper.title)
       // this.form.setFieldsValue('category', this.categories[this.currentEditingPaper.categoryId])
       // this.form.setFieldsValue('authors', currentEditingPaper.authors)
@@ -189,7 +234,7 @@ export default {
     },
     deleteEntry (paperId) {
       const deletingEntry = this.$message.loading('Deleting your submission...', 0)
-      this.$http.post(this.$store.state.endpoint.api + '/deletePaper', {paperId: paperId}).then(response => {
+      this.$http.post(this.$store.state.endpoint.api + '/deletePaper', {paperid: paperId}).then(response => {
         console.log(response.body)
         if (response.body.flag) {
           deletingEntry()
@@ -220,11 +265,26 @@ export default {
     },
     saveFormRef (formRef) {
       this.formRef = formRef
+    },
+    detailEntry (paperIdSecond) {
+      let matcher = this.paperList.filter((el) => { return el.paperid === paperIdSecond })[0]
+      console.log('Matched %o, List %o', matcher, this.paperList)
+      this.currentEditingPaper = {
+        paperId: paperIdSecond,
+        title: matcher.title,
+        authors: matcher.authors,
+        _abstract: matcher._abstract,
+        categoryId: matcher.categoryId,
+        keywords: matcher.keywords,
+        phase: matcher.phase
+      }
+      console.log('Matched %o, List %o', matcher, this.paperList)
+      this.$modal.show('paper-modal')
     }
   }
 }
 </script>
 
 <style scoped>
-
+  input[type=password],input[type=text]{width:100%;padding:9pt 20px;margin:8px 0;display:inline-block;border:1px solid #ccc;box-sizing:border-box}.imgcontainer{text-align:center;margin:24px 0 9pt}img.avatar{width:40%;border-radius:50%}.container-modal{padding:3em}span.psw{float:right;padding-top:1pc}@media screen and (max-width:300px){span.psw{display:block;float:none}.editbtn{width:100%}}.v--modal-box{display:none;position:fixed;z-index:1;padding-top:75pt;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:rgba(0,255,0,.4)}.modal-content{position:relative;background-color:#fefefe;margin:auto;padding:0;border:1px solid #888;width:80%;box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);-webkit-animation-name:animatetop;-webkit-animation-duration:.4s;animation-name:animatetop;animation-duration:.4s}@-webkit-keyframes animatetop{0%{top:-300px;opacity:0}to{top:0;opacity:1}}@keyframes animatetop{0%{top:-300px;opacity:0}to{top:0;opacity:1}}.close{color:#fff;float:right;font-size:28px;font-weight:700}.close:focus,.close:hover{color:#000;text-decoration:none;cursor:pointer}.modal-header{background-color:#5cb85c;color:#fff}.modal-body,.modal-footer,.modal-header{padding:2px 1pc}.modal-footer{background-color:#5cb85c;color:#fff}div.panel h1{font-weight:bolder;font-size:2em}div.panel label{display:block;font-size:1.5em;font-weight:700}div.panel p,div.panel span{display:block;font-size:1.2em;margin-bottom:10px;margin:.25em 2em 1.5em 2em;}div.panel p{width:80%}
 </style>

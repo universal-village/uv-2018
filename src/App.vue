@@ -241,12 +241,15 @@ export default {
   .logo {
     width: 96px;
     height: 48px;
-    background: url(assets/logo.svg) top center no-repeat;
+    background: url(https://cdn.universal-village.org/images/logo.png) top center no-repeat;
     background-size: auto 100%;
     margin: 8px 0;
     float: left;
   }
   .ant-message {
     margin-top: 64px;
+  }
+  .v--modal-block-scroll {
+    overflow: auto !important;
   }
 </style>

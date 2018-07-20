@@ -111,11 +111,9 @@ export default {
         console.log(response.body.flag)
         this.spinning = false
         if (response.body.flag === true) {
-          this.$message.success('Successfully logged in. Redirecting you to the homepage in 3s.', 4)
+          this.$message.success('Successfully logged in. Redirecting you to the homepage', 2)
           this.$store.state.authenticate.username = this.email
-          setTimeout(() => {
-            this.$router.push('/')
-          }, 3000)
+          this.$router.push('/')
         } else {
           this.$message.error('Username or Password is incorrect. Check your credentials and try again.', 4)
         }

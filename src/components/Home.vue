@@ -4,7 +4,7 @@
       <a-layout style="padding: 0; margin: 0">
         <carousel-3d :height="640" :width="1920" :space="1280" :controls-visible="true" :controls-prev-html="'&#10092;'" :controls-next-html="'&#10093;'" :controls-width="30" :controls-height="60" :clickable="false" :autoplay="true" :autoplay-timeout="5000" :perspective="15" style="border-width: 0 !important; margin-top: 0 !important; width: 100%">
           <slide v-for="(slide, i) in carouselImages" :index="i" :key="i">
-            <img :src="getWebp(slide)" style="width: 100%; height: auto;">
+            <img :src="getWebp(slide)" style="width: 100%; height: auto; background: linear-gradient(135deg, #5c258d, #4389a2)">
           </slide>
         </carousel-3d>
         <a-layout-content :style="{ padding: '24px', margin: 0, minHeight: '280px' }">
@@ -71,7 +71,7 @@
   }
 
   .carousel-3d-controls > .prev,
-  .carousel-3d-controls > .next, {
+  .carousel-3d-controls > .next{
     color: #efefef;
     transition: all 225ms ease-in-out;
   }
