@@ -234,7 +234,7 @@ export default {
     },
     deleteEntry (paperId) {
       const deletingEntry = this.$message.loading('Deleting your submission...', 0)
-      this.$http.post(this.$store.state.endpoint.api + '/deletePaper', {paperid: paperId}).then(response => {
+      this.$http.post(this.$store.state.endpoint.api + '/deletePaper', {paperid: paperId}, {emulateJSON: true}).then(response => {
         console.log(response.body)
         if (response.body.flag) {
           deletingEntry()

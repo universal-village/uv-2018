@@ -183,11 +183,11 @@ export default {
     submitPaper (recaptchaToken) {
       this.uploading = true;
       let fields = this.form.getFieldsValue()
-      this.$http.post(this.$store.state.endpoint.api + '/submitPaper',
+      this.$http.post(this.$store.state.endpoint.api + '/updatePaper',
         {
           title: encodeURIComponent(fields.title),
           abstract: encodeURIComponent(fields.abstract),
-          categoryid: this.categoryAutoComplete.findIndex((el) => { return el === fields.category }) + 1,
+          categoryid: this.categories.findIndex((el) => { return el === fields.category }) + 1,
           authors: encodeURIComponent(fields.authors.join(',')),
           keyword: encodeURIComponent(fields.keywords.join(',')),
           token: recaptchaToken
