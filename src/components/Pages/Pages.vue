@@ -26,6 +26,7 @@ export default {
       pagePlain: ''
     }
   },
+  // TODO: Monitor change event, scroll to the very top of the page.
   watch: {
     '$route': 'fetchData'
   },

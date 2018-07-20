@@ -149,11 +149,11 @@
               <div v-else-if="current === 1">
 
                 <a-form-item
-                  label='Biblography'
+                  label='Biography'
                   :labelCol="{ span: 9 }"
                   :wrapperCol="{ span: 12 }"
                   fieldDecoratorId="bios"
-                  :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your Biblography!' }]}"
+                  :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your Biography!' }]}"
                 >
                   <a-textarea placeholder="Short summary about yourself" v-model="bios" ref="biosInput"
                               :autosize="{ minRows: 3 }">
@@ -328,6 +328,7 @@
                   <a-icon type="left"/>
                   Previous
                 </a-button>
+                <!-- TODO: Submit error: TypeError: Cannot read property 'years' of undefined -->
                 <a-button type="primary" @click="next" v-if="current >= 0 && current < 3">
                   Next
                   <a-icon type="right"/>

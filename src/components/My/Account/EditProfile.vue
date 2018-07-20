@@ -83,11 +83,11 @@
           </a-form-item>
 
           <a-form-item
-            label='Biblography'
+            label='Biography'
             :labelCol="{ span: 9 }"
             :wrapperCol="{ span: 12 }"
             fieldDecoratorId="bios"
-            :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your Biblography!' }]}"
+            :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your Biography!' }]}"
           >
             <a-textarea placeholder="Short summary about yourself" v-model="editing.bios" ref="biosInput" :autosize="{ minRows: 3 }">
               <a-icon slot="prefix" type="smile" />
