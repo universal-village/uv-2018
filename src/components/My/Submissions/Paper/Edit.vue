@@ -153,6 +153,7 @@ export default {
           this.editingPaper = this.editingPaperList.filter((el) => { return el.paperid === parseInt(this.$route.params.paperId) })[0]
           console.log('editing object %o, paper id %s', this.editingPaper, this.$route.params.paperId)
           this.form.setFieldsValue({
+            paperid: this.$route.params.paperId,
             title: this.editingPaper.title,
             authors: this.editingPaper.authors.split(','),
             category: this.categories[this.editingPaper.categoryId - 1],

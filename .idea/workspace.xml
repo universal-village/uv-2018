@@ -6,11 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="595bda0b-0672-4d94-970c-d37a7f45c8a7" name="Default" comment="update">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist.zip" beforeDir="false" afterPath="$PROJECT_DIR$/dist.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/My/Submissions/Paper.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/My/Submissions/Paper.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/My/Submissions/Paper/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/My/Submissions/Paper/Edit.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -31,8 +28,8 @@
       <file leaf-file-name="Paper.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/My/Submissions/Paper.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="236" column="109" selection-start-line="236" selection-start-column="109" selection-end-line="236" selection-end-column="109" />
+            <state relative-caret-position="168">
+              <caret line="153" column="19" lean-forward="true" selection-start-line="153" selection-start-column="19" selection-end-line="153" selection-end-column="19" />
               <folding>
                 <element signature="n#style#0;n#a-card#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#a-card#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -50,8 +47,8 @@
       <file leaf-file-name="EditProfile.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/My/Account/EditProfile.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8211">
-              <caret line="357" column="31" selection-start-line="357" selection-start-column="31" selection-end-line="357" selection-end-column="31" />
+            <state>
+              <caret line="356" column="22" lean-forward="true" selection-start-line="356" selection-start-column="22" selection-end-line="356" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -59,8 +56,8 @@
       <file leaf-file-name="Edit.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/My/Submissions/Paper/Edit.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="185" column="68" selection-start-line="185" selection-start-column="68" selection-end-line="185" selection-end-column="68" />
+            <state relative-caret-position="184">
+              <caret line="155" column="47" selection-start-line="155" selection-start-column="47" selection-end-line="155" selection-end-column="47" />
               <folding>
                 <element signature="n#style#0;n#a-select#0;n#a-form-item#2;n#a-form#0;n#a-layout-content#0;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
@@ -494,12 +491,12 @@
       <workItem from="1531880301801" duration="46664000" />
       <workItem from="1532028347747" duration="2901000" />
       <workItem from="1532048669365" duration="33666000" />
-      <workItem from="1532113519925" duration="350000" />
+      <workItem from="1532113519925" duration="639000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="239074000" />
+    <option name="totallyTimeSpent" value="239363000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -514,15 +511,15 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.34240362" visible="true" weight="0.18560106" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.55516636" visible="true" weight="0.18560106" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3265306" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.2688243" side_tool="true" weight="0.25655976" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32798833" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.7311757" visible="true" weight="0.35714287" />
-      <window_info id="npm" order="2" sideWeight="0.65759635" side_tool="true" weight="0.18560106" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.7311757" weight="0.35714287" />
+      <window_info active="true" id="npm" order="2" sideWeight="0.44483364" side_tool="true" visible="true" weight="0.18560106" />
       <window_info id="Structure" order="1" sideWeight="0.65597665" side_tool="true" weight="0.18560106" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4993395" weight="0.34110788" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.44507846" visible="true" weight="0.18544936" />
       <window_info id="Favorites" order="3" sideWeight="0.65597665" side_tool="true" weight="0.18560106" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3988355" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -835,13 +832,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/My/Account/EditProfile.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8211">
-          <caret line="357" column="31" selection-start-line="357" selection-start-column="31" selection-end-line="357" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1380">
@@ -872,10 +862,17 @@
     <entry file="file://$PROJECT_DIR$/.babelrc">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/My/Account/EditProfile.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="356" column="22" lean-forward="true" selection-start-line="356" selection-start-column="22" selection-end-line="356" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/My/Submissions/Paper.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="236" column="109" selection-start-line="236" selection-start-column="109" selection-end-line="236" selection-end-column="109" />
+        <state relative-caret-position="168">
+          <caret line="153" column="19" lean-forward="true" selection-start-line="153" selection-start-column="19" selection-end-line="153" selection-end-column="19" />
           <folding>
             <element signature="n#style#0;n#a-card#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#a-card#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -891,8 +888,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/My/Submissions/Paper/Edit.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="185" column="68" selection-start-line="185" selection-start-column="68" selection-end-line="185" selection-end-column="68" />
+        <state relative-caret-position="184">
+          <caret line="155" column="47" selection-start-line="155" selection-start-column="47" selection-end-line="155" selection-end-column="47" />
           <folding>
             <element signature="n#style#0;n#a-select#0;n#a-form-item#2;n#a-form#0;n#a-layout-content#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
