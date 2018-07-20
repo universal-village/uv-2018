@@ -6,12 +6,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="595bda0b-0672-4d94-970c-d37a7f45c8a7" name="Default" comment="update">
-      <change beforePath="$PROJECT_DIR$/dist/static/js/0.42ab6cf95e2a63b35738.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/static/js/0.42ab6cf95e2a63b35738.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/0.42ab6cf95e2a63b35738.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/static/js/0.42ab6cf95e2a63b35738.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/2.b6729af48683579ede73.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/static/js/2.b6729af48683579ede73.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/2.b6729af48683579ede73.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/static/js/2.b6729af48683579ede73.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/My/Account/EditProfile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/My/Account/EditProfile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pages/Pages.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/Pages.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Verification/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Verification/Register.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -97,12 +91,16 @@
       <file leaf-file-name="Register.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Verification/Register.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="155" column="72" selection-start-line="155" selection-start-column="72" selection-end-line="155" selection-end-column="72" />
+            <state relative-caret-position="499">
+              <caret line="493" column="7" selection-start-line="493" selection-start-column="7" selection-end-line="493" selection-end-column="7" />
               <folding>
                 <element signature="n#style#0;n#a-layout-content#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="e#543#549#0" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#h1#0;n#a-spin#0;n#div#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#a-form#0;n#a-spin#0;n#div#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" />
+                <element signature="n#div#1;n#a-form#0;n#a-spin#0;n#div#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" />
+                <element signature="n#div#2;n#a-form#0;n#a-spin#0;n#div#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" />
+                <element signature="n#div#3;n#a-form#0;n#a-spin#0;n#div#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" />
                 <element signature="n#style#0;n#a-button-group#0;n#a-form#0;n#a-spin#0;n#div#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -146,8 +144,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>this.$store.state.endpoint</find>
-      <find>this.\$message.error\((.*),(.*?)\)</find>
       <find>this.$message.error</find>
       <find>.endpoint</find>
       <find>this.form.get</find>
@@ -176,6 +172,8 @@
       <find>currentEditingPaper</find>
       <find>birthdayDate</find>
       <find>Biblography</find>
+      <find>biblo</find>
+      <find>years</find>
     </findStrings>
     <replaceStrings>
       <replace>:labelCol=&quot;{ span: 9 }&quot;</replace>
@@ -514,12 +512,12 @@
       <workItem from="1531880301801" duration="46664000" />
       <workItem from="1532028347747" duration="2901000" />
       <workItem from="1532048669365" duration="33666000" />
-      <workItem from="1532113519925" duration="7212000" />
+      <workItem from="1532113519925" duration="8246000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="245936000" />
+    <option name="totallyTimeSpent" value="246970000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -920,12 +918,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Verification/Register.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="155" column="72" selection-start-line="155" selection-start-column="72" selection-end-line="155" selection-end-column="72" />
+        <state relative-caret-position="499">
+          <caret line="493" column="7" selection-start-line="493" selection-start-column="7" selection-end-line="493" selection-end-column="7" />
           <folding>
             <element signature="n#style#0;n#a-layout-content#0;n#template#0;n#!!top" expanded="true" />
             <element signature="e#543#549#0" expanded="true" />
             <element signature="n#style#0;n#span#0;n#h1#0;n#a-spin#0;n#div#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#a-form#0;n#a-spin#0;n#div#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" />
+            <element signature="n#div#1;n#a-form#0;n#a-spin#0;n#div#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" />
+            <element signature="n#div#2;n#a-form#0;n#a-spin#0;n#div#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" />
+            <element signature="n#div#3;n#a-form#0;n#a-spin#0;n#div#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" />
             <element signature="n#style#0;n#a-button-group#0;n#a-form#0;n#a-spin#0;n#div#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>

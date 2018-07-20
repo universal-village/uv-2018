@@ -21,9 +21,10 @@
                 </a-step>
               </a-steps>
             </div>
+            <!--<a-button @click="dev">dev!</a-button>-->
 
             <a-form :autoFormCreate="(form)=>{this.form = form}">
-              <div v-if="current === 0">
+              <div v-show="current === 0">
 
                 <a-form-item
                   label='Title'
@@ -146,7 +147,7 @@
 
               </div>
 
-              <div v-else-if="current === 1">
+              <div v-show="current === 1">
 
                 <a-form-item
                   label='Biography'
@@ -177,7 +178,7 @@
 
               </div>
 
-              <div v-else-if="current === 2">
+              <div v-show="current === 2">
 
                 <a-form-item
                   label='Address'
@@ -285,7 +286,7 @@
 
               </div>
 
-              <div v-else-if="current === 3">
+              <div v-show="current === 3">
 
                 <a-form-item
                   label='I Need a Support Letter for US Visa'
@@ -319,7 +320,7 @@
 
               </div>
 
-              <div v-else>
+              <div v-show="current > 3">
                 App Error. Please contact administrator.
               </div>
 
@@ -425,6 +426,7 @@ export default {
       this.spinning = true
       sha.update(this.password + this.$store.state.authenticate.shaSalt)
       let passwordHash = sha.hex()
+      console.log('birthdayDate [%o]', this.form.getFieldValue('birthdayDate'))
       console.log(this.birthdayDate, typeof this.birthdayDate, this.birthdayDate.toString(), typeof this.birthdayDate.toString())
       this.$http.post(this.$store.state.endpoint.api + '/register', {
         email: this.email,
@@ -487,6 +489,9 @@ export default {
       } else {
         this.showOthers = false
       }
+    },
+    dev () {
+      console.log(this.form.getFieldValue('birthdayDate').dates())
     }
   }
 }
