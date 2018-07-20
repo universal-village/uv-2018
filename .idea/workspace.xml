@@ -6,11 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="595bda0b-0672-4d94-970c-d37a7f45c8a7" name="Default" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist.zip" beforeDir="false" afterPath="$PROJECT_DIR$/dist.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Pages/Pages.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/Pages.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Verification/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Verification/Register.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -123,7 +120,7 @@
         <entry file="file://$PROJECT_DIR$/src/components/Pages/Pages.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="253">
-              <caret line="44" column="83" selection-start-line="44" selection-start-column="83" selection-end-line="44" selection-end-column="83" />
+              <caret line="44" column="79" selection-start-line="44" selection-start-column="79" selection-end-line="44" selection-end-column="79" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -511,12 +508,12 @@
       <workItem from="1531880301801" duration="46664000" />
       <workItem from="1532028347747" duration="2901000" />
       <workItem from="1532048669365" duration="33666000" />
-      <workItem from="1532113519925" duration="6328000" />
+      <workItem from="1532113519925" duration="6618000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="245052000" />
+    <option name="totallyTimeSpent" value="245342000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -531,16 +528,16 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.55516636" visible="true" weight="0.18560106" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.55432373" visible="true" weight="0.18560106" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32524964" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.2688243" side_tool="true" weight="0.25655976" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32524964" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32798833" />
-      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.7311757" weight="0.3566334" />
-      <window_info id="npm" order="2" sideWeight="0.44483364" side_tool="true" visible="true" weight="0.18560106" />
+      <window_info active="true" anchor="bottom" id="Run" order="5" sideWeight="0.7311757" visible="true" weight="0.3566334" />
+      <window_info id="npm" order="2" sideWeight="0.44567627" side_tool="true" visible="true" weight="0.18560106" />
       <window_info id="Structure" order="1" sideWeight="0.65597665" side_tool="true" weight="0.18560106" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.44507846" visible="true" weight="0.18544936" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.44507846" weight="0.18544936" />
       <window_info id="Favorites" order="3" sideWeight="0.65597665" side_tool="true" weight="0.18560106" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.3988355" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -921,7 +918,7 @@
     <entry file="file://$PROJECT_DIR$/src/components/Pages/Pages.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
-          <caret line="44" column="83" selection-start-line="44" selection-start-column="83" selection-end-line="44" selection-end-column="83" />
+          <caret line="44" column="79" selection-start-line="44" selection-start-column="79" selection-end-line="44" selection-end-column="79" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
