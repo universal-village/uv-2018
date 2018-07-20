@@ -17,10 +17,10 @@
     <a-card v-for="paper in paperList" :title="paper.title" :key="paper.paperid" style="margin: 2em" :bordered="false">
       <a href="#" slot="extra" @click="detailEntry(paper.paperid)">more</a>
       <!-- TODO: Add the badge of the phases. -->
-      <span style="display: inline-block">Category</span>
+      <span style="display: inline-block">Authors</span>
       <a-divider type="vertical" />
       <p style="display: inline-block;">
-        {{ categories[paper.categoryId - 1] }}
+        <a-tag v-for="tag in paper.authors.split(',')" :key="tag" style="cursor: default">{{ tag }}</a-tag>
       </p>
       <br>
       <!--<span style="display: inline-block">Title</span>-->
@@ -32,7 +32,7 @@
       <span style="display: inline-block">Phase</span>
       <a-divider type="vertical" />
       <p style="display: inline-block;">
-        {{ paper.phase }}
+        {{ paper.phase.replace('-', ' ').replace('Need', 'Needs') }}
       </p>
     </a-card>
 
@@ -48,14 +48,16 @@
     >
       <div class="panel" style="display: block;">
         <div class="container-modal">
+          <h1>Submitted Paper #{{ currentEditingPaper.paperId }}</h1>
+          <a-button type="primary" @click="editEntry(currentEditingPaper.paperId)" icon="edit">
+            Edit
+          </a-button>
           <a-popconfirm title="Delete this submission?" @confirm="deleteEntry(currentEditingPaper.paperId)"
-                        okText="Delete" cancelText="No" style="float: right;">
-            <a-button type="danger">
+                        okText="Delete" cancelText="No">
+            <a-button type="danger" icon="delete">
               Delete
             </a-button>
           </a-popconfirm>
-
-          <h1>Reviewing paper #{{ currentEditingPaper.paperId }}</h1>
           <a-divider type="horizontal" />
           <label for="title"><b> Title </b></label>
           <span>{{ currentEditingPaper.title || "(Not specified)" }}</span>
@@ -69,10 +71,13 @@
           <p>{{currentEditingPaper.keywords.join(", ") || "(Not specified)"}}</p >
           <label for="phase"><b> Phase </b></label>
           <span>{{currentEditingPaper.phase || "(Not specified)"}}</span>
-          <a-divider orientation="left">Actions</a-divider>
-          <a-button type="primary" @click="editEntry(currentEditingPaper.paperId)" icon="edit">
-            Edit
-          </a-button>
+          <label for="link"><b> Link </b></label>
+          <span>
+            <a :href="currentEditingPaper.link" v-if="currentEditingPaper.link" target="_blank">
+              {{ currentEditingPaper.link.split('/').pop() }}
+            </a>
+            <span v-else>(Not specified)</span>
+          </span>
         </div>
       </div>
     </modal>
@@ -176,7 +181,7 @@ export default {
         console.log(response.body)
         try {
           this.paperList = response.body
-          // this.paperList = [{"paperid":7,"title":"as7","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eleifend in quam non blandit. Praesent nunc eros, maximus eget semper eget, venenatis et nisl. Etiam sem enim, lacinia vitae feugiat et, ultricies sit amet mauris. Ut finibus, orci et iaculis laoreet, diam nibh laoreet erat, vitae congue eros sapien vitae lacus. In nisl tortor, egestas feugiat dignissim eu, faucibus sit amet arcu. Fusce ultrices vestibulum ipsum, non blandit diam rhoncus id. Vestibulum consequat orci ac metus ornare, eu tristique ligula venenatis. Nullam lectus arcu, interdum ut est in, fermentum maximus lorem. Mauris pulvinar cursus nibh, at rhoncus erat venenatis eu. Vestibulum maximus, mauris in volutpat molestie, mauris ligula faucibus orci, commodo vulputate nisi lectus ac neque.'},{"paperid":8,"title":"as8","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":9,"title":"as8","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":10,"title":"as8","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null}]
+          // this.paperList = [{"paperid":7,"title":"Constrained model predictive control: Stability and optimality ","authors":"D.Q.Mayne, J.B.Rawlings, C.V.Rao, P.O.M.Scokaert","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eleifend in quam non blandit. Praesent nunc eros, maximus eget semper eget, venenatis et nisl. Etiam sem enim, lacinia vitae feugiat et, ultricies sit amet mauris. Ut finibus, orci et iaculis laoreet, diam nibh laoreet erat, vitae congue eros sapien vitae lacus. In nisl tortor, egestas feugiat dignissim eu, faucibus sit amet arcu. Fusce ultrices vestibulum ipsum, non blandit diam rhoncus id. Vestibulum consequat orci ac metus ornare, eu tristique ligula venenatis. Nullam lectus arcu, interdum ut est in, fermentum maximus lorem. Mauris pulvinar cursus nibh, at rhoncus erat venenatis eu. Vestibulum maximus, mauris in volutpat molestie, mauris ligula faucibus orci, commodo vulputate nisi lectus ac neque.'},{"paperid":8,"title":"as8","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":9,"title":"as8","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":10,"title":"as8","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null}]
         } catch (e) {
           console.error('Error during parse: e[%s], response[%s]', e, response)
           this.$message.error('Can\'t fetch My Paper Submissions. Please try again later.', 4)
@@ -276,7 +281,8 @@ export default {
         _abstract: matcher._abstract,
         categoryId: matcher.categoryId,
         keywords: matcher.keywords,
-        phase: matcher.phase
+        phase: matcher.phase,
+        link: matcher.link
       }
       console.log('Matched %o, List %o', matcher, this.paperList)
       this.$modal.show('paper-modal')

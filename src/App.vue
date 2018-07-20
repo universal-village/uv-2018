@@ -2,7 +2,9 @@
   <a-layout id="app">
     <a-back-top />
     <a-layout-header class="header">
-      <div class="logo" />
+      <router-link to="/">
+        <div class="logo" />
+      </router-link>
       <a-menu
         theme="dark"
         breakpoint="lg"
@@ -239,9 +241,9 @@ export default {
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
   }
   .logo {
-    width: 96px;
+    width: 64px;
     height: 48px;
-    background: url(https://cdn.universal-village.org/images/logo.png) top center no-repeat;
+    background: url(https://cdn.universal-village.org/images/logo-new.png) top center no-repeat;
     background-size: auto 100%;
     margin: 8px 0;
     float: left;
