@@ -57,7 +57,7 @@ export default {
   methods: {
     checkLoginStatus () {
       if (this.$store.state.authenticate.username.length === 0) {
-        this.$message.info('Before entering My UV, please log in.', 10)
+        this.$message.info('Before entering My UV, please log in.', 4)
         this.$router.push('/login')
       }
     },

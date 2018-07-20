@@ -98,18 +98,21 @@
             <p class="ant-upload-hint" :style="{ 'padding': '0 1em' }">Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files</p>
           </a-upload-dragger>
         </a-form-item>
-        <a-button type="primary" :loading="uploading" htmlType='submit' @click="submitPaper">
-          Submit
-        </a-button>
-        <a-button type="dashed" @click="devGetValue">
-          Get Value
-        </a-button>
+        <vue-recaptcha :sitekey="this.$store.state.sitekey" @verify="submitPaper">
+          <a-button type="primary" :loading="uploading" htmlType='submit'>
+            Submit
+          </a-button>
+        </vue-recaptcha>
+        <!--<a-button type="dashed" @click="devGetValue">-->
+          <!--Get Value-->
+        <!--</a-button>-->
       </a-form>
     </a-layout-content>
   </div>
 </template>
 
 <script>
+import VueRecaptcha from 'vue-recaptcha'
 export default {
   name: 'PaperAdd',
   data () {
@@ -125,6 +128,9 @@ export default {
       uploading: false,
       getAction: this.$store.state.endpoint.api + '/uploadPaper'
     }
+  },
+  components: {
+    VueRecaptcha
   },
   created () {
     this.fetchAutoComplete()
@@ -142,7 +148,8 @@ export default {
         this.$message.error('Can\'t fetch category info.', 4)
       })
     },
-    submitPaper () {
+    submitPaper (recaptchaToken) {
+      this.uploading = true;
       let fields = this.form.getFieldsValue()
       this.$http.post(this.$store.state.endpoint.api + '/submitPaper',
         {
@@ -150,17 +157,21 @@ export default {
           abstract: encodeURIComponent(fields.abstract),
           categoryid: this.categoryAutoComplete.findIndex((el) => { return el === fields.category }) + 1,
           authors: encodeURIComponent(fields.authors.join(',')),
-          keyword: encodeURIComponent(fields.keywords.join(','))
+          keyword: encodeURIComponent(fields.keywords.join(',')),
+          token: recaptchaToken
         }, {emulateJSON: true}
       ).then(response => {
+        this.uploading = false;
         console.log(response.body)
-        try {
-          this.categoryAutoComplete = response.body.categories
-        } catch (e) {
-          this.$message.error('Can\'t fetch category info.', 4)
+        if (response.body.flag) {
+          this.$message.success('Your paper has been successfully submitted. Redirecting you to your submission list.', 3)
+          this.$router.push('/my/submissions/paper')
+        } else {
+          this.$message.error(`Error occurred while submitting your paper: [${response.body.cause}]. Please try again later.`, 4)
         }
       }, response => {
-        this.$message.error('Can\'t fetch category info.', 4)
+        this.uploading = false;
+        this.$message.error(`Error occurred while submitting your paper: [${response.body.cause}]. Please try again later.`, 4)
       })
     },
     devGetValue () {

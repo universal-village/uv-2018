@@ -348,12 +348,14 @@ export default {
         token: recaptchaToken
       }, {emulateJSON: true}).then(response => {
         console.log(response.body)
+        this.submitting = false
         if (response.body.flag) {
           this.$message.success('Successfully updated user profile.', 4)
         } else {
           this.$message.error('Failed to update user profile. ' + response.body.cause, 4)
         }
       }, response => {
+        this.submitting = false
         this.$message.error('Internal Server Error. status-' + response.status, 4)
       })
     }

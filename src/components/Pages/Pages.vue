@@ -46,10 +46,10 @@ export default {
       }, response => {
         this.spinning = false
         loader()
-        if (response.status === 404) {
+        if (response.status === 404 || response.status === 0) {
           this.pagePlain = '<h2>Page is still in construction...</h2>'
         } else {
-          this.$message.error('Page loading error. Please check parameters. status-' + response.status, 4)
+          this.$message.error('Page loading error. Please check parameters. status-' + response.status, 3)
         }
       })
     }

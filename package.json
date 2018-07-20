@@ -23,6 +23,7 @@
     "vue": "^2.5.2",
     "vue-analytics": "^5.12.2",
     "vue-antd-ui": "^0.7.0",
+    "vue-carousel-3d": "^0.1.23",
     "vue-lodash": "^2.0.0",
     "vue-recaptcha": "^1.1.1",
     "vue-resource": "^1.5.1",

@@ -7,6 +7,7 @@ import VueTitlecase from 'vue-titlecase'
 import VueLodash from 'vue-lodash'
 import VueRecaptcha from 'vue-recaptcha'
 import VueAnalytics from 'vue-analytics'
+import Carousel3d from 'vue-carousel-3d';
 import * as VueGoogleMaps from 'vue2-google-maps'
 import createPersistedState from 'vuex-persistedstate'
 import Antd from 'vue-antd-ui'
@@ -31,11 +32,13 @@ Vue.use(VueGoogleMaps, {
     libraries: 'places'
   }
 })
+Vue.use(Carousel3d)
 
 const store = new Vuex.Store({
   state: {
     endpoint: {
       api: 'https://api-beta.universal-village.org/uv-web',
+      // api: 'http://localhost:8080/uv2018',
       pages: 'https://cdn.universal-village.org/static-pages/'
     },
     navPageList: [],

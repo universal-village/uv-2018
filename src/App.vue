@@ -1,7 +1,6 @@
 <template>
   <a-layout id="app">
     <a-back-top />
-    <div class="background"></div>
     <a-layout-header class="header">
       <div class="logo" />
       <a-menu
@@ -111,7 +110,7 @@
       <router-view name="App"></router-view>
     </transition>
     <a-layout-footer style="text-align: center; background: rgba(240,242,245,.5);">
-      Copyright © 2012-{{ thisYear }}. The International Conference on Universal Village. All Rights Reserved.
+      Copyright &copy; 2012-{{ thisYear }}. The International Conference on Universal Village. All Rights Reserved.
     </a-layout-footer>
   </a-layout>
 </template>
@@ -121,7 +120,7 @@ export default {
   name: 'App',
   created () {
     this.updateBreadcrumb()
-    // this.validateLogin()
+    this.validateLogin()
   },
   watch: {
     '$route': 'updateBreadcrumb'
@@ -149,7 +148,7 @@ export default {
     validateLogin () {
       this.$http.get(this.$store.state.endpoint.api + '/isLogin').then(response => {
         if (response.body.flag === true) {
-          this.$store.state.authenticate.username = response.body.email
+          this.$store.state.authenticate.username = decodeURIComponent(response.body.email)
         }
       })
     }
@@ -163,18 +162,6 @@ export default {
 </script>
 
 <style>
-  .background {
-    position: absolute;
-    top: -5vh;
-    left: -10vw;
-    width: 110vw;
-    height: calc(64px + 5vh);
-    z-index: -5;
-    background: url(assets/nav-background.jpg);
-    background-size: 100% auto;
-    background-position: bottom center;
-    filter: blur(5px);
-  }
   .ant-menu-submenu-vertical > .ant-menu-submenu-title .ant-menu-submenu-arrow {
     right: 0;
   }
@@ -209,7 +196,7 @@ export default {
   }
   .header {
     z-index: 10;
-    background: rgba(0, 0, 0, .5);
+    background: rgba(0, 0, 0, .7);
     -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
   }
@@ -258,5 +245,8 @@ export default {
     background-size: auto 100%;
     margin: 8px 0;
     float: left;
+  }
+  .ant-message {
+    margin-top: 64px;
   }
 </style>

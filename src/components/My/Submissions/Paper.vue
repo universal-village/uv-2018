@@ -7,7 +7,7 @@
       :onCancel="this.handleCancel"
       :onCreate="this.handleCreate"
     />
-  <a-table :columns="columns" :dataSource="paperList" :scroll="{ x: 1200, y: 100 }">
+  <a-table :columns="columns" :dataSource="paperList" :scroll="{ x: 1200, y: 600 }">
       <a slot="titles" slot-scope="text" href="#" @click="detailEntry(record.id)">
         {{ text }}
       </a>
@@ -52,6 +52,12 @@ const columns = [{
   scopedSlots: { customRender: 'category' },
   title: 'Category',
   width: 150
+}, {
+  dataIndex: '_abstract',
+  key: '_abstract',
+  scopedSlots: { customRender: 'abstract' },
+  title: 'Abstract',
+  width: 400
 }, {
   title: 'Authors',
   dataIndex: 'authors',
@@ -121,11 +127,13 @@ export default {
       this.$http.get(this.$store.state.endpoint.api + '/myPaper').then(response => {
         console.log(response.body)
         try {
-          this.paperList = JSON.parse(response.body)
+          this.paperList = [{"paperid":7,"title":"as","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":7,"title":"as","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":7,"title":"as","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":7,"title":"as","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":7,"title":"as","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":7,"title":"as","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":7,"title":"as","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":7,"title":"as","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null}]
         } catch (e) {
+          console.error('Error during parse: e[%s], response[%s]', e, response)
           this.$message.error('Can\'t fetch My Paper Submissions. Please try again later.', 4)
         }
       }, response => {
+        console.error('Error during response: ' + response)
         this.$message.error('Can\'t fetch My Paper Submissions. Please try again later.', 4)
       })
     },
