@@ -21,6 +21,7 @@
                 </a-step>
               </a-steps>
             </div>
+            <a-button type="dashed" @click="devTest">FUCK IT!</a-button>
 
             <a-form :autoFormCreate="(form)=>{this.form = form}">
               <div v-if="current === 0">
@@ -444,9 +445,9 @@ export default {
         cellphone: encodeURIComponent(this.cellphone),
         passport: encodeURIComponent(this.passport),
         needSupport: encodeURIComponent(this.needSupport),
-        birthyear: encodeURIComponent(this.form.getFieldValue('birthdayDate')._d.getFullYear()),
-        birthmonth: encodeURIComponent(this.form.getFieldValue('birthdayDate')._d.getMonth() + 1),
-        birthday: encodeURIComponent(this.form.getFieldValue('birthdayDate')._d.getDate()),
+        birthyear: encodeURIComponent(this.form.getFieldValue('birthdayDate').years()),
+        birthmonth: encodeURIComponent(this.form.getFieldValue('birthdayDate').months()),
+        birthday: encodeURIComponent(this.form.getFieldValue('birthdayDate').dates()),
         title: encodeURIComponent(this.title),
         token: recaptchaToken
       }, {emulateJSON: true}).then(response => {
@@ -486,6 +487,11 @@ export default {
       } else {
         this.showOthers = false
       }
+    },
+    devTest () {
+      console.log()
+      console.log()
+      console.log()
     }
   }
 }

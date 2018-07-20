@@ -42,7 +42,7 @@ export default {
         console.log(response.body.flag)
         this.spinning = false
         loader()
-        this.pagePlain = response.body
+        this.pagePlain = response.body.replace(/href=["'](.*)["']/gm, 'href="#$1"')
       }, response => {
         this.spinning = false
         loader()
