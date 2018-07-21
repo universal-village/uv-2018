@@ -176,6 +176,9 @@ export default {
     this.fetchData()
   },
   methods: {
+    /**
+     * 
+     */
     fetchData () {
       this.$http.get(this.$store.state.endpoint.api + '/myPaper').then(response => {
         console.log(response.body)

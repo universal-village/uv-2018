@@ -108,7 +108,7 @@
         </a-menu-item>
       </a-menu>
     </a-layout-header>
-    <transition name="slide-fade" mode="out-in">
+    <transition name="slide-fade" mode="out-in" :before-enter="beforeEnter">
       <router-view name="App"></router-view>
     </transition>
     <a-layout-footer style="text-align: center; background: rgba(240,242,245,.5);">
@@ -125,7 +125,7 @@ export default {
     this.validateLogin()
   },
   watch: {
-    '$route': 'updateBreadcrumb'
+    '$route': ['updateBreadcrumb']
   },
   methods: {
     updateBreadcrumb () {
@@ -153,6 +153,12 @@ export default {
           this.$store.state.authenticate.username = decodeURIComponent(response.body.email)
         }
       })
+    },
+    scrollToTop () {
+      window.scrollTo(0, 0)
+    },
+    beforeEnter () {
+      window.scrollTo(0, 0)
     }
   },
   computed: {

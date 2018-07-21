@@ -34,7 +34,7 @@
             {{ navPage | capitalize }}
           </a-breadcrumb-item>
         </a-breadcrumb>
-        <transition name="slide-fade-submission" mode="out-in">
+        <transition name="slide-fade-submission" mode="out-in" :beforeEnter="beforeEnter">
           <router-view name="My"></router-view>
         </transition>
       </a-layout-content>
@@ -68,6 +68,9 @@ export default {
       } else {
         this.openKeys = latestOpenKey ? [latestOpenKey] : []
       }
+    },
+    beforeEnter () {
+      window.scrollTo(0, 0)
     }
   }
 }

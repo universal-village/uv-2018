@@ -329,7 +329,6 @@
                   <a-icon type="left"/>
                   Previous
                 </a-button>
-                <!-- TODO: Submit error: TypeError: Cannot read property 'years' of undefined -->
                 <a-button type="primary" @click="next" v-if="current >= 0 && current < 3">
                   Next
                   <a-icon type="right"/>
@@ -448,7 +447,7 @@ export default {
         passport: encodeURIComponent(this.passport),
         needSupport: encodeURIComponent(this.needSupport),
         birthyear: encodeURIComponent(this.form.getFieldValue('birthdayDate').years()),
-        birthmonth: encodeURIComponent(this.form.getFieldValue('birthdayDate').months()),
+        birthmonth: encodeURIComponent(this.form.getFieldValue('birthdayDate').months() + 1),
         birthday: encodeURIComponent(this.form.getFieldValue('birthdayDate').dates()),
         title: encodeURIComponent(this.title),
         token: recaptchaToken

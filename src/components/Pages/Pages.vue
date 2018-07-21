@@ -26,9 +26,8 @@ export default {
       pagePlain: ''
     }
   },
-  // TODO: Monitor change event, scroll to the very top of the page.
   watch: {
-    '$route': 'fetchData'
+    '$route': ['fetchData', 'scrollToTop']
   },
   created () {
     this.fetchData()
@@ -53,11 +52,37 @@ export default {
           this.$message.error('Page loading error. Please check parameters. status-' + response.status, 3)
         }
       })
+    },
+    scrollToTop () {
+      window.scrollTo(0, 0)
     }
   }
 }
 </script>
 
 <style scoped>
+  h1 {
+    color: green;
+  }
+  h2 {
+    color: green;
+    padding-top: 5px;
+  }
+  h3 {
+    color:green;
+  }
+  h4 {
+    color: green;
+    font-size: 16px;
+  }
+  li{
+    font-size: 16px;
+  }
+  p {
+    font-size: 16px;
+  }
 
+  a:link {
+    text-decoration: underline;
+  }
 </style>
