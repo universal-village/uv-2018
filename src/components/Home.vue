@@ -32,7 +32,7 @@
               <div style="width: 100%; margin-top: 24px;" class="side-box">
                 <router-link to="/login">
                   <div class="hovereffect">
-                    <img class="img-responsive" src="https://picsum.photos/700/300/?random=1" alt="">
+                    <img class="img-responsive" src="https://cdn.universal-village.org/images/home-sidebar/authors-and-reviewers.png" alt="">
                     <div class="overlay">
                       <h2>Authors / Reviewers</h2>
                       <span class="ov-description">
@@ -48,7 +48,7 @@
               <div style="width: 100%;" class="side-box">
                 <router-link to="/login">
                   <div class="hovereffect">
-                    <img class="img-responsive" src="https://picsum.photos/700/300/?random=2" alt="">
+                    <img class="img-responsive" src="https://cdn.universal-village.org/images/home-sidebar/attendees.png" alt="">
                     <div class="overlay">
                       <h2>Attendees</h2>
                       <span class="ov-description">
@@ -64,7 +64,7 @@
               <div style="width: 100%;" class="side-box">
                 <router-link to="/login">
                   <div class="hovereffect" style="border-bottom: none;">
-                    <img class="img-responsive" src="https://picsum.photos/700/300/?random=3" alt="">
+                    <img class="img-responsive" src="https://cdn.universal-village.org/images/home-sidebar/volunteers-and-sponsors.png" alt="">
                     <div class="overlay">
                       <h2>Volunteers / Sponsors</h2>
                       <span class="ov-description">
