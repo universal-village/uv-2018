@@ -178,17 +178,20 @@ export default {
   }
   .ant-layout-header > .ant-menu-root >  .ant-menu-submenu-active:not(.disable-activation) {
     background: rgba(255, 255, 255, .5) !important;
-    border-bottom: 2px solid #1890ff !important;
+    border-bottom: 2px solid rgba(158, 230, 79, 0.85) !important;
   }
   .ant-menu-submenu-content > .ant-menu-item-selected:not(.disable-activation) {
-    border-left: 4px solid #6fbbff !important;
+    border-left: 4px solid rgba(158, 230, 79, 0.85) !important;
     border-bottom: 0 !important;
   }
   .ant-layout-header > .ant-menu-root > .ant-menu-item-selected:not(.disable-activation) {
-    border-bottom: 2px solid #145baa !important;
+    border-bottom: 2px solid rgba(119, 174, 60, 0.85) !important;
   }
   .ant-menu-dark.ant-menu-horizontal {
     border: 0 !important;
+  }
+  .ant-menu-item:hover, .ant-menu-item-active, .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, .ant-menu-submenu-active, .ant-menu-submenu-title:hover {
+    color: rgba(255, 255, 255, .95);
   }
   .disable-activation, .disable-activation .ant-menu-item-selected {
     background: none !important;
@@ -259,5 +262,13 @@ export default {
   }
   .v--modal-block-scroll {
     overflow: auto !important;
+  }
+  .ant-menu-dark .ant-menu-sub {
+    background: rgba(23, 41, 19, 0.85) !important;
+    color: rgba(255, 255, 255, .85)
+  }
+  .ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+    background: rgba(77, 136, 63, 0.85);
+    font-weight: 500;
   }
 </style>

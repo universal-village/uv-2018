@@ -181,6 +181,7 @@
     right: 20px;
     bottom: 20px;
     left: 20px;
+    border-radius: .5em;
     border: 2px solid rgba(255, 255, 255, .5);
     content: '';
     opacity: 0;
@@ -251,7 +252,7 @@ export default {
       return 'https://cdn.universal-village.org/images/carousel/carousel-img-' + src + '.jpg'
     },
     slideHtml (slide) {
-      return "<img src=" + this.getWebp(slide) + " style=\"width: 100%; height: auto; background: linear-gradient(135deg, #5c258d, #4389a2)\" onerror=\"this.onerror=null; this.src='" + this.getJpg(slide) + "'\">"
+      return '<img src=' + this.getWebp(slide) + " style=\"width: 100%; height: auto; background: linear-gradient(135deg, #5c258d, #4389a2)\" onerror=\"this.onerror=null; this.src='" + this.getJpg(slide) + "'\">"
     }
   },
   data () {

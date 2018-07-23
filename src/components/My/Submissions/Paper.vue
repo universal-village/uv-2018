@@ -177,7 +177,7 @@ export default {
   },
   methods: {
     /**
-     * 
+     *
      */
     fetchData () {
       this.$http.get(this.$store.state.endpoint.api + '/myPaper').then(response => {

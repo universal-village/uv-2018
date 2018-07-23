@@ -47,7 +47,7 @@ export default {
         this.spinning = false
         loader()
         if (response.status === 404 || response.status === 0) {
-          this.pagePlain = '<div class="ant-alert ant-alert-info" style="width: 50vh"><i class="anticon anticon-info-circle ant-alert-icon"></i><span class="ant-alert-message">Page is still in construction.</span></div>'
+          this.pagePlain = '<div class="ant-alert ant-alert-info" style="min-width: 10vw; max-width: 300px;"><i class="anticon anticon-info-circle ant-alert-icon"></i><span class="ant-alert-message">Page is still in construction.</span></div>'
         } else {
           this.$message.error('Page loading error. Please check parameters. status-' + response.status, 3)
         }

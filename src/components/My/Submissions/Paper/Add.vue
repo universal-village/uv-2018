@@ -149,7 +149,7 @@ export default {
       })
     },
     submitPaper (recaptchaToken) {
-      this.uploading = true;
+      this.uploading = true
       let fields = this.form.getFieldsValue()
       this.$http.post(this.$store.state.endpoint.api + '/submitPaper',
         {
@@ -161,7 +161,7 @@ export default {
           token: recaptchaToken
         }, {emulateJSON: true}
       ).then(response => {
-        this.uploading = false;
+        this.uploading = false
         console.log(response.body)
         if (response.body.flag) {
           this.$message.success('Your paper has been successfully submitted. Redirecting you to your submission list.', 3)
@@ -170,7 +170,7 @@ export default {
           this.$message.error(`Error occurred while submitting your paper: [${response.body.cause}]. Please try again later.`, 4)
         }
       }, response => {
-        this.uploading = false;
+        this.uploading = false
         this.$message.error(`Error occurred while submitting your paper: [${response.body.cause}]. Please try again later.`, 4)
       })
     },

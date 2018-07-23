@@ -7,12 +7,7 @@
         </a-breadcrumb-item>
       </a-breadcrumb>
       <a-layout-content :style="{ padding: '24px', margin: 0, minHeight: '280px' }">
-        <a-alert
-          message="404 Not Found"
-          description="We cannot find the page you've trying to access. Check your URL Address and try again. If you believe this is an error, please contact us."
-          type="warning"
-          showIcon
-        />
+        <div class="ant-alert ant-alert-info" style="min-width: 10vw; max-width: 300px;"><i class="anticon anticon-info-circle ant-alert-icon"></i><span class="ant-alert-message">Page is still in construction.</span></div>
       </a-layout-content>
     </a-layout>
   </a-layout-content>
