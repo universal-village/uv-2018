@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a-layout-content style="padding: 0 50px;">
+    <a-layout-content>
       <a-layout style="padding: 0; margin: 0">
         <carousel-3d :height="640" :width="1920" :space="1280" :controls-visible="true" :controls-prev-html="'&#10092;'" :controls-next-html="'&#10093;'" :controls-width="30" :controls-height="60" :clickable="false" :autoplay="true" :autoplay-timeout="5000" :perspective="15" style="border-width: 0 !important; margin-top: 0 !important; width: 100%">
           <slide v-for="(slide, i) in carouselImages" :index="i" :key="i" v-html="slideHtml(slide)">
@@ -8,7 +8,10 @@
         </carousel-3d>
         <a-layout-content :style="{ padding: '24px', margin: 0, minHeight: '280px' }">
           <a-row>
-            <a-col :span="18" :style="{ padding: '24px' } ">
+            <a-col :span="24" :style="{ padding: '24px' } " :md="24" :lg="18">
+              <h1 style="font-size: 2em; font-weight: bold;">
+                Welcome to IEEE International Conference on Universal Village 2018 - UV2018
+              </h1>
               <a-divider orientation="left">Summary</a-divider>
               <div property="content:encoded" >
                 <p>After great success in China (Beijing, UV2013), United States (Boston, UV2014) and Japan (Nagoya, UV2016), the Fourth International Conference on Universal Village (UV2018) will be held again in Boston, United States. UV2018 will intensively exemplifies a desired future society that pursues human-nature harmony through wise application of advanced technologies. The concept is an expanded/advanced version of Smart Cities, and signifies that we follow the law of universe to protect the environment and eco-systems, while innovate new lifestyles to provide sustainable happiness for humanity’s future.</p>
@@ -27,7 +30,7 @@
                 </router-link>
               </div>
             </a-col>
-            <a-col :span="6" :style="{ padding: '24px' }">
+            <a-col :span="24" :style="{ padding: '24px' }" :md="24" :lg="6">
               <a-divider orientation="left">Account</a-divider>
               <div style="width: 100%; margin-top: 24px;" class="side-box">
                 <router-link to="/login">
@@ -86,6 +89,17 @@
 </template>
 
 <style scoped>
+  @media only screen and (max-width: 960px) {
+    .ant-layout-content {
+      padding: 0;
+    }
+  }
+  @media only screen and (min-width: 960px){
+    .ant-layout-content {
+      padding: 0 10%;
+    }
+  }
+
   #components-layout-demo-top-side .logo {
     width: 120px;
     height: 31px;

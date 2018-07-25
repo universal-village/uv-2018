@@ -9,6 +9,7 @@ import VueRecaptcha from 'vue-recaptcha'
 import VueAnalytics from 'vue-analytics'
 import Carousel3d from 'vue-carousel-3d'
 import VueModal from 'vue-js-modal'
+import VueStripeCheckout from 'vue-stripe-checkout'
 import * as VueGoogleMaps from 'vue2-google-maps'
 import createPersistedState from 'vuex-persistedstate'
 import Antd from 'vue-antd-ui'
@@ -35,6 +36,13 @@ Vue.use(VueGoogleMaps, {
   }
 })
 Vue.use(Carousel3d)
+Vue.use(VueStripeCheckout, {
+  key: 'pk_test_dOIDtsevAQYhVSDIECOI5fJ5',
+  locale: 'auto',
+  currency: 'USD',
+  billingAddress: true,
+  panelLabel: 'Subscribe {{amount}}'
+})
 
 const store = new Vuex.Store({
   state: {

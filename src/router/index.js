@@ -14,6 +14,8 @@ const AddPaperSubmission = () => import(/* webpackChunkName: "my" */ '@/componen
 const MyProfileEdit = () => import(/* webpackChunkName: "my" */ '@/components/My/Account/EditProfile.vue')
 const NotFoundError = () => import(/* webpackChunkName: "home" */ '@/components/NotFound.vue')
 const EditPaperSubmission = () => import(/* webpackChunkName: "my" */ '@/components/My/Submissions/Paper/Edit.vue')
+const ConferenceRegistration = () => import(/* webpackChunckName: "my" */ '@/components/My/Attendee.vue')
+const Success = () => import(/* webpackChunkName: "sucess" */ '@/components/Success')
 
 Vue.use(Router)
 
@@ -25,6 +27,13 @@ export default new Router({
       name: 'Home',
       components: {
         App: Home
+      }
+    },
+    {
+      path: '/success',
+      name: 'Success',
+      components: {
+        App: Success
       }
     },
     {
@@ -104,6 +113,13 @@ export default new Router({
       name: 'Static Pages Detail',
       components: {
         App: PagesDetail
+      }
+    },
+    {
+      path: '/conference-registration',
+      name: 'My Conference Attendee',
+      components: {
+        App: ConferenceRegistration
       }
     },
     {

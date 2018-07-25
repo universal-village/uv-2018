@@ -94,9 +94,15 @@
             <router-link to="/pages/contact-us">Contact Us</router-link>
           </a-menu-item>
         </a-sub-menu>
+
+        <a-menu-item key="attendee">
+          <router-link to="conference-registration">Conference Registration</router-link>
+        </a-menu-item>
+
         <a-menu-item key="my-uv">
           <router-link to="/my">My UV</router-link>
         </a-menu-item>
+
         <a-menu-item class="disable-activation" style="float: right" v-if="this.$store.state.authenticate.username.length === 0" key="logged-out">
           <router-link to="/login"><a-button class="btn" type="dashed"><a-icon type="login"></a-icon> Login</a-button></router-link>
         </a-menu-item>
@@ -270,5 +276,11 @@ export default {
   .ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
     background: rgba(77, 136, 63, 0.85);
     font-weight: 500;
+  }
+  .ant-menu-item {
+    font-size: 1.2em;
+  }
+  .ant-menu-submenu span {
+    font-size: 1.2em;
   }
 </style>
