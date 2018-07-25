@@ -25,6 +25,16 @@ npm run e2e
 
 # run all tests
 npm test
+
+-------------------------------------------------------------------------------------------------
+
+change log:
+
+add new Component Attendee.vue (Conference Registration Fee Transaction)
+add new Component Success.vue (Show Operation Success Message)
+
+add new dependency
+vue-stripe-checkout https://github.com/jofftiquez/vue-stripe-checkout
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
