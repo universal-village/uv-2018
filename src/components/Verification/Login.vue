@@ -1,5 +1,5 @@
 <template>
-  <a-layout-content style="padding: 0 50px">
+  <a-layout-content class="main-content">
     <a-layout style="padding: 0 24px 24px; background: rgba(255, 255, 255, .75);">
       <a-breadcrumb style="margin: 16px 0">
         <a-breadcrumb-item v-for="navPage in this.$store.state.navPageList" :key="navPage">
@@ -146,15 +146,36 @@ export default {
 </script>
 
 <style scoped>
-  .content {
-    padding: 2em 4em;
-    max-width: 50vw;
-  }
 
   h1 {
     /*margin-top: .25em;*/
     margin-left: -.5em;
     /*font-size: 2.75em;*/
     margin-bottom: 1em;
+  }
+
+  @media only screen and (max-width: 960px) {
+      .ant-layout-content {
+      padding: 0 20px;
+    }
+      .ant-layout-content.main-content span {
+        display: block;
+    }
+  }
+  @media only screen and (min-width: 960px){
+      .ant-layout-content.main-content {
+        padding: 0 10%;
+    }
+      .ant-layout {
+        padding: 0 24px 24px;
+    }
+      .content {
+      padding: 2em 4em;
+      max-width: 50vw;
+    }
+      /* .ant-collapse-item  {
+        font-size: 1.5em !important;
+        font-weight: bolder;
+      } */
   }
 </style>

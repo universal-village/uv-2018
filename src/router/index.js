@@ -4,6 +4,7 @@ const Home = () => import(/* webpackChunkName: "home" */ '@/components/Home')
 const Login = () => import(/* webpackChunkName: "user" */ '@/components/Verification/Login.vue')
 const PasswordReset = () => import(/* webpackChunkName: "user" */ '@/components/Verification/PasswordReset.vue')
 const Register = () => import(/* webpackChunkName: "user" */ '@/components/Verification/Register.vue')
+const PasswordRegenerate = () => import(/* webpackChunkName: "user" */ '@/components/Verification/PasswordRegenerate.vue')
 const MyIndex = () => import(/* webpackChunkName: "my" */ '@/components/My/Index.vue')
 const MySubmissions = () => import(/* webpackChunkName: "my" */ '@/components/My/Submissions.vue')
 const MyUV = () => import(/* webpackChunkName: "my" */ '@/components/My/UVIndex.vue')
@@ -55,6 +56,13 @@ export default new Router({
       name: 'Reset Password',
       components: {
         App: PasswordReset
+      }
+    },
+    {
+      path: '/regenerate-password',
+      name: 'Regenerate Password',
+      components: {
+        App: PasswordRegenerate
       }
     },
     {
