@@ -12,7 +12,8 @@
             to="/register">Register ></router-link></span>
             <a-divider type="vertical" style="background: #212121; transform: translateY(3px) scale(1.35)"/>
             <span style="font-size: 60%;">Forgot password? <router-link
-              to="/reset-password">Reset Password ></router-link></span></h1>
+              to="/regenerate-password">Reset Password ></router-link><a-divider type="vertical" style="background: #212121; transform: translateY(3px) scale(1.35)"/><router-link
+              to="/reset-password">Change Password ></router-link></span></h1>
           <a-form :autoFormCreate="(form)=>{this.form = form}">
             <a-form-item
               label='E-mail'
