@@ -14,8 +14,8 @@ const AddPaperSubmission = () => import(/* webpackChunkName: "my" */ '@/componen
 const MyProfileEdit = () => import(/* webpackChunkName: "my" */ '@/components/My/Account/EditProfile.vue')
 const NotFoundError = () => import(/* webpackChunkName: "home" */ '@/components/NotFound.vue')
 const EditPaperSubmission = () => import(/* webpackChunkName: "my" */ '@/components/My/Submissions/Paper/Edit.vue')
-const ConferenceRegistration = () => import(/* webpackChunckName: "my" */ '@/components/My/Attendee.vue')
-const Success = () => import(/* webpackChunkName: "sucess" */ '@/components/Success')
+const ConferenceRegistration = () => import(/* webpackChunkName: "my" */ '@/components/My/Attendee.vue')
+const Success = () => import(/* webpackChunkName: "home" */ '@/components/Success')
 
 Vue.use(Router)
 

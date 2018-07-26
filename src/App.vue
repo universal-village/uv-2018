@@ -277,10 +277,12 @@ export default {
     background: rgba(77, 136, 63, 0.85);
     font-weight: 500;
   }
-  .ant-menu-item {
-    font-size: 1.2em;
+  .ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected:before {
+    content: '> ';
+    display: inline-block;
   }
-  .ant-menu-submenu span {
+  .ant-menu-item, .ant-menu-submenu span {
     font-size: 1.2em;
+    font-weight: 400;
   }
 </style>
