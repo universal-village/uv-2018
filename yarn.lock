@@ -4911,6 +4911,14 @@ loglevel@^1.4.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/loglevel/-/loglevel-1.6.1.tgz#e0fc95133b6ef276cdc8887cdaf24aa6f156f8fa"
 
+logrocket-vuex@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/logrocket-vuex/-/logrocket-vuex-0.0.3.tgz#e11d65d384f0c9fdac72f984436cc038adf3db90"
+
+logrocket@^0.6.16:
+  version "0.6.16"
+  resolved "https://registry.yarnpkg.com/logrocket/-/logrocket-0.6.16.tgz#09ac05426b096016e19395a0c0b0acf97a647418"
+
 longest@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"

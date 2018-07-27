@@ -22,6 +22,8 @@
     "express-generator": "^4.16.0",
     "express-http-proxy": "^1.2.0",
     "js-sha256": "^0.9.0",
+    "logrocket": "^0.6.16",
+    "logrocket-vuex": "^0.0.3",
     "outdatedbrowser": "^1.1.5",
     "uuid-js": "^0.7.5",
     "vue": "^2.5.2",
