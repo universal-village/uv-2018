@@ -96,7 +96,7 @@
         </a-sub-menu>
 
         <a-menu-item key="attendee">
-          <router-link to="conference-registration">Conference Registration</router-link>
+          <router-link to="/conference-registration">Conference Registration</router-link>
         </a-menu-item>
 
         <a-menu-item key="my-uv">
@@ -277,12 +277,9 @@ export default {
     background: rgba(77, 136, 63, 0.85);
     font-weight: 500;
   }
-  .ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected:before {
-    content: '> ';
-    display: inline-block;
-  }
-  .ant-menu-item, .ant-menu-submenu span {
-    font-size: 1.2em;
-    font-weight: 400;
-  }
+  /*.ant-menu-item, .ant-menu-submenu span {*/
+    /*font-size: 1.2em;*/
+    /*font-weight: 400;*/
+    /*margin-top: -2px;*/
+  /*}*/
 </style>
