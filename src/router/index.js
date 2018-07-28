@@ -9,6 +9,7 @@ const MyIndex = () => import(/* webpackChunkName: "my" */ '@/components/My/Index
 const MySubmissions = () => import(/* webpackChunkName: "my" */ '@/components/My/Submissions.vue')
 const MyUV = () => import(/* webpackChunkName: "my" */ '@/components/My/UVIndex.vue')
 const MySubmissionsPaper = () => import(/* webpackChunkName: "home" */ '@/components/My/Submissions/Paper.vue')
+const Reviewer = () => import(/* webpackChunkName: "review" */ '@/components/Review/Reviewer.vue')
 const PagesIndex = () => import(/* webpackChunkName: "home" */ '@/components/Pages/Index.vue')
 const PagesDetail = () => import(/* webpackChunkName: "home" */ '@/components/Pages/Pages.vue')
 const AddPaperSubmission = () => import(/* webpackChunkName: "my" */ '@/components/My/Submissions/Paper/Add.vue')
@@ -63,6 +64,13 @@ export default new Router({
       name: 'Regenerate Password',
       components: {
         App: PasswordRegenerate
+      }
+    },
+    {
+      path: '/reviewer',
+      name: 'Reviewer',
+      components: {
+        App: Reviewer
       }
     },
     {

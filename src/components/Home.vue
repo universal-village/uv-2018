@@ -13,7 +13,7 @@
                 Welcome to IEEE International Conference on Universal Village 2018 - UV2018
               </h1>
               <a-divider orientation="left">Summary</a-divider>
-              <div property="content:encoded" >
+              <div property="content:encoded" class="home-content">
                 <p>After great success in China (Beijing, UV2013), United States (Boston, UV2014) and Japan (Nagoya, UV2016), the Fourth International Conference on Universal Village (UV2018) will be held again in Boston, United States. UV2018 will intensively exemplifies a desired future society that pursues human-nature harmony through wise application of advanced technologies. The concept is an expanded/advanced version of Smart Cities, and signifies that we follow the law of universe to protect the environment and eco-systems, while innovate new lifestyles to provide sustainable happiness for humanity’s future.</p>
                 <p>UV2018 will call for the collective efforts across multi-disciplinary fields to develop a platform where researchers with different backgrounds can well collaborate beyond the traditional filed boundaries, and to find a systematic, coordinated, long-term solution for the future of human kind and mother nature.</p>
                 <p>Subjects for UV2018 include but are not limited to the following topics:</p>
@@ -33,7 +33,7 @@
             <a-col :span="24" :style="{ padding: '24px' }" :md="24" :lg="6">
               <a-divider orientation="left">Account</a-divider>
               <div style="width: 100%; margin-top: 24px;" class="side-box">
-                <router-link to="/login">
+                <router-link to="/reviewer">
                   <div class="hovereffect">
                     <img class="img-responsive" src="https://cdn.universal-village.org/images/home-sidebar/authors-and-reviewers.png" alt="">
                     <div class="overlay">
@@ -49,7 +49,7 @@
                 </router-link>
               </div>
               <div style="width: 100%;" class="side-box">
-                <router-link to="/login">
+                <router-link to="/conference-registration">
                   <div class="hovereffect">
                     <img class="img-responsive" src="https://cdn.universal-village.org/images/home-sidebar/attendees.png" alt="">
                     <div class="overlay">
@@ -246,6 +246,12 @@
 
   .hovereffect:active {
     filter: brightness(60%);
+  }
+  .home-content p {
+    font-size: 18px;
+  }
+  .home-content li {
+    font-size: 18px;
   }
 </style>
 

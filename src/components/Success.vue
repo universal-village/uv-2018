@@ -54,9 +54,5 @@ export default {
     .success-main-content .ant-layout {
         padding: 0 24px 24px;
     }
-      /* .ant-collapse-item  {
-        font-size: 1.5em !important;
-        font-weight: bolder;
-      } */
   }
 </style>

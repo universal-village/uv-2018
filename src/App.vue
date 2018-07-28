@@ -95,9 +95,9 @@
           </a-menu-item>
         </a-sub-menu>
 
-        <a-menu-item key="attendee">
-          <router-link to="conference-registration">Conference Registration</router-link>
-        </a-menu-item>
+        <!-- <a-menu-item key="attendee">
+          <router-link to="/conference-registration">Conference Registration</router-link>
+        </a-menu-item> -->
 
         <a-menu-item key="my-uv">
           <router-link to="/my">My UV</router-link>
@@ -146,6 +146,7 @@ export default {
         if (response.body.flag === true) {
           this.$message.success('Logout: Successfully.', 3)
           this.$store.state.authenticate.username = ''
+          this.$router.push('/')
         } else {
           this.$message.error('Logout: Failed. Please try again later.', 4)
         }
@@ -277,12 +278,12 @@ export default {
     background: rgba(77, 136, 63, 0.85);
     font-weight: 500;
   }
-  .ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected:before {
-    content: '> ';
-    display: inline-block;
-  }
   .ant-menu-item, .ant-menu-submenu span {
-    font-size: 1.2em;
-    font-weight: 400;
+    font-size: 1.2em;font-weight: 400;
   }
+  /*.ant-menu-item, .ant-menu-submenu span {*/
+    /*font-size: 1.2em;*/
+    /*font-weight: 400;*/
+    /*margin-top: -2px;*/
+  /*}*/
 </style>
