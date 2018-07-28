@@ -7,12 +7,20 @@
         </a-breadcrumb-item>
       </a-breadcrumb>
       <a-layout-content class="page-content">
-        <a-row>
-          <a-col :span="8">
-            <img src="@/assets/success.svg" class="draw-svg" />
+        <a-row justify="center">
+          <a-col :xs="24" :sm="24" :md="10" :lg="8" :xl="6" :xxl="6" class="section">
+            <!-- TODO: Add animation effect to the svg logo (svg drawing). -->
+            <svg id="successAnimation" class="animated" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 70 70" style="max-height: 30vh; text-align: center">
+              <path id="successAnimationResult" fill="#D8D8D8" d="M35,60 C21.1928813,60 10,48.8071187 10,35 C10,21.1928813 21.1928813,10 35,10 C48.8071187,10 60,21.1928813 60,35 C60,48.8071187 48.8071187,60 35,60 Z M23.6332378,33.2260427 L22.3667622,34.7739573 L34.1433655,44.40936 L47.776114,27.6305926 L46.223886,26.3694074 L33.8566345,41.59064 L23.6332378,33.2260427 Z"/>
+              <circle id="successAnimationCircle" cx="35" cy="35" r="24" stroke="#979797" stroke-width="2" stroke-linecap="round" fill="transparent"/>
+              <polyline id="successAnimationCheck" stroke="#979797" stroke-width="2" points="23 34 34 43 47 27" fill="transparent"/>
+            </svg>
           </a-col>
-          <a-col :span="16">
-            fuck
+          <a-col :xs="24" :sm="24" :md="14" :lg="16" :xl="18" :xxl="18" class="section description">
+            <!-- TODO: Also add some notice text over here. -->
+            <h1>Successfully Paid</h1>
+            <h2>Your payment has been successfully processed. Enjoy your UV 2018!</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et quam eget nisl molestie feugiat non eu justo. Nunc sit amet blandit risus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam justo urna, imperdiet id fringilla eget, rhoncus vitae tortor. Pellentesque vestibulum mi a sapien pharetra, consequat sagittis enim aliquet. Sed mollis sagittis mollis. Quisque risus elit, gravida eu aliquet sit amet, scelerisque sodales ante. Integer gravida sapien non viverra porttitor.</p>
           </a-col>
         </a-row>
       </a-layout-content>
@@ -25,7 +33,7 @@ import anime from 'animejs'
 
 export default {
   name: 'success',
-  created () {
+  mounted () {
     this.animateIcon()
   },
   data () {
@@ -35,7 +43,42 @@ export default {
   },
   methods: {
     animateIcon () {
-      console.log(document.querySelectorAll('.draw-svg'))
+      console.log(this.$el.querySelectorAll('#success'))
+        anime.timeline()
+        .add({
+          targets: '.section.description h1',
+          easing: 'easeOutExpo',
+          duration: 900,
+          translateX: [-80, 0],
+          opacity: [0, 1],
+          scaleY: [.95, 1],
+          offset: 350
+        })
+        .add({
+          targets: '.section.description h2',
+          easing: 'easeOutExpo',
+          duration: 1050,
+          translateX: [-80, 0],
+          opacity: [0, 1],
+          scaleY: [.95, 1],
+          offset: 375
+        })
+        .add({
+          targets: '.section.description p',
+          easing: 'easeOutExpo',
+          duration: 1300,
+          translateX: [-80, 0],
+          opacity: [0, 1],
+          scaleY: [.95, 1],
+          offset: 400
+        })
+        .add({
+          targets: '.section.description',
+          easing: 'easeOutExpo',
+          duration: 1700,
+          textShadow: ['0 0 3px #fff', '0 0 0px #fff'],
+          offset: 350
+        })
     }
   }
 }
@@ -54,5 +97,128 @@ export default {
     .success-main-content .ant-layout {
         padding: 0 24px 24px;
     }
+  }
+  .section {
+    padding: 1em
+  }
+  @-webkit-keyframes scaleAnimation {
+    0% {
+      opacity: 0;
+      -webkit-transform: scale(1.5);
+      transform: scale(1.5);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+
+  @keyframes scaleAnimation {
+    0% {
+      opacity: 0;
+      -webkit-transform: scale(1.5);
+      transform: scale(1.5);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  @-webkit-keyframes drawCircle {
+    0% {
+      stroke-dashoffset: 151px;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes drawCircle {
+    0% {
+      stroke-dashoffset: 151px;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  @-webkit-keyframes drawCheck {
+    0% {
+      stroke-dashoffset: 36px;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes drawCheck {
+    0% {
+      stroke-dashoffset: 36px;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  @-webkit-keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  #successAnimationCircle {
+    stroke-dasharray: 151px 151px;
+    stroke: #25AE88;
+  }
+
+  #successAnimationCheck {
+    stroke-dasharray: 36px 36px;
+    stroke: #25AE88;
+  }
+
+  #successAnimationResult {
+    fill: #25AE88;
+    opacity: 0;
+  }
+
+  #successAnimation.animated {
+    -webkit-animation: 1s ease-out 0s 1 both scaleAnimation;
+    animation: 1s ease-out 0s 1 both scaleAnimation;
+  }
+  #successAnimation.animated #successAnimationCircle {
+    -webkit-animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both drawCircle, 0.3s linear 0.9s 1 both fadeOut;
+    animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both drawCircle, 0.3s linear 0.9s 1 both fadeOut;
+  }
+  #successAnimation.animated #successAnimationCheck {
+    -webkit-animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both drawCheck, 0.3s linear 0.9s 1 both fadeOut;
+    animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both drawCheck, 0.3s linear 0.9s 1 both fadeOut;
+  }
+  #successAnimation.animated #successAnimationResult {
+    -webkit-animation: 0.3s linear 0.9s both fadeIn;
+    animation: 0.3s linear 0.9s both fadeIn;
   }
 </style>

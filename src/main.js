@@ -16,9 +16,13 @@ import Antd from 'vue-antd-ui'
 import 'vue-antd-ui/dist/antd.css'
 import App from './App'
 import router from './router'
+import LogRocket from 'logrocket'
+import createPlugin from 'logrocket-vuex';
 
 Vue.config.productionTip = false
 
+const logrocketPlugin = createPlugin(LogRocket);
+LogRocket.init('itcl40/uv2018-dev')
 Vue.use(Vuex)
 Vue.use(VueResource)
 Vue.use(VueTitlecase)
@@ -59,7 +63,8 @@ const store = new Vuex.Store({
     sitekey: '6LeE8GQUAAAAADw5NwLtA6Ge_trrLCvTkJe8yD7d'
   },
   plugins: [
-    createPersistedState()
+    createPersistedState(),
+    logrocketPlugin
   ]
 })
 

@@ -14,15 +14,10 @@
                 <template slot="header">
                   <span>Register for IEEE International Universal Village Conference</span>
                 </template>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel efficitur dolor, sed faucibus enim. Sed tempor tempus ornare. In ornare magna in felis gravida, vel lobortis sem molestie. Donec ultrices, lorem in consequat sagittis, nisi nibh hendrerit est, vel iaculis sem nunc eu mi. Quisque efficitur egestas sapien eu ultricies. Cras sit amet accumsan nisl. Quisque quis nulla egestas, tempus eros at, tristique metus. Etiam tempus posuere nunc quis elementum. Duis dignissim placerat mi quis rhoncus. Proin vestibulum consequat erat vitae dapibus. Morbi vel elementum mauris. Aliquam molestie tristique gravida. <br>
-
-                  Proin sagittis nisi a magna sagittis iaculis. Praesent eget sapien at quam condimentum varius. Maecenas vestibulum mi ipsum, sed accumsan massa elementum et. Nullam a turpis non diam suscipit mollis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac consectetur magna, vel ultricies urna. Suspendisse non semper lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse aliquam, neque a suscipit dignissim, magna est consectetur mi, sit amet blandit augue massa vitae orci. Vivamus et tellus ligula. Morbi quis luctus ipsum. Proin mi quam, pretium a est vitae, tempor blandit lectus. Praesent finibus dui sollicitudin maximus euismod. Donec efficitur scelerisque mauris, vitae ornare orci mollis eu. Sed eu nunc felis. Sed et mattis sem, et dictum lorem. <br>
-
-                  Aliquam congue turpis sit amet metus posuere, a dignissim dui molestie. Duis eget posuere lectus. Donec interdum nisl quis ante mollis porttitor. Nam bibendum est eros, ultricies venenatis tortor ultrices vitae. Ut mollis varius ante a auctor. Sed eu tincidunt risus. Nulla vestibulum ligula sit amet nulla maximus, vel rhoncus metus rutrum. Nunc posuere justo in efficitur molestie. Sed nisi elit, volutpat ut elit id, eleifend ullamcorper sapien. Morbi a mauris viverra, aliquet urna a, ullamcorper mauris. Phasellus condimentum dignissim dolor vel rhoncus. Aliquam ac tempor sapien, in posuere ante. Vestibulum ultrices eu elit facilisis maximus. Duis rutrum, dolor vel bibendum pharetra, odio orci auctor nisi, nec pellentesque tellus tortor at tortor. Phasellus ullamcorper interdum justo, nec elementum eros tincidunt id. <br>
-
-                  Proin blandit metus ex, in rhoncus ex volutpat a. Aliquam mattis gravida leo ut placerat. Aliquam pulvinar volutpat vestibulum. Sed elementum nunc sit amet dapibus molestie. Nunc pellentesque interdum dolor vel pharetra. Nullam facilisis laoreet lorem, sit amet rhoncus massa sollicitudin interdum. Pellentesque cursus est ligula, ac sagittis augue aliquam luctus. Praesent odio augue, dapibus a sapien a, iaculis consequat est. Sed sed porta dolor. Suspendisse imperdiet nulla nec leo ullamcorper, id scelerisque lacus tristique. In vitae dui tempor, rutrum tortor eget, ultricies arcu. <br>
-                </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel efficitur dolor, sed faucibus enim. Sed tempor tempus ornare. In ornare magna in felis gravida, vel lobortis sem molestie. Donec ultrices, lorem in consequat sagittis, nisi nibh hendrerit est, vel iaculis sem nunc eu mi. Quisque efficitur egestas sapien eu ultricies. Cras sit amet accumsan nisl. Quisque quis nulla egestas, tempus eros at, tristique metus. Etiam tempus posuere nunc quis elementum. Duis dignissim placerat mi quis rhoncus. Proin vestibulum consequat erat vitae dapibus. Morbi vel elementum mauris. Aliquam molestie tristique gravida.</p>
+                <p>Proin sagittis nisi a magna sagittis iaculis. Praesent eget sapien at quam condimentum varius. Maecenas vestibulum mi ipsum, sed accumsan massa elementum et. Nullam a turpis non diam suscipit mollis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac consectetur magna, vel ultricies urna. Suspendisse non semper lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse aliquam, neque a suscipit dignissim, magna est consectetur mi, sit amet blandit augue massa vitae orci. Vivamus et tellus ligula. Morbi quis luctus ipsum. Proin mi quam, pretium a est vitae, tempor blandit lectus. Praesent finibus dui sollicitudin maximus euismod. Donec efficitur scelerisque mauris, vitae ornare orci mollis eu. Sed eu nunc felis. Sed et mattis sem, et dictum lorem.</p>
+                <p>Aliquam congue turpis sit amet metus posuere, a dignissim dui molestie. Duis eget posuere lectus. Donec interdum nisl quis ante mollis porttitor. Nam bibendum est eros, ultricies venenatis tortor ultrices vitae. Ut mollis varius ante a auctor. Sed eu tincidunt risus. Nulla vestibulum ligula sit amet nulla maximus, vel rhoncus metus rutrum. Nunc posuere justo in efficitur molestie. Sed nisi elit, volutpat ut elit id, eleifend ullamcorper sapien. Morbi a mauris viverra, aliquet urna a, ullamcorper mauris. Phasellus condimentum dignissim dolor vel rhoncus. Aliquam ac tempor sapien, in posuere ante. Vestibulum ultrices eu elit facilisis maximus. Duis rutrum, dolor vel bibendum pharetra, odio orci auctor nisi, nec pellentesque tellus tortor at tortor. Phasellus ullamcorper interdum justo, nec elementum eros tincidunt id.</p>
+                <p>Proin blandit metus ex, in rhoncus ex volutpat a. Aliquam mattis gravida leo ut placerat. Aliquam pulvinar volutpat vestibulum. Sed elementum nunc sit amet dapibus molestie. Nunc pellentesque interdum dolor vel pharetra. Nullam facilisis laoreet lorem, sit amet rhoncus massa sollicitudin interdum. Pellentesque cursus est ligula, ac sagittis augue aliquam luctus. Praesent odio augue, dapibus a sapien a, iaculis consequat est. Sed sed porta dolor. Suspendisse imperdiet nulla nec leo ullamcorper, id scelerisque lacus tristique. In vitae dui tempor, rutrum tortor eget, ultricies arcu.</p>
               </a-collapse-panel>
               <a-collapse-panel :key="2">
                 <template slot="header">
@@ -63,7 +58,7 @@
                       <a-input placeholder="Password" v-model="password" ref="passwordInput" type="password">
                         <a-icon slot="prefix" type="lock"/>
                         <a-icon v-if="password" slot="suffix" type="close-circle" style="cursor: pointer;" @click="clr('pw')"/>
-                        <a-icon v-if="!password" slot="suffix" type="question-circle" style="cursor: pointer;"/>
+                        <a-icon v-if="!password" slot="suffix" type="question-circle" style="cursor: pointer;" @click="jumpToForgotPassword"/>
                       </a-input>
                     </a-form-item>
                     <a-form-item
@@ -126,6 +121,9 @@ export default {
           this.email = ''
           break
       }
+    },
+    jumpToForgotPassword: () => {
+      this.$router.push('/reset-password')
     },
     handleSubmit: function (recaptchaToken) {
       this.spinning = true

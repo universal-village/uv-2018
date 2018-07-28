@@ -3,8 +3,7 @@
     <a-layout-content>
       <a-layout style="padding: 0; margin: 0">
         <carousel-3d :height="640" :width="1920" :space="1280" :controls-visible="true" :controls-prev-html="'&#10092;'" :controls-next-html="'&#10093;'" :controls-width="30" :controls-height="60" :clickable="false" :autoplay="true" :autoplay-timeout="5000" :perspective="15" style="border-width: 0 !important; margin-top: 0 !important; width: 100%">
-          <slide v-for="(slide, i) in carouselImages" :index="i" :key="i" v-html="slideHtml(slide)">
-          </slide>
+          <slide v-for="(slide, i) in carouselImages" :index="i" :key="i" v-html="slideHtml(slide)" />
         </carousel-3d>
         <a-layout-content :style="{ padding: '24px', margin: 0, minHeight: '280px' }">
           <a-row>
@@ -262,9 +261,6 @@ export default {
   name: 'Home',
   components: {ADivider, ALayoutSider},
   methods: {
-    hey () {
-      console.log(this)
-    },
     getWebp (src) {
       return 'https://cdn.universal-village.org/images/carousel/carousel-img-' + src + '.webp'
     },

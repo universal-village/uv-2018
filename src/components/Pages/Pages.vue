@@ -17,12 +17,7 @@ export default {
   name: 'PagesDetail',
   data () {
     return {
-      pageMeta: {
-        content: '<h2>Loading</h2>',
-        title: 'Title',
-        date: 123456789,
-        author: 'Admin'
-      },
+      pageMeta: {},
       pagePlain: ''
     }
   },

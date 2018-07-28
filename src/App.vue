@@ -99,6 +99,10 @@
           <router-link to="/conference-registration">Conference Registration</router-link>
         </a-menu-item> -->
 
+        <a-menu-item key="attendee">
+          <router-link to="/conference-registration">Conference Registration</router-link>
+        </a-menu-item>
+
         <a-menu-item key="my-uv">
           <router-link to="/my">My UV</router-link>
         </a-menu-item>
