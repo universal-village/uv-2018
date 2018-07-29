@@ -1,6 +1,6 @@
 <template>
   <a-layout-content style="padding: 0 50px">
-    <a-layout style="padding: 0 24px 24px; background: rgba(255, 255, 255, .75);">
+    <a-layout style="padding: 0 .5em 1em; background: rgba(255, 255, 255, .75);">
       <a-breadcrumb style="margin: 16px 0">
         <a-breadcrumb-item v-for="navPage in this.$store.state.navPageList" :key="navPage">
           {{ navPage | capitalize }}
