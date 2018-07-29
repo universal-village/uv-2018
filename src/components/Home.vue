@@ -22,6 +22,7 @@
                   <li>Address suitable paths of design, development, implementation, engineering and integration appropriate for different regions.</li>
                   <li>Explore how to benefit governments, companies, universities as well as societies on specific UV topics as well as practical UV solutions.</li>
                 </ul>
+                <p style="font-weight: bolder;">The theme for UV2018 is "Diversity, Mobility and Connectivity for Emergence of Harmony in Universal Village".</p>
                 <router-link to="/pages/call-for-papers">
                   <a-button type="dashed">
                     UV2018 Call for Papers
@@ -260,6 +261,9 @@ import ADivider from 'vue-antd-ui/es/divider/index'
 export default {
   name: 'Home',
   components: {ADivider, ALayoutSider},
+  created () {
+    this.openNotification()
+  },
   methods: {
     getWebp (src) {
       return 'https://cdn.universal-village.org/images/carousel/carousel-img-' + src + '.webp'
@@ -269,13 +273,19 @@ export default {
     },
     slideHtml (slide) {
       return '<img src=' + this.getWebp(slide) + " style=\"width: 100%; height: auto; background: linear-gradient(135deg, #5c258d, #4389a2)\" onerror=\"this.onerror=null; this.src='" + this.getJpg(slide) + "'\">"
+    },
+    openNotification () {
+      this.$notification['info']({
+        message: 'Security Notification',
+        description: 'For your convenience and account safety, we upgraded our system. Please reset your password  if you haven\'t done so yet. We apologize for any inconvenience this change may cause.\n\r If you have any questions, please contact us at the email: uv2018.committee@universal-village.org.\n\r Many thanks and best regards,\n\r UV2018 Organizing Committee'
+      })
     }
   },
   data () {
     return {
       carouselImages: [
         '8t3r5njr',
-        'tcgvz4t7',
+        /* 'tcgvz4t7', */
         '2sb5r0s0'
       ]
     }

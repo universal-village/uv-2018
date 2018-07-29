@@ -78,7 +78,7 @@
                   </a-input>
                 </a-form-item>
 
-                <a-form-item
+                <!-- <a-form-item
                   label='Name in own Language'
                   :labelCol="{ span: 9 }"
                   :wrapperCol="{ span: 12 }"
@@ -89,7 +89,7 @@
                     <a-icon slot="prefix" type="contacts"/>
                     <a-icon v-if="nameInOwnLanguage" slot="suffix" type="close-circle" class="emit-closer" @click="emitEmptyField"/>
                   </a-input>
-                </a-form-item>
+                </a-form-item> -->
 
                 <a-form-item
                   label='E-mail'
@@ -140,7 +140,7 @@
                   :labelCol="{ span: 9 }"
                   :wrapperCol="{ span: 12 }"
                   fieldDecoratorId="birthdayDate"
-                  :fieldDecoratorOptions="{rules: [{ required: true, message: 'What\'s your Birthday?' }]}"
+                  :fieldDecoratorOptions="{rules: [{ required: false, message: 'What\'s your Birthday?' }]}"
                 >
                   <a-date-picker @change="onChange"/>
                 </a-form-item>
@@ -154,13 +154,14 @@
                   :labelCol="{ span: 9 }"
                   :wrapperCol="{ span: 12 }"
                   fieldDecoratorId="bios"
-                  :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your Biography!' }]}"
+                  :fieldDecoratorOptions="{rules: [{ required: false, message: 'Please input your Biography!' }]}"
                 >
                   <a-textarea placeholder="Short summary about yourself" v-model="bios" ref="biosInput"
                               :autosize="{ minRows: 3 }">
                     <a-icon slot="prefix" type="smile"/>
                     <a-icon v-if="bios" slot="suffix" type="close-circle" class="emit-closer" @click="emitEmptyField"/>
                   </a-textarea>
+                  <span style="float: right;">{{ bioCounts }}/500</span>
                 </a-form-item>
 
                 <a-form-item
@@ -491,6 +492,11 @@ export default {
     },
     dev () {
       console.log(this.form.getFieldValue('birthdayDate').dates())
+    }
+  },
+  computed: {
+    bioCounts: function () {
+      return this.bios.length
     }
   }
 }

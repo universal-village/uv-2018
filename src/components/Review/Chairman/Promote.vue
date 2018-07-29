@@ -7,7 +7,7 @@
       fieldDecoratorId="note"
       :fieldDecoratorOptions="{rules: [{ required: true, message: 'Reviewer email cannot be left blank!' }]}"
     >
-      <a-input placeholder="email"/>
+      <a-input placeholder="email" v-model="promoteEmail"/>
       <vue-recaptcha :sitekey="this.$store.state.sitekey" @verify="handleSubmit">
         <a-button type='primary' htmlType='submit' style="float: right; margin-top: 2em;">
           Promote User as Reviewer &nbsp;
@@ -35,14 +35,17 @@ export default {
     VueRecaptcha
   },
   mounted () {
-    // this.checkChairmanStatus()
-    // this.fetchData()
+    this.checkChairmanStatus()
+    this.fetchData()
+    this.getCategories()
   },
   data () {
     return {
-      categoryId: -1,
-      categories: [],
-      reviewers: [{"userid":17,"firstname":"Guanghua","middlename":"","lastname":"Cheng","email":"orangeparadise01@gmail.com","organization":"Universal Village"}],
+      promoteEmail: '',
+      spinning: false,
+      categoryId: 0,
+      categories: [''],
+      reviewers: [/* {"userid":17,"firstname":"Guanghua","middlename":"","lastname":"Cheng","email":"orangeparadise01@gmail.com","organization":"Universal Village"} */],
       columns: [{
         title: 'Name',
         dataIndex: 'name',
@@ -101,6 +104,26 @@ export default {
         this.reviewers = response.body
       }, response => {
         this.$message.error('Page loading error. Please check parameters. status-' + response.status, 3)
+      })
+    },
+    handleSubmit (recaptchaToken) {
+      this.spinning = true
+      console.log(recaptchaToken)
+      // return false
+      this.$http.post(this.$store.state.endpoint.api + '/categoryChair/promoteReviewer', {
+        email: this.promoteEmail,
+        token: recaptchaToken
+      }, {emulateJSON: true}).then(response => {
+        console.log(response.body.flag)
+        this.spinning = false
+        if (response.body.flag === true) {
+          this.$message.success('Successfully Updated.', 2)
+        } else {
+          this.$message.error(response.body.info, 4)
+        }
+      }, response => {
+        this.spinning = false
+        this.$message.error('Internal Server Error. Please try again.', 4)
       })
     }
   },

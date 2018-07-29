@@ -33,6 +33,7 @@ export default {
     },
     fetchData () {
       let loader = this.$message.loading('Loading page...', 0)
+      console.log('create page ' + this.$route.params.page)
       this.$http.get(this.$store.state.endpoint.pages + this.$route.params.page + '.html', {email: this.email, password: this.password}, {emulateJSON: true}).then(response => {
         console.log(response.body.flag)
         this.spinning = false
