@@ -17,12 +17,17 @@ import 'vue-antd-ui/dist/antd.css'
 import App from './App'
 import router from './router'
 import LogRocket from 'logrocket'
-import createPlugin from 'logrocket-vuex';
+import createPlugin from 'logrocket-vuex'
 
 Vue.config.productionTip = false
 
-const logrocketPlugin = createPlugin(LogRocket);
-LogRocket.init('itcl40/uv2018-dev')
+const logrocketPlugin = createPlugin(LogRocket)
+LogRocket.init('itcl40/uv2018-dev', {
+  dom: {
+    baseHref: 'https://uv2018-dev-web.s3.amazonaws.com/',
+  }
+})
+Vue.prototype.$LogRocket = LogRocket
 Vue.use(Vuex)
 Vue.use(VueResource)
 Vue.use(VueTitlecase)

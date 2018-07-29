@@ -114,6 +114,7 @@ export default {
         if (response.body.flag === true) {
           this.$message.success('Successfully logged in. Redirecting you to the homepage', 2)
           this.$store.state.authenticate.username = this.email
+          this.$LogRocket.identify(decodeURIComponent(response.body.email))
           this.$router.push('/')
         } else {
           this.$message.error('Username or Password is incorrect. Check your credentials and try again.', 4)

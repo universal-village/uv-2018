@@ -41,7 +41,7 @@
   </a-layout-content>
 </template>
 
-<script lang="js">
+<script>
 import VueRecaptcha from 'vue-recaptcha'
 export default {
   name: 'password-regenerate',
@@ -88,7 +88,7 @@ export default {
 }
 </script>
 
-<style scoped lang="css">
+<style scoped>
   .password-regenerate {
 
   }
