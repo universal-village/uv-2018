@@ -60,11 +60,22 @@
           <a-menu-item key="program:categories-and-sessions">
             <router-link to="/pages/categories-and-sessions">Categories and Sessions</router-link>
           </a-menu-item>
-          <a-menu-item key="program:forum">
-            <router-link to="/forums">Forums</router-link>
-          </a-menu-item>
+          <!-- <a-menu-item key="program:forum">
+            <router-link to="/pages/forums">Forums</router-link>
+          </a-menu-item> -->
+          <a-sub-menu key="program:forums" title="Previous Conferences" :style="{ marginRight: '1em' }">
+            <a-menu-item key="program:forums:city-forum">
+              <router-link to="/pages/city-forum">City Forum</router-link>
+            </a-menu-item>
+            <a-menu-item key="program:forums:student-forum">
+              <router-link to="/pages/student-forum">Student Forum</router-link>
+            </a-menu-item>
+            <a-menu-item key="program:forums:industry-forum">
+              <router-link to="/pages/industry-forum">Industry & Entrepreneurship Forum</router-link>
+            </a-menu-item>
+          </a-sub-menu>
           <a-menu-item key="program:workshops">
-            <router-link to="/workshops">Workshops</router-link>
+            <router-link to="/pages/workshops">Workshops</router-link>
           </a-menu-item>
           <a-menu-item key="program:schedule">
             <router-link to="/pages/schedule">Schedule</router-link>
@@ -83,7 +94,7 @@
             <router-link to="/pages/local-information">Local Information</router-link>
           </a-menu-item>
           <a-menu-item key="attending:registration">
-            <router-link to="/pages/registration">Registration</router-link>
+            <router-link to="/pages/registration">Conference Registration</router-link>
           </a-menu-item>
         </a-sub-menu>
 
@@ -120,14 +131,6 @@
           </a-menu-item>
         </a-sub-menu>
 
-        <!-- <a-menu-item key="attendee">
-          <router-link to="/conference-registration">Conference Registration</router-link>
-        </a-menu-item> -->
-
-        <a-menu-item key="attendee">
-          <router-link to="/conference-registration">Conference Registration</router-link>
-        </a-menu-item>
-
         <a-menu-item key="my-uv">
           <router-link to="/my">My UV</router-link>
         </a-menu-item>
@@ -147,6 +150,8 @@
       <router-view name="App"></router-view>
     </transition>
     <a-layout-footer style="text-align: center; background: rgba(240,242,245,.5);">
+      Contact us: <span style="font-family: Source Code Pro, Consolas, Courier New, Courier, monospace;">uv2018.committee@universal-village.org<br></span>
+      <hr>
       Copyright &copy; 2012-{{ thisYear }}. The International Conference on Universal Village. All Rights Reserved.
     </a-layout-footer>
   </a-layout>
