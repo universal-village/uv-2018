@@ -6,9 +6,18 @@
     <bookmark url="file://$PROJECT_DIR$/src/components/Success.vue" line="19" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="595bda0b-0672-4d94-970c-d37a7f45c8a7" name="Default" comment="&gt; prod-version 1&#10;M: Styles&#10;&#10;New component&#10;PasswordRegenerate&#10;&#10;(cherry picked from commit 9c3273dc8c4490733903b1f702b43bd805ffdc6a)">
+    <list default="true" id="595bda0b-0672-4d94-970c-d37a7f45c8a7" name="Default" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Review/Reviewer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Review/Reviewer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/error-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/error-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/mail-template.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/mail-template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/s3-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/s3-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/static-pages/Intelligent-Modeling-and-Simulation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/static-pages/Intelligent-Modeling-and-Simulation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/My/Attendee.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/My/Attendee.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Verification/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Verification/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Verification/PasswordRegenerate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Verification/PasswordRegenerate.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Verification/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Verification/Register.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -42,8 +51,7 @@
           <entry key="html" value="71" />
           <entry key="js" value="164" />
           <entry key="svg" value="3" />
-          <entry key="txt" value="43" />
-          <entry key="vue" value="2733" />
+          <entry key="vue" value="2686" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -51,9 +59,8 @@
           <entry key="CSS" value="2" />
           <entry key="HTML" value="71" />
           <entry key="JavaScript" value="164" />
-          <entry key="PLAIN_TEXT" value="43" />
           <entry key="SVG" value="3" />
-          <entry key="Vue.js" value="2733" />
+          <entry key="Vue.js" value="2686" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -62,7 +69,7 @@
           <entry key="html" value="1" />
           <entry key="js" value="9" />
           <entry key="svg" value="4" />
-          <entry key="vue" value="9" />
+          <entry key="vue" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -71,7 +78,7 @@
           <entry key="HTML" value="1" />
           <entry key="JavaScript" value="9" />
           <entry key="SVG" value="4" />
-          <entry key="Vue.js" value="9" />
+          <entry key="Vue.js" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -123,25 +130,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Home.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1576">
+            <state relative-caret-position="-11">
               <caret line="269" column="23" selection-start-line="269" selection-start-column="23" selection-end-line="269" selection-end-column="23" />
               <folding>
                 <element signature="n#style#0;n#a-layout#0;n#a-layout-content#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h1#0;n#a-col#0;n#a-row#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="e#9237#9291#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/Review/Reviewer.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="17" column="119" selection-start-line="17" selection-start-column="119" selection-end-line="17" selection-end-column="119" />
             </state>
           </provider>
         </entry>
@@ -267,8 +265,8 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
-        <option value="Galvin Gao" />
         <option value="Paradise02 &lt;971599473@qq.com&gt;" />
+        <option value="Galvin Gao" />
       </list>
     </option>
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -286,6 +284,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/assets/logo.svg" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/build/serve-static.js" />
         <option value="$PROJECT_DIR$/../file-server/serve-static.js" />
@@ -336,7 +335,6 @@
         <option value="$PROJECT_DIR$/src/App.vue" />
         <option value="$PROJECT_DIR$/src/components/Verification/Login.vue" />
         <option value="$USER_HOME$/Downloads/failed.svg" />
-        <option value="$PROJECT_DIR$/src/components/Review/Reviewer.vue" />
       </list>
     </option>
   </component>
@@ -624,7 +622,7 @@
       <workItem from="1532367123289" duration="783000" />
       <workItem from="1532378299158" duration="5319000" />
       <workItem from="1532530043293" duration="13286000" />
-      <workItem from="1532629989724" duration="23712000" />
+      <workItem from="1532629989724" duration="23492000" />
     </task>
     <task id="LOCAL-00001" summary="update&#10;&#10;New component&#10;PasswordRegenerate&#10;&#10;(cherry picked from commit 9c3273dc8c4490733903b1f702b43bd805ffdc6a)">
       <created>1532574702299</created>
@@ -640,18 +638,11 @@
       <option name="project" value="LOCAL" />
       <updated>1532574845193</updated>
     </task>
-    <task id="LOCAL-00003" summary="&gt; prod-version 1&#10;M: Styles&#10;&#10;New component&#10;PasswordRegenerate&#10;&#10;(cherry picked from commit 9c3273dc8c4490733903b1f702b43bd805ffdc6a)">
-      <created>1532869593944</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1532869593944</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="311151000" />
+    <option name="totallyTimeSpent" value="310931000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -664,7 +655,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5539359" visible="true" weight="0.18560106" />
       <window_info id="Structure" order="1" sideWeight="0.65597665" side_tool="true" weight="0.18560106" />
@@ -675,10 +665,10 @@
       <window_info anchor="bottom" id="Debug" order="2" weight="0.3988355" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.7311757" weight="0.4341534" />
+      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.7311757" weight="0.6845152" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32416788" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.37771347" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.8494935" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.2688243" side_tool="true" weight="0.25655976" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.44507846" weight="0.49782923" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -729,11 +719,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="update&#10;&#10;New component&#10;PasswordRegenerate&#10;&#10;(cherry picked from commit 9c3273dc8c4490733903b1f702b43bd805ffdc6a)" />
     <MESSAGE value="update" />
-    <MESSAGE value="&gt; prod-version 1&#10;M: Styles&#10;&#10;New component&#10;PasswordRegenerate&#10;&#10;(cherry picked from commit 9c3273dc8c4490733903b1f702b43bd805ffdc6a)" />
-    <option name="LAST_COMMIT_MESSAGE" value="&gt; prod-version 1&#10;M: Styles&#10;&#10;New component&#10;PasswordRegenerate&#10;&#10;(cherry picked from commit 9c3273dc8c4490733903b1f702b43bd805ffdc6a)" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history>
@@ -742,6 +730,9 @@
     <find-history />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/assets/carousel-images/carousel-img-mn6uti9e.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/carousel-images/carousel-img-tcgvz4t7.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -1039,20 +1030,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Home.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1576">
+        <state relative-caret-position="-11">
           <caret line="269" column="23" selection-start-line="269" selection-start-column="23" selection-end-line="269" selection-end-column="23" />
           <folding>
             <element signature="n#style#0;n#a-layout#0;n#a-layout-content#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h1#0;n#a-col#0;n#a-row#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="e#9237#9291#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Review/Reviewer.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="17" column="119" selection-start-line="17" selection-start-column="119" selection-end-line="17" selection-end-column="119" />
         </state>
       </provider>
     </entry>
