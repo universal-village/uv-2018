@@ -8,9 +8,8 @@
       </a-breadcrumb>
       <a-layout-content :style="{ padding: '24px', margin: 0, minHeight: '280px' }">
         <div class="content">
-          <h1>Request Password Regenerate
-            <a-divider type="vertical" style="background: #212121; transform: translateY(3px) scale(1.35)"/>
-          </h1>
+          <h1>Request Password Regenerate</h1>
+          <br>
           <a-form :autoFormCreate="(form)=>{this.form = form}">
             <a-form-item
               label='E-mail'

@@ -95,7 +95,7 @@
   }
   @media only screen and (min-width: 960px){
     .ant-layout-content {
-      padding: 0 10%;
+      padding: 0 5%;
     }
   }
 
@@ -182,7 +182,7 @@
     text-transform: uppercase;
     color: #fff;
     position: relative;
-    font-size: 17px;
+    font-size: 15px;
     background-color: transparent;
     padding: 0 0 10px 0;
     text-align: left;
@@ -220,6 +220,10 @@
     right: 10%;
     bottom: 20%;
     font-size: 36px;
+  }
+
+  .ov-description {
+    opacity: 1 !important;
   }
 
   .hovereffect:hover img {
