@@ -10,6 +10,9 @@ const MySubmissions = () => import(/* webpackChunkName: "my" */ '@/components/My
 const MyUV = () => import(/* webpackChunkName: "my" */ '@/components/My/UVIndex.vue')
 const MySubmissionsPaper = () => import(/* webpackChunkName: "home" */ '@/components/My/Submissions/Paper.vue')
 const Reviewer = () => import(/* webpackChunkName: "review" */ '@/components/Review/Reviewer.vue')
+const Chairman = () => import(/* webpackChunckName: "chairman" */ '@/components/Review/CategoryChair.vue')
+const PaperRepo = () => import(/* webpackChunckName: "chairman" */ '@/components/Review/Chairman/PaperRepo.vue')
+const Promote = () => import(/* webpackChunckName: "chairman" */ '@/components/Review/Chairman/Promote.vue')
 const PagesIndex = () => import(/* webpackChunkName: "home" */ '@/components/Pages/Index.vue')
 const PagesDetail = () => import(/* webpackChunkName: "home" */ '@/components/Pages/Pages.vue')
 const AddPaperSubmission = () => import(/* webpackChunkName: "my" */ '@/components/My/Submissions/Paper/Add.vue')
@@ -72,6 +75,26 @@ export default new Router({
       components: {
         App: Reviewer
       }
+    },
+    {
+      path: '/chairman',
+      components: {
+        App: Chairman
+      },
+      children: [{
+        path: 'paper-repo',
+        name: 'Chairman / PaperRepository',
+        components: {
+          Chairman: PaperRepo
+        }
+      },
+      {
+        path: 'promote',
+        name: 'Chairman / Promote',
+        components: {
+          Chairman: Promote
+        }
+      }]
     },
     {
       path: '/my',
