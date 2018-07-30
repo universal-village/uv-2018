@@ -20,7 +20,7 @@
         <span style="font-weight: bolder">{{text}}</span>
       </template>
       <template slot="title" slot-scope="currentPageData">
-        <h2>Reviewers Available at #{{categories[categoryId]}}</h2>
+        <h2>Available Reviewers</h2>
       </template>
     </a-table>
   </a-layout-content>
@@ -45,7 +45,7 @@ export default {
       spinning: false,
       categoryId: 0,
       categories: [''],
-      reviewers: [/* {"userid":17,"firstname":"Guanghua","middlename":"","lastname":"Cheng","email":"orangeparadise01@gmail.com","organization":"Universal Village"} */],
+      reviewers: [],
       columns: [{
         title: 'Name',
         dataIndex: 'name',
@@ -96,11 +96,6 @@ export default {
       }
       this.$http.get(this.$store.state.endpoint.api + '/categoryChair/getCategoryReviewers', {emulateJSON: true}).then(response => {
         console.log(response.body)
-        /* if (response.body.flag !== true) {
-          this.$message.error(response.body.info, 3)
-        } else {
-          this.assignedPapers = response.body.assignedPapers
-        } */
         this.reviewers = response.body
       }, response => {
         this.$message.error('Page loading error. Please check parameters. status-' + response.status, 3)
@@ -136,6 +131,9 @@ export default {
           organization: val.organization
         }
       })
+    },
+    category: function () {
+      return this.categories[this.categoryId]
     }
   }
 }

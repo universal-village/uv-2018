@@ -59,7 +59,7 @@ const store = new Vuex.Store({
       // api: 'https://api-beta.universal-village.org/uv-web',
       // api: 'http://localhost:8080/uv2018',
       api: 'https://api-beta.universal-village.org',
-      pages: 'https://cdn.universal-village.org/static-pages/v-30OgNEHc/'
+      pages: 'https://cdn.universal-village.org/static-pages/v-s2kxYGkg/'
     },
     navPageList: [],
     authenticate: {
