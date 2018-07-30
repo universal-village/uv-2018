@@ -1,11 +1,13 @@
 <template>
   <a-layout style="background: none !important;">
-    <a-layout-sider width="200" style="background: none">
+    <a-layout-sider width="200" style="background: none" breakpoint="lg" collapsedWidth="0">
       <a-menu
+        :defaultOpenKeys="['paper-repo']"
         mode="inline"
         :openKeys="openKeys"
         @openChange="onOpenChange"
         :style="{ height: '100%', borderRight: 0, background: 'rgba(255, 255, 255, .5)' }"
+        :inlineCollapsed="false"
       >
         <a-sub-menu key="paper-repo">
           <span slot="title"><a-icon type="user" />Chairman</span>
@@ -44,8 +46,15 @@ export default {
   data () {
     return {
       rootSubmenuKeys: ['promote', 'paper-repo'],
-      openKeys: ['sub1']
+      openKeys: ['sub1'],
+      windowWidth: 0
     }
+  },
+  mounted () {
+
+  },
+  watch: {
+
   },
   methods: {
     checkLoginStatus () {
