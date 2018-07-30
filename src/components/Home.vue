@@ -33,7 +33,7 @@
             <a-col :span="24" :style="{ padding: '24px' }" :md="24" :lg="6">
               <a-divider orientation="left">Account</a-divider>
               <div style="width: 100%; margin-top: 24px;" class="side-box">
-                <router-link to="/my">
+                <router-link to="/reviewer">
                   <div class="hovereffect">
                     <img class="img-responsive" src="https://cdn.universal-village.org/images/home-sidebar/authors-and-reviewers.png" alt="">
                     <div class="overlay">
@@ -153,8 +153,8 @@
     position: relative;
     text-align: center;
     cursor: default;
-    background: -webkit-linear-gradient(45deg, rgba(255, 137, 233, 0.8) 50%, rgba(5, 171, 224, 0.8) 100%);
-    background: linear-gradient(45deg, rgba(255, 137, 233, 0.8) 50%, rgba(5, 171, 224, 0.8) 100%);
+    background: -webkit-linear-gradient(195deg, rgba(190, 255, 76, 0.8), rgba(0, 255, 225, 0.8));
+    background: linear-gradient(195deg, rgba(190, 255, 76, 0.8), rgba(0, 255, 225, 0.8));
   }
 
   .hovereffect .overlay {
@@ -180,17 +180,19 @@
   }
 
   .hovereffect h2 {
+    border-radius: 8px 8px 8px 0;
     text-transform: uppercase;
     position: relative;
-    font-size: 14px;
+    font-size: 15px;
     text-align: left;
 
     display: inline-block;
     background-color: #6B14D3;
     color: white;
-    padding: 9px 15px;
+    padding: 9px 15px 10px 15px;
     margin: 1px;
-    background: linear-gradient(45deg, #6B14D3 0, #7A26E2 15%, #4962DD 120%);
+    background: -webkit-linear-gradient(195deg, rgba(101, 137, 41, 0.9), rgb(0, 153, 133));
+    background: linear-gradient(195deg, rgba(101, 137, 41, 0.9), rgb(0, 153, 133));
   }
 
   .hovereffect .overlay:before {
@@ -199,7 +201,7 @@
     right: 20px;
     bottom: 20px;
     left: 20px;
-    border-radius: .5em;
+    border-radius: 1em;
     border: 2px solid rgba(255, 255, 255, .8);
     content: '';
     opacity: 0;
@@ -211,7 +213,7 @@
   }
 
   .hovereffect a, .hovereffect span {
-    color: #FFF;
+    border-radius: 0 8px 8px 8px;
     opacity: 0;
     filter: alpha(opacity=0);
     -webkit-transition: opacity 0.35s, -webkit-transform 0.45s, -webkit-filter 0.45s;
@@ -220,9 +222,10 @@
     display: inline-block;
     background-color: #6B14D3;
     color: white;
-    padding: 9px 15px;
+    padding: 8px 15px 7px 15px;
     margin: 1px;
-    background: linear-gradient(45deg, #6B14D3 0, #7A26E2 15%, #4962DD 120%);
+    background: -webkit-linear-gradient(195deg, rgba(101, 137, 41, 0.9), rgb(0, 153, 133));
+    background: linear-gradient(195deg, rgba(101, 137, 41, 0.9), rgb(0, 153, 133));
   }
 
   .hovereffect .ov-arrow {

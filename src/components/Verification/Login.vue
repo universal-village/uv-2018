@@ -9,9 +9,9 @@
       <a-layout-content :style="{ padding: '24px', margin: 0, minHeight: '280px' }">
         <div class="content">
           <h1>Login &nbsp;
-            <span style="font-size: 60%;"><router-link to="/register">Register</router-link></span>
+            <span style="font-size: 60%;"><router-link to="/register" class="account-link">Register</router-link></span>
             <a-divider type="vertical" style="background: #212121; transform: translateY(3px) scale(1.35)"/>
-            <span style="font-size: 60%;"><router-link to="/regenerate-password">Forget your Password?</router-link></span>
+            <span style="font-size: 60%;"><router-link to="/regenerate-password" class="account-link">Forget your Password?</router-link></span>
           </h1>
           <a-form :autoFormCreate="(form)=>{this.form = form}">
             <a-form-item
@@ -40,9 +40,7 @@
                         style="cursor: pointer;"/>
               </a-input>
             </a-form-item>
-            <a-form-item
-              :wrapperCol="{ span: 12, offset: 5 }"
-            >
+            <a-form-item :wrapperCol="{ sm: { span: 12, offset: 5} }">
               <vue-recaptcha :sitekey="this.$store.state.sitekey" @verify="handleSubmit">
                 <a-button type='primary' htmlType='submit' style="width: 100%;" :loading="spinning">
                   Login
@@ -154,11 +152,8 @@ export default {
   }
 
   @media only screen and (max-width: 960px) {
-      .ant-layout-content {
+    .ant-layout-content {
       padding: 0 20px;
-    }
-      .ant-layout-content.main-content span {
-        display: block;
     }
   }
   @media only screen and (min-width: 960px){

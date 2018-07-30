@@ -13,12 +13,12 @@
         <div class="container-modal">
           <h1>System Update Notification</h1>
           <p>UV2018 website system was recently upgraded to enhance the security.</p>
-          <p><span style="font-weight: 700; color: #ffebee; background: #c62828; padding: 8px 12px; border-radius: 2px; margin-right: 4px;">Registered Users</span>, Please <nobr><strong style="margin-left: .35em;"><router-link to="/reset-password" @click="confirmedWebsiteUpdated">reset your password</router-link></strong></nobr>.</p>
+          <p><span style="font-weight: 900">Registered Users</span>, please <nobr><a-button size="large" style="margin-left: .35em;" class="reset-password-notification"><router-link to="/regenerate-password?from=notice" @click.native="confirmedWebsiteUpdated"><a-icon type="link" /> reset your password.</router-link></a-button></nobr></p>
           <p>If you have any questions, please contact us at the email:<br><span style="font-family: Source Code Pro, Consolas, Courier New, Courier, monospace; word-break: break-all;">uv2018.committee@universal-village.org</span></p>
           <p>Thank you for helping us to keep your account safe.</p>
           <p style="float: right">UV2018 IT Team</p>
           <br><br>
-          <a-button class="btn" style="float: right" type="primary" @click="confirmedWebsiteUpdated"><a-icon type="cross" /> Close, and Never show again</a-button>
+          <a-button size="large" class="btn" style="float: right" type="primary" @click="confirmedWebsiteUpdated"><a-icon type="cross" /> Close, and Never show again</a-button>
         </div>
       </div>
     </modal>
@@ -85,7 +85,7 @@
           <!-- <a-menu-item key="program:forum">
             <router-link to="/pages/forums">Forums</router-link>
           </a-menu-item> -->
-          <a-sub-menu key="program:forums" title="Forums" :style="{ marginRight: '1em' }">
+          <a-sub-menu key="program:forums" title="Previous Conferences" :style="{ marginRight: '1em' }">
             <a-menu-item key="program:forums:city-forum">
               <router-link to="/pages/city-forum">City Forum</router-link>
             </a-menu-item>
@@ -253,6 +253,11 @@ export default {
     confirmedWebsiteUpdated () {
       this.$store.state.confirmedUpdate = true
       this.$modal.hide('update-notification-modal')
+    },
+    resetPasswordAndConfirmWebsiteUpdated () {
+      this.$store.state.confirmedUpdate = true
+      this.$router.push('/reset-password')
+      this.$modal.hide('update-notification-modal')
     }
   },
   computed: {
@@ -418,29 +423,51 @@ export default {
     font-size: 1.2em;
   }
   .v--modal-overlay[data-modal="update-notification-modal"] .v--modal {
-    box-shadow: 0 0 5px 15px #89c745;
+    box-shadow: inset 0 0 0px 3px #6e9f39;
     border-radius: 1em;
     background: linear-gradient(195deg, rgba(255, 255, 255, .8), rgba(255, 255, 255, 1));
   }
   .v--modal-overlay[data-modal="update-notification-modal"] {
     background: rgba(0, 0, 0, .85);
   }
-  .v--modal-overlay[data-modal="update-notification-modal"] .panel strong {
+  .v--modal-overlay[data-modal="update-notification-modal"] .reset-password-notification {
     font-weight: 700;
-    font-size: 1.4em;
-    background: #122fa0;
-    color: #fff;
+    /*background: #1890ff;*/
+    /*color: #fff;*/
     border-radius: .3em;
-    padding: 12px 18px;
-    box-shadow: 0 0 0 0px #122fa0;
+    /*padding: 12px 18px;*/
+    box-shadow: 0 0 0 0 #40A9FF;
+    transition: all 750ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition-delay: 0s !important;
+  }
+  .v--modal-overlay[data-modal="update-notification-modal"] .reset-password-notification:hover {
+    /*background: #40A9FF;*/
+    box-shadow: 0 0 0 5px #40A9FF;
+  }
+  .v--modal-overlay[data-modal="update-notification-modal"] .reset-password-notification:active {
+    /*background: #096DD9 !important;*/
+    box-shadow: 0 0 0 3px #40A9FF !important;
+  }
+
+  .account-link {
+    color: #1890ff;
+    background-color: transparent;
+    border-radius: 1px;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    padding: 3px 6px;
     transition: all .75s cubic-bezier(0.19, 1, 0.22, 1);
   }
-  .v--modal-overlay[data-modal="update-notification-modal"] .panel strong:hover {
-    background: #192d7f;
-    box-shadow: 0 0 0 5px #2f54eb;
+
+  .account-link:hover {
+    color: #e7eeff;
+    background-color: #1890ff;
+    box-shadow: 0 0 0 7px #1890ff;
   }
-  .v--modal-overlay[data-modal="update-notification-modal"] .panel strong:focus, .v--modal[data-modal="update-notification-modal"] .panel strong:active {
-    box-shadow: 0 0 0 2px #2f54eb;
+
+  .account-link:active {
+    color: #dde9ff !important;
+    background-color: #1166b4 !important;
+    box-shadow: 0 0 0 4px #1476d0 !important;
   }
 
 </style>

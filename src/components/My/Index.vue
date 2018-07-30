@@ -25,12 +25,6 @@
             <router-link to="/reset-password"><a-icon type="lock" />Reset Password</router-link>
           </a-menu-item>
         </a-sub-menu>
-        <a-menu-item key="chairman" v-if="isCategoryChair">
-          <router-link to="/chairman" class="a-advance-nav"><a-icon type="user" />Category Chair</router-link>
-        </a-menu-item>
-        <a-menu-item key="reviewer" v-if="isReviewer">
-          <router-link to="/reviewer" class="a-advance-nav"><a-icon type="user" />Reviewer</router-link>
-        </a-menu-item>
       </a-menu>
     </a-layout-sider>
     <a-layout style="padding: 0 24px 24px; background: none !important;">
@@ -53,36 +47,14 @@ export default {
   name: 'Index',
   data () {
     return {
-      isReviewer: false,
-      isCategoryChair: false,
       rootSubmenuKeys: ['submissions', 'profile'],
       openKeys: ['sub1']
     }
   },
   created () {
     this.checkLoginStatus()
-    this.checkChairmanStatus()
-    this.checkReviewerStatus()
   },
   methods: {
-    checkChairmanStatus: function () {
-      this.$http.get(this.$store.state.endpoint.api + '/isCategoryChair', {emulateJSON: true}).then(
-        response => {
-          this.isCategoryChair = response.body.flag
-        }, response => {
-          // this.$message.error('Page loading error. Please check parameters. status-' + response.status, 3)
-          console.log('Cannot fetch chairman status')
-        })
-    },
-    checkReviewerStatus: function () {
-      this.$http.get(this.$store.state.endpoint.api + '/isReviewer', {emulateJSON: true}).then(
-        response => {
-          this.isReviewer = response.body.flag
-        }, response => {
-          // this.$message.error('Page loading error. Please check parameters. status-' + response.status, 3)
-          console.log('Cannot fetch reviewer status')
-        })
-    },
     checkLoginStatus () {
       if (this.$store.state.authenticate.username.length === 0) {
         this.$message.info('Before entering My UV, please log in.', 4)
@@ -120,8 +92,5 @@ export default {
     transform: scale(0.8);
     filter: blur(5px);
     opacity: 0;
-  }
-  .a-advance-nav {
-    font-size: 16px !important;
   }
 </style>

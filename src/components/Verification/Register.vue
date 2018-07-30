@@ -10,7 +10,7 @@
         <div class="content">
           <a-spin :spinning="spinning">
             <h1>Register &nbsp; <span style="font-size: 60%;">Already a member? <router-link
-              to="/login">Login ></router-link></span></h1>
+              to="/login" class="account-link">Login ></router-link></span></h1>
 
             <div class="stepShow">
               <a-steps direction="vertical" size="small" :current="current">

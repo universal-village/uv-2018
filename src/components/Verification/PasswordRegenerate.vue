@@ -9,6 +9,14 @@
       <a-layout-content :style="{ padding: '24px', margin: 0, minHeight: '280px' }">
         <div class="content">
           <h1>Request Password Regenerate</h1>
+          <div v-if="this.$route.query.from !== 'notice'">
+            <a-alert
+              message="Notice"
+              description="Registered users should be regenerate their password due to security considerations."
+              type="info"
+              showIcon
+            />
+          </div>
           <br>
           <a-form :autoFormCreate="(form)=>{this.form = form}">
             <a-form-item
@@ -25,7 +33,7 @@
               </a-input>
             </a-form-item>
             <a-form-item
-              :wrapperCol="{ span: 12, offset: 5 }"
+              :wrapperCol="{ sm: { span: 12, offset: 5} }"
             >
               <vue-recaptcha :sitekey="this.$store.state.sitekey" @verify="handleSubmit">
                 <a-button type='primary' htmlType='submit' style="width: 100%;" :loading="spinning">
@@ -48,9 +56,6 @@ export default {
     VueRecaptcha
   },
   props: [],
-  mounted () {
-
-  },
   data () {
     return {
       email: '',
@@ -69,7 +74,7 @@ export default {
         console.log(response.body.flag)
         this.spinning = false
         if (response.body.flag === true) {
-          this.$message.success('Your password has been regenerated. A mail with your new password has been sent to your mailbox', 2)
+          this.$message.success('Your password has been regenerated. A mail with your new password has been sent to your mailbox.', 4)
           // this.$store.state.authenticate.username = this.email
           this.$router.push('/success')
         } else {
@@ -80,9 +85,6 @@ export default {
         this.$message.error('Internal Server Error. Please try again.', 4)
       })
     }
-  },
-  computed: {
-
   }
 }
 </script>

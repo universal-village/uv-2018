@@ -8,7 +8,7 @@
       </a-breadcrumb>
       <a-layout-content :style="{ padding: '24px', margin: 0, minHeight: '280px' }">
         <div class="content">
-          <h1>Reset Password &nbsp; <span style="font-size: 60%;"><router-link to="/login">Login ></router-link></span></h1>
+          <h1>Reset Password &nbsp; <a-divider type="vertical" /><span style="font-size: 60%;">or <router-link to="/login" class="account-link">Login ></router-link></span></h1>
           <a-form @submit="handleSubmit" :autoFormCreate="(form)=>{this.form = form}">
             <a-form-item
               label='E-mail'
