@@ -8,12 +8,11 @@
       </a-breadcrumb>
       <a-layout-content :style="{ padding: '24px', margin: 0, minHeight: '280px' }">
         <div class="content">
-          <h1>Login &nbsp; <span style="font-size: 60%;">Not a member? <router-link
-            to="/register">Register ></router-link></span>
+          <h1>Login &nbsp;
+            <span style="font-size: 60%;"><router-link to="/register">Register</router-link></span>
             <a-divider type="vertical" style="background: #212121; transform: translateY(3px) scale(1.35)"/>
-            <span style="font-size: 60%;">Forgot password? <router-link
-              to="/regenerate-password">Reset Password ></router-link><a-divider type="vertical" style="background: #212121; transform: translateY(3px) scale(1.35)"/><router-link
-              to="/reset-password">Change Password ></router-link></span></h1>
+            <span style="font-size: 60%;"><router-link to="/regenerate-password">Forget your Password?</router-link></span>
+          </h1>
           <a-form :autoFormCreate="(form)=>{this.form = form}">
             <a-form-item
               label='E-mail'
@@ -38,8 +37,6 @@
               <a-input placeholder="Password" v-model="password" ref="passwordInput" type="password">
                 <a-icon slot="prefix" type="lock"/>
                 <a-icon v-if="password" slot="suffix" type="close-circle" @click="emitEmptyField"
-                        style="cursor: pointer;"/>
-                <a-icon v-if="!password" slot="suffix" type="question-circle" @click="forgotPassword"
                         style="cursor: pointer;"/>
               </a-input>
             </a-form-item>
@@ -165,14 +162,16 @@ export default {
     }
   }
   @media only screen and (min-width: 960px){
-      .ant-layout-content.main-content {
-        padding: 0 10%;
+    .ant-layout-content.main-content {
+      padding: 0 10%;
     }
-      .ant-layout {
-        padding: 0 24px 24px;
+    .ant-layout {
+      padding: 0 24px 24px;
     }
-      .content {
+    .content {
       padding: 2em 4em;
+    }
+    .content form {
       max-width: 50vw;
     }
       /* .ant-collapse-item  {

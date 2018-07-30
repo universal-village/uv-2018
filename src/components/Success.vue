@@ -43,15 +43,15 @@ export default {
   },
   methods: {
     animateIcon () {
-      console.log(this.$el.querySelectorAll('#success'))
-        anime.timeline()
+      console.log(this.$el.querySelectorAll('.section.description h1'))
+      anime.timeline()
         .add({
           targets: '.section.description h1',
           easing: 'easeOutExpo',
           duration: 900,
           translateX: [-80, 0],
           opacity: [0, 1],
-          scaleY: [.95, 1],
+          scaleY: [0.95, 1],
           offset: 350
         })
         .add({
@@ -60,7 +60,7 @@ export default {
           duration: 1050,
           translateX: [-80, 0],
           opacity: [0, 1],
-          scaleY: [.95, 1],
+          scaleY: [0.95, 1],
           offset: 375
         })
         .add({
@@ -69,7 +69,7 @@ export default {
           duration: 1300,
           translateX: [-80, 0],
           opacity: [0, 1],
-          scaleY: [.95, 1],
+          scaleY: [0.95, 1],
           offset: 400
         })
         .add({

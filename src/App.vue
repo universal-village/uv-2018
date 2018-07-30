@@ -1,5 +1,27 @@
 <template>
   <a-layout id="app">
+    <modal name="update-notification-modal" height="auto"
+           width="800"
+           :pivotY="0.3"
+           :clickToClose="false"
+           :adaptive="true"
+           :scrollable="true"
+           @opened="animateUpdateNotification"
+           style="height: 85vh; padding: 10vh 0;"
+    >
+      <div class="panel update-notification" style="display: block;">
+        <div class="container-modal">
+          <h1>System Update Notification</h1>
+          <p>UV2018 website system was recently upgraded to enhance the security.</p>
+          <p><span style="font-weight: 700; color: #ffebee; background: #c62828; padding: 8px 12px; border-radius: 2px; margin-right: 4px;">Registered Users</span>, Please <nobr><strong style="margin-left: .35em;"><router-link to="/reset-password" @click="confirmedWebsiteUpdated">reset your password</router-link></strong></nobr>.</p>
+          <p>If you have any questions, please contact us at the email:<br><span style="font-family: Source Code Pro, Consolas, Courier New, Courier, monospace; word-break: break-all;">uv2018.committee@universal-village.org</span></p>
+          <p>Thank you for helping us to keep your account safe.</p>
+          <p style="float: right">UV2018 IT Team</p>
+          <br><br>
+          <a-button class="btn" style="float: right" type="primary" @click="confirmedWebsiteUpdated"><a-icon type="cross" /> Close, and Never show again</a-button>
+        </div>
+      </div>
+    </modal>
     <a-back-top />
     <!--<a-layout-sider-->
       <!--breakpoint="lg"-->
@@ -151,18 +173,22 @@
     </transition>
     <a-layout-footer style="text-align: center; background: rgba(240,242,245,.5);">
       Contact us: <span style="font-family: Source Code Pro, Consolas, Courier New, Courier, monospace;">uv2018.committee@universal-village.org<br></span>
-      <hr>
+      <a-divider type="horizontal" style="margin: 8px 0; background: #212121" />
       Copyright &copy; 2012-{{ thisYear }}. The International Conference on Universal Village. All Rights Reserved.
     </a-layout-footer>
   </a-layout>
 </template>
 
 <script>
+import anime from 'animejs'
 export default {
   name: 'App',
   created () {
     this.updateBreadcrumb()
     this.validateLogin()
+  },
+  mounted () {
+    this.showUpdateInfo()
   },
   watch: {
     '$route': ['updateBreadcrumb']
@@ -191,8 +217,11 @@ export default {
     validateLogin () {
       this.$http.get(this.$store.state.endpoint.api + '/isLogin').then(response => {
         if (response.body.flag === true) {
-          this.$store.state.authenticate.username = decodeURIComponent(response.body.email)
-          this.$LogRocket.identify(decodeURIComponent(response.body.email))
+          let serverBackEmail = decodeURIComponent(response.body.email)
+          this.$store.state.authenticate.username = serverBackEmail
+          if (serverBackEmail !== undefined) {
+            this.$LogRocket.identify(serverBackEmail)
+          }
         }
       })
     },
@@ -201,6 +230,29 @@ export default {
     },
     beforeEnter () {
       window.scrollTo(0, 0)
+    },
+    showUpdateInfo () {
+      console.log('Update confirm status: ' + this.$store.state.confirmedUpdate)
+      if (!this.$store.state.confirmedUpdate) {
+        this.$modal.show('update-notification-modal')
+      }
+    },
+    animateUpdateNotification () {
+      console.log(this.$el.querySelectorAll('.container-modal'))
+      anime({
+        targets: ['.container-modal h1', '.container-modal strong', '.container-modal p'],
+        translateX: [-100, 0],
+        opacity: [0, 1],
+        filter: ['saturate(0)', 'saturate(1)'],
+        delay: (el, i) => { return i * 100 },
+        duration: 1200,
+        easing: 'easeOutCirc',
+        offset: 500
+      })
+    },
+    confirmedWebsiteUpdated () {
+      this.$store.state.confirmedUpdate = true
+      this.$modal.hide('update-notification-modal')
     }
   },
   computed: {
@@ -314,11 +366,81 @@ export default {
     font-weight: 500;
   }
   .ant-menu-item, .ant-menu-submenu span {
-    font-size: 1.2em;font-weight: 400;
+    font-size: 1.1em;
+    font-weight: 400;
   }
   /*.ant-menu-item, .ant-menu-submenu span {*/
     /*font-size: 1.2em;*/
     /*font-weight: 400;*/
     /*margin-top: -2px;*/
   /*}*/
+
+  .update-notification .container-modal{padding:2.5em 3em 5em 3em}.update-notification .v--modal-box{display:none;position:fixed;z-index:1;padding-top:75pt;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:rgba(0,255,0,.9)}.update-notification .modal-content{position:relative;background-color:#fefefe;margin:auto;padding:0;border:1px solid #888;width:80%;box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);-webkit-animation-name:animatetop;-webkit-animation-duration:.4s;animation-name:animatetop;animation-duration:.4s}@-webkit-keyframes animatetop{0%{top:-300px;opacity:0}to{top:0;opacity:1}}@keyframes animatetop{0%{top:-300px;opacity:0}to{top:0;opacity:1}}.update-notification .modal-header{background-color:#5cb85c;color:#fff}.update-notification .modal-body,.update-notification .modal-footer,.update-notification .modal-header{padding:2px 1pc}.update-notification .modal-footer{background-color:#5cb85c;color:#fff}.update-notification div.panel h1{font-weight:bolder;font-size:2em}.update-notification div.panel p,.update-notification div.panel span{display:block;font-size:1.2em;margin-bottom:10px;margin:.25em 2em 1.5em}
+
+  /*.panel p {*/
+    /*margin: 1em 0 0 2em;*/
+  /*}*/
+  /*.panel {*/
+    /*font-weight: 500;*/
+    /*font-size: 1.2em;*/
+  /*}*/
+  /*.v--modal {*/
+    /*box-shadow: 0 0 5px 15px #eb4952;*/
+    /*border-radius: 1em;*/
+    /*background: rgba(255, 255, 255, .9);*/
+  /*}*/
+  /*.v--modal-overlay {*/
+    /*background: rgba(0, 0, 0, .85);*/
+  /*}*/
+  /*.panel strong {*/
+    /*font-weight: 700;*/
+    /*font-size: 1.4em;*/
+    /*background: #122fa0;*/
+    /*color: #fff;*/
+    /*border-radius: .3em;*/
+    /*padding: 12px 18px;*/
+    /*box-shadow: 0 0 0 0px #122fa0;*/
+    /*transition: all .75s cubic-bezier(0.19, 1, 0.22, 1);*/
+  /*}*/
+  /*.panel strong:hover {*/
+    /*background: #192d7f;*/
+    /*box-shadow: 0 0 0 5px #2f54eb;*/
+  /*}*/
+  /*.panel strong:focus, .panel strong:active {*/
+    /*box-shadow: 0 0 0 2px #2f54eb;*/
+  /*}*/
+
+  .v--modal-overlay[data-modal="update-notification-modal"] .panel p {
+    margin: 1em 0 0 2em;
+  }
+  .v--modal-overlay[data-modal="update-notification-modal"] .panel {
+    font-weight: 500;
+    font-size: 1.2em;
+  }
+  .v--modal-overlay[data-modal="update-notification-modal"] .v--modal {
+    box-shadow: 0 0 5px 15px #89c745;
+    border-radius: 1em;
+    background: linear-gradient(195deg, rgba(255, 255, 255, .8), rgba(255, 255, 255, 1));
+  }
+  .v--modal-overlay[data-modal="update-notification-modal"] {
+    background: rgba(0, 0, 0, .85);
+  }
+  .v--modal-overlay[data-modal="update-notification-modal"] .panel strong {
+    font-weight: 700;
+    font-size: 1.4em;
+    background: #122fa0;
+    color: #fff;
+    border-radius: .3em;
+    padding: 12px 18px;
+    box-shadow: 0 0 0 0px #122fa0;
+    transition: all .75s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  .v--modal-overlay[data-modal="update-notification-modal"] .panel strong:hover {
+    background: #192d7f;
+    box-shadow: 0 0 0 5px #2f54eb;
+  }
+  .v--modal-overlay[data-modal="update-notification-modal"] .panel strong:focus, .v--modal[data-modal="update-notification-modal"] .panel strong:active {
+    box-shadow: 0 0 0 2px #2f54eb;
+  }
+
 </style>
