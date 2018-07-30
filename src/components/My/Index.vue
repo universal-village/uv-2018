@@ -1,6 +1,6 @@
 <template>
   <a-layout style="background: none !important;">
-    <a-layout-sider width="250" style="background: none">
+    <a-layout-sider width="250" style="background: none" breakpoint="lg" collapsedWidth="0">
       <a-menu
         mode="inline"
         :openKeys="openKeys"

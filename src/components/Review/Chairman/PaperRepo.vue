@@ -112,7 +112,7 @@
             <a-select-option value="A-">A-</a-select-option>
             <a-select-option value="A">A</a-select-option>
             <a-select-option value="A+">A+</a-select-option>
-          </a-select>
+          </a-select><a-tag color="green" class="decision-ele" v-if="recommandAward">Recommended Award</a-tag>
           <br>
           <span class="decision-ele">Decision</span>
           <a-select defaultValue="reject" style="width: 120px" class="decision-ele" v-model="decisionResult">
@@ -353,6 +353,9 @@ export default {
     },
     commentCounts: function () {
       return this.decisionComment.length
+    },
+    recommandAward: function () {
+      return this.decisionPerformance === 'A+'
     }
   }
 }
