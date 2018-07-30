@@ -18,6 +18,7 @@ import App from './App'
 import router from './router'
 import LogRocket from 'logrocket'
 import createPlugin from 'logrocket-vuex'
+import jsCookie from 'js-cookie'
 
 Vue.config.productionTip = false
 
@@ -28,6 +29,7 @@ LogRocket.init('itcl40/uv2018-dev', {
   }
 })
 Vue.prototype.$LogRocket = LogRocket
+Vue.prototype.$cookie = jsCookie
 Vue.use(Vuex)
 Vue.use(VueResource)
 Vue.use(VueTitlecase)
@@ -67,7 +69,7 @@ const store = new Vuex.Store({
       shaSalt: 'universal-village'
     },
     sitekey: '6LeE8GQUAAAAADw5NwLtA6Ge_trrLCvTkJe8yD7d',
-    confirmedUpdate: false
+    confirmedUpdate: false // Using js-cookie to replace.
   },
   plugins: [
     createPersistedState(),
