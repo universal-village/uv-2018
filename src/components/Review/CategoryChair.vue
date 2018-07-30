@@ -38,7 +38,7 @@ export default {
   name: 'category-chair',
   props: [],
   created () {
-    // this.checkLoginStatus()
+    this.checkLoginStatus()
   },
   data () {
     return {
