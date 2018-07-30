@@ -85,7 +85,7 @@
           <!-- <a-menu-item key="program:forum">
             <router-link to="/pages/forums">Forums</router-link>
           </a-menu-item> -->
-          <a-sub-menu key="program:forums" title="Previous Conferences" :style="{ marginRight: '1em' }">
+          <a-sub-menu key="program:forums" title="Forums" :style="{ marginRight: '1em' }">
             <a-menu-item key="program:forums:city-forum">
               <router-link to="/pages/city-forum">City Forum</router-link>
             </a-menu-item>

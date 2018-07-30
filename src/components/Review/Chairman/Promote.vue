@@ -66,7 +66,7 @@ export default {
         response => {
           console.log(response.body.flag)
           if (response.body.flag !== true) {
-            this.$message.error(response.body.info)
+            this.$message.error('Authentication Failed ' + response.body.info, 1)
             this.$router.push('/')
           } else {
             this.categoryId = this.$message.categoryId

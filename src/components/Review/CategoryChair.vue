@@ -38,7 +38,8 @@ export default {
   name: 'category-chair',
   props: [],
   created () {
-    // this.checkLoginStatus()
+    this.checkLoginStatus()
+    this.checkChairmanStatus()
   },
   data () {
     return {
@@ -52,6 +53,21 @@ export default {
         this.$message.info('Before entering My UV, please log in.', 4)
         this.$router.push('/login')
       }
+    },
+    checkChairmanStatus: function () {
+      this.$http.get(this.$store.state.endpoint.api + '/isCategoryChair', {emulateJSON: true}).then(
+        response => {
+          console.log(response.body.flag)
+          if (response.body.flag !== true) {
+            this.$message.error('Authentication Failed ', 1)
+            this.$router.push('/')
+          } else {
+            this.categoryId = this.$message.categoryId
+          }
+        }, response => {
+          this.$message.error('Page loading error. Please check parameters. status-' + response.status, 3)
+          this.$router.push('/')
+        })
     },
     onOpenChange (openKeys) {
       const latestOpenKey = openKeys.find(key => this.openKeys.indexOf(key) === -1)

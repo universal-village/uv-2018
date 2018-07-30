@@ -33,7 +33,7 @@
             <a-col :span="24" :style="{ padding: '24px' }" :md="24" :lg="6">
               <a-divider orientation="left">Account</a-divider>
               <div style="width: 100%; margin-top: 24px;" class="side-box">
-                <router-link to="/reviewer">
+                <router-link to="/my">
                   <div class="hovereffect">
                     <img class="img-responsive" src="https://cdn.universal-village.org/images/home-sidebar/authors-and-reviewers.png" alt="">
                     <div class="overlay">
