@@ -69,6 +69,7 @@ export default {
       this.$http.get(this.$store.state.endpoint.api + '/isCategoryChair', {emulateJSON: true}).then(
         response => {
           this.isCategoryChair = response.body.flag
+          console.log(this.isCategoryChair)
         }, response => {
           // this.$message.error('Page loading error. Please check parameters. status-' + response.status, 3)
           console.log('Cannot fetch chairman status')
@@ -78,6 +79,7 @@ export default {
       this.$http.get(this.$store.state.endpoint.api + '/isReviewer', {emulateJSON: true}).then(
         response => {
           this.isReviewer = response.body.flag
+          console.log(this.isReviewer)
         }, response => {
           // this.$message.error('Page loading error. Please check parameters. status-' + response.status, 3)
           console.log('Cannot fetch reviewer status')
