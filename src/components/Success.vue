@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     animateIcon () {
-      console.log(this.$el.querySelectorAll('#success'))
+      console.log(this.$el.querySelectorAll('.section.description h1'))
       anime.timeline()
         .add({
           targets: '.section.description h1',

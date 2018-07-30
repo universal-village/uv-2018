@@ -13,7 +13,7 @@
               </h1>
               <a-divider orientation="left">Summary</a-divider>
               <div property="content:encoded" class="home-content">
-                <p>After great success in China (Beijing, UV2013), United States (Boston, UV2014) and Japan (Nagoya, UV2016), the Fourth International Conference on Universal Village (UV2018) will be held again in Boston, United States. UV2018 will intensively exemplifies a desired future society that pursues human-nature harmony through wise application of advanced technologies. The concept is an expanded/advanced version of Smart Cities, and signifies that we follow the law of universe to protect the environment and eco-systems, while innovate new lifestyles to provide sustainable happiness for humanity’s future.</p>
+                <p>After great success in China (Beijing, UV2013), United States (Boston, UV2014) and Japan (Nagoya, UV2016), the Fourth International Conference on Universal Village (UV2018) will be held again in Boston, United States. UV2018 will intensively exemplifies a desired future society that pursues human-nature harmony through wise application of advanced technologies. The concept is an expanded/advanced version of Smart Cities, and signifies that we follow the law of universe to protect the environment and eco-systems, while innovate new lifestyles to provide sustainable happiness for humanity&apos;s future.</p>
                 <p>UV2018 will call for the collective efforts across multi-disciplinary fields to develop a platform where researchers with different backgrounds can well collaborate beyond the traditional filed boundaries, and to find a systematic, coordinated, long-term solution for the future of human kind and mother nature.</p>
                 <p>Subjects for UV2018 include but are not limited to the following topics:</p>
                 <ul>
@@ -24,7 +24,7 @@
                 </ul>
                 <p style="font-weight: bolder;">The theme for UV2018 is "Diversity, Mobility and Connectivity for Emergence of Harmony in Universal Village".</p>
                 <router-link to="/pages/call-for-papers">
-                  <a-button type="dashed">
+                  <a-button>
                     UV2018 Call for Papers
                   </a-button>
                 </router-link>
@@ -153,8 +153,8 @@
     position: relative;
     text-align: center;
     cursor: default;
-    background: -webkit-linear-gradient(45deg, #ff89e9 50%, #05abe0 100%);
-    background: linear-gradient(45deg, #ff89e9 50%,#05abe0 100%);
+    background: -webkit-linear-gradient(45deg, rgba(255, 137, 233, 0.8) 50%, rgba(5, 171, 224, 0.8) 100%);
+    background: linear-gradient(45deg, rgba(255, 137, 233, 0.8) 50%, rgba(5, 171, 224, 0.8) 100%);
   }
 
   .hovereffect .overlay {
@@ -164,7 +164,7 @@
     overflow: hidden;
     top: 0;
     left: 0;
-    padding: 3em;
+    padding: 2em;
     text-align: left;
   }
 
@@ -181,12 +181,16 @@
 
   .hovereffect h2 {
     text-transform: uppercase;
-    color: #fff;
     position: relative;
-    font-size: 15px;
-    background-color: transparent;
-    padding: 0 0 10px 0;
+    font-size: 14px;
     text-align: left;
+
+    display: inline-block;
+    background-color: #6B14D3;
+    color: white;
+    padding: 9px 15px;
+    margin: 1px;
+    background: linear-gradient(45deg, #6B14D3 0, #7A26E2 15%, #4962DD 120%);
   }
 
   .hovereffect .overlay:before {
@@ -196,7 +200,7 @@
     bottom: 20px;
     left: 20px;
     border-radius: .5em;
-    border: 2px solid rgba(255, 255, 255, .5);
+    border: 2px solid rgba(255, 255, 255, .8);
     content: '';
     opacity: 0;
     filter: alpha(opacity=0);
@@ -212,14 +216,22 @@
     filter: alpha(opacity=0);
     -webkit-transition: opacity 0.35s, -webkit-transform 0.45s, -webkit-filter 0.45s;
     transition: opacity 0.35s, transform 0.45s, filter 0.45s;
-    -webkit-transform: translate3d(-10px,0,0);
-    transform: translate3d(-10px,0,0);
+
+    display: inline-block;
+    background-color: #6B14D3;
+    color: white;
+    padding: 9px 15px;
+    margin: 1px;
+    background: linear-gradient(45deg, #6B14D3 0, #7A26E2 15%, #4962DD 120%);
   }
 
   .hovereffect .ov-arrow {
+    color: #FFF;
+    background: none;
+    padding: 0;
     position: absolute;
     right: 10%;
-    bottom: 20%;
+    bottom: 13%;
     font-size: 36px;
   }
 
@@ -245,7 +257,7 @@
   .hovereffect {
     border-bottom: 2px solid #ffffff;
     cursor: pointer;
-    transition: filter 600ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
   }
 
   .hovereffect:active {
@@ -265,9 +277,6 @@ import ADivider from 'vue-antd-ui/es/divider/index'
 export default {
   name: 'Home',
   components: {ADivider, ALayoutSider},
-  created () {
-    this.openNotification()
-  },
   methods: {
     getWebp (src) {
       return 'https://cdn.universal-village.org/images/carousel/carousel-img-' + src + '.webp'
@@ -277,12 +286,6 @@ export default {
     },
     slideHtml (slide) {
       return '<img src=' + this.getWebp(slide) + " style=\"width: 100%; height: auto; background: linear-gradient(135deg, #5c258d, #4389a2)\" onerror=\"this.onerror=null; this.src='" + this.getJpg(slide) + "'\">"
-    },
-    openNotification () {
-      this.$notification['info']({
-        message: 'Security Notification',
-        description: 'For your convenience and account safety, we upgraded our system. Please reset your password  if you haven\'t done so yet. We apologize for any inconvenience this change may cause.\n\r If you have any questions, please contact us at the email: uv2018.committee@universal-village.org.\n\r Many thanks and best regards,\n\r UV2018 Organizing Committee'
-      })
     }
   },
   data () {
