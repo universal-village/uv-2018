@@ -6,15 +6,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/components/Success.vue" line="19" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="595bda0b-0672-4d94-970c-d37a7f45c8a7" name="Default" comment="update">
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/My/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/My/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Review/CategoryChair.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Review/CategoryChair.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Review/Chairman/PaperRepo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Review/Chairman/PaperRepo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Review/Chairman/Promote.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Review/Chairman/Promote.vue" afterDir="false" />
-    </list>
+    <list default="true" id="595bda0b-0672-4d94-970c-d37a7f45c8a7" name="Default" comment="cherry-pick from a9ca4d25d83d67f8c6c4c00bd7df0ba60694d784b (might wrong)&#10;&#10;U: Animations, Colors &amp; Styles" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -48,6 +40,7 @@
           <entry key="html" value="71" />
           <entry key="js" value="217" />
           <entry key="svg" value="3" />
+          <entry key="txt" value="89" />
           <entry key="vue" value="6235" />
         </counts>
       </usages-collector>
@@ -56,7 +49,7 @@
           <entry key="CSS" value="2" />
           <entry key="HTML" value="71" />
           <entry key="JavaScript" value="217" />
-          <entry key="PLAIN_TEXT" value="16" />
+          <entry key="PLAIN_TEXT" value="105" />
           <entry key="SVG" value="3" />
           <entry key="Vue.js" value="6235" />
         </counts>
@@ -777,11 +770,18 @@
       <option name="project" value="LOCAL" />
       <updated>1532902012244</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="cherry-pick from a9ca4d25d83d67f8c6c4c00bd7df0ba60694d784b (might wrong)&#10;&#10;U: Animations, Colors &amp; Styles">
+      <created>1532983676139</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1532983676139</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="328317000" />
+    <option name="totallyTimeSpent" value="328571000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -862,7 +862,8 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="update&#10;&#10;New component&#10;PasswordRegenerate&#10;&#10;(cherry picked from commit 9c3273dc8c4490733903b1f702b43bd805ffdc6a)" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="cherry-pick from a9ca4d25d83d67f8c6c4c00bd7df0ba60694d784b (might wrong)&#10;&#10;U: Animations, Colors &amp; Styles" />
+    <option name="LAST_COMMIT_MESSAGE" value="cherry-pick from a9ca4d25d83d67f8c6c4c00bd7df0ba60694d784b (might wrong)&#10;&#10;U: Animations, Colors &amp; Styles" />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history>
