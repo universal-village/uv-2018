@@ -317,22 +317,24 @@ export default {
     handleSubmitFinalDecision (recaptchaToken) {
       this.spinning = true
       console.log(recaptchaToken)
-      /* this.$http.post(this.$store.state.endpoint.api + '/categoryChair/assignPaper', {
-        paperId: this.assignedPaperId,
-        email: this.assignedEmail,
+      this.$http.post(this.$store.state.endpoint.api + '/categoryChair/makeFinalDecision', {
+        paperId: this.decisionPaperId,
+        comment: this.decisionComment,
+        totalPerformance: this.decisionPerformance,
+        decision: this.decisionResult,
         token: recaptchaToken
       }, {emulateJSON: true}).then(response => {
         console.log(response.body.flag)
         this.spinning = false
         if (response.body.flag === true) {
-          this.$message.success('Successfully Assigned.', 2)
+          this.$message.success('Successfully Submitted.', 2)
         } else {
           this.$message.error(response.body.info, 4)
         }
       }, response => {
         this.spinning = false
         this.$message.error('Internal Server Error. Please try again.', 4)
-      }) */
+      })
     }
   },
   computed: {

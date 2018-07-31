@@ -60,7 +60,7 @@ export default {
     }
   },
   created () {
-    // this.checkLoginStatus()
+    this.checkLoginStatus()
     this.checkChairmanStatus()
     this.checkReviewerStatus()
   },

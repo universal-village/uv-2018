@@ -14,26 +14,38 @@
         <!--</a-popconfirm>-->
       <!--</span>-->
     <!--</a-table>-->
-    <a-card v-for="(paper, index) in paperList" :title="paper.title" :key="paper.paperid" style="margin: 2em" :bordered="false">
+    <a-card v-for="paper in paperList" :title="paper.title" :key="paper.paperid" style="margin: 2em" :bordered="false">
       <a href="#" slot="extra" @click="detailEntry(paper.paperid)">more</a>
-      <!-- TODO: Add the badge of the phases. -->
-      <span style="display: inline-block">Authors</span>
-      <a-divider type="vertical" />
-      <p style="display: inline-block;">
-        <a-tag v-for="tag in paper.authors.split(',')" :key="tag" style="cursor: default">{{ tag }}</a-tag>
-      </p>
-      <br>
-      <!--<span style="display: inline-block">Title</span>-->
-      <!--<a-divider type="vertical" />-->
-      <!--<p style="display: inline-block;">-->
-        <!--{{ paper.title }}-->
-      <!--</p>-->
-      <!--<br>-->
-      <span style="display: inline-block">Phase</span>
-      <a-divider type="vertical" />
-      <p style="display: inline-block;">
-        {{ paper.phase.replace('-', ' ').replace('Need', 'Needs') }}
-      </p>
+      <a-row>
+        <a-col :lg="10" :md="24">
+          <!-- TODO: Add the badge of the phases. -->
+          <span style="display: inline-block">Authors</span>
+          <a-divider type="vertical" />
+          <p style="display: inline-block;">
+            <a-tag v-for="tag in paper.authors.split(',')" :key="tag" style="cursor: default">{{ tag }}</a-tag>
+          </p>
+          <br>
+          <!--<span style="display: inline-block">Title</span>-->
+          <!--<a-divider type="vertical" />-->
+          <!--<p style="display: inline-block;">-->
+            <!--{{ paper.title }}-->
+          <!--</p>-->
+          <!--<br>-->
+          <span style="display: inline-block">Phase</span>
+          <a-divider type="vertical" />
+          <p style="display: inline-block;">
+            {{ paper.phase.replace('-', ' ').replace('Need', 'Needs') }}
+          </p>
+        </a-col>
+        <a-col :lg="14" :md="24">
+          <a-steps :current="paperPhaseStep(paper.phase).step" :status="paperPhaseStep(paper.phase).status">
+            <a-step title="Draft" description="Edit your paper" />
+            <a-step title="Need-Review" description="Reviewer give scores" />
+            <a-step :title="paperPhaseStep(paper.phase).decisionText" :description="paperPhaseStep(paper.phase).decisionDescrip" />
+            <a-step title="Camera-Ready" description="Last edit before publishing" />
+          </a-steps>
+        </a-col>
+      </a-row>
     </a-card>
 
     <a-card v-if="!this.paperList" title="(No paper submissions yet)">
@@ -187,7 +199,7 @@ export default {
       modalVisible: false,
       editingPaperId: null,
       submittingEdition: false,
-      paperList: [{"paperid":4,"title":"Test Paper of Guanghua v3","authors":"Guanghua,Yiyang","categoryId":4,"keywords":["ghjhklkk;l"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1531860511036-2018.7.9-Global_Optimization_of_a_Neural_Network-Hidden_Markov_Model_Hybrid.pdf","phase":"Draft","_abstract":null},{"paperid":16,"title":"Test Paper of Guanghua Without File Upload","authors":"Guanghua,9 at el","categoryId":2,"keywords":["211","985"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532563285511-2018.7.9-Global_Optimization_of_a_Neural_Network-Hidden_Markov_Model_Hybrid.pdf","phase":"Need-Review","_abstract":"hhhhhhhhhhhhhhhhhhh"},{"paperid":25,"title":"Test Paper of Guanghua wobushi SB le","authors":"Guanghua","categoryId":1,"keywords":["daafsdadad","b vnvv"],"link":null,"phase":"Reject","_abstract":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532117106595-Hidden_Markov_Model.pdf"},{"paperid":40,"title":"Title ","authors":"A,B,C","categoryId":3,"keywords":["Foo","Bar"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532836836429-FAQ.pdf","phase":"Accept","_abstract":"Some random abstract"}],
+      paperList: [],
       currentEditingPaper: {
         paperId: '',
         title: '',
@@ -201,8 +213,8 @@ export default {
     }
   },
   created () {
-    // this.getCategories()
-    // this.fetchData()
+    this.getCategories()
+    this.fetchData()
   },
   methods: {
     fetchData () {
@@ -313,6 +325,53 @@ export default {
     },
     isDraft (phase) {
       return phase === 'Draft'
+    },
+    confirm () {
+      this.$http.post(this.$store.state.endpoint.api + '/readyToReview', {paperId: this.currentEditingPaper.paperId}, {emulateJSON: true}).then(response => {
+        console.log(response.body)
+        if (response.body.flag) {
+          this.$message.success('Paper submitted to review successfully.', 3)
+          this.$router.push('/my/submissions/paper')
+        } else {
+          this.$message.error(response.body.cause, 4)
+        }
+      }, response => {
+        this.$message.error('Error occurred while communicate to server. Please try again later.', 4)
+      })
+    },
+    cancel () {
+
+    },
+    paperPhaseStep (phase) {
+      if (phase === 'Draft') {
+        return {
+          step: 0,
+          status: 'process',
+          decisionText: 'Final-Decision',
+          decisionDescrip: 'Editor make decision'
+        }
+      } else if (phase === 'Need-Review') {
+        return {
+          step: 1,
+          status: 'process',
+          decisionText: 'Final-Decision',
+          decisionDescrip: 'Editor make decision'
+        }
+      } else if (phase === 'Reject') {
+        return {
+          step: 2,
+          status: 'error',
+          decisionText: 'Reject',
+          decisionDescrip: 'Rejected by Editor'
+        }
+      } else {
+        return {
+          step: 4,
+          status: 'process',
+          decisionText: 'Accept',
+          decisionDescrip: 'Congratulations'
+        }
+      }
     }
   },
   computed: {
