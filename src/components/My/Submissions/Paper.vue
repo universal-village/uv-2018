@@ -14,7 +14,7 @@
         <!--</a-popconfirm>-->
       <!--</span>-->
     <!--</a-table>-->
-    <a-card v-for="paper in paperList" :title="paper.title" :key="paper.paperid" style="margin: 2em" :bordered="false">
+    <a-card v-for="(paper, index) in paperList" :title="paper.title" :key="paper.paperid" style="margin: 2em" :bordered="false">
       <a href="#" slot="extra" @click="detailEntry(paper.paperid)">more</a>
       <!-- TODO: Add the badge of the phases. -->
       <span style="display: inline-block">Authors</span>
@@ -49,32 +49,61 @@
       <div class="panel" style="display: block;">
         <div class="container-modal">
           <h1>Submitted Paper #{{ currentEditingPaper.paperId }}</h1>
-          <a-button type="primary" @click="editEntry(currentEditingPaper.paperId)" icon="edit">
+          <a-button type="primary" @click="editEntry(currentEditingPaper.paperId)" icon="edit" :disabled="!isDraft(currentEditingPaper.phase)">
             Edit
           </a-button>
           <a-popconfirm title="Delete this submission?" @confirm="deleteEntry(currentEditingPaper.paperId)"
                         okText="Delete" cancelText="No">
-            <a-button type="danger" icon="delete">
+            <a-button type="danger" icon="delete" :disabled="!isDraft(currentEditingPaper.phase)">
               Delete
             </a-button>
           </a-popconfirm>
+          <a-popconfirm title="Upon submission you can no longer edit your paper" @confirm="confirm" @cancel="cancel" okText="Ready to Review" cancelText="Keep Editing" v-if="isDraft(currentEditingPaper.phase)">
+            <a-button type="primary" icon="check-circle-o" style="float: right;">
+              Request Review
+            </a-button>
+          </a-popconfirm>
           <a-divider type="horizontal" />
-          <label for="title"><b> Title </b></label>
-          <span>{{ currentEditingPaper.title || "(Not specified)" }}</span>
-          <label for="authors"><b> Authors </b></label>
-          <span>{{currentEditingPaper.authors || "(Not specified)"}}</span>
-          <label for="category"><b> Category </b></label>
+          <a-row>
+            <a-col :span="16">
+              <label for="title"><b> Title </b></label>
+              <span>{{ currentEditingPaper.title || "(Not specified)" }}</span>
+              <label for="authors"><b> Authors </b></label>
+              <span>{{currentEditingPaper.authors || "(Not specified)"}}</span>
+              <label for="category"><b> Category </b></label>
+            </a-col>
+            <a-col :span="8">
+              <a-timeline style="float: right;">
+                <a-timeline-item :color="timelineDraft.color">
+                  <a-icon slot="dot" :type="timelineDraft.icon" style="fontSize: '24px'" />
+                  Draft
+                </a-timeline-item>
+                <a-timeline-item :color="timelineReview.color">
+                  <a-icon slot="dot" :type="timelineReview.icon" style="fontSize: '24px'" />
+                  Need-Review
+                </a-timeline-item>
+                <a-timeline-item :color="timelineDecision.color">
+                  <a-icon slot="dot" :type="timelineDecision.icon" style="fontSize: '24px'" />
+                  {{timelineDecision.text}}
+                </a-timeline-item>
+                <a-timeline-item :color="timelineFinal.color">
+                  <a-icon slot="dot" :type="timelineFinal.icon" style="fontSize: '24px'" />
+                  Camera-Ready
+                </a-timeline-item>
+              </a-timeline>
+            </a-col>
+          </a-row>
           <span>{{categories[currentEditingPaper.categoryId - 1] || "(Not specified)"}}</span>
           <label for="abstract"><b> Abstract </b></label>
           <p>{{currentEditingPaper._abstract || "(Not specified)"}}</p >
           <label for="keywords"><b> Keywords </b></label>
           <p>{{currentEditingPaper.keywords.join(", ") || "(Not specified)"}}</p >
           <label for="phase"><b> Phase </b></label>
-          <span>{{currentEditingPaper.phase || "(Not specified)"}}</span>
+          <span>{{currentEditingPaper.phase || "(Not specified)"}}<a-tooltip placement="topLeft" title="Draft should be submitted first in order to be reviewed" v-if="isDraft(currentEditingPaper.phase)" style="margin-left: 10px"><a-icon type="question-circle" /></a-tooltip></span>
           <label for="link"><b> Link </b></label>
           <span>
             <a :href="currentEditingPaper.link" v-if="currentEditingPaper.link" target="_blank">
-              {{ currentEditingPaper.link.split('/').pop() }}
+                  {{ currentEditingPaper.link.split('/').pop() }}
             </a>
             <span v-else>(Not specified)</span>
           </span>
@@ -158,7 +187,7 @@ export default {
       modalVisible: false,
       editingPaperId: null,
       submittingEdition: false,
-      paperList: [],
+      paperList: [{"paperid":4,"title":"Test Paper of Guanghua v3","authors":"Guanghua,Yiyang","categoryId":4,"keywords":["ghjhklkk;l"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1531860511036-2018.7.9-Global_Optimization_of_a_Neural_Network-Hidden_Markov_Model_Hybrid.pdf","phase":"Draft","_abstract":null},{"paperid":16,"title":"Test Paper of Guanghua Without File Upload","authors":"Guanghua,9 at el","categoryId":2,"keywords":["211","985"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532563285511-2018.7.9-Global_Optimization_of_a_Neural_Network-Hidden_Markov_Model_Hybrid.pdf","phase":"Need-Review","_abstract":"hhhhhhhhhhhhhhhhhhh"},{"paperid":25,"title":"Test Paper of Guanghua wobushi SB le","authors":"Guanghua","categoryId":1,"keywords":["daafsdadad","b vnvv"],"link":null,"phase":"Reject","_abstract":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532117106595-Hidden_Markov_Model.pdf"},{"paperid":40,"title":"Title ","authors":"A,B,C","categoryId":3,"keywords":["Foo","Bar"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532836836429-FAQ.pdf","phase":"Accept","_abstract":"Some random abstract"}],
       currentEditingPaper: {
         paperId: '',
         title: '',
@@ -172,8 +201,8 @@ export default {
     }
   },
   created () {
-    this.getCategories()
-    this.fetchData()
+    // this.getCategories()
+    // this.fetchData()
   },
   methods: {
     fetchData () {
@@ -181,7 +210,6 @@ export default {
         console.log(response.body)
         try {
           this.paperList = response.body
-          // this.paperList = [{"paperid":7,"title":"Constrained model predictive control: Stability and optimality ","authors":"D.Q.Mayne, J.B.Rawlings, C.V.Rao, P.O.M.Scokaert","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eleifend in quam non blandit. Praesent nunc eros, maximus eget semper eget, venenatis et nisl. Etiam sem enim, lacinia vitae feugiat et, ultricies sit amet mauris. Ut finibus, orci et iaculis laoreet, diam nibh laoreet erat, vitae congue eros sapien vitae lacus. In nisl tortor, egestas feugiat dignissim eu, faucibus sit amet arcu. Fusce ultrices vestibulum ipsum, non blandit diam rhoncus id. Vestibulum consequat orci ac metus ornare, eu tristique ligula venenatis. Nullam lectus arcu, interdum ut est in, fermentum maximus lorem. Mauris pulvinar cursus nibh, at rhoncus erat venenatis eu. Vestibulum maximus, mauris in volutpat molestie, mauris ligula faucibus orci, commodo vulputate nisi lectus ac neque.'},{"paperid":8,"title":"as8","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":9,"title":"as8","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null},{"paperid":10,"title":"as8","authors":"asfsdf","categoryId":1,"keywords":["adsfdsaf"],"link":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532017404874-FAQ.pdf","phase":"Need-Review","_abstract":null}]
         } catch (e) {
           console.error('Error during parse: e[%s], response[%s]', e, response)
           this.$message.error('Can\'t fetch My Paper Submissions. Please try again later.', 4)
@@ -206,10 +234,6 @@ export default {
     editEntry (paperId) {
       this.editingPaperId = paperId
       this.$router.push('/my/submissions/edit/' + paperId)
-      // this.form.setFieldsValue('title', currentEditingPaper.title)
-      // this.form.setFieldsValue('category', this.categories[this.currentEditingPaper.categoryId])
-      // this.form.setFieldsValue('authors', currentEditingPaper.authors)
-      // this.form.setFieldsValue('keywords', currentEditingPaper.keywords.join(','))
     },
     updateEntry (paperId) {
       this.$http.post(this.$store.state.endpoint.api + '/updatePaper', {
@@ -286,6 +310,87 @@ export default {
       }
       console.log('Matched %o, List %o', matcher, this.paperList)
       this.$modal.show('paper-modal')
+    },
+    isDraft (phase) {
+      return phase === 'Draft'
+    }
+  },
+  computed: {
+    timelineDraft: function () {
+      if (this.currentEditingPaper.phase === 'Draft') {
+        return {
+          icon: 'loading',
+          color: 'red'
+        }
+      } else {
+        return {
+          icon: 'check-circle-o',
+          color: 'green'
+        }
+      }
+    },
+    timelineReview: function () {
+      if (this.currentEditingPaper.phase === 'Draft') {
+        return {
+          icon: 'clock-circle',
+          color: 'blue'
+        }
+      } else if (this.currentEditingPaper.phase === 'Need-Review') {
+        return {
+          icon: 'loading',
+          color: 'red'
+        }
+      } else {
+        return {
+          icon: 'check-circle-o',
+          color: 'green'
+        }
+      }
+    },
+    timelineDecision: function () {
+      if (this.currentEditingPaper.phase === 'Accept') {
+        return {
+          icon: 'check-circle-o',
+          color: 'green',
+          text: 'Accept'
+        }
+      } else if (this.currentEditingPaper.phase === 'Reject') {
+        return {
+          icon: 'close-circle',
+          color: 'red',
+          text: 'Reject'
+        }
+      } else if (this.currentEditingPaper.phase === 'Camera-Ready') {
+        return {
+          icon: 'check-circle-o',
+          color: 'green',
+          text: 'Accept'
+        }
+      } else {
+        return {
+          icon: 'clock-circle',
+          color: 'blue',
+          text: 'Final-Decision'
+        }
+      }
+    },
+    timelineFinal: function () {
+      if (this.currentEditingPaper.phase === 'Camera-Ready') {
+        return {
+          icon: 'loading',
+          color: 'read'
+        }
+      } else if (this.currentEditingPaper.phase === 'Reject') {
+        return {
+          icon: 'close-circle',
+          color: 'red'
+        }
+      } else {
+        return {
+          icon: 'clock-circle',
+          color: 'blue'
+        }
+      }
     }
   }
 }
