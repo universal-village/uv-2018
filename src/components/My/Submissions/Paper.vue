@@ -45,6 +45,7 @@
             <a-step title="Camera-Ready" description="Last edit before publishing" />
           </a-steps>
         </a-col>
+        <a-button type="dashed" style="margin-top: 20px; float: right;" v-if="reviewAvailable(paper.phase)" @click="openReport(paper.paperid)">Reviews Available <a-icon type="book" /></a-button>
       </a-row>
     </a-card>
 
@@ -52,8 +53,52 @@
       <p>There's currently no paper submissions on your account. <router-link to="/my/submissions/add">Submit one.</router-link></p>
     </a-card>
 
-    <modal name="paper-modal" height="auto"
+    <modal name="report-modal" height="auto"
            width="700"
+           :adaptive="true"
+           :scrollable="true"
+           style="height: 85vh; padding: 10vh 0"
+    >
+      <a-card
+           style="width:100%"
+           :tabList="reportTabList"
+           :activeTabKey="reportTabKey"
+           @tabChange="key => onTabChange(key)"
+      >
+        <div v-if="reportTabKey === 'chairman'">
+          <p class="report-div">
+            {{chairmanReview.comment}}
+          </p>
+          <span class="report-div">Overall: {{chairmanReview.totalPerformance}}</span>
+          <span class="report-div">Decision: {{chairmanReview.decision}}</span>
+        </div>
+        <div v-else>
+          <p class="report-div">
+            {{reviewerTabComment}}
+          </p>
+          <a-row>
+            <a-col :span="12">
+              <span class="report-div">Theoretical Contribution: {{reviewerTabTC}}</span>
+              <span class="report-div">Technological Contribution: {{reviewerTabTechC}}</span>
+              <span class="report-div">Survey Tutorial Contribution: {{reviewerTabSTC}}</span>
+              <span class="report-div">Originality of Concepts: {{reviewerTabOOC}}</span>
+              <span class="report-div">Technical Soundness: {{reviewerTabTechS}}</span>
+              <span class="report-div">Importance of Results: {{reviewerTabIOR}}</span>
+              <span class="report-div">Clarity of Presentation: {{reviewerTabCOP}}</span>
+              <span class="report-div">Overall: {{reviewerTabOverall}}</span>
+            </a-col>
+            <a-col :span="12">
+              <svg width="200" height="200" style="float: right;">
+                <polygraph :stats="stats"></polygraph>
+              </svg>
+            </a-col>
+          </a-row>
+        </div>
+      </a-card>
+    </modal>
+
+    <modal name="paper-modal" height="auto"
+           :width="700"
            :adaptive="true"
            :scrollable="true"
            style="height: 85vh; padding: 10vh 0"
@@ -126,6 +171,7 @@
 </template>
 
 <script>
+import Polygon from '../../Helper/Polygon.vue'
 const columns = [{
   dataIndex: 'paperid',
   key: 'paperid',
@@ -189,11 +235,28 @@ const data = [{
   title: 'Something really Interesting',
   status: 'Pending'
 }]
-
 export default {
   name: 'Papers',
   data () {
     return {
+      chairmanReview: {
+        paperId: 0,
+        categoryChairId: 0,
+        comment: '',
+        totalPerformance: '',
+        decision: ''
+      },
+      reportTabKey: 'chairman',
+      reviewerTabComment: '',
+      reviewerTabTC: '',
+      reviewerTabTechC: '',
+      reviewerTabSTC: '',
+      reviewerTabOOC: '',
+      reviewerTabTechS: '',
+      reviewerTabIOR: '',
+      reviewerTabCOP: '',
+      reviewerTabOverall: '',
+      reviews: [],
       columns,
       data,
       modalVisible: false,
@@ -215,6 +278,9 @@ export default {
   created () {
     this.getCategories()
     this.fetchData()
+  },
+  components: {
+    'polygraph': Polygon
   },
   methods: {
     fetchData () {
@@ -372,9 +438,69 @@ export default {
           decisionDescrip: 'Congratulations'
         }
       }
+    },
+    reviewAvailable (phase) {
+      return phase !== 'Need-Review' && phase !== 'Draft'
+    },
+    openReport (id) {
+      this.$http.post(this.$store.state.endpoint.api + '/getPaperReport', { paperId: id }, {emulateJSON: true}).then(response => {
+        console.log(response.body)
+        if (response.body.flag !== true) {
+          this.$message.error('Authentication Failed ' + response.body.info, 3)
+        } else {
+          this.reviews = response.body.report.reviews
+          this.chairmanReview = response.body.report.chairmanReview
+          this.$modal.show('report-modal')
+        }
+      }, response => {
+        this.$message.error('Page loading error. Please check parameters. status-' + response.status, 3)
+      })
+      /* this.reviews = testResponseBody.report.reviews
+      this.chairmanReview = testResponseBody.report.chairmanReview
+      this.$modal.show('report-modal')
+      console.log(this.reviews) */
+    },
+    onTabChange (key) {
+      this.reportTabKey = key
+      let ind = parseInt(key)
+      this.reviewerTabComment = this.reviews[ind].comment
+      this.reviewerTabTC = this.reviews[ind].theoreticalContribution
+      this.reviewerTabTechC = this.reviews[ind].technologicalContribution
+      this.reviewerTabSTC = this.reviews[ind].surveyTurtorialContribution
+      this.reviewerTabOOC = this.reviews[ind].originalityOfConcepts
+      this.reviewerTabTechS = this.reviews[ind].technicalSoundness
+      this.reviewerTabIOR = this.reviews[ind].importanceOfResult
+      this.reviewerTabCOP = this.reviews[ind].clarityOfPresentation
+      this.reviewerTabOverall = this.reviews[ind].overall
+    },
+    scoreToValue: function (score) {
+      if (score === 'A+' || score === 'A+ ') {
+        return 100
+      } else if (score === 'A' || score === 'A ') {
+        return 75
+      } else if (score === 'A-' || score === 'A- ') {
+        return 50
+      } else if (score === 'B' || score === 'B ') {
+        return 25
+      } else {
+        console.log(score)
+        return 0
+      }
     }
   },
   computed: {
+    stats: function () {
+      let x = [
+        { label: 'TC', value: this.scoreToValue(this.reviewerTabTC) * 0.75 + 25 },
+        { label: 'TechC', value: this.scoreToValue(this.reviewerTabTechC) * 0.75 + 25 },
+        { label: 'STC', value: this.scoreToValue(this.reviewerTabSTC) * 0.75 + 25 },
+        { label: 'OOC', value: this.scoreToValue(this.reviewerTabOOC) * 0.75 + 25 },
+        { label: 'TS', value: this.scoreToValue(this.reviewerTabTechS) * 0.75 + 25 },
+        { label: 'IOR', value: this.scoreToValue(this.reviewerTabIOR) * 0.75 + 25 },
+        { label: 'COP', value: this.scoreToValue(this.reviewerTabCOP) * 0.75 + 25 }
+      ]
+      return x
+    },
     timelineDraft: function () {
       if (this.currentEditingPaper.phase === 'Draft') {
         return {
@@ -450,11 +576,59 @@ export default {
           color: 'blue'
         }
       }
+    },
+    reportTabList: function () {
+      let list = [{
+        key: 'chairman',
+        tab: 'Category Chair Review'
+      }]
+      for (var i = 0; i < this.reviews.length; i++) {
+        list.push({
+          key: '' + i,
+          tab: 'Review ' + (i + 1)
+        })
+      }
+      return list
     }
   }
 }
 </script>
 
 <style scoped>
+  .report-div {
+    display: block;
+    margin-bottom: 10px;
+  }
+  .card-container {
+    background: #F5F5F5;
+    overflow: hidden;
+    padding: 24px;
+  }
+  .card-container > .ant-tabs-card > .ant-tabs-content {
+    height: 120px;
+    margin-top: -16px;
+  }
+
+  .card-container > .ant-tabs-card > .ant-tabs-content > .ant-tabs-tabpane {
+    background: #fff;
+    padding: 16px;
+  }
+
+  .card-container > .ant-tabs-card > .ant-tabs-bar {
+    border-color: #fff;
+  }
+
+  .card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+    border-color: transparent;
+    background: transparent;
+  }
+
+  .card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active {
+    border-color: #fff;
+    background: #fff;
+  }
   input[type=password],input[type=text]{width:100%;padding:9pt 20px;margin:8px 0;display:inline-block;border:1px solid #ccc;box-sizing:border-box}.imgcontainer{text-align:center;margin:24px 0 9pt}img.avatar{width:40%;border-radius:50%}.container-modal{padding:3em}span.psw{float:right;padding-top:1pc}@media screen and (max-width:300px){span.psw{display:block;float:none}.editbtn{width:100%}}.v--modal-box{display:none;position:fixed;z-index:1;padding-top:75pt;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:rgba(0,255,0,.4)}.modal-content{position:relative;background-color:#fefefe;margin:auto;padding:0;border:1px solid #888;width:80%;box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);-webkit-animation-name:animatetop;-webkit-animation-duration:.4s;animation-name:animatetop;animation-duration:.4s}@-webkit-keyframes animatetop{0%{top:-300px;opacity:0}to{top:0;opacity:1}}@keyframes animatetop{0%{top:-300px;opacity:0}to{top:0;opacity:1}}.close{color:#fff;float:right;font-size:28px;font-weight:700}.close:focus,.close:hover{color:#000;text-decoration:none;cursor:pointer}.modal-header{background-color:#5cb85c;color:#fff}.modal-body,.modal-footer,.modal-header{padding:2px 1pc}.modal-footer{background-color:#5cb85c;color:#fff}div.panel h1{font-weight:bolder;font-size:2em}div.panel label{display:block;font-size:1.5em;font-weight:700}div.panel p,div.panel span{display:block;font-size:1.2em;margin-bottom:10px;margin:.25em 2em 1.5em 2em;}div.panel p{width:80%}
+  div.v--modal-box.v--modal.report-modal {
+    width: 1000px !important;
+  }
 </style>
