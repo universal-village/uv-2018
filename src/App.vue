@@ -85,7 +85,7 @@
           <!-- <a-menu-item key="program:forum">
             <router-link to="/pages/forums">Forums</router-link>
           </a-menu-item> -->
-          <a-sub-menu key="program:forums" title="Previous Conferences" :style="{ marginRight: '1em' }">
+          <a-sub-menu key="program:forums" title="UV Forums" :style="{ marginRight: '1em' }">
             <a-menu-item key="program:forums:city-forum">
               <router-link to="/pages/city-forum">City Forum</router-link>
             </a-menu-item>
@@ -142,10 +142,10 @@
               <router-link to="/archive/uv-2013">UV 2013</router-link>
             </a-menu-item>
             <a-menu-item key="about-us:previous-conferences:uv-2014">
-              <router-link to="/archive/uv-2014">UV 2014</router-link>
+              <router-link to="/uv2014">UV 2014</router-link>
             </a-menu-item>
             <a-menu-item key="about-us:previous-conferences:uv-2016">
-              <router-link to="/archive/uv-2016">UV 2016</router-link>
+              <router-link to="/uv2016">UV 2016</router-link>
             </a-menu-item>
           </a-sub-menu>
           <a-menu-item key="about-us:contact-us">
@@ -269,6 +269,25 @@ export default {
 </script>
 
 <style>
+  @media only screen and (max-width: 960px) {
+    .ant-layout-content {
+      padding: 0;
+    }
+    /* li.ant-menu-submenu {
+      background: rgba(77, 136, 63, .8) !important;
+      display: block !important;
+    }
+    li.ant-menu-item {
+      background: rgba(119, 174, 60, .8) !important;
+      display: block !important;
+    } */
+    .ant-layout-header {
+      height: auto !important;
+    }
+  }
+  @media only screen and (min-width: 960px) {
+
+  }
   .ant-menu-submenu-vertical > .ant-menu-submenu-title .ant-menu-submenu-arrow {
     right: 0;
   }

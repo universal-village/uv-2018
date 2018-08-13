@@ -201,10 +201,12 @@ export default {
           this.$router.push('/my/submissions/paper')
         } else {
           this.$message.error(`Error occurred while submitting your paper: [${response.body.cause}]. Please try again later.`, 4)
+          window.grecaptcha.reset()
         }
       }, response => {
         this.uploading = false
         this.$message.error(`Error occurred while submitting your paper: [${response.body.cause}]. Please try again later.`, 4)
+        window.grecaptcha.reset()
       })
     },
     goBack () {
