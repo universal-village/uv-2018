@@ -113,10 +113,12 @@ export default {
           this.$router.push('/')
         } else {
           this.$message.error('Username or Password is incorrect. Check your credentials and try again.', 4)
+          window.grecaptcha.reset()
         }
       }, response => {
         this.spinning = false
         this.$message.error('Internal Server Error. Please try again.', 4)
+        window.grecaptcha.reset()
       })
     },
     checkStatus (statusCode) {

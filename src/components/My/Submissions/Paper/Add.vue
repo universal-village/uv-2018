@@ -94,7 +94,7 @@
             <p class="ant-upload-drag-icon">
               <a-icon type="inbox" />
             </p>
-            <p class="ant-upload-text" :style="{ 'padding': '0 1em' }">Click or drag file to this area to upload</p>
+            <p class="ant-upload-text" :style="{ 'padding': '0 1em' }">Click or drag file to this area to upload, file size should be less than 5MB</p>
             <p class="ant-upload-hint" :style="{ 'padding': '0 1em' }">Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files</p>
           </a-upload-dragger>
         </a-form-item>
@@ -168,10 +168,12 @@ export default {
           this.$router.push('/my/submissions/paper')
         } else {
           this.$message.error(`Error occurred while submitting your paper: [${response.body.cause}]. Please try again later.`, 4)
+          window.grecaptcha.reset()
         }
       }, response => {
         this.uploading = false
         this.$message.error(`Error occurred while submitting your paper: [${response.body.cause}]. Please try again later.`, 4)
+        window.grecaptcha.reset()
       })
     },
     devGetValue () {

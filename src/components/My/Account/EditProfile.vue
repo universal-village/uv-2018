@@ -353,10 +353,12 @@ export default {
           this.$message.success('Successfully updated user profile.', 4)
         } else {
           this.$message.error('Failed to update user profile. ' + response.body.cause, 4)
+          window.grecaptcha.reset()
         }
       }, response => {
         this.submitting = false
         this.$message.error('Internal Server Error. status-' + response.status, 4)
+        window.grecaptcha.reset()
       })
     }
   }

@@ -162,6 +162,18 @@ export default new Router({
       }
     },
     {
+      path: '/uv2014',
+      beforeEnter () {
+        window.location = 'https://uv2014.universal-village.org'
+      }
+    },
+    {
+      path: '/uv2016',
+      beforeEnter () {
+        window.location = 'https://uv2016.universal-village.org'
+      }
+    },
+    {
       path: '*',
       name: 'Not Found',
       components: {

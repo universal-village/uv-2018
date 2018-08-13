@@ -49,7 +49,7 @@
                 </router-link>
               </div>
               <div style="width: 100%;" class="side-box">
-                <router-link to="/conference-registration">
+                <router-link to="/login">
                   <div class="hovereffect">
                     <img class="img-responsive" src="https://cdn.universal-village.org/images/home-sidebar/attendees.png" alt="">
                     <div class="overlay">
