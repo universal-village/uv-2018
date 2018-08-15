@@ -18,9 +18,20 @@
           </a-col>
           <a-col :xs="24" :sm="24" :md="14" :lg="16" :xl="18" :xxl="18" class="section description">
             <!-- TODO: Also add some notice text over here. -->
-            <h1>Successfully Paid</h1>
-            <h2>Your payment has been successfully processed. Enjoy your UV 2018!</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et quam eget nisl molestie feugiat non eu justo. Nunc sit amet blandit risus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam justo urna, imperdiet id fringilla eget, rhoncus vitae tortor. Pellentesque vestibulum mi a sapien pharetra, consequat sagittis enim aliquet. Sed mollis sagittis mollis. Quisque risus elit, gravida eu aliquet sit amet, scelerisque sodales ante. Integer gravida sapien non viverra porttitor.</p>
+            <h1>Your operation is successful!</h1>
+            <h2>Welcome to the international community of Universal Village!</h2>
+            <p>If you want to know more about Universal Village, you can visit the following links for the previous UV conferences.</p>
+            <ul>
+              <li>
+                <router-link to="/uv2013">UV 2013</router-link>
+              </li>
+              <li>
+                <router-link to="/uv2014">UV 2014</router-link>
+              </li>
+              <li>
+                <router-link to="/uv2016">UV 2016</router-link>
+              </li>
+            </ul>
           </a-col>
         </a-row>
       </a-layout-content>

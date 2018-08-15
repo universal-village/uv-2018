@@ -139,7 +139,7 @@
           </a-menu-item>
           <a-sub-menu key="about-us:previous-conferences" title="Previous Conferences" :style="{ marginRight: '1em' }">
             <a-menu-item key="about-us:previous-conferences:uv-2013">
-              <router-link to="/archive/uv-2013">UV 2013</router-link>
+              <router-link to="/uv2013">UV 2013</router-link>
             </a-menu-item>
             <a-menu-item key="about-us:previous-conferences:uv-2014">
               <router-link to="/uv2014">UV 2014</router-link>
