@@ -13,11 +13,12 @@
       <template slot="operation" slot-scope="operation, record, index">
         <a-button type="dashed" style="margin: 10px;" @click="openReviewPanel(record.paperid)">Reviews</a-button>
         <a-button type="dashed" style="margin: 10px;" @click="openAssignmentPanel(record)">Assign Reviewer</a-button>
-        <a-button type="primary" shape="circle" icon="download" @click="openFileLink(record.link)"/>
+        <a-button type="primary" shape="circle" icon="download" @click="openFileLink(record.link)" :disabled="!record.link"/>
         <a-button type="primary" shape="circle" icon="edit" @click="openEditPanel(record)"></a-button>
       </template>
       <template slot="title" slot-scope="currentPageData">
         <h2>Papers in Repo</h2>
+        <a-button @click="exportReviewDetail()">Export Review Detail <a-icon type="copy" /></a-button>
       </template>
     </a-table>
     <modal name="review-modal" height="auto"
@@ -335,6 +336,32 @@ export default {
         this.spinning = false
         this.$message.error('Internal Server Error. Please try again.', 4)
       })
+    },
+    exportReviewDetail () {
+      let title = 'title, authors, abstract, file link, phase'
+      let csv = title + '\n'
+      for (var i = 0; i < this.papers.length; i++) {
+        let line = (this.papers[i].title == null ? '' : this.papers[i].title.replace(/"/g, ' ')) + ',"' + this.papers[i].authors + '","' +
+                  (this.papers[i]._abstract == null ? '' : this.papers[i]._abstract.replace(/"/g, '')) + '",' +
+                  (this.papers[i].link == null ? 'abstract-only' : this.papers[i].link.replace(/"/g, '')) + ',' + this.papers[i].phase + '\n'
+        csv += line
+      }
+      let blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' })
+      if (navigator.msSaveBlob) {
+        navigator.msSaveBlob(blob, 'review-detail.csv')
+      } else {
+        let link = document.createElement('a')
+        if (link.download !== undefined) { // feature detection
+          // Browsers that support HTML5 download attribute
+          let url = URL.createObjectURL(blob)
+          link.setAttribute('href', url)
+          link.setAttribute('download', 'review-detail.csv')
+          link.style.visibility = 'hidden'
+          document.body.appendChild(link)
+          link.click()
+          document.body.removeChild(link)
+        }
+      }
     }
   },
   computed: {

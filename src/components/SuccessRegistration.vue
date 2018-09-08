@@ -18,9 +18,9 @@
           </a-col>
           <a-col :xs="24" :sm="24" :md="14" :lg="16" :xl="18" :xxl="18" class="section description">
             <!-- TODO: Also add some notice text over here. -->
-            <h1>Your operation is successful!</h1>
-            <h2>Your new password has been generated and sent to your email. Please check it. </h2>
-            <p>Welcome to the international community of Universal Village!<br>If you want to know more about Universal Village, you can visit the following links for the previous UV conferences.</p>
+            <h1>Your Transaction is successful!</h1>
+            <h2>Welcome to the international community of Universal Village!</h2>
+            <p>If you want to know more about Universal Village, you can visit the following links for the previous UV conferences.</p>
             <ul>
               <li>
                 <router-link to="/uv2013">UV 2013</router-link>

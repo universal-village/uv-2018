@@ -98,7 +98,7 @@
         </a-form-item>
         <vue-recaptcha :sitekey="this.$store.state.sitekey" @verify="submitPaper">
           <a-button type="primary" :loading="uploading" htmlType='submit'>
-            Submit
+            Save
           </a-button>
         </vue-recaptcha>
         <!--<a-button type="dashed" @click="devGetValue">-->

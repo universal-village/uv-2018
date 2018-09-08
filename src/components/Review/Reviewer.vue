@@ -14,7 +14,7 @@
           closable
           v-if="!hasWork()"
         />
-        <a-row v-else :gutter="24">
+        <a-row v-else :gutter="24" justify="space-around" align="middle" type="flex">
           <a-col :xl="8" :lg="12" :sm="24" v-for="(assignedPaper, index) in assignedPapers" :key="assignedPaper + '' + index">
             <a-card
               hoverable

@@ -394,7 +394,7 @@ export default {
         icon: 'phone'
       }, {
         index: 3,
-        name: 'Personification',
+        name: 'Visa Support',
         icon: 'skin'
       }]
     }

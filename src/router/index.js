@@ -20,7 +20,8 @@ const MyProfileEdit = () => import(/* webpackChunkName: "my" */ '@/components/My
 const NotFoundError = () => import(/* webpackChunkName: "home" */ '@/components/NotFound.vue')
 const EditPaperSubmission = () => import(/* webpackChunkName: "my" */ '@/components/My/Submissions/Paper/Edit.vue')
 const ConferenceRegistration = () => import(/* webpackChunkName: "my" */ '@/components/My/Attendee.vue')
-const Success = () => import(/* webpackChunkName: "home" */ '@/components/Success')
+const Success = () => import(/* webpackChunkName: "home" */ '@/components/Success.vue')
+const SuccessRegistration = () => import(/* webpackChunkName: "home" */ '@/components/SuccessRegistration.vue')
 
 Vue.use(Router)
 
@@ -39,6 +40,13 @@ export default new Router({
       name: 'Success',
       components: {
         App: Success
+      }
+    },
+    {
+      path: '/success-registration',
+      name: 'Success Registered',
+      components: {
+        App: SuccessRegistration
       }
     },
     {
@@ -177,6 +185,12 @@ export default new Router({
       path: '/uv2016',
       beforeEnter () {
         window.location = 'https://uv2016.universal-village.org'
+      }
+    },
+    {
+      path: '/uv2013',
+      beforeEnter () {
+        window.location = 'http://www.universal-village.org/content/welcome-first-universal-village-conference-2013-0'
       }
     },
     {
