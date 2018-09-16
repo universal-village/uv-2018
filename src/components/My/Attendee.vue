@@ -12,7 +12,7 @@
             <img src="https://cdn.universal-village.org/images/registration-left-banner.jpg" style="width: 100%">
           </a-col>
           <a-col :lg="16" v-if="!registered">
-            <h1 style="margin-left: 20%; display: block; font-weight: bolder; padding-top: 20px; padding-bottom: 40px;">Register for Intl. Conference on IEEE Universal Village 2018</h1>
+            <h1 style="margin-left: 20%; display: block; font-weight: bolder; padding-top: 20px; padding-bottom: 40px;">Register for IEEE Intl. Conference on Universal Village 2018</h1>
             <a-form :autoFormCreate="(form)=>{this.form = form}">
               <div class="registration-form-0" v-show="paging === 0">
                 <div class="registration-basic-info">
@@ -124,7 +124,7 @@
                   :fieldDecoratorOptions="{rules: [{ required: false, message: 'Are you a student?' }]}"
                   >
                     <a-switch v-model="student" checkedChildren="Yes" unCheckedChildren="No" :defaultChecked="false"/>
-                    <a-tag color="#87d068" style="margin-left: 20px;" v-if="student">half price for student</a-tag>
+                    <a-tag color="#87d068" style="margin-left: 20px;" v-if="student">students enjoy a discount</a-tag>
                   </a-form-item>
 
                   <a-form-item
@@ -135,7 +135,7 @@
                   :fieldDecoratorOptions="{rules: [{ required: false, message: 'Are you a senior?' }]}"
                   >
                     <a-switch v-model="senior" checkedChildren="Yes" unCheckedChildren="No" :defaultChecked="false"/>
-                    <a-tag color="#87d068" style="margin-left: 20px;" v-if="senior">half price for senior</a-tag>
+                    <a-tag color="#87d068" style="margin-left: 20px;" v-if="senior">seniors over 65 years old enjoy a discount</a-tag>
                   </a-form-item>
 
                   <a-form-item
@@ -225,7 +225,7 @@
                   fieldDecoratorId="fullRegistration"
                   :fieldDecoratorOptions="{rules: [{ required: false, message: 'Full Registration.' }]}"
                   v-if="fullRegistration">
-                    <span>$399.99</span>
+                    <span>$345.00</span>
                   </a-form-item>
 
                   <a-form-item
@@ -235,7 +235,7 @@
                   fieldDecoratorId="uvDay"
                   :fieldDecoratorOptions="{rules: [{ required: false, message: 'UV Day Registration.' }]}"
                   v-if="uvDay && !fullRegistration">
-                    <span>$99.99</span>
+                    <span>$50.00</span>
                   </a-form-item>
 
                   <a-form-item
@@ -245,7 +245,7 @@
                   fieldDecoratorId="uvWorkshop"
                   :fieldDecoratorOptions="{rules: [{ required: false, message: 'UV Workshop Registration.' }]}"
                   v-if="uvWorkshop && !fullRegistration">
-                    <span>$99.99</span>
+                    <span>$50.00</span>
                   </a-form-item>
 
                   <a-form-item
@@ -265,7 +265,7 @@
                   fieldDecoratorId="uvWorkshop"
                   :fieldDecoratorOptions="{rules: [{ required: false, message: ' Discount Amount' }]}"
                   v-if="discount">
-                    <span>-${{discountAmt}}</span>
+                    <span>-${{ parseFloat(discountAmt / 100).toFixed(2) }}</span>
                   </a-form-item>
 
                   <a-form-item
@@ -289,7 +289,7 @@
           </a-col>
           <a-col :lg="16" v-else>
             <div class="registration-greeting-info">
-              <h3 style="display: block; margin-left: 20%; margin-bottom: 100px; font-weight: bold; font-family: Verdana;">Intl. Conference on IEEE Universal Village 2018</h3>
+              <h3 style="display: block; margin-left: 20%; margin-bottom: 100px; font-weight: bold; font-family: Verdana;">IEEE Intl. Conference on Universal Village 2018</h3>
               <h1 style="display: block; margin-left: 20%; margin-bottom: 60px; font-weight: bolder; font-family: Verdana;">Thank you for your support to UV2018!</h1>
               <p style="display: block; margin-left: 20%; font-family: Verdana; margin-right: 10%;">You has successfully registered for International Conference on IEEE Universal Village 2018, following is your registration and receipt information.</p>
               <span style="display: inline-block; margin-left: 20%; margin-top: 20px; font-family: Verdana; font-weight: bolder; width: 20%">Date</span>
@@ -334,7 +334,7 @@
 <script>
 import VueRecaptcha from 'vue-recaptcha'
 import CreditCard from '@/components/Helper/CreditCard.vue'
-Stripe.setPublishableKey('pk_test_dOIDtsevAQYhVSDIECOI5fJ5')
+Stripe.setPublishableKey('pk_live_pKhzzxn3bjKaSG2Rs3kTsKxP')
 export default {
   name: 'attendee',
   props: [],
@@ -381,7 +381,13 @@ export default {
         ieeeNo: '',
         isSenior: false,
         isStudent: false,
-        foodAlergy: ''
+        foodAlergy: '',
+        title: '',
+        firstname: '',
+        middlename: '',
+        lastname: '',
+        email: '',
+        phone: ''
       },
       creditCard: {
         cardNum: '',
@@ -509,14 +515,15 @@ export default {
       this.$router.push('/reset-password')
     },
     makeReceiptDetail: function () {
+      this.description = ''
       if (this.paperCnts !== 0) {
-        this.description += ' paper amount ' + this.paperCnts
+        this.description += ' Paper Amount ' + this.paperCnts
       }
       if (this.abstractOnly !== 0) {
-        this.description += ' abstract only ' + this.abstractOnly
+        this.description += ' Abstract Only ' + this.abstractOnly
       }
       if (this.fullRegistration) {
-        this.description += ' full registration'
+        this.description += ' Full Registration'
       } else {
         if (this.uvDay) {
           this.description += ' UV Day'
@@ -526,11 +533,11 @@ export default {
         }
       }
       if (this.student) {
-        this.description += ' With Student Discount'
+        this.description += ' with Student Discount'
       } else if (this.senior) {
-        this.description += ' With Senior Discount'
+        this.description += ' with Senior Discount'
       } else if (this.ieeeMember) {
-        this.description += ' With IEEE Member Discount'
+        this.description += ' with IEEE Member Discount'
       }
     },
     cardCheckout: function () {
@@ -567,9 +574,16 @@ export default {
             context.makeReceiptDetail()
             context.payload.description = context.description
             context.payload.ieeeNo = context.ieeeNo
-            context.payload.isSenior = context.isSenior
+            context.payload.isSenior = context.senior
             context.payload.isVolunteer = context.isVolunteer
             context.payload.foodAlergy = context.alergy
+            context.payload.isStudent = context.student
+            context.payload.title = context.title
+            context.payload.firstname = context.firstname
+            context.payload.lastname = context.lastname
+            context.payload.middlename = context.middlename
+            context.payload.email = context.email
+            context.payload.phone = context.phone
           }
           context.$http.post(context.$store.state.endpoint.api + '/checkout', context.payload, {emulateJSON: true}).then(response => {
             console.log(response.body.flag)
@@ -599,7 +613,7 @@ export default {
         name: this.creditCard.name
       }, stripeRespCallback(this))
       // this.$checkout.open({
-      //   name: 'Registration for Intl. Conference on IEEE Universal Village 2018',
+      //   name: 'Registration for IEEE Intl. Conference on Universal Village 2018',
       //   currency: 'USD',
       //   amount: this.amt,
       //   token: (token) => {
@@ -636,39 +650,27 @@ export default {
     amtBeforeDiscount: function () {
       let amount = 0
       if (this.fullRegistration) {
-        amount += 39999
+        amount += 34500
       } else {
         if (this.uvDay) {
-          amount += 9999
+          amount += 5000
         }
         if (this.uvWorkshop) {
-          amount += 9999
+          amount += 5000
         }
       }
       return amount
     },
     discount: function () {
-      if (this.student) {
-        return 0.5
-      } else if (this.senior) {
-        return 0.5
-      } else if (this.ieeeMember) {
-        return 0.8
-      }
+      return (this.student || this.senior || this.ieeeNo) && this.fullRegistration
     },
     amt: function () {
-      let discount = 1
-      if (this.student) {
-        discount = 0.5
-      } else if (this.senior) {
-        discount = 0.5
-      } else if (this.ieeeMember) {
-        discount = 0.8
-      }
-      return Math.ceil(this.amtBeforeDiscount * discount) + this.paperFee
+      return Math.ceil(this.amtBeforeDiscount - ((this.student || this.senior || this.ieeeNo) && this.fullRegistration ? 10000 : 0)) + this.paperFee
     },
     discountAmt: function () {
-      return parseFloat(Math.floor(this.amtBeforeDiscount * (1 - this.discount)) / 100).toFixed(2)
+      if ((this.student || this.senior || this.ieeeNo) && this.fullRegistration) {
+        return 10000
+      }
     },
     paperFee: function () {
       let paperCnts = 0
@@ -680,7 +682,7 @@ export default {
           paperCnts++
         }
       }
-      return 24999 * paperCnts + 14999 * abstractOnly
+      return 15000 * paperCnts + 5000 * abstractOnly
     },
     paperCnts: function () {
       let cnts = 0

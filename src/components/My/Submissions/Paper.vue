@@ -106,7 +106,7 @@
       <div class="panel" style="display: block;">
         <div class="container-modal">
           <h1>Submitted Paper #{{ currentEditingPaper.paperId }}</h1>
-          <a-button type="primary" @click="editEntry(currentEditingPaper.paperId)" icon="edit" :disabled="!isDraft(currentEditingPaper.phase)">
+          <a-button type="primary" @click="editEntry(currentEditingPaper.paperId)" icon="edit" :disabled="currentEditingPaper.phase === 'Reject'">
             Edit
           </a-button>
           <a-popconfirm title="Delete this submission?" @confirm="deleteEntry(currentEditingPaper.paperId)"

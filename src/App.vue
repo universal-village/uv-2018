@@ -116,7 +116,7 @@
             <router-link to="/pages/local-information">Local Information</router-link>
           </a-menu-item>
           <a-menu-item key="attending:registration">
-            <router-link to="/pages/registration">Conference Registration</router-link>
+            <router-link to="/conference-registration">Conference Registration</router-link>
           </a-menu-item>
         </a-sub-menu>
 
@@ -148,6 +148,9 @@
               <router-link to="/uv2016">UV 2016</router-link>
             </a-menu-item>
           </a-sub-menu>
+          <a-menu-item key="about-us:Q&A">
+            <router-link to="/pages/QA">Q&A</router-link>
+          </a-menu-item>
           <a-menu-item key="about-us:contact-us">
             <router-link to="/pages/contact-us">Contact Us</router-link>
           </a-menu-item>
