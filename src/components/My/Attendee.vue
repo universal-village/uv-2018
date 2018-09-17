@@ -313,6 +313,7 @@
       height="auto"
       width="500"
       :clickToClose="false"
+      :scrollable="true"
     >
       <a-spin :spinning="spinning">
         <a-icon type="close-circle-o" style="margin-left: 95%; margin-top: 2%; margin-bottom: 2%;" @click="$modal.hide('card-modal')"/>

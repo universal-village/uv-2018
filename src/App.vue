@@ -115,6 +115,9 @@
           <a-menu-item key="attending:local-information">
             <router-link to="/pages/local-information">Local Information</router-link>
           </a-menu-item>
+          <a-menu-item key="attending:registration-price">
+            <router-link to="/pricing">Registration price</router-link>
+          </a-menu-item>
           <a-menu-item key="attending:registration">
             <router-link to="/conference-registration">Conference Registration</router-link>
           </a-menu-item>
