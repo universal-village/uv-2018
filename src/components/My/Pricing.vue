@@ -13,7 +13,7 @@
               <a-icon type="calendar" style="font-size: 2em;"/>
               <h2>Full Registration</h2>
               <br>
-              <span style="display: block; margin-left: 3em; margin-top: 10px;">$345 (early registration) / $445</span>
+              <span style="display: block; margin-left: 3em; margin-top: 10px;">$345 (early registration before Oct. 1) / $445</span>
             </a-card>
           </a-col>
           <a-col :lg="8" :md="12" style="margin-bottom: 10px; height: 180px;">
