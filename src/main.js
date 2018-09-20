@@ -25,7 +25,7 @@ Vue.config.productionTip = false
 const logrocketPlugin = createPlugin(LogRocket)
 LogRocket.init('itcl40/uv2018-dev', {
   dom: {
-    baseHref: 'https://uv2018-dev-web.s3.amazonaws.com/',
+    baseHref: 'https://uv2018.universal-village.org/',
   }
 })
 Vue.prototype.$LogRocket = LogRocket

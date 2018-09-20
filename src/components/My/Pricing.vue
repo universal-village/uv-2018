@@ -13,7 +13,10 @@
               <a-icon type="calendar" style="font-size: 2em;"/>
               <h2>Full Registration</h2>
               <br>
-              <span style="display: block; margin-left: 3em; margin-top: 10px;">$345 (early registration) / $445</span>
+              <a-table :columns="columns" :dataSource="data" bordered>
+                <span slot="price" slot-scope="text">{{text}}</span>
+                <span slot="description" slot-scope="text">{{text}}</span>
+              </a-table>
             </a-card>
           </a-col>
           <a-col :lg="8" :md="12" style="margin-bottom: 10px; height: 180px;">
@@ -59,6 +62,26 @@
 </template>
 
 <script lang="js">
+const columns = [{
+  title: 'Price',
+  dataIndex: 'price',
+  key: 'price',
+}, {
+  title: 'Description',
+  dataIndex: 'description',
+  key: 'description',
+}];
+
+const data = [{
+  key: '1',
+  price: 345,
+  description: 'Early Registration (before Oct. 1)'
+}, {
+  key: '2',
+  price: 445,
+  description: 'Late Registration (after Oct. 1)'
+}];
+
 export default {
   name: 'pricing',
   props: [],
@@ -67,7 +90,8 @@ export default {
   },
   data () {
     return {
-
+      columns,
+      data
     }
   },
   methods: {
