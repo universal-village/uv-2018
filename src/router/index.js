@@ -196,12 +196,6 @@ export default new Router({
       }
     },
     {
-      path: '/uv2013',
-      beforeEnter () {
-        window.location = 'http://www.universal-village.org/content/welcome-first-universal-village-conference-2013-0'
-      }
-    },
-    {
       path: '*',
       name: 'Not Found',
       components: {
