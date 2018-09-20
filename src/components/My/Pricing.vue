@@ -8,13 +8,12 @@
       </a-breadcrumb>
       <a-layout-content>
         <a-row :gutter="24">
-          <a-col :lg="8" :md="12" style="margin-bottom: 10px; height: 180px;">
+          <a-col :lg="8" :md="12" style="margin-bottom: 10px; height: 200px;">
             <a-card style="width: 100%;">
               <a-icon type="calendar" style="font-size: 2em;"/>
               <h2>Full Registration</h2>
-              <br>
-              <a-table :columns="columns" :dataSource="data" bordered>
-                <span slot="price" slot-scope="text">{{text}}</span>
+              <a-table :columns="columns" :dataSource="data" bordered style="margin-top: 1em;">
+                <span slot="price" slot-scope="text"><code>{{text}}</code></span>
                 <span slot="description" slot-scope="text">{{text}}</span>
               </a-table>
             </a-card>
@@ -24,7 +23,7 @@
               <a-icon type="usergroup-add" style="font-size: 2em;"/>
               <h2>UV Day</h2>
               <br>
-              <span style="display: block; margin-left: 3em; margin-top: 10px;">$50 (included in Full Registration)</span>
+              <span style="display: block; margin-left: 3em; margin-top: 10px;">$50.00 (included in Full Registration)</span>
             </a-card>
           </a-col>
           <a-col :lg="8" :md="12" style="margin-bottom: 10px; height: 180px;">
@@ -32,7 +31,7 @@
               <a-icon type="bulb" style="font-size: 2em;"/>
               <h2>UV Workshop</h2>
               <br>
-              <span style="display: block; margin-left: 3em; margin-top: 10px;">$50 (included in Full Registration)</span>
+              <span style="display: block; margin-left: 3em; margin-top: 10px;">$50.00 (included in Full Registration)</span>
             </a-card>
           </a-col>
           <a-col :lg="8" :md="12" style="margin-bottom: 10px; height: 180px;">
@@ -40,7 +39,7 @@
               <a-icon type="book" style="font-size: 2em;"/>
               <h2>Paper Fee</h2>
               <br>
-              <span style="display: block; margin-left: 3em; margin-top: 10px;">$150 each</span>
+              <span style="display: block; margin-left: 3em; margin-top: 10px;">$150.00 each</span>
             </a-card>
           </a-col>
           <a-col :lg="8" :md="12" style="margin-bottom: 10px; height: 180px;">
@@ -48,11 +47,11 @@
               <a-icon type="file" style="font-size: 2em;"/>
               <h2>Abstract Only Paper</h2>
               <br>
-              <span style="display: block; margin-left: 3em; margin-top: 10px;">$50 each</span>
+              <span style="display: block; margin-left: 3em; margin-top: 10px;">$50.00 each</span>
             </a-card>
           </a-col>
         </a-row>
-        <span>Students, seniors and IEEE members are eligible for registration discount.</span><br><br>
+        <span style="font-weight: bold; font-size: 1.5em;">* Students, seniors and IEEE members are eligible for registration discount.</span><br><br>
         <a-button type="primary" @click="$router.push('/conference-registration')">
           <a-icon type="left" />Conference registration
         </a-button>
@@ -67,20 +66,20 @@ const columns = [{
   dataIndex: 'price',
   key: 'price',
 }, {
-  title: 'Description',
+  title: 'Date',
   dataIndex: 'description',
   key: 'description',
-}];
+}]
 
 const data = [{
   key: '1',
-  price: 345,
+  price: '$345.00',
   description: 'Early Registration (before Oct. 1)'
 }, {
   key: '2',
-  price: 445,
+  price: '$445.00',
   description: 'Late Registration (after Oct. 1)'
-}];
+}]
 
 export default {
   name: 'pricing',
