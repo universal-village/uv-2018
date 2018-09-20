@@ -8,97 +8,367 @@
       </a-breadcrumb>
       <a-layout-content :style="{ margin: 0, minHeight: '280px' }" class="conference-reg-content">
         <a-row :gutter="0">
-          <a-col :md="24" :xs="24">
-            <a-collapse :bordered="false" accordion :defaultActiveKey='1'>
-              <a-collapse-panel :key="1" >
-                <template slot="header">
-                  <span>Register for IEEE International Universal Village Conference</span>
-                </template>
-                <div class="attendee-description">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel efficitur dolor, sed faucibus enim. Sed tempor tempus ornare. In ornare magna in felis gravida, vel lobortis sem molestie. Donec ultrices, lorem in consequat sagittis, nisi nibh hendrerit est, vel iaculis sem nunc eu mi. Quisque efficitur egestas sapien eu ultricies. Cras sit amet accumsan nisl. Quisque quis nulla egestas, tempus eros at, tristique metus. Etiam tempus posuere nunc quis elementum. Duis dignissim placerat mi quis rhoncus. Proin vestibulum consequat erat vitae dapibus. Morbi vel elementum mauris. Aliquam molestie tristique gravida.</p>
-                  <p>Proin sagittis nisi a magna sagittis iaculis. Praesent eget sapien at quam condimentum varius. Maecenas vestibulum mi ipsum, sed accumsan massa elementum et. Nullam a turpis non diam suscipit mollis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac consectetur magna, vel ultricies urna. Suspendisse non semper lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse aliquam, neque a suscipit dignissim, magna est consectetur mi, sit amet blandit augue massa vitae orci. Vivamus et tellus ligula. Morbi quis luctus ipsum. Proin mi quam, pretium a est vitae, tempor blandit lectus. Praesent finibus dui sollicitudin maximus euismod. Donec efficitur scelerisque mauris, vitae ornare orci mollis eu. Sed eu nunc felis. Sed et mattis sem, et dictum lorem.</p>
-                  <p>Aliquam congue turpis sit amet metus posuere, a dignissim dui molestie. Duis eget posuere lectus. Donec interdum nisl quis ante mollis porttitor. Nam bibendum est eros, ultricies venenatis tortor ultrices vitae. Ut mollis varius ante a auctor. Sed eu tincidunt risus. Nulla vestibulum ligula sit amet nulla maximus, vel rhoncus metus rutrum. Nunc posuere justo in efficitur molestie. Sed nisi elit, volutpat ut elit id, eleifend ullamcorper sapien. Morbi a mauris viverra, aliquet urna a, ullamcorper mauris. Phasellus condimentum dignissim dolor vel rhoncus. Aliquam ac tempor sapien, in posuere ante. Vestibulum ultrices eu elit facilisis maximus. Duis rutrum, dolor vel bibendum pharetra, odio orci auctor nisi, nec pellentesque tellus tortor at tortor. Phasellus ullamcorper interdum justo, nec elementum eros tincidunt id.</p>
-                  <p>Proin blandit metus ex, in rhoncus ex volutpat a. Aliquam mattis gravida leo ut placerat. Aliquam pulvinar volutpat vestibulum. Sed elementum nunc sit amet dapibus molestie. Nunc pellentesque interdum dolor vel pharetra. Nullam facilisis laoreet lorem, sit amet rhoncus massa sollicitudin interdum. Pellentesque cursus est ligula, ac sagittis augue aliquam luctus. Praesent odio augue, dapibus a sapien a, iaculis consequat est. Sed sed porta dolor. Suspendisse imperdiet nulla nec leo ullamcorper, id scelerisque lacus tristique. In vitae dui tempor, rutrum tortor eget, ultricies arcu.</p>
+          <a-col :lg="8" id="registration-left-banner">
+            <img src="https://cdn.universal-village.org/images/registration-left-banner.jpg" style="width: 100%">
+          </a-col>
+          <a-col :lg="16" v-if="!registered">
+            <h1 style="margin-left: 20%; display: block; font-weight: bolder; padding-top: 20px; padding-bottom: 40px;">Register for IEEE Intl. Conference on Universal Village 2018</h1>
+            <a-form :autoFormCreate="(form)=>{this.form = form}">
+              <div class="registration-form-0" v-show="paging === 0">
+                <div class="registration-basic-info">
+                  <a-divider orientation="right">Basic Info</a-divider>
+                  <a-form-item
+                    label='Title'
+                    :labelCol="{ span: 9 }"
+                    :wrapperCol="{ span: 12 }"
+                    fieldDecoratorId="title"
+                    :fieldDecoratorOptions="{rules: [{ required: false, message: 'How should we call you?' }]}"
+                  >
+                    <a-input placeholder="Title" v-model="title">
+                      <a-icon slot="prefix" type="user"/>
+                      <a-icon v-if="title" slot="suffix" type="close-circle" class="emit-closer" @click="emitEmptyField"/>
+                    </a-input>
+                  </a-form-item>
+
+                  <a-form-item
+                    label='First Name'
+                    :labelCol="{ span: 9 }"
+                    :wrapperCol="{ span: 12 }"
+                    fieldDecoratorId="firstname"
+                    :fieldDecoratorOptions="{rules: [{max: 45, min: 1, message: 'Field \'First Name\' must be shorter than 45 characters.'}, { required: true, message: 'Please input your First Name!' }]}"
+                  >
+                    <a-input placeholder="First Name" v-model="firstname" ref="firstnameInput">
+                      <a-icon slot="prefix" type="user"/>
+                      <a-icon v-if="firstname" slot="suffix" type="close-circle" class="emit-closer" @click="emitEmptyField"/>
+                    </a-input>
+                  </a-form-item>
+
+                  <a-form-item
+                    label='Middle Name'
+                    :labelCol="{ span: 9 }"
+                    :wrapperCol="{ span: 12 }"
+                    fieldDecoratorId="middlename"
+                    :fieldDecoratorOptions="{rules: [{max: 45, min: 0, message: 'Field \'Middle Name\' must be shorter than 45 characters.'}]}"
+                  >
+                    <a-input placeholder="Middle Name" v-model="middlename" ref="middlenameInput">
+                      <a-icon slot="prefix" type="user"/>
+                      <a-icon v-if="middlename" slot="suffix" type="close-circle" class="emit-closer" @click="emitEmptyField"/>
+                    </a-input>
+                  </a-form-item>
+
+                  <a-form-item
+                    label='Last Name'
+                    :labelCol="{ span: 9 }"
+                    :wrapperCol="{ span: 12 }"
+                    fieldDecoratorId="lastname"
+                    :fieldDecoratorOptions="{rules: [{max: 45, min: 1, message: 'Field \'Last Name\' must be shorter than 45 characters.'}, { required: true, message: 'Please input your Last Name!' }]}"
+                  >
+                    <a-input placeholder="Last Name" v-model="lastname" ref="lastnameInput">
+                      <a-icon slot="prefix" type="user"/>
+                      <a-icon v-if="lastname" slot="suffix" type="close-circle" class="emit-closer" @click="emitEmptyField"/>
+                    </a-input>
+                  </a-form-item>
                 </div>
-              </a-collapse-panel>
-              <a-collapse-panel :key="2">
-                <template slot="header">
-                  <span>Volunteer, Exhibitor and Honored Membership Registration</span>
-                </template>
-                <div class="attendee-description">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer condimentum interdum arcu, eget consectetur erat posuere vel. Etiam faucibus eros lacus, at pellentesque libero lacinia vitae. Nulla venenatis pharetra tempus. Quisque volutpat aliquet volutpat. Vestibulum in iaculis odio, sit amet venenatis ipsum. Curabitur accumsan posuere felis, nec venenatis velit vestibulum ut. Vivamus et pharetra felis. Vivamus scelerisque ligula molestie lacus volutpat egestas vitae vel diam. Donec facilisis leo vel nunc facilisis sodales. Nulla a commodo sapien, non venenatis massa. Praesent cursus lacus et mauris iaculis fringilla in non eros. Nullam consequat odio risus. Praesent hendrerit rutrum eleifend.</p>
-                  <p>Ut auctor, ipsum ac volutpat placerat, dolor turpis convallis nunc, id lobortis tellus eros aliquam risus. Morbi id elit at augue interdum fringilla eu a turpis. Sed sed venenatis ante, at aliquam libero. Etiam vel imperdiet est. Sed vestibulum, diam id accumsan aliquet, magna lorem bibendum nulla, at tempor sapien massa in ante. Vestibulum ac magna in felis suscipit porttitor condimentum vel neque. Integer venenatis, nunc a blandit congue, justo est volutpat justo, ac auctor mi nibh at lorem. Praesent rhoncus dapibus ipsum, in lacinia ante ornare ut. Phasellus cursus condimentum odio, sed accumsan ex elementum quis. Aenean sit amet pretium risus, et faucibus urna. Proin porttitor felis justo, quis sodales massa posuere et. Morbi leo mauris, rutrum et orci at, facilisis porta nisi. Morbi lobortis molestie lacus ut lobortis.</p>
+                <div class="registration-attending-info">
+                  <a-divider orientation="right">Attending Info</a-divider>
+                  <a-form-item
+                    label='Phone'
+                    :labelCol="{ span: 9 }"
+                    :wrapperCol="{ span: 12 }"
+                    fieldDecoratorId="phone"
+                    :fieldDecoratorOptions="{rules: [{ required: true, message: 'How could we contact you?' }]}"
+                  >
+                    <a-input placeholder="Phone Number" v-model="phone">
+                      <a-icon slot="prefix" type="mobile"/>
+                      <a-icon v-if="phone" slot="suffix" type="close-circle" class="emit-closer" @click="emitEmptyField"/>
+                    </a-input>
+                  </a-form-item>
+
+                  <a-form-item
+                    label='E-mail'
+                    :labelCol="{ span: 9 }"
+                    :wrapperCol="{ span: 12 }"
+                    fieldDecoratorId="email"
+                    :fieldDecoratorOptions="{rules: [{ required: true, message: 'How could we contact you?' }]}"
+                  >
+                    <a-input placeholder="E-mail" v-model="email" ref="emailInput">
+                      <a-icon slot="prefix" type="mail"/>
+                      <a-icon v-if="email" slot="suffix" type="close-circle" @click="emitEmptyField"
+                              style="cursor: pointer;"/>
+                    </a-input>
+                  </a-form-item>
+
+                  <a-form-item
+                    label='Food Alergy'
+                    :labelCol="{ span: 9 }"
+                    :wrapperCol="{ span: 12 }"
+                    fieldDecoratorId="food"
+                    :fieldDecoratorOptions="{rules: [{max: 45, min: 0, message: 'This Field should be shorter than 45 characters.'}]}"
+                  >
+                    <a-input placeholder="Food Alergy" v-model="alergy" ref="alergyInput">
+                      <a-icon slot="prefix" type="user"/>
+                      <a-icon v-if="alergy" slot="suffix" type="close-circle" class="emit-closer" @click="emitEmptyField"/>
+                    </a-input>
+                  </a-form-item>
                 </div>
-              </a-collapse-panel>
-              <a-collapse-panel :key="3">
-                <template slot="header">
-                  <span>Register and make a payment</span>
-                </template>
-                <div class="content">
-                  <a-form style="padding: 24px; margin-top: 2em;">
-                    <a-form-item
-                      label='E-mail'
-                      :labelCol="{ span: 5 }"
-                      :wrapperCol="{ span: 12 }"
-                      fieldDecoratorId="email"
-                      :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your E-mail!' }]}"
-                    >
-                      <a-input placeholder="E-mail" v-model="email" ref="emailInput">
-                        <a-icon slot="prefix" type="user"/>
-                        <a-icon v-if="email" slot="suffix" type="close-circle" style="cursor: pointer;"/>
-                      </a-input>
-                    </a-form-item>
-                    <a-form-item
-                      label='Password'
-                      :labelCol="{ span: 5 }"
-                      :wrapperCol="{ span: 12 }"
-                      fieldDecoratorId="password"
-                      :fieldDecoratorOptions="{rules: [{ required: true, message: 'Please input your password!' }]}"
-                    >
-                      <a-input placeholder="Password" v-model="password" ref="passwordInput" type="password">
-                        <a-icon slot="prefix" type="lock"/>
-                        <a-icon v-if="password" slot="suffix" type="close-circle" style="cursor: pointer;" @click="clr('pw')"/>
-                        <a-icon v-if="!password" slot="suffix" type="question-circle" style="cursor: pointer;" @click="jumpToForgotPassword"/>
-                      </a-input>
-                    </a-form-item>
-                    <a-form-item
-                      :wrapperCol="{ span: 12, offset: 5 }"
-                    >
-                      <vue-recaptcha :sitekey="this.$store.state.sitekey" @verify="handleSubmit">
-                        <a-button type='primary' htmlType='submit' style="width: 100%;" :loading="spinning">
-                          Proceed to checkout
-                        </a-button>
-                      </vue-recaptcha>
-                    </a-form-item>
-                  </a-form>
+                <a-button type="primary" shape="circle" icon="right" style="float: right; margin-top: 20px; margin-right: 20px;" @click="goto(0, 1)"></a-button>
+              </div>
+              <div v-show="paging === 1">
+                <div class="registration-special-info">
+                  <a-divider orientation="right">Special Info</a-divider>
+                  <a-form-item
+                  label='I am a Student'
+                  :labelCol="{ span: 9 }"
+                  :wrapperCol="{ span: 12 }"
+                  fieldDecoratorId="student"
+                  :fieldDecoratorOptions="{rules: [{ required: false, message: 'Are you a student?' }]}"
+                  >
+                    <a-switch v-model="student" checkedChildren="Yes" unCheckedChildren="No" :defaultChecked="false"/>
+                    <a-tag color="#87d068" style="margin-left: 20px;" v-if="student">students enjoy a discount</a-tag>
+                  </a-form-item>
+
+                  <a-form-item
+                  label='I am a Senior'
+                  :labelCol="{ span: 9 }"
+                  :wrapperCol="{ span: 12 }"
+                  fieldDecoratorId="senior"
+                  :fieldDecoratorOptions="{rules: [{ required: false, message: 'Are you a senior?' }]}"
+                  >
+                    <a-switch v-model="senior" checkedChildren="Yes" unCheckedChildren="No" :defaultChecked="false"/>
+                    <a-tag color="#87d068" style="margin-left: 20px;" v-if="senior">seniors over 65 years old enjoy a discount</a-tag>
+                  </a-form-item>
+
+                  <a-form-item
+                  label='I am an IEEE Member'
+                  :labelCol="{ span: 9 }"
+                  :wrapperCol="{ span: 12 }"
+                  fieldDecoratorId="ieeeMember"
+                  :fieldDecoratorOptions="{rules: [{ required: false, message: 'Are you an IEEE Member' }]}"
+                  >
+                    <a-switch v-model="ieeeMember" checkedChildren="Yes" unCheckedChildren="No" :defaultChecked="false"/>
+                    <a-tag color="#87d068" style="margin-left: 20px;" v-if="ieeeMember">IEEE Member enjoys discount</a-tag>
+                    <a-input placeholder="IEEE No." v-model="ieeeNo" ref="ieeeNoInput" v-if="ieeeMember" style="margin-top: 20px;">
+                      <a-icon slot="prefix" type="user"/>
+                      <a-icon v-if="ieeeNo" slot="suffix" type="close-circle" class="emit-closer" @click="emitEmptyField"/>
+                    </a-input>
+                  </a-form-item>
+
                 </div>
-              </a-collapse-panel>
-            </a-collapse>
+                <div class="registration-activity-info" v-if="papers.length === 0">
+                  <a-divider orientation="right">Activity info</a-divider>
+                  <a-form-item
+                  label='Full Registration'
+                  :labelCol="{ span: 9 }"
+                  :wrapperCol="{ span: 12 }"
+                  fieldDecoratorId="fullRegistration"
+                  :fieldDecoratorOptions="{rules: [{ required: true, message: 'All activities.' }]}"
+                  >
+                    <a-switch v-model="fullRegistration" checkedChildren="Yes" unCheckedChildren="No" defaultChecked/>
+                    <a-tag color="#87d068" style="margin-left: 20px;" v-if="fullRegistration">Attend 4 days conference including UV day and UV workshop.</a-tag>
+                  </a-form-item>
+
+                  <a-form-item
+                  label='Register for UV Day'
+                  :labelCol="{ span: 9 }"
+                  :wrapperCol="{ span: 12 }"
+                  fieldDecoratorId="uvDay"
+                  :fieldDecoratorOptions="{rules: [{ required: false, message: 'UV day.' }]}"
+                  >
+                    <a-switch v-model="uvDay" checkedChildren="Yes" unCheckedChildren="No" defaultChecked :disabled="fullRegistration"/>
+                  </a-form-item>
+
+                  <a-form-item
+                  label='Register for UV Workshop'
+                  :labelCol="{ span: 9 }"
+                  :wrapperCol="{ span: 12 }"
+                  fieldDecoratorId="uvWorkshop"
+                  :fieldDecoratorOptions="{rules: [{ required: false, message: 'UV Workshop.' }]}"
+                  >
+                    <a-switch v-model="uvWorkshop" checkedChildren="Yes" unCheckedChildren="No" defaultChecked :disabled="fullRegistration"/>
+                  </a-form-item>
+                </div>
+
+                <div class="registration-paper-info" v-else>
+                  <a-divider orientation="right">Paper Fee</a-divider>
+
+                  <a-form-item
+                  label='Paper Amount'
+                  :labelCol="{ span: 9 }"
+                  :wrapperCol="{ span: 12 }"
+                  fieldDecoratorId="Paper"
+                  :fieldDecoratorOptions="{rules: [{ required: false, message: 'Paper Amount.' }]}"
+                  v-if="paperCnts !== 0">
+                    <span>{{paperCnts}}</span>
+                  </a-form-item>
+
+                  <a-form-item
+                  label='Abstract Only Paper Amount'
+                  :labelCol="{ span: 9 }"
+                  :wrapperCol="{ span: 12 }"
+                  fieldDecoratorId="abstractOnly"
+                  :fieldDecoratorOptions="{rules: [{ required: false, message: 'Abstract Only Paper Amount.' }]}"
+                  v-if="abstractOnly !== 0">
+                    <span>{{abstractOnly}}</span>
+                  </a-form-item>
+                </div>
+                <a-button type="primary" shape="circle" icon="left" style="float: left; margin-top: 20px; margin-left: 20%;" @click="goto(1, 0)"></a-button>
+                <a-button type="primary" shape="circle" icon="right" style="float: right; margin-top: 20px; margin-right: 20px;" @click="goto(1, 2)"></a-button>
+
+              </div>
+              <div v-show="paging === 2">
+                <div class="registration-checkout">
+                  <a-divider orientation="right">Total</a-divider>
+                  <a-form-item
+                  label='Full Registration'
+                  :labelCol="{ span: 9 }"
+                  :wrapperCol="{ span: 12 }"
+                  fieldDecoratorId="fullRegistration"
+                  :fieldDecoratorOptions="{rules: [{ required: false, message: 'Full Registration.' }]}"
+                  v-if="fullRegistration">
+                    <span>$345.00</span>
+                  </a-form-item>
+
+                  <a-form-item
+                  label='UV Day'
+                  :labelCol="{ span: 9 }"
+                  :wrapperCol="{ span: 12 }"
+                  fieldDecoratorId="uvDay"
+                  :fieldDecoratorOptions="{rules: [{ required: false, message: 'UV Day Registration.' }]}"
+                  v-if="uvDay && !fullRegistration">
+                    <span>$50.00</span>
+                  </a-form-item>
+
+                  <a-form-item
+                  label='UV Workshop'
+                  :labelCol="{ span: 9 }"
+                  :wrapperCol="{ span: 12 }"
+                  fieldDecoratorId="uvWorkshop"
+                  :fieldDecoratorOptions="{rules: [{ required: false, message: 'UV Workshop Registration.' }]}"
+                  v-if="uvWorkshop && !fullRegistration">
+                    <span>$50.00</span>
+                  </a-form-item>
+
+                  <a-form-item
+                  label='Paper'
+                  :labelCol="{ span: 9 }"
+                  :wrapperCol="{ span: 12 }"
+                  fieldDecoratorId="paperFee"
+                  :fieldDecoratorOptions="{rules: [{ required: false, message: ' Paper Fee' }]}"
+                  v-if="paperFee">
+                    <span>${{ parseFloat(paperFee / 100).toFixed(2) }}</span>
+                  </a-form-item>
+
+                  <a-form-item
+                  label='Discount'
+                  :labelCol="{ span: 9 }"
+                  :wrapperCol="{ span: 12 }"
+                  fieldDecoratorId="uvWorkshop"
+                  :fieldDecoratorOptions="{rules: [{ required: false, message: ' Discount Amount' }]}"
+                  v-if="discount">
+                    <span>-${{ parseFloat(discountAmt / 100).toFixed(2) }}</span>
+                  </a-form-item>
+
+                  <a-form-item
+                  label='Total'
+                  :labelCol="{ span: 9 }"
+                  :wrapperCol="{ span: 12 }"
+                  fieldDecoratorId="total"
+                  :fieldDecoratorOptions="{rules: [{ required: false, message: ' Total Amount' }]}"
+                  >
+                    <span>${{ parseFloat(amt / 100).toFixed(2) }}</span>
+                  </a-form-item>
+
+                </div>
+                <a-button type="primary" shape="circle" icon="left" style="float: left; margin-top: 20px; margin-left: 20%;" @click="goto(2, 1)"></a-button>
+                <a-button type='primary' htmlType='submit' style="float: right; margin-top: 20px; margin-right: 20px;" @click="cardCheckout()">
+                  Checkout
+                </a-button>
+              </div>
+
+            </a-form>
+          </a-col>
+          <a-col :lg="16" v-else>
+            <div class="registration-greeting-info">
+              <h3 style="display: block; margin-left: 20%; margin-bottom: 100px; font-weight: bold; font-family: Verdana;">IEEE Intl. Conference on Universal Village 2018</h3>
+              <h1 style="display: block; margin-left: 20%; margin-bottom: 60px; font-weight: bolder; font-family: Verdana;">Thank you for your support to UV2018!</h1>
+              <p style="display: block; margin-left: 20%; font-family: Verdana; margin-right: 10%;">You has successfully registered for International Conference on IEEE Universal Village 2018, following is your registration and receipt information.</p>
+              <span style="display: inline-block; margin-left: 20%; margin-top: 20px; font-family: Verdana; font-weight: bolder; width: 20%">Date</span>
+              <span style="display: inline-block; margin-top: 20px; font-family: Verdana; width: 40%">August 16, 2018</span>
+              <span style="display: inline-block; margin-left: 20%; margin-top: 20px; font-family: Verdana; font-weight: bolder; width: 20%">Event</span>
+              <span style="display: inline-block; margin-top: 20px; font-family: Verdana; width: 40%">{{ receipt.description }}</span>
+              <span style="display: inline-block; margin-left: 20%; margin-top: 20px; font-family: Verdana; font-weight: bolder; width: 20%">Payment Amount</span>
+              <span style="display: inline-block; margin-top: 20px; font-family: Verdana; width: 40%">${{ parseFloat(receipt.amount / 100).toFixed(2) }}</span>
+              <div style="text-align: right; float: right; margin-top: 20px; margin-right: 10%;">
+                <p style="margin-top: 20px; font-family: Verdana;">Many thanks and welcome again,</p>
+                <p style="font-family: Verdana; font-weight: bold;">UV2018 Committee</p>
+              </div>
+            </div>
           </a-col>
         </a-row>
       </a-layout-content>
     </a-layout>
+    <modal
+      name="card-modal"
+      draggable="true"
+      height="auto"
+      width="500"
+      :clickToClose="false"
+      :scrollable="true"
+    >
+      <a-spin :spinning="spinning">
+        <a-icon type="close-circle-o" style="margin-left: 95%; margin-top: 2%; margin-bottom: 2%;" @click="$modal.hide('card-modal')"/>
+        <div style="margin-top: -8%">
+          <img src="https://cdn.universal-village.org/images/logo-new.png" style="border-radius: 50%; width: 125px; margin-right: -50px">
+          <h2 style="font-weight: bolder; font-family: sans-serif; margin-left: 10%; margin-right: auto; display: inline-block;">Universal Village Society Inc.</h2>
+        </div>
+        <credit-card v-model="creditCard"></credit-card>
+        <vue-recaptcha :sitekey="this.$store.state.sitekey" @verify="handleSubmit">
+          <a-button type='primary' htmlType='submit' style="float: right; margin-top: 20px; margin-right: 20px; margin-bottom: 20px;" @click="cardCheckout()">
+            Pay ${{ parseFloat(amt / 100).toFixed(2) }}
+          </a-button>
+        </vue-recaptcha>
+      </a-spin>
+    </modal>
   </a-layout-content>
 </template>
 
 <script>
 import VueRecaptcha from 'vue-recaptcha'
+import CreditCard from '@/components/Helper/CreditCard.vue'
+Stripe.setPublishableKey('pk_live_pKhzzxn3bjKaSG2Rs3kTsKxP')
 export default {
   name: 'attendee',
   props: [],
   components: {
-    VueRecaptcha
+    VueRecaptcha,
+    CreditCard
   },
   mounted () {
-
+    this.checkRegistrationStatus()
   },
   data () {
     return {
+      paging: 0,
+      firstname: '',
+      lastname: '',
+      middlename: '',
+      title: '',
+      phone: '',
       email: '',
-      password: '',
+      alergy: '',
+      student: false,
+      senior: false,
+      ieeeMember: false,
+      ieeeNo: '',
+      fullRegistration: true,
+      uvDay: true,
+      uvWorkshop: true,
       spinning: false,
-      activeKey: '1',
-      amt: 10000,
+      user: undefined,
+      papers: /* [{"paperid":25,"title":"Test Paper of Guanghua wobushi SB le","authors":"Guanghua","categoryId":1,"keywords":["daafsdadad","b vnvv"],"link":null,"phase":"Accept","_abstract":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532117106595-Hidden_Markov_Model.pdf"}] */[],
+      attendee: undefined,
+      isVolunteer: false,
+      isVIP: false,
       product: {
         name: 'Test',
         description: 'Ticket to UV2018'
@@ -107,55 +377,332 @@ export default {
         stripeToken: 'token.id',
         amount: 49999,
         currency: 'USD',
-        description: 'Ticket to IEEE Intl. UV2018'
+        description: 'Ticket to IEEE Intl. UV2018',
+        token: '',
+        ieeeNo: '',
+        isSenior: false,
+        isStudent: false,
+        foodAlergy: '',
+        title: '',
+        firstname: '',
+        middlename: '',
+        lastname: '',
+        email: '',
+        phone: ''
+      },
+      creditCard: {
+        cardNum: '',
+        name: '',
+        expiration: '',
+        cvv: ''
+      },
+      stripeResp: undefined,
+      receipt: {
+        amount: -1,
+        description: '',
+        receiptId: -1,
+        time: '',
+        ieeeNo: '',
+        isSenior: false,
+        isStudent: false,
+        foodAlergy: ''
+      }
+    }
+  },
+  watch: {
+    fullRegistration (newFR) {
+      if (newFR) {
+        this.uvDay = true
+        this.uvWorkshop = true
+      }
+    },
+    senior (newSenior) {
+      if (newSenior) {
+        this.student = false
+      }
+    },
+    student (newStudent) {
+      if (newStudent) {
+        this.senior = false
       }
     }
   },
   methods: {
-    clr: function (name) {
-      switch (name) {
-        case 'pw':
-          this.password = ''
-          break
-        case 'email':
-          this.email = ''
-          break
+    checkRegistrationStatus: function () {
+      this.$http.get(this.$store.state.endpoint.api + '/checkConferenceRegistrationStatus', {emulateJSON: true}).then(
+        response => {
+          console.log(response.body)
+          if (response.body.flag !== true) {
+            this.$message.error(response.body.info)
+          } else {
+            this.user = response.body.user
+            this.attendee = response.body.attendee
+            this.papers = response.body.papers
+            this.isVolunteer = response.body.isVolunteer
+            this.isVIP = response.body.isVIP
+            if (this.user !== null && this.user !== undefined) {
+              this.title = this.user.title
+              this.firstname = this.user.firstname
+              this.lastname = this.user.lastname
+              this.middlename = this.user.middlename
+              this.phone = this.user.cellphone
+              this.email = this.user.email
+              this.form.setFieldsValue({
+                title: this.title,
+                firstname: this.firstname,
+                middlename: this.middlename,
+                lastname: this.lastname,
+                email: this.email,
+                phone: this.phone
+              })
+            }
+            this.receipt = response.body.receipt
+          }
+        }, response => {
+          this.$message.error('Cannot load conference registration information. status-' + response.status, 3)
+        })
+    },
+    goto: function (cur, next) {
+      if (cur === 0 && this.checkForm1()) {
+        this.paging = next
+      } else if (cur === 1 && this.checkForm2()) {
+        this.paging = next
+      } else if (cur === 2) {
+        this.paging = next
       }
+      // console.log(this.paging)
+    },
+    emitEmptyField: function (event) {
+      // eslint-disable-next-line
+      eval('this.form.setFieldsValue({' + event.path[2].childNodes[1].attributes.id.value + ': ""})')
+      // eslint-disable-next-line
+      eval('this.' + event.path[2].childNodes[1].attributes.id.value + ' = ""')
+    },
+    checkForm1 () {
+      if (this.firstname === '' || this.lastname === '' || this.phone === '' || this.email === '') {
+        this.$notification['error']({
+          message: 'Cannot proceed to next step',
+          description: 'You cannot leave required fields empty.'
+        })
+        return false
+      }
+      if (!this.email.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+        this.$notification['error']({
+          message: 'Cannot proceed to next step',
+          description: 'You must enter a valid email address.'
+        })
+        return false
+      }
+      return true
+    },
+    checkForm2 () {
+      if (!this.fullRegistration && !this.uvDay && !this.uvWorkshop) {
+        this.$notification['error']({
+          message: 'Cannot proceed to next step',
+          description: 'You must choose an event to continue.'
+        })
+        return false
+      }
+      if (this.ieeeMember && this.ieeeNo === '') {
+        this.$notification['error']({
+          message: 'Cannot proceed to next step',
+          description: 'To enjoy IEEE Member discount, please provide your IEEE No. .'
+        })
+        return false
+      }
+      return true
     },
     jumpToForgotPassword: () => {
       this.$router.push('/reset-password')
     },
+    makeReceiptDetail: function () {
+      this.description = ''
+      if (this.paperCnts !== 0) {
+        this.description += ' Paper Amount ' + this.paperCnts
+      }
+      if (this.abstractOnly !== 0) {
+        this.description += ' Abstract Only ' + this.abstractOnly
+      }
+      if (this.fullRegistration) {
+        this.description += ' Full Registration'
+      } else {
+        if (this.uvDay) {
+          this.description += ' UV Day'
+        }
+        if (this.uvWorkshop) {
+          this.description += ' UV Workshop'
+        }
+      }
+      if (this.student) {
+        this.description += ' with Student Discount'
+      } else if (this.senior) {
+        this.description += ' with Senior Discount'
+      } else if (this.ieeeMember) {
+        this.description += ' with IEEE Member Discount'
+      }
+    },
+    cardCheckout: function () {
+      this.$modal.show('card-modal')
+    },
     handleSubmit: function (recaptchaToken) {
       this.spinning = true
-      this.$checkout.open({
-        name: 'test charging',
-        currency: 'USD',
-        amount: this.amt,
-        token: (token) => {
-          console.log(token)
-          console.log(recaptchaToken)
-          this.payload.stripeToken = token.id
-          window.setTimeout(() => {
-            this.$http.post(this.$store.state.endpoint.api + '/checkout', this.payload, {emulateJSON: true}).then(response => {
-              console.log(response.body.flag)
-              this.spinning = false
-              if (response.body.flag === true) {
-                this.$message.success('Successfully paid', 2)
-                this.$router.push('/success')
-              } else {
-                this.$message.error(response.body.info, 4)
-              }
-            }, response => {
-              this.spinning = false
-              this.$message.error('Internal Server Error. Please try again.', 4)
-            })
-          }, 500)
+      this.makeReceiptDetail()
+      if (this.creditCard.cardNum === '' || this.creditCard.name === '' || this.creditCard.expiration === '' || this.creditCard.cvv === '') {
+        this.$notification['error']({
+          message: 'Cannot proceed to next step',
+          description: 'You cannot leave required fields empty.'
+        })
+        window.grecaptcha.reset()
+        this.spinning = false
+        return
+      }
+      let stripeRespCallback = function (that) {
+        const context = that
+        return (status, resp) => {
+          let response = resp
+          context.stripeResp = response
+          if (response.error) {
+            console.log(response.error)
+            context.$message.error(response.error.message, 3)
+          } else if (response.type === 'card_error') {
+            context.$message.error(response.error.message, 3)
+          } else {
+            let token = response.id
+            console.log(response)
+            context.payload.stripeToken = token
+            context.payload.token = recaptchaToken
+            context.payload.amount = context.amt
+            context.makeReceiptDetail()
+            context.payload.description = context.description
+            context.payload.ieeeNo = context.ieeeNo
+            context.payload.isSenior = context.senior
+            context.payload.isVolunteer = context.isVolunteer
+            context.payload.foodAlergy = context.alergy
+            context.payload.isStudent = context.student
+            context.payload.title = context.title
+            context.payload.firstname = context.firstname
+            context.payload.lastname = context.lastname
+            context.payload.middlename = context.middlename
+            context.payload.email = context.email
+            context.payload.phone = context.phone
+          }
+          context.$http.post(context.$store.state.endpoint.api + '/checkout', context.payload, {emulateJSON: true}).then(response => {
+            console.log(response.body.flag)
+            context.spinning = false
+            if (response.body.flag === true) {
+              context.spinning = false
+              context.$message.success('Successfully paid', 2)
+              context.$router.push('/success-registration')
+            } else {
+              context.spinning = false
+              window.grecaptcha.reset()
+              context.$message.error(response.body.info, 4)
+            }
+          }, response => {
+            context.spinning = false
+            window.grecaptcha.reset()
+            context.$message.error('Internal Server Error. Please try again.', 4)
+          })
+          context.spinning = false
         }
-      })
-    },
+      }
+      Stripe.card.createToken({
+        number: this.creditCard.cardNum,
+        cvc: this.creditCard.cvv,
+        exp_month: this.creditCard.expiration.split(' / ')[0],
+        exp_year: this.creditCard.expiration.split(' / ')[1],
+        name: this.creditCard.name
+      }, stripeRespCallback(this))
+      // this.$checkout.open({
+      //   name: 'Registration for IEEE Intl. Conference on Universal Village 2018',
+      //   currency: 'USD',
+      //   amount: this.amt,
+      //   token: (token) => {
+      //     console.log(token)
+      //     console.log(recaptchaToken)
+      //     this.payload.stripeToken = token.id
+      //     window.setTimeout(() => {
+      //       this.$http.post(this.$store.state.endpoint.api + '/checkout', this.payload, {emulateJSON: true}).then(response => {
+      //         console.log(response.body.flag)
+      //         this.spinning = false
+      //         if (response.body.flag === true) {
+      //           this.spinning = false
+      //           this.$message.success('Successfully paid', 2)
+      //           this.$router.push('/success')
+      //         } else {
+      //           this.spinning = false
+      //           window.grecaptcha.reset()
+      //           this.$message.error(response.body.info, 4)
+      //         }
+      //       }, response => {
+      //         this.spinning = false
+      //         window.grecaptcha.reset()
+      //         this.$message.error('Internal Server Error. Please try again.', 4)
+      //       })
+      //     }, 500)
+      //   }
+      // })
+    }
   },
   computed: {
-
+    registered: function () {
+      return this.attendee !== null && this.attendee !== undefined && this.attendee.userId !== -1
+    },
+    amtBeforeDiscount: function () {
+      let amount = 0
+      if (this.fullRegistration) {
+        amount += 34500
+      } else {
+        if (this.uvDay) {
+          amount += 5000
+        }
+        if (this.uvWorkshop) {
+          amount += 5000
+        }
+      }
+      return amount
+    },
+    discount: function () {
+      return (this.student || this.senior || this.ieeeNo) && this.fullRegistration
+    },
+    amt: function () {
+      return Math.ceil(this.amtBeforeDiscount - ((this.student || this.senior || this.ieeeNo) && this.fullRegistration ? 10000 : 0)) + this.paperFee
+    },
+    discountAmt: function () {
+      if ((this.student || this.senior || this.ieeeNo) && this.fullRegistration) {
+        return 10000
+      }
+    },
+    paperFee: function () {
+      let paperCnts = 0
+      let abstractOnly = 0
+      for (var i = 0; i < this.papers.length; i++) {
+        if (this.papers[i].link === null || this.papers[i].link === undefined || this.papers[i].link === '') {
+          abstractOnly++
+        } else {
+          paperCnts++
+        }
+      }
+      return 15000 * paperCnts + 5000 * abstractOnly
+    },
+    paperCnts: function () {
+      let cnts = 0
+      for (var i = 0; i < this.papers.length; i++) {
+        if (this.papers[i].link === null || this.papers[i].link === undefined || this.papers[i].link === '') {
+          cnts++
+        }
+      }
+      return cnts
+    },
+    abstractOnly: function () {
+      let cnts = 0
+      for (var i = 0; i < this.papers.length; i++) {
+        if (this.papers[i].link !== null && this.papers[i].link !== undefined && this.papers[i].link !== '') {
+          cnts++
+        }
+      }
+      return cnts
+    }
   }
 }
 </script>
@@ -171,9 +718,26 @@ export default {
     font-weight: 500;
   }
 
+  .ant-divider-horizontal.ant-divider-with-text-right:before,
+  .ant-divider-horizontal.ant-divider-with-text-right:after {
+    border-top: 1px solid #029224;
+    margin-right: 20%;
+  }
+
+  .ant-divider.ant-divider-horizontal.ant-divider-with-text-right {
+    margin-left: 20%;
+    width: 80%;
+  }
+
   @media only screen and (max-width: 960px) {
     .ant-layout-content {
       padding: 0 20px;
+    }
+    #registration-left-banner {
+      display: none;
+    }
+    .ant-tag.ant-tag-has-color {
+      display: block;
     }
   }
   @media only screen and (min-width: 960px){

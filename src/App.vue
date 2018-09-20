@@ -115,8 +115,11 @@
           <a-menu-item key="attending:local-information">
             <router-link to="/pages/local-information">Local Information</router-link>
           </a-menu-item>
+          <a-menu-item key="attending:registration-price">
+            <router-link to="/pricing">Registration price</router-link>
+          </a-menu-item>
           <a-menu-item key="attending:registration">
-            <router-link to="/pages/registration">Conference Registration</router-link>
+            <router-link to="/conference-registration">Conference Registration</router-link>
           </a-menu-item>
         </a-sub-menu>
 
@@ -139,7 +142,7 @@
           </a-menu-item>
           <a-sub-menu key="about-us:previous-conferences" title="Previous Conferences" :style="{ marginRight: '1em' }">
             <a-menu-item key="about-us:previous-conferences:uv-2013">
-              <router-link to="/archive/uv-2013">UV 2013</router-link>
+              <router-link to="/uv2013">UV 2013</router-link>
             </a-menu-item>
             <a-menu-item key="about-us:previous-conferences:uv-2014">
               <router-link to="/uv2014">UV 2014</router-link>
@@ -148,6 +151,9 @@
               <router-link to="/uv2016">UV 2016</router-link>
             </a-menu-item>
           </a-sub-menu>
+          <a-menu-item key="about-us:Q&A">
+            <router-link to="/pages/QA">Q&A</router-link>
+          </a-menu-item>
           <a-menu-item key="about-us:contact-us">
             <router-link to="/pages/contact-us">Contact Us</router-link>
           </a-menu-item>

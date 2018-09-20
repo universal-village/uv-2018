@@ -140,9 +140,9 @@
                   :labelCol="{ span: 9 }"
                   :wrapperCol="{ span: 12 }"
                   fieldDecoratorId="birthdayDate"
-                  :fieldDecoratorOptions="{rules: [{ required: false, message: 'What\'s your Birthday?' }]}"
+                  :fieldDecoratorOptions="{rules: [{ required: true, message: 'What\'s your Birthday?' }]}"
                 >
-                  <a-date-picker @change="onChange"/>
+                  <a-date-picker/>
                 </a-form-item>
 
               </div>
@@ -394,7 +394,7 @@ export default {
         icon: 'phone'
       }, {
         index: 3,
-        name: 'Personification',
+        name: 'Visa Support',
         icon: 'skin'
       }]
     }
@@ -407,7 +407,13 @@ export default {
   },
   methods: {
     next () {
-      this.current++
+      if (this.current === 0 && this.checkForm1()) {
+        this.current++
+      } else if (this.current === 1 && this.checkForm2()) {
+        this.current++
+      } else if (this.current === 2 && this.checkForm3()) {
+        this.current++
+      }
     },
     prev () {
       this.current--
@@ -420,6 +426,57 @@ export default {
     },
     birthdayDateStringHandler (date, dateString) {
       console.log(date, dateString)
+    },
+    checkForm1 () {
+      if (this.firstname === '' || this.lastname === '' || this.email === '' || this.password === '' || this.confirmPassword === '' || !this.form.getFieldValue('birthdayDate')) {
+        this.$notification['error']({
+          message: 'Cannot proceed to next step',
+          description: 'You cannot leave required fields empty.'
+        })
+        return false
+      }
+      if (this.password !== this.confirmPassword) {
+        this.$notification['error']({
+          message: 'Cannot proceed to next step',
+          description: '\'Confirm password\' entered is inconsistent.'
+        })
+        return false
+      }
+      if (!this.email.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+        this.$notification['error']({
+          message: 'Cannot proceed to next step',
+          description: 'You must enter a valid email address.'
+        })
+        return false
+      }
+      return true
+    },
+    checkForm2 () {
+      if (this.organization === '') {
+        this.$notification['error']({
+          message: 'Cannot proceed to next step',
+          description: 'You cannot leave required fields empty.'
+        })
+        return false
+      }
+      if (this.bios.length > 500) {
+        this.$notification['error']({
+          message: 'Cannot proceed to next step',
+          description: 'Biography entered exceeds field limit.'
+        })
+        return false
+      }
+      return true
+    },
+    checkForm3 () {
+      if (this.address === '' || this.zipcode === '' || this.state === '' || this.country === '') {
+        this.$notification['error']({
+          message: 'Cannot proceed to next step',
+          description: 'You cannot leave required fields empty.'
+        })
+        return false
+      }
+      return true
     },
     handleSubmit (recaptchaToken) {
       // if (formError()) return this.$message.error('There\'s one or more errors with your input with our registration form. Please check again.')

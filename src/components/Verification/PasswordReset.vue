@@ -106,6 +106,7 @@ export default {
         this.loadingStatus = false
         this.$message.error('Internal Server Error. Please try again.', 4)
       })
+      window.grecaptcha.reset()
     },
     emitEmptyField (e) {
       // eslint-disable-next-line

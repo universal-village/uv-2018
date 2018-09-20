@@ -20,7 +20,9 @@ const MyProfileEdit = () => import(/* webpackChunkName: "my" */ '@/components/My
 const NotFoundError = () => import(/* webpackChunkName: "home" */ '@/components/NotFound.vue')
 const EditPaperSubmission = () => import(/* webpackChunkName: "my" */ '@/components/My/Submissions/Paper/Edit.vue')
 const ConferenceRegistration = () => import(/* webpackChunkName: "my" */ '@/components/My/Attendee.vue')
-const Success = () => import(/* webpackChunkName: "home" */ '@/components/Success')
+const Success = () => import(/* webpackChunkName: "home" */ '@/components/Success.vue')
+const SuccessRegistration = () => import(/* webpackChunkName: "home" */ '@/components/SuccessRegistration.vue')
+const Pricing = () => import(/* webpackChunkName: "pricing" */ '@/components/My/Pricing.vue')
 
 Vue.use(Router)
 
@@ -39,6 +41,13 @@ export default new Router({
       name: 'Success',
       components: {
         App: Success
+      }
+    },
+    {
+      path: '/success-registration',
+      name: 'Success Registered',
+      components: {
+        App: SuccessRegistration
       }
     },
     {
@@ -159,6 +168,19 @@ export default new Router({
       name: 'My Conference Attendee',
       components: {
         App: ConferenceRegistration
+      }
+    },
+    {
+      path: '/pricing',
+      name: 'Conference Registration Pricing',
+      components: {
+        App: Pricing
+      }
+    },
+    {
+      path: '/uv2013',
+      beforeEnter () {
+        window.location = 'http://www.universal-village.org/content/welcome-first-universal-village-conference-2013-0'
       }
     },
     {

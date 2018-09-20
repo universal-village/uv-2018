@@ -37,7 +37,7 @@
                   <div class="hovereffect">
                     <img class="img-responsive" src="https://cdn.universal-village.org/images/home-sidebar/authors-and-reviewers.png" alt="">
                     <div class="overlay">
-                      <h2>Authors / Reviewers</h2>
+                      <h2>Reviewers</h2>
                       <span class="ov-description">
                         Login / Register
                       </span>

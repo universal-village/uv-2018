@@ -15,7 +15,7 @@
       <!--</span>-->
     <!--</a-table>-->
     <a-card v-for="paper in paperList" :title="paper.title" :key="paper.paperid" style="margin: 2em" :bordered="false">
-      <a href="#" slot="extra" @click="detailEntry(paper.paperid)">more</a>
+      <a href="#" slot="extra" @click="detailEntry(paper.paperid)">edit</a>
       <a-row>
         <a-col :lg="10" :md="24">
           <!-- TODO: Add the badge of the phases. -->
@@ -106,7 +106,7 @@
       <div class="panel" style="display: block;">
         <div class="container-modal">
           <h1>Submitted Paper #{{ currentEditingPaper.paperId }}</h1>
-          <a-button type="primary" @click="editEntry(currentEditingPaper.paperId)" icon="edit" :disabled="!isDraft(currentEditingPaper.phase)">
+          <a-button type="primary" @click="editEntry(currentEditingPaper.paperId)" icon="edit" :disabled="currentEditingPaper.phase === 'Reject'">
             Edit
           </a-button>
           <a-popconfirm title="Delete this submission?" @confirm="deleteEntry(currentEditingPaper.paperId)"
@@ -117,7 +117,7 @@
           </a-popconfirm>
           <a-popconfirm title="Upon submission you can no longer edit your paper" @confirm="confirm" @cancel="cancel" okText="Ready to Review" cancelText="Keep Editing" v-if="isDraft(currentEditingPaper.phase)">
             <a-button type="primary" icon="check-circle-o" style="float: right;">
-              Request Review
+              Submit
             </a-button>
           </a-popconfirm>
           <a-divider type="horizontal" />
