@@ -23,6 +23,7 @@ const ConferenceRegistration = () => import(/* webpackChunkName: "my" */ '@/comp
 const Success = () => import(/* webpackChunkName: "home" */ '@/components/Success.vue')
 const SuccessRegistration = () => import(/* webpackChunkName: "home" */ '@/components/SuccessRegistration.vue')
 const Pricing = () => import(/* webpackChunkName: "pricing" */ '@/components/My/Pricing.vue')
+const Donation = () => import(/* webpackChunkName: "donation" */ '@/components/My/Donation.vue')
 
 Vue.use(Router)
 
@@ -175,6 +176,13 @@ export default new Router({
       name: 'Conference Registration Pricing',
       components: {
         App: Pricing
+      }
+    },
+    {
+      path: '/donation',
+      name: 'Donation',
+      components: {
+        App: Donation
       }
     },
     {
