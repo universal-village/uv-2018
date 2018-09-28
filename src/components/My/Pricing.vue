@@ -24,7 +24,7 @@
               <a-icon type="usergroup-add" style="font-size: 2em;"/>
               <h2>UV Day</h2>
               <br>
-              <span style="display: block; margin-left: 3em; margin-top: 10px;">$50.00 (included in Full Registration)</span>
+              <span style="display: block; margin-left: 3em; margin-top: 10px;">Free Registration (included in Full Registration)</span>
             </a-card>
           </a-col>
           <a-col :lg="8" :md="12" style="margin-bottom: 10px; height: 180px;">
@@ -75,11 +75,11 @@ const columns = [{
 const data = [{
   key: '1',
   price: '$345.00',
-  description: 'Early Registration (before Oct. 1)'
+  description: 'Early Registration (before Oct. 7)'
 }, {
   key: '2',
   price: '$445.00',
-  description: 'Late Registration (after Oct. 1)'
+  description: 'Late Registration (after Oct. 7)'
 }]
 
 export default {

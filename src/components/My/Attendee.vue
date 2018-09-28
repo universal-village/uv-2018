@@ -175,6 +175,7 @@
                   :fieldDecoratorOptions="{rules: [{ required: false, message: 'UV day.' }]}"
                   >
                     <a-switch v-model="uvDay" checkedChildren="Yes" unCheckedChildren="No" defaultChecked :disabled="fullRegistration"/>
+                    <a-tag color="#87d068" style="margin-left: 20px;" v-if="uvDay">UV Day is an open event free from registration fee</a-tag>
                   </a-form-item>
 
                   <a-form-item
@@ -210,6 +211,22 @@
                   v-if="abstractOnly !== 0">
                     <span>{{abstractOnly}}</span>
                   </a-form-item>
+
+                  <a-form-item
+                  label='Extra Pages'
+                  :labelCol="{ span: 9 }"
+                  :wrapperCol="{ span: 12 }"
+                  fieldDecoratorId="uvWorkshop"
+                  :fieldDecoratorOptions="{rules: [{ required: false, message: 'UV Workshop.' }]}"
+                  >
+                    <a-input-number
+                    :defaultValue="0"
+                    :min="0"
+                    :max="20"
+                    v-model="extraPages"
+                    />
+                  </a-form-item>
+
                 </div>
                 <a-button type="primary" shape="circle" icon="left" style="float: left; margin-top: 20px; margin-left: 20%;" @click="goto(1, 0)"></a-button>
                 <a-button type="primary" shape="circle" icon="right" style="float: right; margin-top: 20px; margin-right: 20px;" @click="goto(1, 2)"></a-button>
@@ -235,7 +252,7 @@
                   fieldDecoratorId="uvDay"
                   :fieldDecoratorOptions="{rules: [{ required: false, message: 'UV Day Registration.' }]}"
                   v-if="uvDay && !fullRegistration">
-                    <span>$50.00</span>
+                    <span>$0.00</span>
                   </a-form-item>
 
                   <a-form-item
@@ -363,6 +380,7 @@ export default {
       fullRegistration: true,
       uvDay: true,
       uvWorkshop: true,
+      extraPages: 0,
       spinning: false,
       user: undefined,
       papers: /* [{"paperid":25,"title":"Test Paper of Guanghua wobushi SB le","authors":"Guanghua","categoryId":1,"keywords":["daafsdadad","b vnvv"],"link":null,"phase":"Accept","_abstract":"https://s3.us-east-2.amazonaws.com/uv2018-paper/1532117106595-Hidden_Markov_Model.pdf"}] */[],
@@ -388,7 +406,11 @@ export default {
         middlename: '',
         lastname: '',
         email: '',
-        phone: ''
+        phone: '',
+        fullRegistration: false,
+        uvDay: false,
+        uvWorkshop: false,
+        extraPages: 0
       },
       creditCard: {
         cardNum: '',
@@ -523,6 +545,9 @@ export default {
       if (this.abstractOnly !== 0) {
         this.description += ' Abstract Only ' + this.abstractOnly
       }
+      if (this.extraPages !== 0) {
+        this.description += ' Extra Pages ' + this.extraPages
+      }
       if (this.fullRegistration) {
         this.description += ' Full Registration'
       } else {
@@ -542,6 +567,49 @@ export default {
       }
     },
     cardCheckout: function () {
+      if (this.amt === 0) {
+        const context = this
+        let token = ''
+        context.payload.stripeToken = token
+        context.payload.token = ''
+        context.payload.amount = context.amt
+        context.makeReceiptDetail()
+        context.payload.description = context.description
+        context.payload.ieeeNo = context.ieeeNo
+        context.payload.isSenior = context.senior
+        context.payload.isVolunteer = context.isVolunteer
+        context.payload.foodAlergy = context.alergy
+        context.payload.isStudent = context.student
+        context.payload.title = context.title
+        context.payload.firstname = context.firstname
+        context.payload.lastname = context.lastname
+        context.payload.middlename = context.middlename
+        context.payload.email = context.email
+        context.payload.phone = context.phone
+        context.payload.fullRegistration = context.fullRegistration
+        context.payload.uvDay = context.uvDay
+        context.payload.uvWorkshop = context.uvWorkshop
+        context.payload.extraPages = context.extraPages
+        this.$http.post(context.$store.state.endpoint.api + '/checkout', context.payload, {emulateJSON: true}).then(response => {
+          console.log(response.body.flag)
+          context.spinning = false
+          if (response.body.flag === true) {
+            context.spinning = false
+            context.$message.success('Successfully paid', 2)
+            context.$router.push('/success-registration')
+          } else {
+            context.spinning = false
+            window.grecaptcha.reset()
+            context.$message.error(response.body.info, 4)
+          }
+        }, response => {
+          context.spinning = false
+          window.grecaptcha.reset()
+          context.$message.error('Internal Server Error. Please try again.', 4)
+        })
+        context.spinning = false
+        return
+      }
       this.$modal.show('card-modal')
     },
     handleSubmit: function (recaptchaToken) {
@@ -585,6 +653,10 @@ export default {
             context.payload.middlename = context.middlename
             context.payload.email = context.email
             context.payload.phone = context.phone
+            context.payload.fullRegistration = context.fullRegistration
+            context.payload.uvDay = context.uvDay
+            context.payload.uvWorkshop = context.uvWorkshop
+            context.payload.extraPages = context.extraPages
           }
           context.$http.post(context.$store.state.endpoint.api + '/checkout', context.payload, {emulateJSON: true}).then(response => {
             console.log(response.body.flag)
@@ -654,7 +726,7 @@ export default {
         amount += 34500
       } else {
         if (this.uvDay) {
-          amount += 5000
+          amount += 0
         }
         if (this.uvWorkshop) {
           amount += 5000
@@ -683,7 +755,7 @@ export default {
           paperCnts++
         }
       }
-      return 15000 * paperCnts + 5000 * abstractOnly
+      return 15000 * paperCnts + 5000 * abstractOnly + 10000 * this.extraPages
     },
     paperCnts: function () {
       let cnts = 0
