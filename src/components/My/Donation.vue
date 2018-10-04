@@ -10,7 +10,7 @@
         <h1>Donation</h1>
         <a-table :rowSelection="{selectedRowKeys: selectedRowKeys, onChange: onSelectChange}" :columns="columns"
                  :dataSource="donationConfiguration" :pagination="false"/>
-        chose #{{selectedRowKeys[0]}}, have to pay {{donationConfiguration[selectedRowKeys[0] - 1].price}}
+        chose #{{selectedRowKeys[0]}}, have to pay {{donationConfiguration[selectedRowKeys[0] - 1]}}
       </a-layout-content>
     </a-layout>
   </a-layout-content>

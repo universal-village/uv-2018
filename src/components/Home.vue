@@ -64,22 +64,22 @@
                   </div>
                 </router-link>
               </div>
-              <div style="width: 100%;" class="side-box">
-                <router-link to="/login">
-                  <div class="hovereffect" style="border-bottom: none;">
-                    <img class="img-responsive" src="https://cdn.universal-village.org/images/home-sidebar/volunteers-and-sponsors.png" alt="">
-                    <div class="overlay">
-                      <h2>Volunteers / Sponsors</h2>
-                      <span class="ov-description">
-                        Login / Register
-                      </span>
-                      <span class="ov-arrow">
-                        &#10093;
-                      </span>
-                    </div>
-                  </div>
-                </router-link>
-              </div>
+              <!--<div style="width: 100%;" class="side-box">-->
+                <!--<router-link to="/login">-->
+                  <!--<div class="hovereffect" style="border-bottom: none;">-->
+                    <!--<img class="img-responsive" src="https://cdn.universal-village.org/images/home-sidebar/volunteers-and-sponsors.png" alt="">-->
+                    <!--<div class="overlay">-->
+                      <!--<h2>Volunteers / Sponsors</h2>-->
+                      <!--<span class="ov-description">-->
+                        <!--Login / Register-->
+                      <!--</span>-->
+                      <!--<span class="ov-arrow">-->
+                        <!--&#10093;-->
+                      <!--</span>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</router-link>-->
+              <!--</div>-->
             </a-col>
           </a-row>
         </a-layout-content>
