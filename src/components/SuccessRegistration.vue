@@ -20,18 +20,8 @@
             <!-- TODO: Also add some notice text over here. -->
             <h1>Your Transaction is successful!</h1>
             <h2>Welcome to the international community of Universal Village!</h2>
-            <p>If you want to know more about Universal Village, you can visit the following links for the previous UV conferences.</p>
-            <ul>
-              <li>
-                <router-link to="/uv2013">UV 2013</router-link>
-              </li>
-              <li>
-                <router-link to="/uv2014">UV 2014</router-link>
-              </li>
-              <li>
-                <router-link to="/uv2016">UV 2016</router-link>
-              </li>
-            </ul>
+            <p>If you want to know more about the UV Society, please explore the website by using the link above. If you want to see your <strong>payment receipt</strong>, please click below.</p>
+            <router-link to="/conference-registration"><a-button>View Receipt</a-button></router-link>
           </a-col>
         </a-row>
       </a-layout-content>

@@ -72,7 +72,10 @@ const store = new Vuex.Store({
       shaSalt: 'universal-village'
     },
     sitekey: '6LeE8GQUAAAAADw5NwLtA6Ge_trrLCvTkJe8yD7d',
-    confirmedUpdate: false // Using js-cookie to replace.
+    confirmedUpdate: false, // Using js-cookie to replace.
+    support: {
+      email: 'uv2018.committee@universal-village.org'
+    }
   },
   plugins: [
     createPersistedState(),
