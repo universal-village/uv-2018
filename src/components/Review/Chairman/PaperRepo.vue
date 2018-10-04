@@ -127,6 +127,23 @@
               </a-button>
             </vue-recaptcha>
           </div>
+          <br>
+          <a-select
+            style="width: 45%"
+            class="decision-ele"
+            placeholder="Category"
+            :tokenSeparators="[',']"
+            v-model="recommendedCat"
+          >
+            <a-select-option v-for="category in categoryAutoComplete" :key="category" >
+              {{ category }}
+            </a-select-option>
+          </a-select>
+          <a-popconfirm title="Recommend to another session?" @confirm="recommend2OtherSession" okText="Yes" cancelText="No">
+            <a-button size="small" style="width: 45%; float: right;" class="decision-ele">
+              Recommend to Other Category
+            </a-button>
+          </a-popconfirm>
         </a-card>
       </template>
     </modal>
@@ -143,12 +160,14 @@ export default {
     this.fetchData()
     this.getCategories()
     this.fetchReviewers()
+    this.fetchAutoComplete()
   },
   components: {
     VueRecaptcha
   },
   data () {
     return {
+      categoryAutoComplete: [],
       assignedEmail: '',
       spinning: false,
       assignedPaperTitle: '',
@@ -184,15 +203,28 @@ export default {
       reviews: [],
       reviewPaperId: -1,
       reviewerSource: [],
-      reviewerEmails: ['cheng.gu@husky.neu.edu', 'yangliu5@mit.edu'],
+      reviewerEmails: [],
       decisionPaperId: -1,
       decisionPaperTitle: '',
       decisionComment: '',
       decisionPerformance: '',
-      decisionResult: ''
+      decisionResult: '',
+      recommendedCat: undefined
     }
   },
   methods: {
+    fetchAutoComplete () {
+      this.$http.get(this.$store.state.endpoint.api + '/getCategories').then(response => {
+        console.log(response.body)
+        try {
+          this.categoryAutoComplete = response.body.categories
+        } catch (e) {
+          this.$message.error('Can\'t fetch category info.', 4)
+        }
+      }, response => {
+        this.$message.error('Can\'t fetch category info.', 4)
+      })
+    },
     fetchData: function () {
       if (this.$store.state.authenticate.username.length === 0) {
         this.$message.info('Before entering Chairman Page, please log in.', 4)
@@ -256,7 +288,23 @@ export default {
       this.decisionResult = ''
       this.decisionPerformance = ''
       this.decisionComment = ''
+      this.recommendedCat = undefined
       this.$modal.show('edit-modal')
+      if (paper.phase === 'Accept' || paper.phase === 'Reject' || paper.phase === 'Camera-Ready') {
+        this.$http.post(this.$store.state.endpoint.api + '/categoryChair/getPaperDecision', {
+          paperId: this.decisionPaperId
+        }, {emulateJSON: true}).then(response => {
+          console.log(response.body)
+          if (response.body.flag !== true) {
+            this.$message.error(response.body.info, 3)
+          } else {
+            let paperDecision = response.body.report.chairmanReview
+            this.decisionResult = paperDecision.decision
+            this.decisionPerformance = paperDecision.totalPerformance
+            this.decisionComment = paperDecision.comment
+          }
+        })
+      }
     },
     fetchReviews: function (id) {
       this.$http.post(this.$store.state.endpoint.api + '/categoryChair/getPaperReviews', {
@@ -334,6 +382,28 @@ export default {
         }
       }, response => {
         this.spinning = false
+        this.$message.error('Internal Server Error. Please try again.', 4)
+      })
+    },
+    recommend2OtherSession () {
+      if (this.recommendedCat === undefined) {
+        this.$message.error('Please choose a category to recommend', 4)
+        return
+      }
+      let recommendedCatName = this.recommendedCat
+      let recommendedCatId = this.categoryAutoComplete.findIndex((el) => { return el === recommendedCatName }) + 1
+      console.log(recommendedCatId)
+      this.$http.post(this.$store.state.endpoint.api + '/categoryChair/recommend2OtherSession', {
+        paperId: this.decisionPaperId,
+        categoryId: recommendedCatId
+      }, {emulateJSON: true}).then(response => {
+        console.log(response.body.flag)
+        if (response.body.flag === true) {
+          this.$message.success('Successfully Submitted.', 2)
+        } else {
+          this.$message.error(response.body.info, 4)
+        }
+      }, response => {
         this.$message.error('Internal Server Error. Please try again.', 4)
       })
     },

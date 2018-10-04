@@ -738,10 +738,19 @@ export default {
       return (this.student || this.senior || this.ieeeNo) && this.fullRegistration
     },
     amt: function () {
-      return Math.ceil(this.amtBeforeDiscount - ((this.student || this.senior || this.ieeeNo) && this.fullRegistration ? 10000 : 0)) + this.paperFee
+      let discountA = 0
+      if (this.student && this.fullRegistration) {
+        discountA = 25000
+      } else if ((this.senior || this.ieeeNo) && this.fullRegistration) {
+        discountA = 10000
+      }
+      return Math.ceil(this.amtBeforeDiscount - discountA) + this.paperFee
     },
     discountAmt: function () {
-      if ((this.student || this.senior || this.ieeeNo) && this.fullRegistration) {
+      if (this.student && this.fullRegistration) {
+        return 25000
+      }
+      if ((this.senior || this.ieeeNo) && this.fullRegistration) {
         return 10000
       }
     },
@@ -760,7 +769,7 @@ export default {
     paperCnts: function () {
       let cnts = 0
       for (var i = 0; i < this.papers.length; i++) {
-        if (this.papers[i].link === null || this.papers[i].link === undefined || this.papers[i].link === '') {
+        if (this.papers[i].link !== null && this.papers[i].link !== undefined && this.papers[i].link !== '') {
           cnts++
         }
       }
@@ -769,7 +778,7 @@ export default {
     abstractOnly: function () {
       let cnts = 0
       for (var i = 0; i < this.papers.length; i++) {
-        if (this.papers[i].link !== null && this.papers[i].link !== undefined && this.papers[i].link !== '') {
+        if (this.papers[i].link === null || this.papers[i].link === undefined || this.papers[i].link === '') {
           cnts++
         }
       }
