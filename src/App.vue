@@ -339,7 +339,7 @@ export default {
     color: #2c3e50;
     transition: all 1s cubic-bezier(0.77, 0.00, 0.175, 1.00);
     background: none;
-    min-height: calc(100vh - 128px);
+    min-height: 100vh;
   }
   .slide-fade-enter-active {
     transition: all 175ms cubic-bezier(0.0, 0.0, 0.2, 1);

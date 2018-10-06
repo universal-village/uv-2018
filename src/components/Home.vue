@@ -294,9 +294,9 @@ export default {
   data () {
     return {
       carouselImages: [
-        '8t3r5njr',
+        'ol2CtlIw',
         /* 'tcgvz4t7', */
-        '2sb5r0s0'
+        '8t3r5njr'
       ]
     }
   }

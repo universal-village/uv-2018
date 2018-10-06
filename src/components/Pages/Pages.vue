@@ -38,7 +38,7 @@ export default {
         console.log(response.body.flag)
         this.spinning = false
         loader()
-        this.pagePlain = response.body.replace(/href=["']pages\/(.*)["']/gm, 'href="#/pages/$1"')
+        this.pagePlain = response.body.replace(/href=["']pages\/(.*)["']/gm, 'href="#/pages/$1"').replace(/:href/gm, 'target="_blank" href')
       }, response => {
         this.spinning = false
         loader()

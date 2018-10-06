@@ -39,12 +39,12 @@ Vue.use(VueAnalytics, {
   id: 'UA-122336687-1',
   router
 })
-Vue.use(VueGoogleMaps, {
-  load: {
-    key: 'AIzaSyAuciiA4rPTALnygCCw1xT0EcHV-Oqh1y0',
-    libraries: 'places'
-  }
-})
+// Vue.use(VueGoogleMaps, {
+//   load: {
+//     key: 'AIzaSyAuciiA4rPTALnygCCw1xT0EcHV-Oqh1y0',
+//     libraries: 'places'
+//   }
+// })
 Vue.use(Carousel3d)
 // Vue.use(VueStripeCheckout, {
 //   key: 'pk_test_dOIDtsevAQYhVSDIECOI5fJ5',
