@@ -494,7 +494,7 @@ export default {
     background-color: #1166b4 !important;
     box-shadow: 0 0 0 4px #1476d0 !important;
   }
-  
+
   .donation-page .ant-table-selection {
     display: none;
   }

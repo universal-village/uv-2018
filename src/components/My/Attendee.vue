@@ -306,17 +306,17 @@
           </a-col>
           <a-col :lg="16" v-else>
             <div class="registration-greeting-info">
-              <h3 style="display: block; margin-left: 20%; margin-bottom: 100px; font-weight: bold; font-family: Verdana;">IEEE Intl. Conference on Universal Village 2018</h3>
-              <h1 style="display: block; margin-left: 20%; margin-bottom: 60px; font-weight: bolder; font-family: Verdana;">Thank you for your support to UV2018!</h1>
-              <p style="display: block; margin-left: 20%; font-family: Verdana; margin-right: 10%;">You has successfully registered for International Conference on IEEE Universal Village 2018, following is your registration and receipt information.</p>
+              <h3 style="display: block; margin-left: 20%; margin-bottom: 100px; font-weight: bold; font-family: Verdana;">IEEE UV2018</h3>
+              <h1 style="display: block; margin-left: 20%; margin-bottom: 60px; font-weight: bolder; font-family: Verdana;">Thank you for your support to IEEE UV2018!</h1>
+              <p style="display: block; margin-left: 20%; font-family: Verdana; margin-right: 10%;">You has successfully registered for IEEE International Conference on Universal Village 2018. Here below is your payment and receipt information.</p>
               <span style="display: inline-block; margin-left: 20%; margin-top: 20px; font-family: Verdana; font-weight: bolder; width: 20%">Date</span>
               <span style="display: inline-block; margin-top: 20px; font-family: Verdana; width: 40%">August 16, 2018</span>
               <span style="display: inline-block; margin-left: 20%; margin-top: 20px; font-family: Verdana; font-weight: bolder; width: 20%">Event</span>
               <span style="display: inline-block; margin-top: 20px; font-family: Verdana; width: 40%">{{ receipt.description }}</span>
-              <span style="display: inline-block; margin-left: 20%; margin-top: 20px; font-family: Verdana; font-weight: bolder; width: 20%">Payment Amount</span>
+              <span style="display: inline-block; margin-left: 20%; margin-top: 20px; font-family: Verdana; font-weight: bolder; width: 20%">Payment</span>
               <span style="display: inline-block; margin-top: 20px; font-family: Verdana; width: 40%">${{ parseFloat(receipt.amount / 100).toFixed(2) }}</span>
               <div style="text-align: right; float: right; margin-top: 20px; margin-right: 10%;">
-                <p style="margin-top: 20px; font-family: Verdana;">Many thanks and welcome again,</p>
+                <p style="margin-top: 20px; font-family: Verdana;">Welcome and Thanks!</p>
                 <p style="font-family: Verdana; font-weight: bold;">UV2018 Committee</p>
               </div>
             </div>
