@@ -92,12 +92,9 @@ export default {
     },
     handleSubmit (recaptchaToken) {
       this.spinning = true
-      console.log('[sha256] Hash Original: [%s]', this.form.getFieldsValue().password + this.$store.state.authenticate.shaSalt)
       let sha = shaHash.sha256.create()
       sha.update(this.form.getFieldsValue().password + this.$store.state.authenticate.shaSalt)
       let passwordHash = sha.hex()
-      console.log('[sha256] Hash .hex(): [%s]', passwordHash)
-      console.log(recaptchaToken)
       // return false
       this.$http.post(this.$store.state.endpoint.api + '/login', {
         email: this.email,
