@@ -58,8 +58,8 @@ const store = new Vuex.Store({
   state: {
     endpoint: {
       // api: 'https://api-beta.universal-village.org/uv-web',
-      api: 'http://localhost:8080/uv2018',
-      // api: '',
+      // api: 'http://localhost:8080/uv2018',
+      api: '',
       assets: {
         cn: 'https://uv-cdn.qn.iblueg.cn',
         global: 'https://cdn.universal-village.org'

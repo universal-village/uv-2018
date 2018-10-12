@@ -67,7 +67,7 @@ const columns = [{
   dataIndex: 'type',
   key: 'type',
 }, {
-  title: 'Before Oct.7.2018',
+  title: 'Before Oct.10.2018',
   children: [{
     title: 'Attendee',
     dataIndex: 'normalAttendee',
@@ -82,7 +82,7 @@ const columns = [{
     key: 'normalAuthorWithPaper'
   }]
 }, {
-  title: 'After Oct.7.2018',
+  title: 'After Oct.10.2018',
   children: [{
     title: 'Attendee',
     dataIndex: 'lateAttendee',

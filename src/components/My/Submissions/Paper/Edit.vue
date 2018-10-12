@@ -115,6 +115,12 @@ export default {
   name: 'Edit',
   data () {
     return {
+      paper: {
+        title: '',
+        authors: '',
+        id: -1
+      },
+      authorEmail: '',
       uploading: false,
       editingPaperList: [],
       categories: [],
@@ -131,6 +137,7 @@ export default {
   created () {
     this.getCategories()
     this.fetchData()
+    this.authorEmail = this.$store.state.authenticate.username
   },
   methods: {
     fetchData () {
@@ -152,6 +159,9 @@ export default {
           console.log('source list %o', this.editingPaperList)
           this.editingPaper = this.editingPaperList.filter((el) => { return el.paperid === parseInt(this.$route.params.paperId) })[0]
           console.log('editing object %o, paper id %s', this.editingPaper, this.$route.params.paperId)
+          this.paper.id = this.editingPaper.id
+          this.paper.authors = this.editingPaper.authors
+          this.paper.title = this.editingPaper.title
           this.form.setFieldsValue({
             title: this.editingPaper.title,
             authors: this.editingPaper.authors.split(','),

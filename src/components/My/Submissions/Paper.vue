@@ -157,6 +157,21 @@
           <p>{{currentEditingPaper.keywords.join(", ") || "(Not specified)"}}</p >
           <label for="phase"><b> Phase </b></label>
           <span>{{currentEditingPaper.phase || "(Not specified)"}}<a-tooltip placement="topLeft" title="Draft should be submitted first in order to be reviewed" v-if="isDraft(currentEditingPaper.phase)" style="margin-left: 10px"><a-icon type="question-circle" /></a-tooltip></span>
+          <label for="eCF" v-if="currentEditingPaper.phase === 'Accept' || currentEditingPaper.phase === 'Camera-Ready'"><b> Electronic Copyright Transfer </b></label>
+          <form action="https://ecopyright.ieee.org/ECTT/IntroPage.jsp" method="post" v-if="currentEditingPaper.phase === 'Accept' || currentEditingPaper.phase === 'Camera-Ready'">
+            <input name="PubTitle" value="2018 4th International Conference on Universal Village (UV)" type="hidden">
+            <input name="ArtTitle" :value="currentEditingPaper.title" type="hidden">
+            <input name="AuthName" :value="currentEditingPaper.authors" type="hidden">
+            <input name="ArtId" :value="currentEditingPaper.paperId" type="hidden">
+            <input name="ArtSource" value="43900" type="hidden">
+            <input name="AuthEmail" :value="$store.state.authenticate.username" type="hidden">
+            <span style="font-weight: bold; font-size: 1.0em;">* IEEE policy requires that all authors of accepted papers must transfer copyright to IEEE by utilizing the electronic IEEE Copyright Form(eCF). Please use the following link to sign the IEEE Electronic Copyright Form.</span>
+            <input name="rtrnurl" type="hidden" value="https://uv2018.universal-village.org/#/my/submissions/paper">
+            <a-button type='dashed' htmlType='submit'>
+              Copyright Submission
+            </a-button>
+          </form>
+          <br>
           <label for="link"><b> Link </b></label>
           <span>
             <a :href="currentEditingPaper.link" v-if="currentEditingPaper.link" target="_blank">
@@ -168,6 +183,7 @@
       </div>
     </modal>
   </div>
+
 </template>
 
 <script>

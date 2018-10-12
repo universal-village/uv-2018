@@ -16,6 +16,9 @@
             <router-link to="/my/submissions/add"><a-icon type="plus" />Submit Paper</router-link>
           </a-menu-item>
         </a-sub-menu>
+        <a-menu-item key="registration">
+          <router-link to="/conference-registration" class="a-advance-nav"><a-icon type="calendar" />My Registration</router-link>
+        </a-menu-item>
         <a-sub-menu key="profile">
           <span slot="title"><a-icon type="setting" />Settings</span>
           <a-menu-item key="profile:general">

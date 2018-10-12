@@ -118,78 +118,78 @@
 </template>
 
 <script>
-  import VueRecaptcha from 'vue-recaptcha'
+import VueRecaptcha from 'vue-recaptcha'
 
-  export default {
-    name: 'PaperAdd',
-    data() {
-      return {
-        title: '',
-        abstract: '',
-        authors: [],
-        keyword: [],
-        file: '',
-        tagList: ['one', 'two', 'three'],
-        authorList: [],
-        categoryAutoComplete: [],
-        uploading: false,
-        getAction: this.$store.state.endpoint.api + '/uploadPaper'
-      }
-    },
-    components: {
-      VueRecaptcha
-    },
-    created() {
-      this.fetchAutoComplete()
-    },
-    methods: {
-      fetchAutoComplete() {
-        this.$http.get(this.$store.state.endpoint.api + '/getCategories').then(response => {
-          console.log(response.body)
-          try {
-            this.categoryAutoComplete = response.body.categories
-          } catch (e) {
-            this.$message.error('Can\'t fetch category info.', 4)
-          }
-        }, response => {
+export default {
+  name: 'PaperAdd',
+  data () {
+    return {
+      title: '',
+      abstract: '',
+      authors: [],
+      keyword: [],
+      file: '',
+      tagList: ['one', 'two', 'three'],
+      authorList: [],
+      categoryAutoComplete: [],
+      uploading: false,
+      getAction: this.$store.state.endpoint.api + '/uploadPaper'
+    }
+  },
+  components: {
+    VueRecaptcha
+  },
+  created () {
+    this.fetchAutoComplete()
+  },
+  methods: {
+    fetchAutoComplete () {
+      this.$http.get(this.$store.state.endpoint.api + '/getCategories').then(response => {
+        console.log(response.body)
+        try {
+          this.categoryAutoComplete = response.body.categories
+        } catch (e) {
           this.$message.error('Can\'t fetch category info.', 4)
-        })
-      },
-      submitPaper(recaptchaToken) {
-        this.uploading = true
-        let fields = this.form.getFieldsValue()
-        this.$http.post(this.$store.state.endpoint.api + '/submitPaper',
-          {
-            title: encodeURIComponent(fields.title),
-            abstract: encodeURIComponent(fields.abstract),
-            categoryid: this.categoryAutoComplete.findIndex((el) => {
-              return el === fields.category
-            }) + 1,
-            authors: encodeURIComponent(fields.authors.join(',')),
-            keyword: encodeURIComponent(fields.keywords.join(',')),
-            token: recaptchaToken
-          }, {emulateJSON: true}
-        ).then(response => {
-          this.uploading = false
-          console.log(response.body)
-          if (response.body.flag) {
-            this.$message.success('Your paper has been successfully submitted. Redirecting you to your submission list.', 3)
-            this.$router.push('/my/submissions/paper')
-          } else {
-            this.$message.error(`Error occurred while submitting your paper: [${response.body.cause}]. Please try again later.`, 4)
-            window.grecaptcha.reset()
-          }
-        }, response => {
-          this.uploading = false
+        }
+      }, response => {
+        this.$message.error('Can\'t fetch category info.', 4)
+      })
+    },
+    submitPaper (recaptchaToken) {
+      this.uploading = true
+      let fields = this.form.getFieldsValue()
+      this.$http.post(this.$store.state.endpoint.api + '/submitPaper',
+        {
+          title: encodeURIComponent(fields.title),
+          abstract: encodeURIComponent(fields.abstract),
+          categoryid: this.categoryAutoComplete.findIndex((el) => {
+            return el === fields.category
+          }) + 1,
+          authors: encodeURIComponent(fields.authors.join(',')),
+          keyword: encodeURIComponent(fields.keywords.join(',')),
+          token: recaptchaToken
+        }, {emulateJSON: true}
+      ).then(response => {
+        this.uploading = false
+        console.log(response.body)
+        if (response.body.flag) {
+          this.$message.success('Your paper has been successfully submitted. Redirecting you to your submission list.', 3)
+          this.$router.push('/my/submissions/paper')
+        } else {
           this.$message.error(`Error occurred while submitting your paper: [${response.body.cause}]. Please try again later.`, 4)
           window.grecaptcha.reset()
-        })
-      },
-      devGetValue() {
-        console.log(this.form.getFieldsValue())
-      }
+        }
+      }, response => {
+        this.uploading = false
+        this.$message.error(`Error occurred while submitting your paper: [${response.body.cause}]. Please try again later.`, 4)
+        window.grecaptcha.reset()
+      })
+    },
+    devGetValue () {
+      console.log(this.form.getFieldsValue())
     }
   }
+}
 </script>
 
 <style scoped>
