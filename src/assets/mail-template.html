@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>mail-template | UV2018</title>
+  <style>
+    .app {
+      margin: 0 auto;
+      font-family: Source Code Pro, Courier New, Courier, Menlo, Consola, monospace;
+      outline: 1px dashed #000;
+      background: #5B6D98;
+    }
+    body {
+      margin: 0;
+    }
+    .wrapper {
+      max-height: 1398px;
+      min-height: 100px;
+      background: url(mail-template--title-background.jpg) center center no-repeat;
+      background-size: 100% auto;
+      padding: 3em;
+    }
+    .title {
+      color: #212121;
+      color: rgba(0, 0, 0, .75);
+    }
+    .content {
+      padding: 1.5em 3em;
+      color: #fff;
+      color: rgba(255, 255, 255, .95);
+      line-height: 1.75;
+    }
+    p:not([no-prefix]) {
+      text-indent: 2em;
+    }
+    .btn {
+      background: #90CAF9;
+      padding: 12px 24px;
+      margin: 32px 0 32px 0;
+      text-align: center;
+      font-size: 24px;
+      -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      display: block;
+    }
+    .btn-wrapper {
+      text-decoration: none;
+      font-weight: 700;
+      color: rgba(113, 25, 28, 0.9);
+      text-shadow: 0 2px 2px rgba(0, 0, 0, 0.14), 0 0 32px rgb(162, 19, 24);
+    }
+    p[break] {
+      word-break: break-all;
+    }
+    a:not(.btn-wrapper) {
+      color: #71c7f9;
+      background: rgba(0, 0, 100, .4);
+      padding: 4px;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, .3);
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+  <div class="wrapper">
+    <h2 class="title" style="margin: 0;">Welcome to Boston!</h2>
+  </div>
+  <div class="content">
+    <p no-prefix>Hi, ${name}!</p>
+    <p>Welcome to the Universal Village Conference 2018! In here, you can blablablablabla. But before that, let us verify your email first!</p>
+    <p>Just click the button below and you will be all set!</p>
+    <a class="btn-wrapper" href="#go">
+      <span class="btn">> Verify my E-mail Address <</span>
+    </a>
+    <p break>If the button above is not working, please go to <a href="${verify_link}" target="_blank">${verify_link}</a>.</p>
+    <p>Welcome again, and we look forward to see you in our conference!</p>
+    <p>Thanks!</p>
+    <p style="font-size: 12px;" no-prefix>Note: Please do not reply to this email. Emails sent to this address will not be answered. You can find the contact information at <a href="https://uv2018.universal-village.org/contact-us" target="_blank">here</a>.</p>
+    <p no-prefix style="text-align: right; margin: 3em 0 4em 0;">Best regards,<br>Universal Village<br>Web Development Group</p>
+  </div>
+</div>
+</body>
+</html>

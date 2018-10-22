@@ -1,0 +1,22 @@
+language: node_js
+before_script:
+  - yarn
+script: yarn run build
+node_js:
+  - "8.11.3"
+python:
+  - "3.5"
+cache:
+  - pip
+  - yarn
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    bucket: $S3_BUCKET_NAME
+    region: $AWS_DEFAULT_REGION
+    skip_cleanup: true
+    local_dir: dist
+    cache_control: "max-age=21600"
+    on:
+      branch: master

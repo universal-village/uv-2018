@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reviewer | Mail | UV2018</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrapper {
+      margin: 0;
+      padding: 0 0 2em 0;
+      background: #96c93d;
+      background: linear-gradient(195deg,#96c93d,#00b09b);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .top-image {
+      background: url(mail-background.jpg) no-repeat top center fixed;
+      background-size: auto 100%;
+      height: 500px;
+    }
+
+    .main-content {
+      background: #fff;
+      background: rgba(255, 255, 255, .95);
+      color: #212121;
+      margin: -150px 30px 40px;
+      border-radius: 6px;
+      -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+      padding: 3% 5%;
+    }
+
+    .image-overlay {
+      position: absolute;
+      top: 150px;
+      padding: 0 3% 0 3%;
+      font-size: 40px;
+      height: 550px;
+    }
+
+    .image-overlay span {
+      background: #fff;
+      background: rgba(255, 255, 255, .95);
+      color: #212121;
+      border-radius: 6px;
+      padding: 30px 40px;
+      -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+      line-height: 2.5;
+    }
+
+    .main-content p {
+      text-indent: 2em;
+      line-height: 1.8;
+    }
+
+    .footer {
+      background: #212121;
+      background: rgba(0, 0, 0, .9);
+      color: #fff;
+      margin: 40px 30px;
+      border-radius: 6px;
+      -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+      padding: 2% 4%;
+      line-height: 1.8;
+    }
+
+    .logo {
+      position: absolute;
+      top: 6%;
+      right: 3%;
+      width: 20%;
+      height: auto;
+      max-height: 100px;
+      max-width: 100px;
+
+      background: #fff;
+      background: rgba(255, 255, 255, .95);
+      color: #212121;
+      border-radius: 6px;
+      padding: 5px;
+      -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    }
+
+    .email {
+      font-family: "Source Code Pro", "Courier New", Consolas, Menlo, Courier, monospace;
+    }
+
+    .divider {
+      display: block;
+      height: 1px;
+      width: 100%;
+      margin: 8px 0;
+      background: #efefef;
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="top-image"></div>
+  <img src="uv-logo-colored.png" class="logo" />
+  <div class="image-overlay">
+    <span>
+      Paper Status Update
+    </span>
+  </div>
+  <div class="main-content">
+    <p>
+      Dear $USER.NAME$,
+
+      Thanks for your interest in and support of IEEE UV2018.
+
+      We have received your submission titled $SUBMISSION.TITLE$. It is currently in Draft phase, and can be further updated if you want. If this is your final version, you can formally submit your paper by clicking the Submit button on the top right of the "edit" page; then the UV committee will begin the review process.
+
+      Should you have any further questions, please feel free to contact us.
+
+      We are looking forward to meeting you at MIT, Boston.
+
+      Many thanks and best regards,
+
+      UV2018 Organizing Committee
+
+    </p>
+  </div>
+  <div class="footer">
+    <p>
+      Contact us: <code class="email">uv2018.committee@universal-village.org</code>
+    </p>
+    <div class="divider"></div>
+    <p style="text-align: right">
+      International Conference on Universal Village 2018 (UV2018)
+    </p>
+  </div>
+</div>
+</body>
+</html>
