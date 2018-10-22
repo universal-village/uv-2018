@@ -48,43 +48,50 @@
             <a name="uv-workshop"></a>
             <h1>UV Workshop</h1>
             <h2>Date: Oct. 22nd</h2>
-            <h2>Time: 10 am - 6 pm</h2>
+            <h2>Time: 10 am - 5 pm</h2>
             <h2>Location: W20-491</h2>
             <h3><span>* Information will be continuously updated</span></h3>
-
-            <span class="workshop-topic">Title: Innovative Sustainable Technologies</span>
-            <span>Anumakonda Jagadeesh</span><br>
-            <br>
 
             <span class="workshop-topic">Title: Democratizing Intelligent Vehicle Technologies</span>
             <span>Kazuya Takeda</span><br>
             <span>Nagoya Univ., Japan, Professor, Presidential Adviser</span><br>
+            <span>Time: 10:00am-10:45am</span><br>
             <br>
-
+            
             <span class="workshop-topic">Title: Bioconversion of Solar Energy for UV Sustainable Enhancement</span>
             <span>Pengcheng Fu</span><br>
             <span>Hainan Univ.</span><br>
+            <span>Time: 10:45am-11:15am</span><br>
             <br>
 
             <span class="workshop-topic">Title: Design Culture on Healthy Life under the View of Ecological Civilization</span>
             <span>Shengsheng Cao</span><br>
             <span>Tsinghua Univ.</span><br>
+            <span>Time: 11:15am-12:00pm</span><br>
+            <br>
+
+            <span class="workshop-topic">Title: Innovative Sustainable Technologies</span>
+            <span>Anumakonda Jagadeesh</span><br>
+            <span>Time: 2:00pm-2:45pm</span><br>
             <br>
 
             <span class="workshop-topic">Title: Blue Energy</span>
             <span>Edgar Fu</span><br>
             <span>University of Pittsburgh</span><br>
+            <span>Time: 2:45pm-3:15pm</span><br>
             <br>
 
             <span class="workshop-topic">Panel Discussion: New Energy</span>
             <span>Tingying Zeng, Runtao Wen, Xiaoman Duan</span><br>
             <span>MIT</span><br>
+            <span>Time: 3:15pm-4:15pm</span><br>
             <br>
 
             <br>
             <span class="workshop-topic">Title: A new generation multi-media artist living in Boston</span>
             <span>Wen Yu</span><br>
             <span>Art Director, Build-It-Yourself </span><br>
+            <span>Time: 4:15pm-4:45pm</span><br>
             <br>
 
           </div>
