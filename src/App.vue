@@ -11,14 +11,22 @@
     >
       <div class="panel update-notification" style="display: block;">
         <div class="container-modal">
-          <h1>System Update Notification</h1>
-          <p>UV2018 website system was recently upgraded to enhance the security.</p>
-          <p><span style="font-weight: 900">Registered Users</span>, please <nobr><a-button size="large" style="margin-left: .35em;" class="reset-password-notification"><router-link to="/regenerate-password?from=notice" @click.native="confirmedWebsiteUpdated"><a-icon type="link" /> reset your password.</router-link></a-button></nobr></p>
-          <p>If you have any questions, please contact us at the email:<br><span style="font-family: Source Code Pro, Consolas, Courier New, Courier, monospace; word-break: break-all;">uv2018.committee@universal-village.org</span></p>
-          <p>Thank you for helping us to keep your account safe.</p>
-          <p style="float: right">UV2018 IT Team</p>
+          <h1>Conference Notification</h1>
+          <ul style="list-style-type: square;">
+            <li><p>Daily Information Update [Oct 22]</p>
+              <ul>
+                <li><p>UV Workshop: 10 am - 5 pm, W20-491</p></li>
+                <li><p>Committee meeting: 12 pm - 2 pm, W20-491</p></li>
+              </ul>
+            </li>
+            <li><p>Our conference agenda is continuously updating. </p></li>
+            <li><p>Please check the <nobr><a-button size="large" style="margin-left: .35em;" class="reset-password-notification"><router-link to="/agenda" @click.native="confirmedWebsiteUpdated"><a-icon type="link" /> agenda</router-link></a-button></nobr> for the latest information about the conference.</p></li>
+            <li><p>Dear authors, please notify <a href="mailto:uv2018.committee@universal-village.org">uv2018.committee@universal-village.org</a> if your relevant information is not correct or have any other questions.</p></li>
+          </ul>
+          <p>Thank you.</p>
+          <p style="float: right">UV2018 Organization Team</p>
           <br><br>
-          <a-button size="large" class="btn" style="float: right" type="primary" @click="confirmedWebsiteUpdated"><a-icon type="cross" /> Close, and Never show again</a-button>
+          <a-button size="large" class="btn" style="float: right" type="primary" @click="confirmedWebsiteUpdated"><a-icon type="cross" /> Close</a-button>
         </div>
       </div>
     </modal>
@@ -127,15 +135,15 @@
           <a-menu-item key="attending:agenda">
             <router-link to="/agenda">Agenda</router-link>
           </a-menu-item>
+          <a-menu-item key="attending:location">
+            <router-link to="/location">Location</router-link>
+          </a-menu-item>
         </a-sub-menu>
 
         <a-sub-menu>
           <span slot="title">Events <a-icon type="down"></a-icon></span>
           <a-menu-item key="events:meetings">
             <router-link to="/pages/exhibition">Meeting</router-link>
-          </a-menu-item>
-          <a-menu-item key="events:exhibition">
-            <router-link to="/location">Location</router-link>
           </a-menu-item>
         </a-sub-menu>
 
@@ -251,9 +259,10 @@ export default {
     },
     showUpdateInfo () {
       console.log('Update confirm status: ' + this.$cookie.get('confirmedUpdate'))
-      if (!this.$cookie.get('confirmedUpdate')) {
+      /* if (!this.$cookie.get('confirmedUpdate')) {
         this.$modal.show('update-notification-modal')
-      }
+      } */
+      this.$modal.show('update-notification-modal')
     },
     animateUpdateNotification () {
       console.log(this.$el.querySelectorAll('.container-modal'))
@@ -269,11 +278,11 @@ export default {
       })
     },
     confirmedWebsiteUpdated () {
-      this.$cookie.set('confirmedUpdate', true)
+      // this.$cookie.set('confirmedUpdate', true)
       this.$modal.hide('update-notification-modal')
     },
     resetPasswordAndConfirmWebsiteUpdated () {
-      this.$cookie.set('confirmedUpdate', true)
+      // this.$cookie.set('confirmedUpdate', true)
       this.$router.push('/reset-password')
       this.$modal.hide('update-notification-modal')
     }
