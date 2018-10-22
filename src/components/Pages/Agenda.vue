@@ -48,7 +48,7 @@
             <a name="uv-workshop"></a>
             <h1>UV Workshop</h1>
             <h2>Date: Oct. 22nd</h2>
-            <h2>Time: 10 am - 6 pm</h2>
+            <h2>Time: 8 am - 6 pm</h2>
             <h2>Location: W20-491</h2>
             <h3><span>* Information will be continuously updated</span></h3>
 
