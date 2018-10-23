@@ -24,6 +24,7 @@ const Success = () => import(/* webpackChunkName: "home" */ '@/components/Succes
 const SuccessRegistration = () => import(/* webpackChunkName: "home" */ '@/components/SuccessRegistration.vue')
 const Pricing = () => import(/* webpackChunkName: "home" */ '@/components/My/Pricing.vue')
 const Donation = () => import(/* webpackChunkName: "my" */ '@/components/My/Donation.vue')
+const StudentForum = () => import(/* webpackChunkName: "home" */ '@/components/Pages/StudentForum.vue')
 
 Vue.use(Router)
 
@@ -183,6 +184,13 @@ export default new Router({
       name: 'Donation',
       components: {
         App: Donation
+      }
+    },
+    {
+      path: '/student-forum',
+      name: 'Student Forum',
+      components: {
+        App: StudentForum
       }
     },
     {
