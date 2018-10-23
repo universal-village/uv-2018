@@ -168,13 +168,17 @@ export default {
     transition: all 225ms cubic-bezier(0.19, 1, 0.22, 1) !important;
   }
 
+  .student-forum--page-content .content a {
+    font-family: Consolas, Menlo, Courier, monospace;
+  }
+
   .student-forum--page-content .content a:hover {
     text-decoration: underline;
   }
 
   .student-forum--page-content .fto {
     color: #212121 !important;
-    background: rgba(255, 255, 255, .6) !important;
+    background: rgba(255, 255, 255, .5) !important;
     background-size: 100% auto !important;
     text-align: center !important;
     font-family: Merriweather, serif !important;

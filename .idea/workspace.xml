@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="595bda0b-0672-4d94-970c-d37a7f45c8a7" name="Default" comment="U: FIX CONFLICT AFTER GITHUB ISSUE">
       <change beforePath="$PROJECT_DIR$/src/components/Pages/StudentForum.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/StudentForum.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -50,7 +49,7 @@
           <entry key="js" value="906" />
           <entry key="svg" value="3" />
           <entry key="txt" value="229" />
-          <entry key="vue" value="12758" />
+          <entry key="vue" value="12816" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -61,7 +60,7 @@
           <entry key="PLAIN_TEXT" value="245" />
           <entry key="SVG" value="3" />
           <entry key="Scratch" value="222" />
-          <entry key="Vue.js" value="12758" />
+          <entry key="Vue.js" value="12816" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -135,8 +134,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Pages/StudentForum.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="2" column="66" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
+            <state relative-caret-position="164">
+              <caret line="166" column="42" lean-forward="true" selection-start-line="166" selection-start-column="42" selection-end-line="166" selection-end-column="42" />
               <folding>
                 <element signature="n#style#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a-breadcrumb#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" expanded="true" />
@@ -679,7 +678,7 @@
       <workItem from="1538841957411" duration="7664000" />
       <workItem from="1540247336655" duration="2029000" />
       <workItem from="1540306893756" duration="467000" />
-      <workItem from="1540326428917" duration="4380000" />
+      <workItem from="1540326428917" duration="4677000" />
     </task>
     <task id="LOCAL-00001" summary="update&#10;&#10;New component&#10;PasswordRegenerate&#10;&#10;(cherry picked from commit 9c3273dc8c4490733903b1f702b43bd805ffdc6a)">
       <created>1532574702299</created>
@@ -769,7 +768,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="406511000" />
+    <option name="totallyTimeSpent" value="406808000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1203,8 +1202,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Pages/StudentForum.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="66" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
+        <state relative-caret-position="164">
+          <caret line="166" column="42" lean-forward="true" selection-start-line="166" selection-start-column="42" selection-end-line="166" selection-end-column="42" />
           <folding>
             <element signature="n#style#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a-breadcrumb#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" expanded="true" />
