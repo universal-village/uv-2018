@@ -10,7 +10,7 @@
         <a-tabs tabPosition="right" :style="{ height: '1000px' }">
           <a-tab-pane v-for="(category, index) in categoryPapers" :tab="category.categoryName" :key="'key ' + index">
             <div>
-              <a-card v-for="paper in category.papers" :bordered="false" style="background-color: rgba(0, 0, 0, 0);">
+              <a-card v-for="(paper, ind) in category.papers" :bordered="false" style="background-color: rgba(0, 0, 0, 0);">
                 <b style="font-weight: bolder; font-size: 1.1em; margin-bottom: 20px;">{{ paper.title }}</b><br>
                 <i><strong style="font-size: 1.0em; display: block; margin-bottom: 5px;">{{ paper.authors }}</strong></i>
                 <span>KEYWORDS: </span><strong style="padding-bottom: 12px;">{{ paper.keywords.join(", ") || "(Not specified)" }}</strong><br>

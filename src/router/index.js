@@ -29,6 +29,7 @@ const StudentForum = () => import(/* webpackChunkName: "pages" */ '@/components/
 const AcceptedPapers = () => import(/* webpackChunkName: "pages" */ '@/components/Pages/AcceptedPapers.vue')
 const Agenda = () => import(/* webpackChunkName: "pages" */ '@/components/Pages/Agenda.vue')
 const Location = () => import(/* webpackChunkName: "pages" */ '@/components/Pages/Location.vue')
+const SubmissionGuide = () => import(/* webpackChunkName: "my" */ '@/components/My/SubmissionGuide.vue')
 
 Vue.use(Router)
 
@@ -89,6 +90,13 @@ export default new Router({
       name: 'Reviewer',
       components: {
         App: Reviewer
+      }
+    },
+    {
+      path: '/submission-guide',
+      name: 'Submission Guide',
+      components: {
+        App: SubmissionGuide
       }
     },
     {

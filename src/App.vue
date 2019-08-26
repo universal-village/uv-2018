@@ -12,21 +12,25 @@
       <div class="panel update-notification" style="display: block;">
         <div class="container-modal">
           <h1>Conference Notification</h1>
-          <ul style="list-style-type: square;">
-            <li><p>Daily Information Update [Oct 22]</p>
-              <ul>
-                <li><p>UV Workshop: 10 am - 5 pm, W20-491</p></li>
-                <li><p>Committee meeting: 12 pm - 2 pm, W20-491</p></li>
-              </ul>
+          <p>Dear Authors:</p>
+          <p>In order to publish your paper in the IEEE eXplore, the following procedures need your actions.</p>
+          <ul>
+            <li>
+              <p>Self-inspection of IEEE formatting using IEEE PDF eXpress.</p>
             </li>
-            <li><p>Our conference agenda is continuously updating. </p></li>
-            <li><p>Please check the <nobr><a-button size="large" style="margin-left: .35em;" class="reset-password-notification"><router-link to="/agenda" @click.native="confirmedWebsiteUpdated"><a-icon type="link" /> agenda</router-link></a-button></nobr> for the latest information about the conference.</p></li>
-            <li><p>Dear authors, please notify <a href="mailto:uv2018.committee@universal-village.org">uv2018.committee@universal-village.org</a> if your relevant information is not correct or have any other questions.</p></li>
+            <li>
+              <p>Transfer paper copyright to IEEE through IEEE eCF.</p>
+            </li>
+            <li>
+              <p>Update your manuscript to UV2018.</p>
+            </li>
           </ul>
-          <p>Thank you.</p>
-          <p style="float: right">UV2018 Organization Team</p>
+          <p>It is imperative that you finish the process before the deadline in order to have your paper be included in the UV2018 proceedings. Failure to conform to the IEEE requirement by performing the procedure below may result in your paper being rejected by IEEE, for which we will not be responsible.</p>
+          <p>Sincerely yours,</p>
+          <p style="float: right">UV2018 Committee</p>
           <br><br>
           <a-button size="large" class="btn" style="float: right" type="primary" @click="confirmedWebsiteUpdated"><a-icon type="cross" /> Close</a-button>
+          <a-button size="large" style="float: right; margin-right: .45em;" class="reset-password-notification"><router-link to="/submission-guide"><a-icon type="link" /> Detailed Guide with Step-by-Step Instruction</router-link></a-button>
         </div>
       </div>
     </modal>
@@ -79,6 +83,9 @@
           </a-menu-item>
           <a-menu-item key="authors:paper-submission">
             <router-link to="/my/submissions/add">Paper Submission</router-link>
+          </a-menu-item>
+          <a-menu-item key="authors:submission-guide">
+            <router-link to="/submission-guide">Publication Guide</router-link>
           </a-menu-item>
           <a-menu-item key="authors:important-dates">
             <router-link to="/pages/important-dates">Important Dates</router-link>
@@ -259,10 +266,9 @@ export default {
     },
     showUpdateInfo () {
       console.log('Update confirm status: ' + this.$cookie.get('confirmedUpdate'))
-      /* if (!this.$cookie.get('confirmedUpdate')) {
+      if (!this.$cookie.get('confirmedUpdate')) {
         this.$modal.show('update-notification-modal')
-      } */
-      this.$modal.show('update-notification-modal')
+      } 
     },
     animateUpdateNotification () {
       console.log(this.$el.querySelectorAll('.container-modal'))
@@ -278,11 +284,11 @@ export default {
       })
     },
     confirmedWebsiteUpdated () {
-      // this.$cookie.set('confirmedUpdate', true)
+      this.$cookie.set('confirmedUpdate', true)
       this.$modal.hide('update-notification-modal')
     },
     resetPasswordAndConfirmWebsiteUpdated () {
-      // this.$cookie.set('confirmedUpdate', true)
+      this.$cookie.set('confirmedUpdate', true)
       this.$router.push('/reset-password')
       this.$modal.hide('update-notification-modal')
     }

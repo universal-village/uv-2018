@@ -16,11 +16,13 @@
           |<a href="#keynote" class="uv-nav">[KEYNOTE SPEAKERS]</a>
           |<a href="#technical-sessions" class="uv-nav">[TECHNICAL SESSIONS]</a>
           |<a href="#uv-poster" class="uv-nav">[UV POSTER]</a>
+          |<a href="#" class="uv-nav" @click="viewProgramBook()">[Program Book]</a>
           <hr>
           
           <div class="uv-day">
             <a name="uv-day"></a>
             <h1>UV Day</h1>
+            <h2>Chair(s): Jun Wan, Zejun Zhang</h2>
             <h2>Date: Oct. 21st</h2>
             <h2>Time: 1 pm - 5 pm</h2>
             <h2>Location: Little Theatre</h2>
@@ -48,13 +50,8 @@
             <a name="uv-workshop"></a>
             <h1>UV Workshop</h1>
             <h2>Date: Oct. 22nd</h2>
-            <h2>Time: 10 am - 6 pm</h2>
+            <h2>Time: 10 am - 5 pm</h2>
             <h2>Location: W20-491</h2>
-            <h3><span>* Information will be continuously updated</span></h3>
-
-            <span class="workshop-topic">Title: Innovative Sustainable Technologies</span>
-            <span>Anumakonda Jagadeesh</span><br>
-            <br>
 
             <span class="workshop-topic">Title: Democratizing Intelligent Vehicle Technologies</span>
             <span>Kazuya Takeda</span><br>
@@ -69,6 +66,10 @@
             <span class="workshop-topic">Title: Design Culture on Healthy Life under the View of Ecological Civilization</span>
             <span>Shengsheng Cao</span><br>
             <span>Tsinghua Univ.</span><br>
+            <br>
+
+            <span class="workshop-topic">Title: Innovative Sustainable Technologies</span>
+            <span>Anumakonda Jagadeesh</span><br>
             <br>
 
             <span class="workshop-topic">Title: Blue Energy</span>
@@ -96,7 +97,14 @@
             <h2>Date: Oct. 23rd</h2>
             <h2>Time: 8 am - 6 pm</h2>
             <h2>Location: W16 Kresge Auditorium & Little Theatre</h2>
-            <h3 id="info-change"><strong>* Information will be continuously updated</strong></h3>
+
+            <h3>October 23rd: Opening Session</h3>
+            <strong>Host: Lin Zhang</strong><br>
+            <strong>Location: W16 Kresge Auditorium</strong><br>
+
+            <h3>Greetings</h3>
+            <strong>Xiaoman Duan and Yajun Fang</strong><br>
+            <strong>Ichiro Masaki</strong><br>
 
             <h3>Berthold K. P. Horn</h3>
             <strong>Professor, MIT, General Chair of UV2018</strong><br>
@@ -109,6 +117,12 @@
             <h3>Lin Zhang</h3>
             <strong>Professor, Beihang University, Conference Chair of UV2018</strong><br>
             <span>Title: Cloud manufacturing: a new paradigm of intelligent manufacturing</span><br>
+
+            <h3>Tea Break</h3>
+
+            <h3>October 23rd: Session II</h3>
+            <strong>Host: Lin Zhang</strong><br>
+            <strong>Location: W16 Kresge Auditorium</strong><br>
 
             <h3>Gang Luo</h3>
             <strong>Associate Professor, Ophthalmology, Harvard Medical School</strong><br>
@@ -124,11 +138,22 @@
 
             <h3>Graham G. Rong</h3>
             <strong>Director of Corporate Relations, MIT Industrial Liaison Program</strong><br>
-            <span>Title: Technology, Innovation, and Entrepreneurship at MIT</span><br>
+            <span>Title: MIT's Innovation and Entrepreneurship Ecosystem</span><br>
 
 <!--             <h3>Ichiro Masaki</h3>
 <strong>Principal Research Scientist, MIT</strong><br>
 <span>Title: Universal Village</span><br> -->
+
+            <h3>Lunch Break</h3>
+            <strong>Time: 12:30 pm - 1:30 pm</strong><br>
+
+            <h3>October 23rd: Session III</h3>
+            <strong>Host: Hirofumi Aoki</strong><br>
+            <strong>Location: W16 Kresge Auditorium</strong><br>
+
+            <h3>Jesus Maria Sousa</h3>
+            <strong>Professor, University of Madeira, Portugal</strong><br>
+            <span>Title: (Re)thinking Education out of the box</span><br>
 
             <h3>Rita Tse</h3>
             <strong>Director of School of Public Administration, Macao Polytechnic Institute</strong><br>
@@ -137,6 +162,12 @@
             <h3>Qingyang Du and Juejun Hu</h3>
             <strong>Department of Materials Science and Engineering, MIT</strong><br>
             <span>Title: Optics and Photonics: Manipulating Light for the Future</span><br>
+
+            <h3>Tea Break</h3>
+
+            <h3>October 23rd: Session IV</h3>
+            <strong>Host: Tingying Zeng</strong><br>
+            <strong>Location: Little Theatre</strong><br>
 
             <h3>Ming Ching Chang</h3>
             <strong>Assistant Professor, University at Albany</strong><br>
@@ -155,9 +186,20 @@
             <strong>Ph.D, Consultant of Energy Efficiency & Global Warming</strong><br>
             <span>Title: The Path to 5&#8451; Warmer, When Earth Last Had This Much CO<sub>2</sub> in the Air</span>
 
+            <h3>Qiang Wang</h3>
+            <strong>Professor, Worcester Polytechnic Institute</strong><br>
+            <span>Title: Chemical Sources of Electric Power: Current Status and Future Perspective</span>
+
+            <h3>Sunny Wang</h3>
+            <strong>CEO, BROAD USA</strong><br>
+            <span>Title: What Changes can UM bring to UV? (Ultimate Marerial & Universal Village)</span>
+
             <h3>Y. Fang</h3>
             <strong>Research Scientist, MIT CSAIL</strong><br>
             <span>Title: Universal Village and Innovative Life Styles</span>
+
+            <h3>Highlight from Category Chairs</h3>
+            <strong>Time: 6:15pm-6:30pm</strong><br>
 
           </div>
           <br><br>
@@ -217,11 +259,8 @@
               <h3>Time: 8:00am-12:25pm, October 24th</h3>
               <h3>Chair(s): Hao Sheng</h3>
               
-              <h3 class="paper-title">Why Do We Need “Bilateral Control”? - In View Of Energy Consumption</h3>
+              <h3 class="paper-title">Why Do We Need "Bilateral Control"? - In View Of Energy Consumption</h3>
               <h4 class="paper-authors">Author(s): Taiyi Wang, Yajun Fang, Berthold K.P. Horn</h4>
-
-              <h3 class="paper-title">Autonomous Mobility and Energy Service Management in Future Smart Cities: An Overview</h3>
-              <h4 class="paper-authors">Author(s): Xiaoqi Tan, Alberto Leon-Garcia</h4>
 
               <h3 class="paper-title">A Bottom-Up Design Model for Improving Efficiency of Transit System</h3>
               <h4 class="paper-authors">Author(s): Jiayang Li, Ruzhang Zhao,Yanfeng Ouyang,Meng Li</h4>
@@ -241,7 +280,10 @@
               <h3 class="paper-title">Real-time Vehicle Status Perception Without Frame-based Segmentation for Smart Camera Network</h3>
               <h4 class="paper-authors">Author(s): Jiahui Chen, Yajun Fang, Hao Sheng, Ichiro Masaki, Berthold Horn, Zhang Xiong</h4>
 
-              <h3 class="paper-title">Designing Intelligent Spaces as if They Were Human: A “Space Agent” Framework</h3>
+              <h3 class="paper-title">Autonomous Mobility and Energy Service Management in Future Smart Cities: An Overview</h3>
+              <h4 class="paper-authors">Author(s): Xiaoqi Tan, Alberto Leon-Garcia</h4>
+
+              <h3 class="paper-title">Designing Intelligent Spaces as if They Were Human: A "Space Agent" Framework</h3>
               <h4 class="paper-authors">Author(s): Yixiao Wang,Keith Evan Green,Rod Grupen,Johnell Brooks,Ian D. Walker</h4>
 
               <h3 class="paper-title">A Study of Correlation and Visual Data Analysis with Applications to Communication Network Services</h3>
@@ -275,7 +317,7 @@
               <h4 class="paper-authors">Author(s): Kevin Zeng Qi, Justin Mark Swaney, Evan W. Patton</h4>
 
               <h3 class="paper-title">First-Aid system design</h3>
-              <h4 class="paper-authors">Author(s): Haoran Ma, Yang Liu, Yajuan Fang, Berthold K.P.Horn</h4>
+              <h4 class="paper-authors">Author(s): Haoran Ma, Yang Liu, Yajun Fang, Berthold K.P.Horn</h4>
 
             </div>
 
@@ -289,9 +331,6 @@
               <h3 class="paper-title">UniWifi, A Smart Network System</h3>
               <h4 class="paper-authors">Author(s): Harry Zhou and Bruce Wang</h4>
 
-              <h3 class="paper-title">Method of intonation conversion for facilitating English communication between native and non-native speakers</h3>
-              <h4 class="paper-authors">Author(s): Tomoko Nariai, Hiroaki Kojima, Hiroyuki Obari and Shiroh Itai</h4>
-
               <h3 class="paper-title">CoDAS, a Method for Envisioning Larger-Scaled Computational Artifacts Connecting Communities</h3>
               <h4 class="paper-authors">Author(s): Carlos Araujo de Aguiar, Gilly Leshed, Alexander Bernard, John McKenzie, Camille Andrews and Keith Evan Green</h4>
 
@@ -303,6 +342,9 @@
 
               <h3 class="paper-title">Friendly Acoustic Technology Enhance Neighborhood and Friendship</h3>
               <h4 class="paper-authors">Author(s): Xiangdong Zhang, Zheng Kuang, Jun Yang</h4>
+              
+              <h3 class="paper-title">Method of intonation conversion for facilitating English communication between native and non-native speakers</h3>
+              <h4 class="paper-authors">Author(s): Tomoko Nariai, Hiroaki Kojima, Hiroyuki Obari and Shiroh Itai</h4>
 
             </div>
 
@@ -399,6 +441,9 @@
 
               <h3 class="paper-title">Adaptive Generalized Predictive Control Scheme for Single Phase GPV System</h3>
               <h4 class="paper-authors">Author(s): Vedantham Lakshmi Srinivas, Bhim Singh, Sukumar Mishra</h4>
+
+              <h3 class="paper-title">What Changes can UM bring to UV? (Ultimate Marerial & Universal Village)</h3>
+              <h4 class="paper-authors">Author(s): Sunny Wang</h4>
 
             </div>
 
@@ -503,7 +548,7 @@
               <h4 class="paper-authors">Author(s): Jieke Wang, Yang Liu, Yajun Fang, Berthold K.P. Horn</h4>
             
               <h3 class="paper-title">Transcribing Latin Manuscripts in Respect to Linguistics</h3>
-              <h4 class="paper-authors">Author(s): Manqing Feng, Guoxin Guo, Chuyuan Zhang, Yang Liu, Yajuan Fang, Berthold K. P. Horn</h4>
+              <h4 class="paper-authors">Author(s): Manqing Feng, Guoxin Guo, Chuyuan Zhang, Yang Liu, Yajun Fang, Berthold K. P. Horn</h4>
 
               <h3 class="paper-title">Early Detection of Esophageal Cancer Using Computer Vision</h3>
               <h4 class="paper-authors">Author(s): Peize Li</h4>
@@ -515,7 +560,7 @@
               <h4 class="paper-authors">Author(s): Kening Sun, Guangyang Che, Yaqi Li</h4>
 
               <h3 class="paper-title">An Emergency Ranking System for Intelligent Transportation Surveillance</h3>
-              <h4 class="paper-authors">Author(s): Xuankai Fang, Yang Liu, Yajuan Fang, Berthold K. P. Horn</h4>
+              <h4 class="paper-authors">Author(s): Xuankai Fang, Yang Liu, Yajun Fang, Berthold K. P. Horn</h4>
 
               <h3 class="paper-title">A Macroscopic Traffic Simulation Model of Mingle Traditional and Self-driving Cars</h3>
               <h4 class="paper-authors">Author(s): Zihan Cao,Yang Liu,Yajun Fang,Berthold K. P. Horn</h4>
@@ -549,6 +594,9 @@
 
               <h3 class="paper-title">New Paradigms, practices and precursors; From the Misiones Pedagógicas (MP) of the Spanish Second Republic (SSR) to AI Democracy</h3>
               <h4 class="paper-authors">Author(s): Francisco Bozzano-Barnes</h4>
+
+              <h3 class="paper-title">Comparative Study on Children's Cognitive Development through Piano and Language Acquisition</h3>
+              <h4 class="paper-authors">Author(s): Chenchen Gong</h4>
 
             </div>
 
@@ -589,7 +637,9 @@ export default {
     }
   },
   methods: {
-
+    viewProgramBook: function () {
+      window.open('https://s3.amazonaws.com/uv2018/resources/IEEE%2BUV2018%2BProgram%2BBook.pdf', '_blank')
+    }
   },
   computed: {
 
