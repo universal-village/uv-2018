@@ -24,7 +24,12 @@ const Success = () => import(/* webpackChunkName: "home" */ '@/components/Succes
 const SuccessRegistration = () => import(/* webpackChunkName: "home" */ '@/components/SuccessRegistration.vue')
 const Pricing = () => import(/* webpackChunkName: "home" */ '@/components/My/Pricing.vue')
 const Donation = () => import(/* webpackChunkName: "my" */ '@/components/My/Donation.vue')
-const StudentForum = () => import(/* webpackChunkName: "home" */ '@/components/Pages/StudentForum.vue')
+const MiscellaneousFees = () => import(/* webpackChunkName: "my" */ '@/components/My/MiscellaneousFees.vue')
+const StudentForum = () => import(/* webpackChunkName: "pages" */ '@/components/Pages/StudentForum.vue')
+const AcceptedPapers = () => import(/* webpackChunkName: "pages" */ '@/components/Pages/AcceptedPapers.vue')
+const Agenda = () => import(/* webpackChunkName: "pages" */ '@/components/Pages/Agenda.vue')
+const Location = () => import(/* webpackChunkName: "pages" */ '@/components/Pages/Location.vue')
+const SubmissionGuide = () => import(/* webpackChunkName: "my" */ '@/components/My/SubmissionGuide.vue')
 
 Vue.use(Router)
 
@@ -85,6 +90,13 @@ export default new Router({
       name: 'Reviewer',
       components: {
         App: Reviewer
+      }
+    },
+    {
+      path: '/submission-guide',
+      name: 'Submission Guide',
+      components: {
+        App: SubmissionGuide
       }
     },
     {
