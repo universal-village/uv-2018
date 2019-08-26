@@ -1,0 +1,1216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/components/Verification/Register.vue" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="595bda0b-0672-4d94-970c-d37a7f45c8a7" name="Default" comment="U: FIX CONFLICT AFTER GITHUB ISSUE">
+      <change beforePath="$PROJECT_DIR$/src/components/Pages/StudentForum.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pages/StudentForum.vue" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-271249482">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="9" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.1" value="4" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.17" value="2" />
+          <entry key="project.open.time.18" value="2" />
+          <entry key="project.open.time.19" value="3" />
+          <entry key="project.open.time.2" value="3" />
+          <entry key="project.open.time.24" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="22" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts">
+        <counts>
+          <entry key="ESLintLanguageService" value="19" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="css" value="2" />
+          <entry key="gitignore" value="16" />
+          <entry key="html" value="2565" />
+          <entry key="js" value="906" />
+          <entry key="svg" value="3" />
+          <entry key="txt" value="229" />
+          <entry key="vue" value="12816" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="CSS" value="2" />
+          <entry key="HTML" value="2383" />
+          <entry key="JavaScript" value="866" />
+          <entry key="PLAIN_TEXT" value="245" />
+          <entry key="SVG" value="3" />
+          <entry key="Scratch" value="222" />
+          <entry key="Vue.js" value="12816" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="css" value="2" />
+          <entry key="gitignore" value="2" />
+          <entry key="html" value="11" />
+          <entry key="info" value="1" />
+          <entry key="js" value="35" />
+          <entry key="json" value="1" />
+          <entry key="svg" value="4" />
+          <entry key="ts" value="4" />
+          <entry key="vue" value="43" />
+          <entry key="xml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CSS" value="2" />
+          <entry key="HTML" value="9" />
+          <entry key="JSON" value="1" />
+          <entry key="JavaScript" value="34" />
+          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="SVG" value="4" />
+          <entry key="Scratch" value="3" />
+          <entry key="TypeScript" value="4" />
+          <entry key="Vue.js" value="43" />
+          <entry key="XML" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.merge" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="uv-paper-submittion" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Home.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="14" column="67" selection-start-line="14" selection-start-column="67" selection-end-line="14" selection-end-column="67" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#a-col#1;n#a-row#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/assets/s3-index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-486" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/Pages/StudentForum.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="166" column="42" lean-forward="true" selection-start-line="166" selection-start-column="42" selection-end-line="166" selection-end-column="42" />
+              <folding>
+                <element signature="n#style#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a-breadcrumb#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#0;n#section#4;n#article#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/unit/setup.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/unit/coverage/clover.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/router/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-307">
+              <caret line="26" column="97" selection-start-line="26" selection-start-column="97" selection-end-line="26" selection-end-column="97" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/unit/coverage/coverage-final.json">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/unit/coverage/lcov.info">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>.title</find>
+      <find>.findIndex</find>
+      <find>birthdayDate</find>
+      <find>Biblography</find>
+      <find>biblo</find>
+      <find>&lt;(.*)&gt;(.*)( {2,})&lt;/(.*)&gt;</find>
+      <find>h4</find>
+      <find>currentEditingPaper</find>
+      <find>years</find>
+      <find>4px solid #6fbbff !important</find>
+      <find>#1990FE</find>
+      <find>1890ff</find>
+      <find>400</find>
+      <find>lang=&quot;(.*?)&quot;</find>
+      <find>more</find>
+      <find>update-notification-modal</find>
+      <find>'saturate(0)',</find>
+      <find>margin: -60</find>
+      <find>.body</find>
+      <find>&lt;</find>
+      <find>CreditCard</find>
+      <find>Attendee</find>
+      <find>getFieldsValue</find>
+      <find>uuid</find>
+      <find>$cookie</find>
+      <find>create</find>
+      <find>normal</find>
+      <find>price</find>
+      <find>/* webpackChunkName: &quot;review&quot; */</find>
+      <find>student</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>:labelCol=&quot;{ span: 9 }&quot;</replace>
+      <replace>submi</replace>
+      <replace>UV</replace>
+      <replace>:wrapperCol=&quot;{ span: 16 }&quot;</replace>
+      <replace>const $1 = () =&gt; import(/* webpackChunkName: &quot;group-foo&quot; */ '@$2)</replace>
+      <replace>encodeURIComponent(this$1),</replace>
+      <replace>quotes</replace>
+      <replace>.quotes</replace>
+      <replace>$1</replace>
+      <replace>&amp;amp;</replace>
+      <replace>this.$store.state.endpoint.api</replace>
+      <replace>this.\$message.error($1, 4)</replace>
+      <replace>this.form.getFieldsValue</replace>
+      <replace>$1: this.userInfo.$1</replace>
+      <replace>: formResult.$2</replace>
+      <replace>class=&quot;emit-closer&quot; @click=&quot;emitEmptyField&quot;</replace>
+      <replace>Biography</replace>
+      <replace>&lt;$1&gt;$2&lt;/$4&gt;</replace>
+      <replace>h2</replace>
+      <replace />
+      <replace>bod</replace>
+      <replace>.main-content</replace>
+      <replace>late</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>D:\Dev\web\uv-paper-submittion</dir>
+      <dir>D:\Dev\web\uv-paper-submittion\node_modules\vue-antd-ui</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="GalvinGao &lt;galvingao@users.noreply.github.com&gt;" />
+        <option value="Paradise02 &lt;971599473@qq.com&gt;" />
+        <option value="Galvin Gao" />
+      </list>
+    </option>
+    <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="AUTO_COMMIT_ON_CHERRY_PICK" value="true" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="1a5f409d-a2bc-410a-98e3-a5cb4c9fbf99" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/assets/mail-template.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/Verification/Register.vue" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../uv-web/src/App.vue" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../uv-files/error-pages/403.html" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/App.vue" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/router/index.js" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$USER_HOME$/Dropbox/Universal-Village HTMLs/UV2018/local-information.html" />
+        <option value="$PROJECT_DIR$/../uv-files/error-pages/503.html" />
+        <option value="$PROJECT_DIR$/../uv-files/error-pages/502.html" />
+        <option value="$PROJECT_DIR$/../uv-files/error-pages/500.html" />
+        <option value="$PROJECT_DIR$/../uv-files/error-pages/403.html" />
+        <option value="$PROJECT_DIR$/../uv-files/error-pages/404.html" />
+        <option value="$PROJECT_DIR$/../uv-files/error-pages/504.html" />
+        <option value="$PROJECT_DIR$/src/assets/mail-template.html" />
+        <option value="$PROJECT_DIR$/src/components/My/Profile/Edit.vue" />
+        <option value="$PROJECT_DIR$/src/components/My/Account/Edit.vue" />
+        <option value="$PROJECT_DIR$/build/serve-proxy.js" />
+        <option value="$PROJECT_DIR$/src/assets/mail-template-inlinecss-version.html" />
+        <option value="$USER_HOME$/Documents/NetSarang Computer/6/Xshell/Sessions/index.html" />
+        <option value="$PROJECT_DIR$/src/components/My/Account/EditProfile.vue" />
+        <option value="$USER_HOME$/Downloads/Paper.vue" />
+        <option value="$PROJECT_DIR$/src/components/My/Submissions/Paper/Edit.vue" />
+        <option value="$PROJECT_DIR$/src/assets/static-pages/accommodation.html" />
+        <option value="$USER_HOME$/Dropbox/Universal-Village HTMLs/UV2018/committee.html" />
+        <option value="$USER_HOME$/Dropbox/Universal-Village HTMLs/UV2018/call-for-papers.html" />
+        <option value="$PROJECT_DIR$/src/assets/success.svg" />
+        <option value="$USER_HOME$/Downloads/success-animation-pure-css/css/style.css" />
+        <option value="$PROJECT_DIR$/src/components/My/Attendee.vue" />
+        <option value="$USER_HOME$/Downloads/failed.svg" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/components/My/Submissions/Paper.vue" />
+        <option value="$PROJECT_DIR$/src/components/Success.vue" />
+        <option value="$PROJECT_DIR$/src/components/Verification/PasswordRegenerate.vue" />
+        <option value="$PROJECT_DIR$/src/components/Verification/Register.vue" />
+        <option value="$PROJECT_DIR$/src/components/My/Index.vue" />
+        <option value="$PROJECT_DIR$/src/components/Verification/PasswordReset.vue" />
+        <option value="$PROJECT_DIR$/src/assets/reviewer-mail.html" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/test.js" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/test.html" />
+        <option value="$PROJECT_DIR$/src/components/Donate.vue" />
+        <option value="$PROJECT_DIR$/src/components/SuccessRegistration.vue" />
+        <option value="$PROJECT_DIR$/src/components/My/Donation.vue" />
+        <option value="$PROJECT_DIR$/src/components/My/Submissions/Paper/Add.vue" />
+        <option value="$PROJECT_DIR$/src/components/My/Pricing.vue" />
+        <option value="$PROJECT_DIR$/src/components/Home.vue" />
+        <option value="$PROJECT_DIR$/src/App.vue" />
+        <option value="$PROJECT_DIR$/src/components/Pages/Pages.vue" />
+        <option value="$PROJECT_DIR$/src/components/NotFoundV2.vue" />
+        <option value="$PROJECT_DIR$/src/main.js" />
+        <option value="$PROJECT_DIR$/src/components/NotFoundNew.vue" />
+        <option value="$PROJECT_DIR$/src/components/NotFound.vue" />
+        <option value="$PROJECT_DIR$/src/components/Verification/Login.vue" />
+        <option value="$PROJECT_DIR$/test/unit/specs/HelloWorld.spec.js" />
+        <option value="$PROJECT_DIR$/test/e2e/specs/test.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/src/router/index.js" />
+        <option value="$PROJECT_DIR$/src/components/Pages/StudentForum.vue" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="width" value="1230" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uv-paper-submittion" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uv-paper-submittion" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uv-paper-submittion" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uv-paper-submittion" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uv-paper-submittion" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uv-paper-submittion" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Helper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uv-paper-submittion" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="My" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uv-paper-submittion" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="My" type="462c0819:PsiDirectoryNode" />
+              <item name="Account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uv-paper-submittion" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="My" type="462c0819:PsiDirectoryNode" />
+              <item name="Submissions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uv-paper-submittion" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="My" type="462c0819:PsiDirectoryNode" />
+              <item name="Submissions" type="462c0819:PsiDirectoryNode" />
+              <item name="Paper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uv-paper-submittion" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uv-paper-submittion" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Review" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uv-paper-submittion" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Verification" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uv-paper-submittion" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="external" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uv-paper-submittion" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="router" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uv-paper-submittion" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uv-paper-submittion" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="e2e" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uv-paper-submittion" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="e2e" type="462c0819:PsiDirectoryNode" />
+              <item name="specs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uv-paper-submittion" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="unit" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="uv-paper-submittion" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="unit" type="462c0819:PsiDirectoryNode" />
+              <item name="specs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+            </path>
+            <path>
+              <item name="uv-paper-submittion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="Scratches" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="editorconfig.notification" value="&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD&#10;=======&#10;&gt;&gt;&gt;&gt;&gt;&gt;&gt; refs/remotes/origin/master&#10;" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/reviewer-mail.html" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="D:\Dev\web\uv-paper-submittion\node_modules\eslint" />
+    <property name="node.js.selected.package.standard" value="D:\Dev\web\uv-paper-submittion\node_modules\eslint" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Dev\web\uv-paper-submittion\src\assets" />
+      <recent name="D:\Dev\web\uv-paper-submittion\build" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="npm.Start Dev Server">
+    <configuration name="Live Edit" type="JavascriptDebugType" factoryName="JavaScript Debug" uri="http://localhost:63342/uv-paper-submittion/src/assets/reviewer-mail.html">
+      <method v="2" />
+    </configuration>
+    <configuration name="serve-proxy.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="serve-proxy.js" working-dir="$PROJECT_DIR$/build">
+      <method v="2" />
+    </configuration>
+    <configuration name="Start Dev Server" type="js.build_tools.npm" factoryName="npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="e2e" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="e2e" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="lint" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="serve-static" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve-static" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.Live Edit" />
+      <item itemvalue="npm.Start Dev Server" />
+      <item itemvalue="Node.js.serve-proxy.js" />
+      <item itemvalue="npm.build" />
+      <item itemvalue="npm.serve-static" />
+      <item itemvalue="npm.lint" />
+      <item itemvalue="npm.e2e" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.e2e" />
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.serve-static" />
+        <item itemvalue="Node.js.serve-proxy.js" />
+        <item itemvalue="npm.lint" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="AUTOSCROLL_FROM_SOURCE" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="595bda0b-0672-4d94-970c-d37a7f45c8a7" name="Default" comment="" />
+      <created>1531365583268</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1531365583268</updated>
+      <workItem from="1531365584607" duration="65000" />
+      <workItem from="1531367317466" duration="18954000" />
+      <workItem from="1531392414539" duration="9000" />
+      <workItem from="1531392474605" duration="3501000" />
+      <workItem from="1531403501083" duration="902000" />
+      <workItem from="1531404413348" duration="11501000" />
+      <workItem from="1531417175345" duration="78498000" />
+      <workItem from="1531684804490" duration="20246000" />
+      <workItem from="1531786244594" duration="21817000" />
+      <workItem from="1531880301801" duration="46664000" />
+      <workItem from="1532028347747" duration="2901000" />
+      <workItem from="1532048669365" duration="33666000" />
+      <workItem from="1532113519925" duration="13738000" />
+      <workItem from="1532191314785" duration="14315000" />
+      <workItem from="1532311734843" duration="33000" />
+      <workItem from="1532316214885" duration="1111000" />
+      <workItem from="1532366921338" duration="117000" />
+      <workItem from="1532367053945" duration="13000" />
+      <workItem from="1532367123289" duration="783000" />
+      <workItem from="1532378299158" duration="5319000" />
+      <workItem from="1532530043293" duration="13286000" />
+      <workItem from="1532629989724" duration="23492000" />
+      <workItem from="1533092557814" duration="8920000" />
+      <workItem from="1533147179155" duration="600000" />
+      <workItem from="1533307114692" duration="1893000" />
+      <workItem from="1533608534086" duration="8000" />
+      <workItem from="1534218255112" duration="6314000" />
+      <workItem from="1534480651629" duration="3086000" />
+      <workItem from="1535075291491" duration="6512000" />
+      <workItem from="1535326835897" duration="290000" />
+      <workItem from="1535343666894" duration="879000" />
+      <workItem from="1535350954444" duration="833000" />
+      <workItem from="1537455855994" duration="1026000" />
+      <workItem from="1537457257631" duration="1648000" />
+      <workItem from="1538558789080" duration="16243000" />
+      <workItem from="1538632434550" duration="7823000" />
+      <workItem from="1538841957411" duration="7664000" />
+      <workItem from="1540247336655" duration="2029000" />
+      <workItem from="1540306893756" duration="467000" />
+      <workItem from="1540326428917" duration="4677000" />
+    </task>
+    <task id="LOCAL-00001" summary="update&#10;&#10;New component&#10;PasswordRegenerate&#10;&#10;(cherry picked from commit 9c3273dc8c4490733903b1f702b43bd805ffdc6a)">
+      <created>1532574702299</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1532574702299</updated>
+    </task>
+    <task id="LOCAL-00002" summary="update">
+      <created>1532574845193</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1532574845193</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update">
+      <created>1532902012244</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1532902012244</updated>
+    </task>
+    <task id="LOCAL-00004" summary="cherry-pick from a9ca4d25d83d67f8c6c4c00bd7df0ba60694d784b (might wrong)&#10;&#10;U: Animations, Colors &amp; Styles">
+      <created>1532983676139</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1532983676139</updated>
+    </task>
+    <task id="LOCAL-00005" summary="U: Page Endpoint">
+      <created>1532983804020</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1532983804020</updated>
+    </task>
+    <task id="LOCAL-00006" summary="U: Restore = =">
+      <created>1532984064309</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1532984064309</updated>
+    </task>
+    <task id="LOCAL-00007" summary="U: Cookie">
+      <created>1532992051602</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1532992051602</updated>
+    </task>
+    <task id="LOCAL-00008" summary="U: Endpoint">
+      <created>1533008383957</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1533008383957</updated>
+    </task>
+    <task id="LOCAL-00009" summary="2018.9.20&#10;&#10;(cherry picked from commit 39464cd207c019d0e7b03c94f889a9745f66b6eb)">
+      <created>1537455956528</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1537455956528</updated>
+    </task>
+    <task id="LOCAL-00010" summary="U: Donation&#10;Tag: Donation-simple">
+      <created>1538571059197</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1538571059198</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Program Book">
+      <created>1540247442596</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1540247442596</updated>
+    </task>
+    <task id="LOCAL-00012" summary="U: FIX CONFLICT AFTER GITHUB ISSUE">
+      <created>1540249259721</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1540249259721</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="406808000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <is-autoscroll-to-source value="true" />
+      <is-preview-enabled value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.125" visible="true" weight="0.21862616" />
+      <window_info id="Structure" order="1" sideWeight="0.8371335" side_tool="true" weight="0.18428005" />
+      <window_info id="npm" order="2" sideWeight="0.87375885" side_tool="true" weight="0.21862616" />
+      <window_info id="Favorites" order="3" sideWeight="0.65597665" side_tool="true" weight="0.18560106" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32386363" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.3963068" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.7298547" weight="0.6832386" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4993395" weight="0.32386363" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.7014531" weight="0.55460995" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.2985469" side_tool="true" weight="0.55539775" />
+      <window_info anchor="bottom" id="Messages" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.55548215" weight="0.4971591" />
+      <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32954547" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="BEK_SORT_TYPE" value="1" />
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <MESSAGE value="update&#10;&#10;New component&#10;PasswordRegenerate&#10;&#10;(cherry picked from commit 9c3273dc8c4490733903b1f702b43bd805ffdc6a)" />
+    <MESSAGE value="update" />
+    <MESSAGE value="cherry-pick from a9ca4d25d83d67f8c6c4c00bd7df0ba60694d784b (might wrong)&#10;&#10;U: Animations, Colors &amp; Styles" />
+    <MESSAGE value="U: Page Endpoint" />
+    <MESSAGE value="U: Restore = =" />
+    <MESSAGE value="U: Cookie" />
+    <MESSAGE value="U: Endpoint" />
+    <MESSAGE value="2018.9.20&#10;&#10;(cherry picked from commit 39464cd207c019d0e7b03c94f889a9745f66b6eb)" />
+    <MESSAGE value="U: Donation&#10;Tag: Donation-simple" />
+    <MESSAGE value="Program Book" />
+    <MESSAGE value="U: FIX CONFLICT AFTER GITHUB ISSUE" />
+    <option name="LAST_COMMIT_MESSAGE" value="U: FIX CONFLICT AFTER GITHUB ISSUE" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Verification/Register.vue</url>
+          <line>181</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XPathView.XPathProjectComponent">
+    <history>
+      <element expression="button" />
+    </history>
+    <find-history />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/node_modules/vuex/types/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2829">
+          <caret line="123" column="14" selection-start-line="123" selection-start-column="14" selection-end-line="123" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/vuex-persistedstate/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/My/Submissions/Paper/Edit.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1898">
+          <caret line="203" column="9" selection-start-line="203" selection-start-column="9" selection-end-line="203" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/My/Submissions/Paper.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="294" selection-start-line="294" selection-end-line="295" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/My/UVIndex.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/index.html" />
+    <entry file="file://$USER_HOME$/Downloads/_o_orwell_george_o79a/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/vue-loader.conf.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/webpack.base.conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1215" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/My/Index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1593">
+          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/reviewer-mail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Helper/CreditCard.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1485">
+          <caret line="55" column="23" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Verification/PasswordRegenerate.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Donate.vue" />
+    <entry file="file://$PROJECT_DIR$/src/components/Success.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="583">
+          <caret line="45" column="18" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#svg#0;n#a-col#0;n#a-row#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/uuid-js/lib/uuid.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/uuid/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Verification/PasswordReset.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="84" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Pages/Index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="93" selection-start-line="5" selection-start-column="93" selection-end-line="5" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Verification/Register.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-542">
+          <caret line="306" column="120" selection-start-line="306" selection-start-column="18" selection-end-line="306" selection-end-column="120" />
+          <folding>
+            <element signature="n#div#0;n#a-form#0;n#a-spin#0;n#div#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" />
+            <element signature="n#div#1;n#a-form#0;n#a-spin#0;n#div#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" />
+            <element signature="n#div#2;n#a-form#0;n#a-spin#0;n#div#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/My/Pricing.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="999">
+          <caret line="37" column="78" selection-start-line="37" selection-start-column="78" selection-end-line="37" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/My/Donation.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" column="98" selection-start-line="12" selection-start-column="98" selection-end-line="12" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/My/Attendee.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="11" column="100" selection-start-line="11" selection-start-column="100" selection-end-line="11" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/My/Submissions/Paper/Add.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestECF.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/NotFound.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/SuccessRegistration.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-945">
+          <caret line="10" column="84" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="204" column="35" selection-start-line="204" selection-start-column="24" selection-end-line="204" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Pages/Pages.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="46" column="16" lean-forward="true" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="718">
+          <caret line="78" column="4" selection-start-line="78" selection-start-column="4" selection-end-line="78" selection-end-column="4" />
+          <folding>
+            <element signature="e#140#161#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Verification/Login.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="113" column="9" lean-forward="true" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/e2e/runner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-308">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/e2e/nightwatch.conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/specs/HelloWorld.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/coverage/clover.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/coverage/coverage-final.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/coverage/lcov.info">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/e2e/specs/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/jest.conf.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/serve-proxy.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/serve-static.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/setup.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Home.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="14" column="67" selection-start-line="14" selection-start-column="67" selection-end-line="14" selection-end-column="67" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#a-col#1;n#a-row#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/s3-index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-486" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-307">
+          <caret line="26" column="97" selection-start-line="26" selection-start-column="97" selection-end-line="26" selection-end-column="97" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Pages/StudentForum.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="166" column="42" lean-forward="true" selection-start-line="166" selection-start-column="42" selection-end-line="166" selection-end-column="42" />
+          <folding>
+            <element signature="n#style#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a-breadcrumb#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#section#4;n#article#0;n#a-layout-content#0;n#a-layout#0;n#a-layout-content#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

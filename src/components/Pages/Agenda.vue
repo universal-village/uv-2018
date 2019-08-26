@@ -18,7 +18,7 @@
           |<a href="#uv-poster" class="uv-nav">[UV POSTER]</a>
           |<a href="#" class="uv-nav" @click="viewProgramBook()">[Program Book]</a>
           <hr>
-          
+
           <div class="uv-day">
             <a name="uv-day"></a>
             <h1>UV Day</h1>
@@ -45,7 +45,7 @@
             </ul>
             <br>
           </div>
-          
+
           <div id="uv-workshop">
             <a name="uv-workshop"></a>
             <h1>UV Workshop</h1>
@@ -90,7 +90,7 @@
 
           </div>
           <br>
-          
+
           <div id="keynote">
             <a name="keynote"></a>
             <h1>Keynote Speakers</h1>
@@ -168,7 +168,6 @@
             <h3>October 23rd: Session IV</h3>
             <strong>Host: Tingying Zeng</strong><br>
             <strong>Location: Little Theatre</strong><br>
-
             <h3>Ming Ching Chang</h3>
             <strong>Assistant Professor, University at Albany</strong><br>
             <span>Title: AI Visual Intelligence Technologies for Building a Smarter World</span><br>
@@ -203,7 +202,7 @@
 
           </div>
           <br><br>
-          
+
           <div id="technical-sessions">
             <a name="technical-sessions"></a>
             <h1>Technical Sessions</h1>
@@ -342,7 +341,7 @@
 
               <h3 class="paper-title">Friendly Acoustic Technology Enhance Neighborhood and Friendship</h3>
               <h4 class="paper-authors">Author(s): Xiangdong Zhang, Zheng Kuang, Jun Yang</h4>
-              
+
               <h3 class="paper-title">Method of intonation conversion for facilitating English communication between native and non-native speakers</h3>
               <h4 class="paper-authors">Author(s): Tomoko Nariai, Hiroaki Kojima, Hiroyuki Obari and Shiroh Itai</h4>
 
@@ -534,7 +533,6 @@
               <h3>Location: W20-307</h3>
               <h3>Time: 8:00am-2:40pm, October 24th</h3>
               <h3>Chair(s): Xuenan Ni, Xin Shu, Wenyang Gao, Haoran Ma</h3>
-                
               <h3 class="paper-title">Towards an AUV Swarm Based Mobile Underwater Sensor Network for Invasive Species Data Acquisition</h3>
               <h4 class="paper-authors">Author(s): Mark Allison, Heather Dawson, Grant Rusin</h4>
 
@@ -603,7 +601,7 @@
           </div>
 
           <br>
-          
+
           <div id="uv-poster">
             <a name="uv-poster"></a>
             <h1>UV Poster Session & UV Exhibition</h1>
@@ -616,7 +614,7 @@
             <h2>Time: 8 am - 6 pm</h2>
             <h2>Location: W20-306, W20-307</h2>
           </div>
-          
+
         </div>
       </a-layout-content>
     </a-layout>
@@ -625,14 +623,14 @@
 </template>
 
 <script lang="js">
-export default {
-  name: 'agenda',
-  props: [],
-  mounted () {
+  export default {
+    name: 'agenda',
+    props: [],
+    mounted () {
 
-  },
-  data () {
-    return {
+    },
+    data () {
+      return {
 
     }
   },
@@ -643,11 +641,12 @@ export default {
   },
   computed: {
 
+    }
   }
-}
 </script>
 
 <style scoped lang="css">
+
 h3.paper-title {
   margin-top: 35px;
   font-weight: bolder;
@@ -723,20 +722,20 @@ div.session {
   margin-top: 35px;
 }
   @media only screen and (max-width: 960px) {
-      .ant-layout-content {
+    .ant-layout-content {
       padding: 0 20px;
     }
   }
   @media only screen and (min-width: 960px){
-      .ant-layout-content.main-content {
-        padding: 0 10%;
+    .ant-layout-content.main-content {
+      padding: 0 10%;
     }
-      .ant-layout {
-        padding: 0 24px 24px;
+    .ant-layout {
+      padding: 0 24px 24px;
     }
-      /* .ant-collapse-item  {
-        font-size: 1.5em !important;
-        font-weight: bolder;
-      } */
+    /* .ant-collapse-item  {
+      font-size: 1.5em !important;
+      font-weight: bolder;
+    } */
   }
 </style>

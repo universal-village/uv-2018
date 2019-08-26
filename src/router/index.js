@@ -178,45 +178,10 @@ export default new Router({
       }
     },
     {
-      path: '/student-forum',
-      name: 'Student Forum',
-      components: {
-        App: StudentForum
-      }
-    },
-    {
-      path: '/accepted-papers',
-      name: 'Accepted Papers',
-      components: {
-        App: AcceptedPapers
-      }
-    },
-    {
-      path: '/agenda',
-      name: 'Agenda',
-      components: {
-        App: Agenda
-      }
-    },
-    {
-      path: '/location',
-      name: 'Location',
-      components: {
-        App: Location
-      }
-    },
-    {
       path: '/conference-registration',
       name: 'My Conference Attendee',
       components: {
         App: ConferenceRegistration
-      }
-    },
-    {
-      path: '/miscellaneous-fees',
-      name: 'Miscellaneous fees',
-      components: {
-        App: MiscellaneousFees
       }
     },
     {
@@ -231,6 +196,13 @@ export default new Router({
       name: 'Donation',
       components: {
         App: Donation
+      }
+    },
+    {
+      path: '/student-forum',
+      name: 'Student Forum',
+      components: {
+        App: StudentForum
       }
     },
     {

@@ -18,8 +18,6 @@ import router from './router'
 import LogRocket from 'logrocket'
 import createPlugin from 'logrocket-vuex'
 import jsCookie from 'js-cookie'
-import Vuebar from 'vuebar'
-import ReadMore from 'vue-read-more'
 
 Vue.config.productionTip = false
 
@@ -41,7 +39,6 @@ Vue.use(VueAnalytics, {
   id: 'UA-122336687-1',
   router
 })
-Vue.use(Vuebar)
 // Vue.use(VueGoogleMaps, {
 //   load: {
 //     key: 'AIzaSyAuciiA4rPTALnygCCw1xT0EcHV-Oqh1y0',
@@ -56,7 +53,6 @@ Vue.use(Carousel3d)
 //   billingAddress: true,
 //   panelLabel: 'Subscribe {{amount}}'
 // })
-Vue.use(ReadMore)
 
 const store = new Vuex.Store({
   state: {

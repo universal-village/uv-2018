@@ -236,23 +236,6 @@
             </a-input>
           </a-form-item>
 
-          <a-form-item
-            label='Photo'
-            :labelCol="{ span: 9 }"
-            :wrapperCol="{ span: 12 }"
-            fieldDecoratorId="photo"
-            :fieldDecoratorOptions="{rules: [{ required: false, message: 'You can upload your photo here.' }]}"
-          >
-            <a-upload-dragger name="photo" :multiple="false" @change="handleChange"
-                              :action="getAction">
-              <p class="ant-upload-drag-icon">
-                <a-icon type="inbox"/>
-              </p>
-              <p class="ant-upload-text" :style="{ 'padding': '0 2em' }">Click or drag file to this area to upload them; file
-                size should be less than 5MB.</p>
-            </a-upload-dragger>
-          </a-form-item>
-
           <vue-recaptcha :sitekey="this.$store.state.sitekey" @verify="submitData">
             <a-button type='primary' htmlType='submit' style="width: 100%;" :loading="submitting">
               <a-icon type="upload" /> Update
@@ -290,8 +273,7 @@ export default {
         cellphone: '',
         passport: '',
         needSupport: ''
-      },
-      getAction: this.$store.state.endpoint.api + '/uploadPhoto'
+      }
     }
   },
   components: {
@@ -338,9 +320,6 @@ export default {
       }, response => {
         this.$message.error('Can\'t fetch category info.', 4)
       })
-    },
-    handleChange () {
-
     },
     submitData (recaptchaToken) {
       this.submitting = true

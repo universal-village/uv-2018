@@ -242,7 +242,7 @@
                   fieldDecoratorId="fullRegistration"
                   :fieldDecoratorOptions="{rules: [{ required: false, message: 'Full Registration.' }]}"
                   v-if="fullRegistration">
-                    <span>$445.00</span>
+                    <span>$345.00</span>
                   </a-form-item>
 
                   <a-form-item
@@ -305,30 +305,21 @@
             </a-form>
           </a-col>
           <a-col :lg="16" v-else>
-            <a-form>
-              <div class="registration-greeting-info">
-                <h3 style="display: block; margin-left: 20%; margin-bottom: 100px; font-weight: bold; font-family: Verdana;">IEEE UV2018</h3>
-                <h1 style="display: block; margin-left: 20%; margin-bottom: 60px; font-weight: bolder; font-family: Verdana;">Thank you for your support to IEEE UV2018!</h1>
-                <p style="display: block; margin-left: 20%; font-family: Verdana; margin-right: 10%;">You has successfully registered for IEEE International Conference on Universal Village 2018. Here below is your payment and receipt information.</p>
-                <span style="display: inline-block; margin-left: 20%; margin-top: 20px; font-family: Verdana; font-weight: bolder; width: 20%">Date</span>
-                <span style="display: inline-block; margin-top: 20px; font-family: Verdana; width: 40%">{{ receipt.time }}</span>
-                <span style="display: inline-block; margin-left: 20%; margin-top: 20px; font-family: Verdana; font-weight: bolder; width: 20%">Event</span>
-                <span style="display: inline-block; margin-top: 20px; font-family: Verdana; width: 40%">{{ receipt.description }}</span>
-                <span style="display: inline-block; margin-left: 20%; margin-top: 20px; font-family: Verdana; font-weight: bolder; width: 20%">Payment</span>
-                <span style="display: inline-block; margin-top: 20px; font-family: Verdana; width: 40%">${{ parseFloat(receipt.amount / 100).toFixed(2) }}</span>
-                <div style="text-align: right; float: right; margin-top: 20px; margin-right: 10%;">
-                  <p style="margin-top: 20px; font-family: Verdana;">Welcome and Thanks!</p>
-                  <p style="font-family: Verdana; font-weight: bold;">UV2018 Committee</p>
-                </div>
+            <div class="registration-greeting-info">
+              <h3 style="display: block; margin-left: 20%; margin-bottom: 100px; font-weight: bold; font-family: Verdana;">IEEE UV2018</h3>
+              <h1 style="display: block; margin-left: 20%; margin-bottom: 60px; font-weight: bolder; font-family: Verdana;">Thank you for your support to IEEE UV2018!</h1>
+              <p style="display: block; margin-left: 20%; font-family: Verdana; margin-right: 10%;">You has successfully registered for IEEE International Conference on Universal Village 2018. Here below is your payment and receipt information.</p>
+              <span style="display: inline-block; margin-left: 20%; margin-top: 20px; font-family: Verdana; font-weight: bolder; width: 20%">Date</span>
+              <span style="display: inline-block; margin-top: 20px; font-family: Verdana; width: 40%">August 16, 2018</span>
+              <span style="display: inline-block; margin-left: 20%; margin-top: 20px; font-family: Verdana; font-weight: bolder; width: 20%">Event</span>
+              <span style="display: inline-block; margin-top: 20px; font-family: Verdana; width: 40%">{{ receipt.description }}</span>
+              <span style="display: inline-block; margin-left: 20%; margin-top: 20px; font-family: Verdana; font-weight: bolder; width: 20%">Payment</span>
+              <span style="display: inline-block; margin-top: 20px; font-family: Verdana; width: 40%">${{ parseFloat(receipt.amount / 100).toFixed(2) }}</span>
+              <div style="text-align: right; float: right; margin-top: 20px; margin-right: 10%;">
+                <p style="margin-top: 20px; font-family: Verdana;">Welcome and Thanks!</p>
+                <p style="font-family: Verdana; font-weight: bold;">UV2018 Committee</p>
               </div>
-              <a-form-item></a-form-item>
-            </a-form>
-            <a-button type="primary" style="float: left; margin-top: 20px; margin-left: 20%;" :disabled="receiptIndex === 0" @click="jump(-1)">
-              <a-icon type="left" />Previous
-            </a-button>
-            <a-button type="primary" style="float: right; margin-top: 20px; margin-right: 10%;" :disabled="receiptIndex === (receipts.length - 1)" @click="jump(1)">
-              Next<a-icon type="right" />
-            </a-button>
+            </div>
           </a-col>
         </a-row>
       </a-layout-content>
@@ -437,9 +428,7 @@ export default {
         isSenior: false,
         isStudent: false,
         foodAlergy: ''
-      },
-      receipts: [],
-      receiptIndex: 0
+      }
     }
   },
   watch: {
@@ -489,10 +478,7 @@ export default {
                 phone: this.phone
               })
             }
-            this.receipts = response.body.receipts
-            if (this.receipts !== []) {
-              this.receipt = response.body.receipts[this.receiptIndex]
-            }
+            this.receipt = response.body.receipt
           }
         }, response => {
           this.$message.error('Cannot load conference registration information. status-' + response.status, 3)
@@ -507,10 +493,6 @@ export default {
         this.paging = next
       }
       // console.log(this.paging)
-    },
-    jump: function (next) {
-      this.receiptIndex += next
-      this.receipt = this.receipts[this.receiptIndex]
     },
     emitEmptyField: function (event) {
       // eslint-disable-next-line
@@ -741,7 +723,7 @@ export default {
     amtBeforeDiscount: function () {
       let amount = 0
       if (this.fullRegistration) {
-        amount += 44500
+        amount += 34500
       } else {
         if (this.uvDay) {
           amount += 0

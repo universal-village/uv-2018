@@ -266,7 +266,7 @@ export default {
     },
     showUpdateInfo () {
       console.log('Update confirm status: ' + this.$cookie.get('confirmedUpdate'))
-      if (!this.$cookie.get('confirmedUpdate')) {
+      /* if (!this.$cookie.get('confirmedUpdate')) {
         this.$modal.show('update-notification-modal')
       } 
     },
@@ -284,11 +284,11 @@ export default {
       })
     },
     confirmedWebsiteUpdated () {
-      this.$cookie.set('confirmedUpdate', true)
+      // this.$cookie.set('confirmedUpdate', true)
       this.$modal.hide('update-notification-modal')
     },
     resetPasswordAndConfirmWebsiteUpdated () {
-      this.$cookie.set('confirmedUpdate', true)
+      // this.$cookie.set('confirmedUpdate', true)
       this.$router.push('/reset-password')
       this.$modal.hide('update-notification-modal')
     }

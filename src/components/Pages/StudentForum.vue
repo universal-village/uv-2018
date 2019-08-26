@@ -1,7 +1,6 @@
 <template lang="html">
-
-  <a-layout-content class="main-content">
-    <a-layout style="padding: 0 24px 24px; background: rgba(255, 255, 255, .75);">
+  <a-layout-content class="student-forum--mainpage-content">
+    <a-layout style="padding: 0 24px 24px; background: transparent">
       <a-breadcrumb style="margin: 16px 0">
         <a-breadcrumb-item v-for="navPage in this.$store.state.navPageList" :key="navPage">
           {{ navPage | capitalize }}
@@ -171,214 +170,216 @@ export default {
 
   }
 }
+
 </script>
 
-<style scoped lang="css">
-.ant-layout {
-  background-color: #646464 !important;
-}
+<style>
+  @import 'https://fonts.googleapis.com/css?family=Merriweather:500,400';
 
-  @media only screen and (max-width: 960px) {
-
+  .student-forum--mainpage-content {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(90deg, #1370FB 20px, transparent 1%) center, linear-gradient(#1370FB 20px, transparent 1%) center, #3882E8 !important;
+    background-size: 22px 22px !important;
+    transition: all 225ms cubic-bezier(0.19, 1, 0.22, 1) !important;
   }
 
-  @media only screen and (min-width: 960px){
-    .text-reflecth2, .text-reflecth2:before, .text-reflecth2 span {
-        display: block !important;
-        margin: 0;
-        padding: 0;
-    }
-
-    .text-reflecth2, .text-reflecth2:before, .text-reflecth2:after {
-        position: relative !important;
-    }
-
-    .text-reflecth2 {
-        top: -0px;
-    }
-
-    .text-reflecth2:before {
-        content: 'CALL FOR STUDENT PARTICIPANTS';
-        top:  75px !important;
-        transform: scale(1, -1) !important;
-        backface-visibility: visible;
-        z-index: 1;
-    }
-
-    .text-reflecth2:after {
-        content: '';
-        display: block;
-        top: -8px !important;
-        left: 0;
-        width: 100%;
-        height: 32px;
-        background-image: linear-gradient(to bottom, rgba(100,100,100, .4) 0%, rgba(100, 100, 100, 1) 35%) !important;
-        z-index: 2;
-    }
-    /*----reflection CSS for MIT----*/
-    .text-reflecth3, .text-reflecth3:before, .text-reflecth3 span {
-        display: block;
-        margin: 0;
-        padding: 0;
-    }
-
-    .text-reflecth3, .text-reflecth3:before, .text-reflecth3:after {
-        position: relative;
-    }
-
-    .text-reflecth3 {
-        top: -0px;
-    }
-
-    .text-reflecth3:before {
-        content: 'Massachusetts of Institute, USA';
-        top:  50px;
-        transform: scale(1, -1);
-        backface-visibility: visible;
-        z-index: 1;
-    }
-
-    .text-reflecth3:after {
-        content: '';
-        display: block;
-        top: -4px;
-        left: 0;
-        width: 100%;
-        height: 18px;
-        background-image: linear-gradient(to bottom, rgba(100,100,100, .4) 0%, rgba(100, 100, 100, 1) 35%);
-        z-index: 2;
-    }
-    /*----reflection CSS for time----*/
-    .text-reflecth4, .text-reflecth4:before, .text-reflecth4 span {
-        display: block;
-        margin: 0;
-        padding: 0;
-    }
-
-    .text-reflecth4, .text-reflecth4:before, .text-reflecth4:after {
-        position: relative;
-    }
-
-    .text-reflecth4 {
-        top: -0px;
-    }
-
-    .text-reflecth4:before {
-        content: 'October 23-24, 2018';
-        top:  50px;
-        transform: scale(1, -1);
-        backface-visibility: visible;
-        z-index: 1;
-    }
-
-    .text-reflecth4:after{
-        content: '';
-        display: block;
-        top: -4px;
-        left: 0;
-        width: 100%;
-        height: 18px;
-        background-image: linear-gradient(to bottom, rgba(100,100,100, .4) 0%, rgba(100, 100, 100, 1) 35%);
-        z-index: 2;
-    }
+  .student-forum--page-content .content a {
+    font-family: Consolas, Menlo, Courier, monospace;
   }
 
-div.uv-studentForum h1 {
-    color: #f4f4f4;
-    text-align: center;
-    font-size: 26px;
-    padding: 0px;
-}
-div.uv-studentForum h2 {
-    color: #fafafa;
-    font-size: 32px;
-    padding:0px;
-}
-div.uv-studentForum h3 {
-    color: #dce4f4;
-    font-size: 18px;
-    text-align: center;
-    line-height: 1.6;
-    padding: 0px;
-}
-div.uv-studentForum h4 {
-    color: #f4f4f4;
-    font-size: 18px;
-    padding: 0px;
-}
-div.uv-studentForum h5 {
-    color: #dce4f4;
-    font-size: 18px;
-    text-align: center;
-    line-height: 1.6;
-    font-style: italic;
-    padding: 0px;
-}
-div.uv-studentForum h6 {
-    color: #dce4f4;
-    font-size: 18px;
-    text-align: center;
-    padding-bottom: 0px;
-}
-div.uv-studentForum li{
-    font-size: 18px;
-}
-div.uv-studentForum p {
-    line-height: 1.5;
-    color: #e0dcdc;
-    font-size: 18px;
-    padding-bottom: 0px;
-}
-div.uv-studentForum a {
-    line-height: 1.5;
-  margin-left: 30px;
-    color: #e0dcdc;
-    font-size: 18px;
-    padding-bottom: 0px;
-}
-body {
-    background-color: #646464;
-    font-family: Arial;
-}
+  .student-forum--page-content .content a:hover {
+    text-decoration: underline;
+  }
 
-div.text-reflecth02 h2 {
-    text-align: center;
-    color: #fafafa;
-    font-size: 32px;
-    padding:0px;
-}
-div.text-reflecth03 p {
-    text-align: center;
-    color: #fafafa;
-    font-size: 20px;
-    padding:0px;
-    top:-10px;
-}
-div.text-reflecth04 p {
-    text-align: center;
-    color: #fafafa;
-    font-size: 20px;
-    padding:0px;
-    top:-40px;
-}
-div.title p {
-    color: #D3D27C;
-    text-shadow: 0 0 3px #B2A968;
-    font-size: 20px;
-    padding:0px;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-}
-div.subtitle p {
-    color: #ffe49d;
-  margin-left: 30px;
-    font-size: 20px;
-    padding:0px;
-}
-div.aBreakLine p {
-    color: #F2BF5F;
-    text-shadow: 0 0 3px #FED847;
-  margin-left: 60px;
-    font-size: 22px;
-    padding:0px;
-}
+  .student-forum--page-content .fto {
+    color: #212121 !important;
+    background: rgba(255, 255, 255, .5) !important;
+    background-size: 100% auto !important;
+    text-align: center !important;
+    font-family: Merriweather, serif !important;
+    font-weight: 500 !important;
+    line-height: 3em !important;
+    padding-top: 4em !important;
+    padding-bottom: 3.5em !important;
+    border-radius: 1em 1em 0 0;
+  }
+
+  .student-forum--page-content .fto-r1 {
+    font-size: 2em !important;
+    font-weight: 300 !important;
+    line-height: 1em !important;
+  }
+
+  .student-forum--page-content .fto-r2 {
+    font-size: 3em !important;
+    color: #d44b15 !important;
+    line-height: .8em !important;
+    font-weight: 500 !important;
+    position: relative !important;
+    display: inline-block !important;
+  }
+
+  .student-forum--page-content .fto-r2::after {
+    content: '' !important;
+    height: 1px !important;
+    background-color: #d44b15 !important;
+    width: 2em !important;
+    position: absolute !important;
+    top: 0.5em !important;
+    left: -2.5em !important;
+  }
+
+  .student-forum--page-content .fto-r2::before {
+    content: '' !important;
+    height: 1px !important;
+    background-color: #d44b15 !important;
+    width: 2em !important;
+    position: absolute !important;
+    top: 0.5em !important;
+    right: -2.5em !important;
+  }
+
+  .student-forum--page-content .fto-r3 {
+    font-size: 1.4em !important;
+    line-height: 1.4em !important;
+    font-weight: 500 !important;
+  }
+
+  .student-forum--page-content .special-section, .student-forum--page-content .content {
+    padding: 2em !important;
+    color: #fff !important;
+    font-weight: 400 !important;
+    font-family: Merriweather, serif !important;
+  }
+
+  .student-forum--page-content .content section:not(.special-section) {
+    padding-bottom: .5em !important;
+    margin-bottom: 1em !important;
+    border-bottom: 2px solid rgba(0, 0, 0, .6) !important;
+  }
+
+  .student-forum--page-content .content section:not(.special-section):last-child {
+    border-bottom: none !important;
+  }
+
+  .student-forum--page-content .content section:not(.special-section) h1 {
+    display: inline-block !important;
+    padding: .8em 2.4em !important;
+    background: rgba(0, 0, 0, .5) !important;
+    width: auto !important;
+    -webkit-border-radius: .5em !important;
+    -moz-border-radius: .5em !important;
+    border-radius: .5em !important;
+    cursor: default !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    transition: all 225ms cubic-bezier(0.19, 1, 0.22, 1) !important;
+  }
+
+  .student-forum--page-content .content section:not(.special-section) h1:hover {
+    background: rgba(0, 0, 0, .3) !important;
+  }
+
+  .student-forum--page-content .content section:not(.special-section) p {
+    line-height: 2 !important;
+    margin-left: 1em !important;
+    text-indent: 2em !important;
+  }
+
+  .student-forum--page-content .hr {
+    display: flex !important;
+    flex-basis: 100% !important;
+    align-items: center !important;
+    color: rgba(0, 0, 0, .85) !important;
+    margin: 2em 0px !important;
+  }
+
+  .student-forum--page-content .hr::before {
+    content: "" !important;
+    flex-grow: 1 !important;
+    background: rgba(255, 255, 255, 0.5) !important;
+    height: 2px !important;
+    font-size: 0px !important;
+    line-height: 0px !important;
+    margin: 0px 8px !important;
+  }
+
+  .student-forum--page-content .hr::after {
+    content: "" !important;
+    flex-grow: 5 !important;
+    background: rgba(255, 255, 255, 0.75) !important;
+    height: 2px !important;
+    font-size: 0px !important;
+    line-height: 0px !important;
+    margin: 0px 8px !important;
+  }
+
+  .student-forum--page-content .hr > span {
+    margin: 0 1em !important;
+    background: rgba(255, 255, 255, .75) !important;
+    border-radius: 1em !important;
+    box-shadow: 0 0 0 1em rgba(255, 255, 255, .75) !important;
+    transition: all 225ms cubic-bezier(0.19, 1, 0.22, 1) !important;
+    cursor: default !important;
+  }
+
+  .student-forum--page-content .hr:hover > span {
+    box-shadow: 0 0 0 .75em rgba(255, 255, 255, .75) !important;
+  }
+
+  .student-forum--page-content section#introduction, .student-forum--page-content section#call-heading {
+    text-align: center !important;
+  }
+
+  .student-forum--page-content section#call-heading {
+    margin-top: -2em !important;
+    padding-bottom: 4em !important;
+    margin-bottom: 1em !important;
+    border-bottom: 2px solid rgba(0, 0, 0, .6) !important;
+  }
+
+  .student-forum--page-content section#introduction h2 {
+    cursor: default !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    display: inline-block !important;
+    background: none !important;
+    border-radius: 1em !important;
+    padding: 0 2em !important;
+    transition: all 475ms cubic-bezier(0.19, 1, 0.22, 1) !important;
+  }
+
+  .student-forum--page-content .content h1,
+  .student-forum--page-content .content h2,
+  .student-forum--page-content .content h3 {
+    color: #fff !important;
+  }
+
+  .student-forum--page-content section#introduction:hover h2 {
+    background: rgba(0, 0, 0, .75) !important;
+    box-shadow: 0 0 0 .75em rgba(0, 0, 0, .75) !important;
+  }
+
+  .student-forum--page-content canvas {
+    display: block !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    cursor: pointer !important;
+    z-index: -100 !important;
+  }
+
+  .student-forum--page-content .content a {
+    padding: .5em 1em !important;
+    background: rgba(0, 0, 0, .25) !important;
+    border-radius: 4px !important;
+    color: rgba(255, 255, 255, .95) !important;
+  }
 </style>

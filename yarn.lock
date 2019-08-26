@@ -4902,9 +4902,9 @@ logrocket-vuex@^0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/logrocket-vuex/-/logrocket-vuex-0.0.3.tgz#e11d65d384f0c9fdac72f984436cc038adf3db90"
 
-logrocket@^0.6.17:
-  version "0.6.17"
-  resolved "https://registry.yarnpkg.com/logrocket/-/logrocket-0.6.17.tgz#4a9b6deed53a9c798204dd30203ed0dadd89c41c"
+logrocket@^0.6.16:
+  version "0.6.16"
+  resolved "https://registry.yarnpkg.com/logrocket/-/logrocket-0.6.16.tgz#09ac05426b096016e19395a0c0b0acf97a647418"
 
 longest@^1.0.1:
   version "1.0.1"
@@ -7896,10 +7896,6 @@ vue-lodash@^2.0.0:
   dependencies:
     lodash "^4.17.5"
 
-vue-read-more@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/vue-read-more/-/vue-read-more-1.1.1.tgz#fbdb3944eaf26728a118f7786908072fdbfe7c98"
-
 vue-recaptcha@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/vue-recaptcha/-/vue-recaptcha-1.1.1.tgz#be38f4ffab500e7f4775f149a279bb962cf91f07"
@@ -7947,10 +7943,6 @@ vue2-google-maps@^0.10.0:
 vue@^2.5.2:
   version "2.5.16"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.16.tgz#07edb75e8412aaeed871ebafa99f4672584a0085"
-
-vuebar@^0.0.20:
-  version "0.0.20"
-  resolved "https://registry.yarnpkg.com/vuebar/-/vuebar-0.0.20.tgz#fd6313c2d3a2202c49e42419fe1d9ef126134200"
 
 vuex-persistedstate@^2.5.4:
   version "2.5.4"
