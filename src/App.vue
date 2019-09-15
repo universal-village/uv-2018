@@ -1,39 +1,39 @@
 <template>
   <a-layout id="app">
-    <modal name="update-notification-modal" height="auto"
-           width="800"
-           :pivotY="0.3"
-           :clickToClose="false"
-           :adaptive="true"
-           :scrollable="true"
-           @opened="animateUpdateNotification"
-           style="height: 85vh; padding: 10vh 0;"
-    >
-      <div class="panel update-notification" style="display: block;">
-        <div class="container-modal">
-          <h1>Conference Notification</h1>
-          <p>Dear Authors:</p>
-          <p>In order to publish your paper in the IEEE eXplore, the following procedures need your actions.</p>
-          <ul>
-            <li>
-              <p>Self-inspection of IEEE formatting using IEEE PDF eXpress.</p>
-            </li>
-            <li>
-              <p>Transfer paper copyright to IEEE through IEEE eCF.</p>
-            </li>
-            <li>
-              <p>Update your manuscript to UV2018.</p>
-            </li>
-          </ul>
-          <p>It is imperative that you finish the process before the deadline in order to have your paper be included in the UV2018 proceedings. Failure to conform to the IEEE requirement by performing the procedure below may result in your paper being rejected by IEEE, for which we will not be responsible.</p>
-          <p>Sincerely yours,</p>
-          <p style="float: right">UV2018 Committee</p>
-          <br><br>
-          <a-button size="large" class="btn" style="float: right" type="primary" @click="confirmedWebsiteUpdated"><a-icon type="cross" /> Close</a-button>
-          <a-button size="large" style="float: right; margin-right: .45em;" class="reset-password-notification"><router-link to="/submission-guide"><a-icon type="link" /> Detailed Guide with Step-by-Step Instruction</router-link></a-button>
-        </div>
-      </div>
-    </modal>
+<!--    <modal name="update-notification-modal" height="auto"-->
+<!--           width="800"-->
+<!--           :pivotY="0.3"-->
+<!--           :clickToClose="false"-->
+<!--           :adaptive="true"-->
+<!--           :scrollable="true"-->
+<!--           @opened="animateUpdateNotification"-->
+<!--           style="height: 85vh; padding: 10vh 0;"-->
+<!--    >-->
+<!--      <div class="panel update-notification" style="display: block;">-->
+<!--        <div class="container-modal">-->
+<!--          <h1>Conference Notification</h1>-->
+<!--          <p>Dear Authors:</p>-->
+<!--          <p>In order to publish your paper in the IEEE eXplore, the following procedures need your actions.</p>-->
+<!--          <ul>-->
+<!--            <li>-->
+<!--              <p>Self-inspection of IEEE formatting using IEEE PDF eXpress.</p>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--              <p>Transfer paper copyright to IEEE through IEEE eCF.</p>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--              <p>Update your manuscript to UV2018.</p>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--          <p>It is imperative that you finish the process before the deadline in order to have your paper be included in the UV2018 proceedings. Failure to conform to the IEEE requirement by performing the procedure below may result in your paper being rejected by IEEE, for which we will not be responsible.</p>-->
+<!--          <p>Sincerely yours,</p>-->
+<!--          <p style="float: right">UV2018 Committee</p>-->
+<!--          <br><br>-->
+<!--          <a-button size="large" class="btn" style="float: right" type="primary" @click="confirmedWebsiteUpdated"><a-icon type="cross" /> Close</a-button>-->
+<!--          <a-button size="large" style="float: right; margin-right: .45em;" class="reset-password-notification"><router-link to="/submission-guide"><a-icon type="link" /> Detailed Guide with Step-by-Step Instruction</router-link></a-button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </modal>-->
     <a-back-top />
     <!--<a-layout-sider-->
       <!--breakpoint="lg"-->
@@ -213,27 +213,26 @@
 </template>
 
 <script>
-import anime from 'animejs'
 export default {
   name: 'App',
-  created () {
+  created() {
     this.updateBreadcrumb()
     this.validateLogin()
   },
-  mounted () {
+  mounted() {
     this.showUpdateInfo()
   },
   watch: {
     '$route': ['updateBreadcrumb']
   },
   methods: {
-    updateBreadcrumb () {
+    updateBreadcrumb() {
       console.log(this.$store.state.navPageList)
       this.$store.state.navPageList = this.$route.path.substr(1).split('/').filter(Boolean)
       this.$store.state.navPageList.unshift('Home')
       console.log(this.$store.state.navPageList)
     },
-    logout () {
+    logout() {
       this.$store.state.authenticate.username = ''
       this.$http.get(this.$store.state.endpoint.api + '/logout').then(response => {
         if (response.body.flag === true) {
@@ -247,7 +246,7 @@ export default {
         this.$message.error('Logout: Internal Server Error. Please contact administrator.', 4)
       })
     },
-    validateLogin () {
+    validateLogin() {
       this.$http.get(this.$store.state.endpoint.api + '/isLogin').then(response => {
         if (response.body.flag === true) {
           let serverBackEmail = decodeURIComponent(response.body.email)
@@ -258,14 +257,17 @@ export default {
         }
       })
     },
-    scrollToTop () {
+    scrollToTop() {
       window.scrollTo(0, 0)
     },
-    beforeEnter () {
+    beforeEnter() {
       window.scrollTo(0, 0)
     },
-    showUpdateInfo () {
-      console.log('Update confirm status: ' + this.$cookie.get('confirmedUpdate'))
+    showUpdateInfo() {
+      console.log('Update confirm status: ' + this.$cookie.get('confirmedUpdate'));
+    }
+  }
+}
       /* if (!this.$cookie.get('confirmedUpdate')) {
         this.$modal.show('update-notification-modal')
       } 
@@ -298,7 +300,7 @@ export default {
       return new Date().getFullYear()
     }
   }
-}
+} */
 </script>
 
 <style>

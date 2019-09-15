@@ -6,7 +6,7 @@
           {{ navPage | capitalize }}
         </a-breadcrumb-item>
       </a-breadcrumb>
-      <a-layout-content :style="{ margin: 0, minHeight: '280px' }" class="conference-reg-content">
+      <a-layout-content :style="{ margin: 0, minHeight: '280px' }" class="conference-reg-content" v-if="conferenceRegistrationEnabled">
         <a-row :gutter="0">
           <a-col :lg="8" id="registration-left-banner">
             <img src="https://cdn.universal-village.org/images/registration-left-banner.jpg" style="width: 100%">
@@ -323,6 +323,11 @@
           </a-col>
         </a-row>
       </a-layout-content>
+      <a-layout-content v-else>
+        <a-row :gutter="0">
+          IEEE UV 2018 has ended its registration. Thanks for your interest.
+        </a-row>
+      </a-layout-content>
     </a-layout>
     <modal
       name="card-modal"
@@ -428,7 +433,8 @@ export default {
         isSenior: false,
         isStudent: false,
         foodAlergy: ''
-      }
+      },
+      conferenceRegistrationEnabled: false
     }
   },
   watch: {
@@ -481,7 +487,7 @@ export default {
             this.receipt = response.body.receipt
           }
         }, response => {
-          this.$message.error('Cannot load conference registration information. status-' + response.status, 3)
+          // this.$message.error('Cannot load conference registration information. status-' + response.status, 3)
         })
     },
     goto: function (cur, next) {
